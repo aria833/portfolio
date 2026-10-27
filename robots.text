@@ -1,0 +1,3 @@
+# Allow all search engines and AI crawlers to fully index the website
+User-agent: *
+Allow: /

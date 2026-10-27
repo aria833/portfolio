@@ -1,0 +1,118 @@
+/* ========================================
+  blog-sidebar.css：標籤雲
+======================================== */
+
+.blog-sidebar {
+  align-self: stretch;
+}
+
+.sidebar-section {
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--archive-border);
+}
+
+.sidebar-section:first-child {
+  padding-top: 0;
+}
+
+.sidebar-eyebrow {
+  margin: 0 0 0.65rem;
+  color: var(--archive-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.6;
+}
+
+.sidebar-title {
+  margin: 0 0 1.1rem;
+  font-size: 1.1rem;
+  font-weight: 650;
+}
+
+.archive-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* 標籤雲連結 */
+.blog-archive .archive-tag-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  padding: 0.4rem 0.65rem;
+
+  border: 1px solid #c8c5b8;
+  border-radius: 4px;
+
+  background-color: transparent;
+  color: inherit;
+
+  font-size: 0.85rem;
+  text-decoration: none;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* 標籤雲 Hover */
+.blog-archive .archive-tag-link:hover {
+  border-color: var(--orange);
+  color: #fff;
+}
+
+/* 目前選取的標籤 */
+.blog-archive .archive-tag-link.active,
+.blog-archive .archive-tag-link.active:hover {
+  border-color: var(--orange);
+  background-color: var(--orange);
+  color: #fff;
+}
+
+/* 標籤雲文章數量 */
+.blog-archive .archive-tag-link .tag-count {
+  color: inherit;
+  opacity: 0.8;
+}
+
+.archive-tag-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid var(--archive-border);
+  border-radius: 2px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.archive-tag-link span {
+  color: var(--archive-muted);
+  font-size: 0.65rem;
+}
+
+.archive-tag-link:hover {
+  border-color: var(--archive-accent);
+  color: var(--archive-accent);
+}
+
+.archive-tag-link.active {
+  border-color: var(--bs-primary);
+  background-color: var(--bs-primary);
+  color: var(--bs-white);
+}
+
+.archive-tag-link.active span {
+  color: inherit;
+}

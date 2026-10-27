@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>DAY 08｜切版實作：Bootstrap 5 Accordion 手風琴元件與 Shadow 陰影 — ARIA&#39;S CARROTLAB</title>
+  <meta
+    name="description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/09/21/iThome-008/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <link rel="apple-touch-icon" href="/images/logo.png" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="DAY 08｜切版實作：Bootstrap 5 Accordion 手風琴元件與 Shadow 陰影 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/09/21/iThome-008/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="DAY 08｜切版實作：Bootstrap 5 Accordion 手風琴元件與 Shadow 陰影 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.png" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.09.21</p>
+        <h1>DAY 08｜切版實作：Bootstrap 5 Accordion 手風琴元件與 Shadow 陰影</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/iThome2026/">iThome2026</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>完成了側邊選單與 SPA 頁面切換骨架後，接下來我們先來製作 <strong>常見 QA 區域</strong>。這裡要使用的元件是 Bootstrap 5 的 <strong>Accordion（手風琴）</strong>。</p>
+<p>相信大家對於這個元件並不陌生，在許多網站的 FAQ 頁面中經常能看到它的身影，非常適合用來收納大量的問答內容。<br><img src="https://raw.githubusercontent.com/aria833/img/main/Accordion.gif" alt="Accordion"></p>
+<hr>
+<h2 id="1-認識-Accordion-元件結構"><a href="#1-認識-Accordion-元件結構" class="headerlink" title="1.認識 Accordion 元件結構"></a>1.認識 Accordion 元件結構</h2><p>Bootstrap 的 Accordion 主要由外層的 <code>.accordion</code> 容器與多個 <code>.accordion-item</code> 組成。每一個 <code>.accordion-item</code> 內部又分為 <strong>標題（Header）</strong> 與 <strong>內容（Body）</strong>：</p>
+<ul>
+<li><p><code>.accordion-header</code>：手風琴的標題區塊，裡面包含觸發展開&#x2F;收合的 <code>&lt;button&gt;</code>。</p>
+</li>
+<li><p><code>.accordion-body</code>：展開後顯示的詳細解答內容。</p>
+</li>
+</ul>
+<p>官方基礎範例程式碼如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;accordion&quot; id=&quot;accordionExample&quot;&gt;</span><br><span class="line">  &lt;!-- 第一項 QA --&gt;</span><br><span class="line">  &lt;div class=&quot;accordion-item&quot;&gt;</span><br><span class="line">    &lt;h2 class=&quot;accordion-header&quot; id=&quot;headingOne&quot;&gt;</span><br><span class="line">      &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseOne&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;collapseOne&quot;&gt;</span><br><span class="line">        Accordion Item #1</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    &lt;/h2&gt;</span><br><span class="line">    &lt;div id=&quot;collapseOne&quot; class=&quot;accordion-collapse collapse show&quot; aria-labelledby=&quot;headingOne&quot; data-bs-parent=&quot;#accordionExample&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;accordion-body&quot;&gt;</span><br><span class="line">        &lt;strong&gt;This is the first item&#x27;s accordion body.&lt;/strong&gt; It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element.</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 第二項 QA --&gt;</span><br><span class="line">  &lt;div class=&quot;accordion-item&quot;&gt;</span><br><span class="line">    ...</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 第三項 QA --&gt;</span><br><span class="line">  &lt;div class=&quot;accordion-item&quot;&gt;</span><br><span class="line">    ...</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>留意點</strong>：在修改或新增項目時，務必確保按鈕上的 <code>data-bs-target=&quot;#id&quot;</code> 與內容容器的 <code>id=&quot;...&quot;</code> 完全對應一致，否則點擊時會展開錯誤的區塊或完全無反應。</p>
+<hr>
+<h3 id="Always-Open-🎶-差點接著唱了-模式"><a href="#Always-Open-🎶-差點接著唱了-模式" class="headerlink" title="Always Open 🎶 (差點接著唱了) 模式"></a>Always Open <del>🎶 (差點接著唱了)</del> 模式</h3><p>預設情況下，展開某一項 QA 時，其他已展開的項目會自動收合（因為有設定 <code>data-bs-parent=&quot;#accordionExample&quot;</code>）。</p>
+<p>如果希望使用者點擊新選項時，原本展開的內容不會自動關閉，只要移除子項目的 <code>data-bs-parent 屬性</code>即可（可參考官方文件中的 <a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/5.0/components/accordion/">Always open 範例</a>）。</p>
+<p><img src="https://raw.githubusercontent.com/aria833/img/main/always%20open.gif" alt="Always Open"></p>
+<p>(參考資料：<a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/5.0/components/accordion/"><em>Bootstrap 5 components-Accordion</em></a>)</p>
+<hr>
+<h2 id="2-整合進常見-QA-tab-pane"><a href="#2-整合進常見-QA-tab-pane" class="headerlink" title="2. 整合進常見 QA tab-pane"></a>2. 整合進常見 QA <code>tab-pane</code></h2><p>我們將複製好的 Accordion 程式碼貼入上一篇寫好的常見 QA <code>.tab-pane</code> 容器中。<br>當點擊左側選單的「常見 QA」按鈕時，右邊就會順利呈現手風琴內容了！</p>
+<p><img src="https://raw.githubusercontent.com/aria833/img/main/accordion%20item1-example.png" alt="Accordion"></p>
+<p>因為官方範例預設第一個項目是展開狀態（帶有 <code>.show</code> 與未帶 <code>.collapsed</code>），但我希望初始狀態全部都是預設收合，使用者有需要再點擊展開即可，因此需要手動調整第一個項目：</p>
+<ol>
+<li><p>將第一個按鈕的 <code>class</code> 加上 <code>.collapsed</code>。</p>
+</li>
+<li><p>將第一個內容區容器的 <code>class</code> 拿掉 <code>.show</code>。</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/aria833/img/main/accordion%20item1.png" alt="revised Accordion"></p>
+<p>再將文字與問答替換成設計稿內容後，常見 QA 區塊就完成了。</p>
+<hr>
+<h2 id="套用-Shadows-通用類別"><a href="#套用-Shadows-通用類別" class="headerlink" title="套用 Shadows 通用類別"></a>套用 Shadows 通用類別</h2><p>為了讓畫面看起來不那麼平淡，我打算為左側的 <strong>List Group</strong> 與右側的 <strong>Accordion</strong> 加上一點微微的陰影，提升介面的視覺層次感。</p>
+<p>Bootstrap 5 提供了非常方便的 <strong>Shadows Utilities 通用類別</strong>，主要分為三種尺寸：</p>
+<ul>
+<li><p><strong>.shadow-sm</strong>：小陰影（適合卡片、按鈕或微小元素）</p>
+</li>
+<li><p><strong>.shadow</strong>：標準預設陰影</p>
+</li>
+<li><p><strong>.shadow-lg</strong>：大陰影（適合 Modal 彈窗或懸浮提示）</p>
+</li>
+</ul>
+<p>只要在元件最外層的 <code>class</code> 中加入 <code>shadow-sm</code> 即可輕鬆完成套用：</p>
+<p>套用後的效果<br><img src="https://raw.githubusercontent.com/aria833/img/main/QA.png" alt="revised Accordion"></p>
+<p>(參考資料：<a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/5.0/utilities/shadows/"><em>Bootstrap 5 utilities-shadows</em></a>)</p>
+<hr>
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>通過套用bootstrap的手風琴元件，再稍微更改一些設定來符合我們的設計稿，就可以快速地完成這一個功能頁面，往下一頁前進了。</p>
+</div>
+
+    
+
+    
+    <section
+        class="related-posts section-pad mb-0"
+        aria-labelledby="related-posts-title"
+    >
+        <div class="container">
+        <!-- 區塊標題 -->
+        <div
+            class="section-heading mb-0 d-flex justify-content-between align-items-end gap-3"
+        >
+            <div>
+            <p class="eyebrow" data-i18n="post.keepExploring">KEEP EXPLORING</p>
+            <h2 id="related-posts-title">
+                <span data-i18n="post.relatedTitle">相關筆記</span><span class="title-dot">.</span>
+            </h2>
+            <p class="muted mt-2" data-i18n="post.relatedCopy">
+                繼續探索其他有趣的學習紀錄。
+            </p>
+            </div>
+            <span class="related-posts-count" data-i18n="post.relatedLabel">
+            RELATED NOTES
+            </span>
+        </div>
+
+        <!-- 相關文章卡片 -->
+        <div class="related-posts-track row g-4 mt-2">
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/16/iThome-033/"
+                    aria-label="閱讀文章：DAY 33｜修正錯誤、提高效能，還看了一堆貓咪影片"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        034
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-15T16:44:22.000Z"
+                    >
+                        2026.10.16
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/16/iThome-033/"
+                        >
+                        DAY 33｜修正錯誤、提高效能，還看了一堆貓咪影片
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在 TaskTimer 完成核心開發並發布穩定的 v1.0.0 版本後，我便持續使用它來輔助自己的日常學習。而在實際使用的過程中，我也陸續觀察到幾個能讓操作體驗更順暢、更貼近真實情境的優化點： 暗色模式（Dark Mode）視覺對比度優化在暗色模式下，原本用於副標題與備註說明的 Bootstrap …
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/16/iThome-033/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/15/iThome-032/"
+                    aria-label="閱讀文章：DAY 32 | UX優化：備份檔名時間戳與意見回饋管道"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        033
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-14T16:44:19.000Z"
+                    >
+                        2026.10.15
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/15/iThome-032/"
+                        >
+                        DAY 32 | UX優化：備份檔名時間戳與意見回饋管道
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在開發部署完成並實際投入使用後，我在日常操作中發現了兩個可以持續優化使用者體驗（UX）的細節： 匯出檔案（CSV &amp;#x2F; JSON）的命名邏輯優化 新增使用者意見回饋管道 1. 備份檔名優化：加入精確時間戳記（Timestamp）原先系統在匯出 CSV 報表與 JSON 備份檔時，檔名會加入「…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/15/iThome-032/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/14/iThome-031/"
+                    aria-label="閱讀文章：DAY 31 | 東西擺整齊的療癒感！專案開發後的回頭重構與架構優化"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        032
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-13T16:44:16.000Z"
+                    >
+                        2026.10.14
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/14/iThome-031/"
+                        >
+                        DAY 31 | 東西擺整齊的療癒感！專案開發後的回頭重構與架構優化
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在初期開發這個作品時，因為採取 「邊做邊驗證」 的策略，並沒有預先對程式碼進行模組化拆分。當時的專案架構如下： 檔案 主要功能 程式碼行數 db.js IndexedDB 資料庫處理 86 行 i18n.js 多國語系（邏輯與字典） 737 行 theme.js 主題切換樣式 32 行 all.js…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/14/iThome-031/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/13/iThome-030/"
+                    aria-label="閱讀文章：DAY 30｜終點亦是起點： 完賽回顧、與新夥伴一起出發"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        031
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-12T16:44:14.000Z"
+                    >
+                        2026.10.13
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/13/iThome-030/"
+                        >
+                        DAY 30｜終點亦是起點： 完賽回顧、與新夥伴一起出發
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在這 30 天不間斷地思考、設計、發想與寫程式碼（還有被發文截止時間追著跑）（做夢都在想著哪裡要修改）（中秋節時兩口烤肉🥓一口程式碼），終於把腦海中的想法，變成一個功能完整的實用工具。 在鐵人賽的最後一天（感動！），除了統整一下技術工具和文章，也紀錄了這 30 天下來的開發心得。 作品成果雖然還有…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/13/iThome-030/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.png" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact">
+        <i class="bi bi-envelope me-1"></i>
+        <span data-i18n="footer.contact">聯絡我</span>
+      </a>
+      <a
+        class="footer-policy-link small text-decoration-none"
+        href="/privacy-policy/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span data-i18n="footer.privacy">隱私權政策</span>
+      </a>
+      <span class="small muted"
+        >Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

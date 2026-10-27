@@ -1,0 +1,401 @@
+/* TaskTimer-specific hero and timer illustration styles migrated from project-details.css. */
+.case-hero--timer {
+  background: color-mix(in srgb, var(--green) 7%, var(--paper));
+}
+
+.case-visual {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid #d8dfd0;
+  border-radius: 1.4rem;
+  background: #eaf0e4;
+  color: #293328;
+  box-shadow: 0 24px 65px rgba(38, 48, 34, 0.1);
+  transform: rotate(1deg);
+}
+
+.case-visual-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem 0.25rem 1rem;
+  font:
+    0.58rem "DM Mono",
+    monospace;
+  letter-spacing: 0.08em;
+}
+
+.case-live-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #779568;
+  box-shadow: 0 0 0 4px rgba(119, 149, 104, 0.15);
+}
+.case-timer-ui {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.9rem;
+  background: #fffdf6;
+}
+
+.case-timer-main {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  overflow: hidden;
+}
+
+.tasktimer-cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.case-ui-label {
+  font:
+    0.55rem "DM Mono",
+    monospace;
+  letter-spacing: 0.12em;
+}
+
+.case-ui-foot {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1.4rem;
+  color: #8c9584;
+  font:
+    0.48rem "DM Mono",
+    monospace;
+}
+
+.case-visual-caption {
+  margin: 0.85rem 0 0;
+  color: #6d7866;
+  font-size: 0.65rem;
+  text-align: right;
+}
+
+@media (max-width: 991.98px) {
+  .case-visual {
+    max-width: 650px;
+    width: 100%;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .case-timer-ui {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 420px) {
+  .case-timer-ui {
+    grid-template-columns: 0.55fr 1.45fr;
+  }
+
+  .case-timer-sidebar {
+    padding-inline: 0.6rem;
+  }
+}
+
+/* ========================================
+   TaskTimer：獨立作品頁面視覺
+======================================== */
+.tasktimer-hero {
+  background: var(--paper);
+  border-bottom: 0;
+  position: relative;
+}
+.tasktimer-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto auto;
+  width: min(42vw, 34rem);
+  height: 100%;
+  background: var(--accent-soft);
+  clip-path: polygon(32% 0, 100% 0, 100% 100%, 0 100%);
+  opacity: 0.72;
+  pointer-events: none;
+}
+.tasktimer-hero > .container {
+  position: relative;
+  z-index: 1;
+}
+.tasktimer-hero-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.82fr);
+  gap: clamp(2rem, 5vw, 4rem);
+}
+.tasktimer-hero-copy {
+  max-width: 43rem;
+}
+.tasktimer-hero-copy .eyebrow {
+  color: var(--accent);
+}
+.tasktimer-hero-copy .case-title {
+  max-width: 8ch;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+}
+.tasktimer-hero .case-lead {
+  max-width: 32rem;
+}
+.tasktimer-hero .case-hero-badges span:first-child {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+}
+.tasktimer-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+.tasktimer-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.15rem;
+  border-radius: 0.65rem;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+.tasktimer-hero-cta:hover {
+  background: color-mix(in srgb, var(--accent) 85%, #000);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.tasktimer-hero-note {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+.tasktimer-case {
+  background: var(--paper);
+}
+.tasktimer-origin-panel {
+  display: grid;
+  grid-template-columns: 0.65fr 1.5fr;
+  gap: 1rem 3rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: var(--surface);
+}
+.tasktimer-origin-index {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--accent);
+  font:
+    0.68rem "DM Mono",
+    monospace;
+  letter-spacing: 0.1em;
+}
+.tasktimer-origin-index span {
+  color: var(--muted);
+}
+.tasktimer-origin-copy .eyebrow {
+  margin-bottom: 0.7rem;
+  color: var(--accent);
+}
+.tasktimer-origin-copy h2 {
+  max-width: 42rem;
+  margin-bottom: 1rem;
+  font-size: clamp(1.65rem, 3.2vw, 2.7rem);
+  line-height: 1.35;
+  letter-spacing: -0.045em;
+}
+.tasktimer-origin-copy > p:last-child {
+  max-width: 48rem;
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 2;
+}
+.tasktimer-origin-steps {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 0.8rem;
+}
+.tasktimer-origin-steps > div {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem;
+  border-radius: 0.7rem;
+  background: var(--paper);
+}
+.tasktimer-origin-steps span {
+  color: var(--accent);
+  font:
+    0.7rem "DM Mono",
+    monospace;
+}
+.tasktimer-origin-steps strong {
+  font-size: 0.83rem;
+}
+.tasktimer-ithome-note {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--green);
+  background: color-mix(in srgb, var(--green) 9%, var(--surface));
+}
+.tasktimer-ithome-mark {
+  flex: 0 0 auto;
+  color: var(--green);
+  font:
+    0.72rem/1.4 "DM Mono",
+    monospace;
+}
+.tasktimer-ithome-mark b {
+  font-family: "Noto Sans TC", sans-serif;
+}
+.tasktimer-ithome-note strong {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+.tasktimer-ithome-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+.tasktimer-case-body {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+}
+.tasktimer-case-body .case-section {
+  position: relative;
+}
+.tasktimer-case-body .case-section-heading > span {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.7rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font:
+    0.72rem "DM Mono",
+    monospace;
+}
+.tasktimer-case-body .case-section:nth-child(even) {
+  padding-inline: clamp(1rem, 3vw, 2rem);
+  background: color-mix(in srgb, var(--surface) 65%, transparent);
+  border-radius: 1rem;
+}
+.tasktimer-case-body .case-insight-panel {
+  border-radius: 1rem;
+}
+.tasktimer-case-body .case-solution-grid article {
+  border-radius: 1rem;
+}
+.tasktimer-case-body .case-reflection-grid {
+  padding: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface);
+}
+.tasktimer-case-body .case-next-project {
+  margin-top: 2rem;
+}
+
+@media (max-width: 991.98px) {
+  .tasktimer-hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .tasktimer-hero-copy .case-title {
+    max-width: none;
+  }
+}
+@media (max-width: 767.98px) {
+  .tasktimer-hero::before {
+    width: 65vw;
+    opacity: 0.45;
+  }
+  .tasktimer-origin-panel {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .tasktimer-origin-steps {
+    grid-column: auto;
+    grid-template-columns: 1fr;
+  }
+  .tasktimer-ithome-note {
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  .tasktimer-case-body .case-section:nth-child(even) {
+    padding-inline: 0.75rem;
+  }
+  .tasktimer-case-body .case-reflection-grid {
+    padding: 1.25rem;
+  }
+}
+
+[data-bs-theme="dark"] .case-visual--timer {
+  border-color: var(--line);
+  background: #292f25;
+  color: var(--ink);
+  box-shadow: 0 24px 65px rgb(0 0 0 / 20%);
+}
+[data-bs-theme="dark"] .case-timer-ui {
+  background: #20231f;
+}
+[data-bs-theme="dark"] .case-timer-sidebar {
+  background: #30382b;
+}
+[data-bs-theme="dark"] .case-timer-sidebar i {
+  background: #48533f;
+}
+[data-bs-theme="dark"] .case-timer-sidebar i:first-of-type {
+  background: #8da67a;
+}
+[data-bs-theme="dark"] .case-timer-ring {
+  border-color: #46503e;
+  border-top-color: var(--green);
+}
+[data-bs-theme="dark"] .case-timer-ring small,
+[data-bs-theme="dark"] .case-ui-foot,
+[data-bs-theme="dark"] .case-visual-caption {
+  color: var(--muted);
+}
+[data-bs-theme="dark"] .case-ui-progress {
+  background: #3b4036;
+}
+[data-bs-theme="dark"] .case-ui-progress span {
+  background: var(--green);
+}
+[data-bs-theme="dark"] .case-ui-button {
+  background: #506344;
+  color: #fff;
+}
+
+.tasktimer-hero-cta--outline {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+}
+.tasktimer-hero-cta--outline:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+.tasktimer-hero-cta--product {
+  background: var(--green);
+  border-color: var(--green);
+}
+.tasktimer-hero-cta--product:hover {
+  background: color-mix(in srgb, var(--green) 84%, #000);
+  border-color: color-mix(in srgb, var(--green) 84%, #000);
+}

@@ -1,0 +1,196 @@
+/* ========================================
+  related-posts.css：單篇文章的相關筆記
+======================================== */
+
+.related-posts {
+  margin: 3rem auto 0;
+  max-width: 700px;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.related-posts-count {
+  color: var(--muted);
+  font:
+    0.65rem "DM Mono",
+    monospace;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+.related-posts-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.related-posts-heading .eyebrow {
+  margin-bottom: 0.5rem;
+}
+
+.related-posts-heading h2 {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.related-post-list {
+  border-top: 1px solid var(--line);
+}
+
+.related-post-item {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr) 24px;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.related-post-item > time {
+  padding-top: 0.25rem;
+  color: var(--muted);
+  font:
+    0.7rem "DM Mono",
+    monospace;
+  white-space: nowrap;
+}
+
+.related-post-main h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0 0 0.65rem;
+}
+
+.related-post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.related-post-tags a {
+  color: var(--muted);
+  font-size: 0.7rem;
+  text-decoration: none;
+}
+
+.related-post-tags a:hover {
+  color: var(--accent);
+}
+
+.related-post-arrow {
+  color: var(--muted);
+  text-decoration: none;
+  text-align: right;
+}
+
+.related-post-arrow:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 575.98px) {
+  .pagination-wrap {
+    justify-content: center;
+  }
+
+  .pagination-side {
+    order: 2;
+  }
+
+  .pagination-numbers {
+    order: 1;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .related-posts-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .related-post-item {
+    grid-template-columns: 1fr 24px;
+    gap: 0.4rem 0.75rem;
+  }
+
+  .related-post-item > time {
+    grid-column: 1 / -1;
+  }
+
+  .related-post-main {
+    grid-column: 1;
+  }
+
+  .related-post-arrow {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+.related-posts-track {
+  --bs-gutter-y: 1.5rem;
+}
+
+.related-posts-slide {
+  min-width: 0;
+}
+
+@media (max-width: 767.98px) {
+  .related-posts-track {
+    display: flex;
+    flex-wrap: nowrap;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    --bs-gutter-x: 1rem;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    padding: 0.25rem 0.25rem 1.25rem;
+
+    scrollbar-width: none;
+  }
+
+  /* 隱藏 Chrome、Safari 捲軸 */
+  .related-posts-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 手機版每張卡片佔 85% 寬度 */
+  .related-posts-slide {
+    flex: 0 0 85%;
+    width: 85%;
+    max-width: 85%;
+    scroll-snap-align: start;
+  }
+  .related-posts-slide {
+    height: 100%;
+  }
+}
+
+/* 相關文章標題連結 */
+.related-post-title,
+.related-post-title:link,
+.related-post-title:visited {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.related-post-title:hover,
+.related-post-title:focus-visible,
+.related-post-title:active {
+  color: var(--accent);
+}

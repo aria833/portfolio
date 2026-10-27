@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>DAY 30｜終點亦是起點： 完賽回顧、與新夥伴一起出發 — ARIA&#39;S CARROTLAB</title>
+  <meta
+    name="description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/10/13/iThome-030/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <link rel="apple-touch-icon" href="/images/logo.png" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="DAY 30｜終點亦是起點： 完賽回顧、與新夥伴一起出發 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/10/13/iThome-030/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="DAY 30｜終點亦是起點： 完賽回顧、與新夥伴一起出發 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.png" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.10.13</p>
+        <h1>DAY 30｜終點亦是起點： 完賽回顧、與新夥伴一起出發</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/iThome2026/">iThome2026</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>在這 30 天不間斷地思考、設計、發想與寫程式碼（<del>還有被發文截止時間追著跑</del>）（<del>做夢都在想著哪裡要修改</del>）（<del>中秋節時兩口烤肉🥓一口程式碼</del>），終於把腦海中的想法，變成一個功能完整的實用工具。</p>
+<p>在鐵人賽的最後一天（感動！），除了統整一下技術工具和文章，也紀錄了這 30 天下來的開發心得。</p>
+<hr>
+<h2 id="作品成果"><a href="#作品成果" class="headerlink" title="作品成果"></a>作品成果</h2><p>雖然還有些不成熟的地方，但歡迎大家來玩玩，如果也能成為你學習上的夥伴，那就太好了！</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://tasktimer.aria-carrotlab.com/">TaskTimer成品</a></li>
+</ul>
+<hr>
+<h2 id="專案技術與工具總覽"><a href="#專案技術與工具總覽" class="headerlink" title="專案技術與工具總覽"></a>專案技術與工具總覽</h2><p><strong>專案技術</strong></p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>工具 &#x2F; 技術</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>核心與架構</td>
+<td>Vanilla JavaScript (ES6+)、HTML5、CSS3、ES Modules</td>
+</tr>
+<tr>
+<td>瀏覽器技術</td>
+<td>API IndexedDB、Page Visibility API</td>
+</tr>
+<tr>
+<td>UI 框架與元件</td>
+<td>Bootstrap 5</td>
+</tr>
+<tr>
+<td>設計與原型工具</td>
+<td>Figma</td>
+</tr>
+<tr>
+<td>多國語系 (i18n)</td>
+<td>i18n 模組（支援繁中 &#x2F; 英 &#x2F; 日語系切換與動態 SEO 標題）</td>
+</tr>
+<tr>
+<td>版本控制與部署</td>
+<td>Git、GitHub</td>
+</tr>
+<tr>
+<td>流量分析工具</td>
+<td>Google Analytics</td>
+</tr>
+<tr>
+<td>網域服務</td>
+<td>Cloudflare</td>
+</tr>
+<tr>
+<td>廣告投放(審核中）</td>
+<td>Google Adsense</td>
+</tr>
+</tbody></table>
+<p><strong>過程中使用到的工具</strong></p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>工具</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mov轉gif</td>
+<td><a target="_blank" rel="noopener" href="https://online.visual-paradigm.com/tw/file-converters/mov-to-gif/">visual paradigm</a></td>
+</tr>
+<tr>
+<td>製作favicon</td>
+<td><a target="_blank" rel="noopener" href="https://favicon.io/">favicon</a></td>
+</tr>
+<tr>
+<td>網域建站教學</td>
+<td>六角學院課程</td>
+</tr>
+<tr>
+<td>AI 工具</td>
+<td>Gemini Flash</td>
+</tr>
+<tr>
+<td><em>轉換心情</em></td>
+<td><em>煩貓以及被貓煩🐈、美劇 Bones、學習西洋棋</em></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="完賽心得"><a href="#完賽心得" class="headerlink" title="完賽心得"></a>完賽心得</h2><p>當初會按下報名鍵，其實只是腦海中浮現了一個<strong>想解決自己學習痛點</strong>的小想法。那時候剛好看到鐵人賽開跑，覺得「嗯…好像可以趁這個機會<del>逼自己</del>開發並記錄下過程。」，結果就在只有一個 <strong>想法小樹苗🌱</strong> 的狀況下，帶著一股衝動直接開賽了。</p>
+<p>坦白說，開賽時對於參賽流程與生態了解很少，只記得關鍵的「連續30天發文，內容要有300字以上」，就開始了挑戰。連Markdown語法都不會，於是還額外整理了一篇 <a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10416233">Markdown語法整理</a>。</p>
+<p>除此之外，文章的語氣也很令人糾結：<strong>寫得太口語會不會顯得很輕浮？可以放梗圖嗎？都是程式碼跟描述的話，好像很助眠？</strong> 剛開始寫的過程也會想 <strong>「寫這些內容會不會太簡單？對其他人真的會有幫助嗎？」</strong> ，但後來換個角度想，<strong>現在覺得簡單，是因為過去的自己已經努力學會了！</strong> 。</p>
+<p>跟其他厲害的參賽者相比，我的專案技術沒有那麼高深，但希望在紀錄自己這段學習歷程的同時，也 <strong>能給那些和過去的我一樣、剛開始接觸程式的朋友一些幫助——希望你也能做出屬於自己的酷東西！</strong></p>
+<p>相信未來的我回頭看現在寫的程式碼，會發現有一百種更好、更有效率的方法來做出現在的作品；但我很感謝此時此刻運用所學、全力以赴把它完成的自己。也很期待下一次能帶著更有趣、更成熟的點子來挑戰鐵人賽！</p>
+<p><strong>接下來，在這 30 天完成的 TaskTimer 不只是一個作品，更會成為我的夥伴，陪著我繼續學習更多的程式知識！</strong></p>
+<p><strong>小小紀錄</strong><br>很開心成為完賽的其中一份子。<em>(截圖時間：2026&#x2F;10&#x2F;13 00:06)</em></p>
+<p><img src="https://github.com/aria833/img/blob/main/2026iThome.png?raw=true" alt="2026鐵人賽"></p>
+<hr>
+<h2 id="文章總表"><a href="#文章總表" class="headerlink" title="文章總表"></a>文章總表</h2><p>統整了這 30 天的文章，並且統計字數，作為紀錄。</p>
+<ol>
+<li><strong>設計與產品思維 (Day 01–04)</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>文章標題</th>
+<th>字數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10410504">DAY 01｜為什麼我要為自己打造一款「學習任務計時器」？</a></td>
+<td>850</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10410577">DAY 02｜定義MVP產品的核心功能與架構</a></td>
+<td>1796</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10411023">DAY 03｜運用 Bootstrap 5 快速建構 Mockup：從資訊架構到元件選型</a></td>
+<td>1561</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10412161">DAY 04｜流程圖的邏輯梳理</a></td>
+<td>1114</td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li><strong>切版實作 (Day 05–12)</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>文章標題</th>
+<th>字數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10412779">DAY 05｜切版實作：Bootstrap 5 網格系統與響應式佈局</a></td>
+<td>2061</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10413421">DAY 06｜切版實作：Bootstrap 5 List Group 側邊選單搭建</a></td>
+<td>1932</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10414035">DAY 07｜切版實作：Bootstrap 5 Tab 頁籤切換與 List Group 整合</a></td>
+<td>4089</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10414089">DAY 08｜切版實作：Bootstrap 5 Accordion 手風琴元件與 Shadow 陰影</a></td>
+<td>2982</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10414168">DAY 09｜切版實作：整合 Accordion、Progress 與 Badge 打造任務進度折疊清單</a></td>
+<td>3499</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10414265">DAY 10｜切版實作：用 Collapse 打造獨立折疊的子任務清單</a></td>
+<td>2024</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10414397">DAY 11｜切版實作：運用Modal 彈跳視窗的介面設計</a></td>
+<td>2971</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10414539">DAY 12｜切版實作：介紹常用元件 Dropdown 與 Input Group</a></td>
+<td>1844</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li><strong>功能實作 (Day 13–17)</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>文章標題</th>
+<th>字數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415877">DAY 13｜功能實作（一）：時間格式化與 DOM 狀態初始化</a></td>
+<td>2937</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415905">DAY 14｜功能實作（二）：setInterval 與計時核心邏輯</a></td>
+<td>1253</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415906">DAY 15｜功能實作（三）：UI 按鈕狀態切換與暫停／結束控制</a></td>
+<td>2857</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415907">DAY 16｜功能實作（四）：精確計時（Date.now()）與 background 防休眠</a></td>
+<td>4240</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415908">DAY 17｜功能實作（五）：計時結束跳出Modal 彈窗</a></td>
+<td>4075</td>
+</tr>
+</tbody></table>
+<ol start="4">
+<li><strong>任務管理 (Day 18–21)</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>文章標題</th>
+<th>字數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415909">DAY 18｜任務管理（一）：主任務與子任務的 State 管理與 CRUD 實作</a></td>
+<td>4932</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415910">DAY 19｜任務管理（二）：自動狀態流轉邏輯</a></td>
+<td>2922</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415912">DAY 20｜任務管理（三）：將主任務與子任務 CRUD 動態連結至任務清單 Accordion</a></td>
+<td>2506</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415913">DAY 21｜數據統計：任務列表進度條與時間呈現</a></td>
+<td>2168</td>
+</tr>
+</tbody></table>
+<ol start="5">
+<li><strong>Local-First 架構跟資料管理 (Day 22–26)</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>文章標題</th>
+<th>字數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415914">DAY 22｜Local-First 架構（一）：什麼是 Local-First？為什麼選擇使用 IndexedDB？</a></td>
+<td>2126</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415915">DAY 23｜Local-First 架構（二）：實作 Promise 版 IndexedDB 工具模組</a></td>
+<td>4261</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415916">DAY 24｜Local-First 架構（三）：整合資料到 IndexedDB</a></td>
+<td>3734</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415917">DAY 25｜資料備份：資料主權歸於使用者，實作 CSV 報表匯出功能</a></td>
+<td>2847</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415918">DAY 26｜資料被清掉怎麼辦？使用JSON 資料備份與還原</a></td>
+<td>3720</td>
+</tr>
+</tbody></table>
+<ol start="6">
+<li><strong>使用者體驗優化 (Day 27–29)</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>文章標題</th>
+<th>字數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415919">DAY 27｜使用者體驗優化（一）：閒置提醒、離線狀態偵測、隱藏&#x2F;顯示秒數切換</a></td>
+<td>2239</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415920">DAY 28｜使用者體驗優化（二）：多國語系（i18n）切換與語系狀態持久化</a></td>
+<td>3300</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10418364">DAY 29｜使用者體驗優化（三）：打造舒適的暗色模式（Dark Mode）體驗</a></td>
+<td>3106</td>
+</tr>
+</tbody></table>
+<ol start="7">
+<li><strong>回顧與心得 (Day 30)</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>文章標題</th>
+<th>字數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10415921">DAY 30｜終點亦是起點： 完賽回顧與新夥伴一起出發</a></td>
+<td>5398</td>
+</tr>
+</tbody></table>
+<ol start="8">
+<li><strong>後續迭代與優化 (Day 31 ~ 33)</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>文章標題</th>
+<th>字數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10419849">DAY 31｜程式碼重構：東西擺整齊的療癒感！專案開發後的回頭重構與架構優化</a></td>
+<td>1804</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10420473">DAY 32｜UX優化：備份檔名時間戳與意見回饋管道</a></td>
+<td>1361</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10423585">DAY 33｜修正錯誤、提高效能，還看了一堆貓咪影片</a></td>
+<td>2022</td>
+</tr>
+</tbody></table>
+</div>
+
+    
+
+    
+    <section
+        class="related-posts section-pad mb-0"
+        aria-labelledby="related-posts-title"
+    >
+        <div class="container">
+        <!-- 區塊標題 -->
+        <div
+            class="section-heading mb-0 d-flex justify-content-between align-items-end gap-3"
+        >
+            <div>
+            <p class="eyebrow" data-i18n="post.keepExploring">KEEP EXPLORING</p>
+            <h2 id="related-posts-title">
+                <span data-i18n="post.relatedTitle">相關筆記</span><span class="title-dot">.</span>
+            </h2>
+            <p class="muted mt-2" data-i18n="post.relatedCopy">
+                繼續探索其他有趣的學習紀錄。
+            </p>
+            </div>
+            <span class="related-posts-count" data-i18n="post.relatedLabel">
+            RELATED NOTES
+            </span>
+        </div>
+
+        <!-- 相關文章卡片 -->
+        <div class="related-posts-track row g-4 mt-2">
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/16/iThome-033/"
+                    aria-label="閱讀文章：DAY 33｜修正錯誤、提高效能，還看了一堆貓咪影片"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        034
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-15T16:44:22.000Z"
+                    >
+                        2026.10.16
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/16/iThome-033/"
+                        >
+                        DAY 33｜修正錯誤、提高效能，還看了一堆貓咪影片
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在 TaskTimer 完成核心開發並發布穩定的 v1.0.0 版本後，我便持續使用它來輔助自己的日常學習。而在實際使用的過程中，我也陸續觀察到幾個能讓操作體驗更順暢、更貼近真實情境的優化點： 暗色模式（Dark Mode）視覺對比度優化在暗色模式下，原本用於副標題與備註說明的 Bootstrap …
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/16/iThome-033/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/15/iThome-032/"
+                    aria-label="閱讀文章：DAY 32 | UX優化：備份檔名時間戳與意見回饋管道"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        033
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-14T16:44:19.000Z"
+                    >
+                        2026.10.15
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/15/iThome-032/"
+                        >
+                        DAY 32 | UX優化：備份檔名時間戳與意見回饋管道
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在開發部署完成並實際投入使用後，我在日常操作中發現了兩個可以持續優化使用者體驗（UX）的細節： 匯出檔案（CSV &amp;#x2F; JSON）的命名邏輯優化 新增使用者意見回饋管道 1. 備份檔名優化：加入精確時間戳記（Timestamp）原先系統在匯出 CSV 報表與 JSON 備份檔時，檔名會加入「…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/15/iThome-032/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/14/iThome-031/"
+                    aria-label="閱讀文章：DAY 31 | 東西擺整齊的療癒感！專案開發後的回頭重構與架構優化"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        032
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-13T16:44:16.000Z"
+                    >
+                        2026.10.14
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/14/iThome-031/"
+                        >
+                        DAY 31 | 東西擺整齊的療癒感！專案開發後的回頭重構與架構優化
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在初期開發這個作品時，因為採取 「邊做邊驗證」 的策略，並沒有預先對程式碼進行模組化拆分。當時的專案架構如下： 檔案 主要功能 程式碼行數 db.js IndexedDB 資料庫處理 86 行 i18n.js 多國語系（邏輯與字典） 737 行 theme.js 主題切換樣式 32 行 all.js…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/14/iThome-031/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/12/iThome-029/"
+                    aria-label="閱讀文章：DAY 29｜使用者體驗優化（三）：打造舒適的暗色模式（Dark Mode）體驗"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        030
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-11T16:44:11.000Z"
+                    >
+                        2026.10.12
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/12/iThome-029/"
+                        >
+                        DAY 29｜使用者體驗優化（三）：打造舒適的暗色模式（Dark Mode）體驗
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        對於需要長時間面對螢幕的開發者或工作者來說，亮白色的介面往往容易帶來視覺疲勞，因此不論是撰寫程式還是閱讀文獻， 「暗色模式（Dark Mode）」 早已成為許多人的預設首選。若使用者在專注工作的過程中切換到 TaskTimer，瞬間的高對比白光可能會讓人感到刺眼與不適。為了打造更貼心、減壓的專注環境…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/12/iThome-029/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.png" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact">
+        <i class="bi bi-envelope me-1"></i>
+        <span data-i18n="footer.contact">聯絡我</span>
+      </a>
+      <a
+        class="footer-policy-link small text-decoration-none"
+        href="/privacy-policy/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span data-i18n="footer.privacy">隱私權政策</span>
+      </a>
+      <span class="small muted"
+        >Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

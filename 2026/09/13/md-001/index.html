@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>Markdown | 基礎語法 — ARIA&#39;S CARROTLAB</title>
+  <meta
+    name="description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/09/13/md-001/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <link rel="apple-touch-icon" href="/images/logo.png" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="Markdown | 基礎語法 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/09/13/md-001/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="Markdown | 基礎語法 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.png" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.09.13</p>
+        <h1>Markdown | 基礎語法</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/markdown/">markdown</a>
+            
+                <a href="/tags/%E6%8A%80%E8%A1%93%E5%AF%AB%E4%BD%9C/">技術寫作</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><h2 id="學習大綱-Lab-Overview"><a href="#學習大綱-Lab-Overview" class="headerlink" title="學習大綱 (Lab Overview)"></a>學習大綱 (Lab Overview)</h2><blockquote>
+<p>學習單編號：md-001<br>學習目標：理解 Markdown 的核心概念、掌握常用排版語法</p>
+</blockquote>
+<p><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/1920px-Markdown-mark.svg.png?utm_source=zh.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" alt="Markdown logo"></p>
+<ul>
+<li>需要工具：任何支援 Markdown 的文字編輯器（如 VS Code、Notion、HackMD）</li>
+<li>核心步驟：<ol>
+<li>理解什麼是 Markdown 及其核心優勢</li>
+<li>掌握常見基礎排版語法</li>
+<li>實作中遇到的問題</li>
+<li>常見應用平台</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="實作步驟-Lab-Steps"><a href="#實作步驟-Lab-Steps" class="headerlink" title="實作步驟 (Lab Steps)"></a>實作步驟 (Lab Steps)</h2><h3 id="Step-1：理解-Markdown-的基本概念"><a href="#Step-1：理解-Markdown-的基本概念" class="headerlink" title="Step 1：理解 Markdown 的基本概念"></a>Step 1：理解 Markdown 的基本概念</h3><p>Markdown 是一種 <strong>輕量級標記式語言（Lightweight Markup Language）</strong>。</p>
+<ul>
+<li><strong>核心優勢</strong>：用純文字快速排版，並能直接轉換成 HTML 網頁呈現。</li>
+<li><strong>寫作體驗</strong>：在寫文章時，<strong>雙手不需要離開鍵盤</strong>去用滑鼠點擊調整字體大小或顏色，就能產出結構清晰、好閱讀的文件。</li>
+</ul>
+<hr>
+<h3 id="Step-2：掌握常用的基礎語法"><a href="#Step-2：掌握常用的基礎語法" class="headerlink" title="Step 2：掌握常用的基礎語法"></a>Step 2：掌握常用的基礎語法</h3><h4 id="標題-H1-H6-Headings"><a href="#標題-H1-H6-Headings" class="headerlink" title="標題 H1~H6 (Headings)"></a>標題 H1~H6 (Headings)</h4><p><code>#</code> 的數量代表標題 H1 ~ H6，<code>#</code> 後面必須空一格。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 標題H1</span><br><span class="line">## 標題H2</span><br><span class="line">### 標題H3</span><br><span class="line">#### 標題H4</span><br><span class="line">##### 標題H5</span><br><span class="line">###### 標題H6</span><br></pre></td></tr></table></figure>
+
+<p><strong>渲染效果：</strong></p>
+<h1 id="標題H1"><a href="#標題H1" class="headerlink" title="標題H1"></a>標題H1</h1><h2 id="標題H2"><a href="#標題H2" class="headerlink" title="標題H2"></a>標題H2</h2><h3 id="標題H3"><a href="#標題H3" class="headerlink" title="標題H3"></a>標題H3</h3><h4 id="標題H4"><a href="#標題H4" class="headerlink" title="標題H4"></a>標題H4</h4><h5 id="標題H5"><a href="#標題H5" class="headerlink" title="標題H5"></a>標題H5</h5><h6 id="標題H6"><a href="#標題H6" class="headerlink" title="標題H6"></a>標題H6</h6><hr>
+<h3 id="文字強調-Formatting"><a href="#文字強調-Formatting" class="headerlink" title="文字強調 (Formatting)"></a>文字強調 (Formatting)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*斜體文字*</span><br><span class="line">**粗體文字**</span><br><span class="line">***斜體兼粗體***</span><br><span class="line">~~刪除線~~</span><br></pre></td></tr></table></figure>
+
+<p><strong>渲染效果：</strong><br><em>斜體文字</em><br><strong>粗體文字</strong><br><strong><em>斜體兼粗體</em></strong><br><del>刪除線</del></p>
+<hr>
+<h3 id="引用-Blockquotes"><a href="#引用-Blockquotes" class="headerlink" title="引用 (Blockquotes)"></a>引用 (Blockquotes)</h3><p>適合用在補充說明、作筆記、或是引用資料時，在段落開頭加上 <code>&gt;</code> 符號：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 這是一段引用文字。</span><br><span class="line">&gt; 可以連續多行使用。</span><br><span class="line">&gt;&gt; 甚至還可以做嵌套引用！</span><br></pre></td></tr></table></figure>
+
+<p><strong>渲染效果：</strong></p>
+<blockquote>
+<p>這是一段引用文字。<br>可以連續多行使用。</p>
+<blockquote>
+<p>甚至還可以做嵌套引用！</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="分隔線-Dividers"><a href="#分隔線-Dividers" class="headerlink" title="分隔線(Dividers)"></a>分隔線(Dividers)</h3><p>建立一條水平分隔線，可以使用三個以上的 <code>-</code>、<code>*</code> 或<code>短線</code>加空格：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">***</span><br><span class="line">- - -</span><br><span class="line">* * *</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="清單-Lists"><a href="#清單-Lists" class="headerlink" title="清單 (Lists)"></a>清單 (Lists)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- 無序清單項目 A</span><br><span class="line">- 無序清單項目 B</span><br><span class="line">* 也可以用星號作為無序清單</span><br><span class="line"></span><br><span class="line">1. 有序清單第一步</span><br><span class="line">2. 有序清單第二步</span><br></pre></td></tr></table></figure>
+
+<p><strong>渲染效果：</strong></p>
+<ul>
+<li>無序清單項目 A</li>
+<li>無序清單項目 B</li>
+</ul>
+<ul>
+<li>也可以用星號作為無序清單</li>
+</ul>
+<ol>
+<li>有序清單第一步</li>
+<li>有序清單第二步</li>
+</ol>
+<hr>
+<h3 id="程式碼-Code"><a href="#程式碼-Code" class="headerlink" title="程式碼 (Code)"></a>程式碼 (Code)</h3><ul>
+<li><p>行內程式碼： 使用單個反引號 ` 包住內容，例如：<code>let x = 10</code>;</p>
+</li>
+<li><p>程式碼區塊： 使用三個反引號 ``` 包裹，並可指定程式語言：</p>
+</li>
+</ul>
+<p><strong>渲染效果：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```javascript</span><br><span class="line">function greet() &#123;</span><br><span class="line">  console.log(&quot;Hello!&quot;);</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="連結與圖片"><a href="#連結與圖片" class="headerlink" title="連結與圖片"></a>連結與圖片</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[google首頁](https://www.google.com)</span><br><span class="line">![圖片描述](圖片網址)</span><br></pre></td></tr></table></figure>
+
+<p><strong>渲染效果：</strong><br><a target="_blank" rel="noopener" href="https://www.google.com/">google首頁</a><br><img src="/%E5%9C%96%E7%89%87%E7%B6%B2%E5%9D%80" alt="圖片描述"></p>
+<hr>
+<h3 id="Step-3：理解-Markdown-的基本概念"><a href="#Step-3：理解-Markdown-的基本概念" class="headerlink" title="Step 3：理解 Markdown 的基本概念"></a>Step 3：理解 Markdown 的基本概念</h3><ol>
+<li>突然出現的程式碼區塊？<br>之前發現有些段落明明我沒有寫反引號，呈現出來卻突然變成了灰色背景的程式碼區塊。<br>檢查了很多次都找不到哪裡多寫了符號，後來查了資料才發現：<strong>在 Markdown 的標準語法中，段落開頭只要縮排 4 個空格（或按一個 Tab），解析器就會自動判定為「縮排程式碼區塊（Indented Code Block）」。</strong></li>
+</ol>
+<ul>
+<li><p><strong>問題：</strong> 想做段落縮排，結果文字全變成了程式碼樣式。</p>
+</li>
+<li><p><strong>解決方式：</strong> Markdown 通常不需要特別做首行縮排；撰寫時請直接開頭寫字，注意<strong>開頭不要空 4 個空格</strong>。</p>
+</li>
+</ul>
+<hr>
+<ol start="2">
+<li>表格跑版：把「表頭」刪掉，表格就壞掉了？<br>有一次想用表格呈現資訊，因為不想要顯示表頭，就把範例裡的標題與分隔線刪掉，結果發現渲染出來後只剩下混在一起的純文字。</li>
+</ol>
+<p>原生 Markdown 的表格結構非常嚴格，如果需要更複雜、無表頭的設計，原生 Markdown 比較難達成，建議維持標準範例格式撰寫。</p>
+<p><strong>範例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">姓名 | 住址</span><br><span class="line">------------- | -------------</span><br><span class="line">李大華 | 桃園</span><br><span class="line">張小明 | 高雄</span><br></pre></td></tr></table></figure>
+
+<p><strong>渲染效果：</strong></p>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>住址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>李大華</td>
+<td>桃園</td>
+</tr>
+<tr>
+<td>張小明</td>
+<td>高雄</td>
+</tr>
+</tbody></table>
+<hr>
+<ol start="3">
+<li>怎麼讓他知道這不是要用 Markdown 語法？（轉義字符 Escape）</li>
+</ol>
+<p>有時候文章會用到星號 <code>*</code>、井號 <code>#</code> 或反引號 <strong>`</strong> 等符號，但我們只是想當作一般的純文字顯示，不想觸發 Markdown 的排版功能。</p>
+<p>這種時候，只要在該符號前方加上反斜線 <code>\</code> 進行轉義即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\`這是一段帶有反引號的文字\`</span><br></pre></td></tr></table></figure>
+
+<p><strong>渲染效果：</strong><br>`這是一段帶有反引號的文字`</p>
+<hr>
+<ol start="4">
+<li>想在程式碼區塊內顯示反引號```<br>在撰寫這篇語法整理筆記時，我遇到了「要在程式碼區塊內展示 ``` 語法」的問題。一開始外層用三個反引號包住時會跑版。</li>
+</ol>
+<p>後來發現：<strong>只要在外層使用「4 個反引號（````）」包裹，內層就能正常展示「3 個反引號」的程式碼區塊了</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">示範整段程式碼的markdown語法</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ol start="5">
+<li>如何建立頁內目錄？<br>建立文章目錄可以讓讀者（以及自己查閱時）快速點擊跳轉，產生目錄有以下兩種方法：</li>
+</ol>
+<p><strong>(1) 手動建立頁內跳轉（錨點連結）</strong><br>語法格式為 <code>[顯示文字](#標題id)</code>。標題 ID 的規則通常是：<strong>轉為小寫</strong>、<strong>移除特殊符號，並將空格改為連字號 <code>-</code></strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* [一、什麼是 Markdown？](#一什麼是-markdown)</span><br><span class="line">* [二、常用的語法](#二常用的語法)</span><br><span class="line">  * [標題 H1~H6 (Headings)](#標題-h1h6-headings)</span><br></pre></td></tr></table></figure>
+
+<p><strong>渲染效果：</strong></p>
+<ul>
+<li><a href="#%E4%B8%80%E4%BB%80%E9%BA%BC%E6%98%AF-markdown">一、什麼是 Markdown？</a></li>
+<li><a href="#%E4%BA%8C%E5%B8%B8%E7%94%A8%E7%9A%84%E8%AA%9E%E6%B3%95">二、常用的語法</a><ul>
+<li><a href="#%E6%A8%99%E9%A1%8C-h1h6-headings">標題 H1~H6 (Headings)</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>(2) 自動產生目錄標籤（平台擴充語法）</strong><br>在部分支援擴充語法的平台（如 HackMD、GitHub 等），可以直接在想插入目錄的地方輸入以下<code>[TOC]</code>，解析器就會自動根據文章內的所有標題（H1~H6）生成完整目錄。</p>
+<hr>
+<h3 id="Step-4：常見應用平台"><a href="#Step-4：常見應用平台" class="headerlink" title="Step 4：常見應用平台"></a>Step 4：常見應用平台</h3><ul>
+<li><p><strong>Notion</strong>：支援 Markdown 快捷鍵（如輸入 <code>#</code> 自動變標題）。</p>
+</li>
+<li><p><strong>Discord &#x2F; Slack</strong>：聊天時可用 &#x2F;<em>&#x2F;</em> 做粗體或以 ` 標示程式碼。</p>
+</li>
+<li><p><strong>HackMD</strong>：台灣技術圈非常熱門的實時協作 Markdown 文件平台。</p>
+</li>
+<li><p><strong>GitHub &#x2F; GitLab</strong>：專案的核心說明文件 <code>README.md</code> 全採用 Markdown 撰寫。</p>
+</li>
+<li><p><strong>iThome 編輯器</strong>：撰寫與發布技術文章。</p>
+</li>
+</ul>
+<hr>
+<h2 id="知識小卡（Key-Takeaways）"><a href="#知識小卡（Key-Takeaways）" class="headerlink" title="知識小卡（Key Takeaways）"></a>知識小卡（Key Takeaways）</h2><blockquote>
+</blockquote>
+<hr>
+<h2 id="學習單（Lab-Sheet）"><a href="#學習單（Lab-Sheet）" class="headerlink" title="學習單（Lab Sheet）"></a>學習單（Lab Sheet）</h2><ol>
+<li><p>Hexo 屬於哪種類型的網站框架？<br>(1) 動態<br>(2) 靜態<br>(3) 擬態</p>
+</li>
+<li><p>想要設定自訂網域時，專屬的 <code>CNAME</code> 檔案應該存放在哪一個資料夾下，才不會在部署時被刪除？<br>(1) <code>public/</code><br>(2) <code>themes/</code><br>(3) <code>source/</code></p>
+</li>
+</ol>
+<details>
+<summary>查看解答</summary>
+1. 靜態
+2. source/
+</details>
+
+<hr>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://daringfireball.net/projects/markdown/syntax">Markdown 官方語法指南</a></li>
+</ul>
+</div>
+
+    
+
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.png" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact">
+        <i class="bi bi-envelope me-1"></i>
+        <span data-i18n="footer.contact">聯絡我</span>
+      </a>
+      <a
+        class="footer-policy-link small text-decoration-none"
+        href="/privacy-policy/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span data-i18n="footer.privacy">隱私權政策</span>
+      </a>
+      <span class="small muted"
+        >Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

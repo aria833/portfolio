@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>ARIA&#39;S CARROTLAB</title>
+  <meta
+    name="description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.comarchives/page/3/index.html"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <link rel="apple-touch-icon" href="/images/logo.png" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="website"
+  />
+  <meta
+    property="og:title"
+    content="ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.png" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><section class="hero-section section-pad overflow-hidden">
+  <div class="container position-relative">
+    <div class="hero-orbit orbit-one"></div>
+    <div class="hero-orbit orbit-two"></div>
+    <div class="row align-items-center gy-5 position-relative">
+      <div class="col-lg-7">
+        <p class="eyebrow">
+          <span data-i18n="hero.eyebrow">DESIGN × CODE × CURIOSITY</span>
+        </p>
+        <h1 class="hero-title">
+          <span data-i18n="hero.line1">把好奇心</span><br>
+          <span class="title-accent" data-i18n="hero.line2">做成看得見的東西</span>
+        </h1>
+        <p class="hero-copy" data-i18n="hero.copy">嗨，我是 Aria。這裡收藏我的設計作品、程式實驗，以及從每次嘗試中得到的小發現。</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a class="btn btn-dark rounded-pill px-4 py-3" href="/projects/">
+            <span data-i18n="hero.cta1">探索作品</span>
+          </a>
+          <a class="btn btn-outline-secondary rounded-pill px-4 py-3" href="/blog/" data-i18n="hero.cta2">閱讀筆記</a>
+        </div>
+        <div class="hero-meta mt-5">
+          <span><i class="bi bi-stars me-1"></i>Always learning</span>
+          <span class="status-pill"><span></span>Open to opportunities</span>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="hero-art" aria-label="Abstract animated carrot illustration">
+          <div class="art-label label-top">A LITTLE LAB<br>OF BIG IDEAS</div>
+            <div class="carrot-car" aria-hidden="true">
+  <svg
+    class="carrot-car__illustration"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 250 180"
+    preserveAspectRatio="xMidYMid meet"
+    focusable="false"
+  >
+    <defs>
+      <!-- 胡蘿蔔車身漸層 -->
+      <linearGradient id="carrot-body-gradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="var(--carrot-highlight)" />
+        <stop offset="48%" stop-color="var(--carrot-body-shadow)" />
+        <stop offset="100%" stop-color="var(--carrot-body-deep)" />
+      </linearGradient>
+      <!-- 葉片漸層 -->
+      <linearGradient id="carrot-leaf-gradient" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="var(--carrot-leaf-highlight)" />
+        <stop offset="100%" stop-color="var(--carrot-leaf-deep)" />
+      </linearGradient>
+      <!-- 車身柔和陰影 -->
+      <filter
+        id="carrot-body-shadow"
+        x="-15%"
+        y="-15%"
+        width="130%"
+        height="145%"
+      >
+        <feDropShadow
+          dx="0"
+          dy="3"
+          stdDeviation="2.5"
+          flood-color="var(--carrot-shadow)"
+          flood-opacity="1"
+        />
+      </filter>
+    </defs>
+    <!-- 胡蘿蔔車身 -->
+    <g class="carrot-car__body">
+      <path
+        class="carrot-body-shape"
+        d="
+          M 30 113
+          C 19 109, 14 98, 14 82
+          C 14 65, 24 49, 39 40
+          C 49 34, 58 39, 69 49
+          C 80 59, 91 66, 106 65
+          C 119 65, 129 58, 136 46
+          C 143 34, 150 26, 164 27
+          C 179 28, 188 39, 188 53
+          L 188 91
+          C 188 104, 178 111, 161 115
+          C 128 122, 75 124, 43 119
+          C 37 118, 33 116, 30 113
+          Z
+        "
+        fill="url(#carrot-body-gradient)"
+        stroke="none"
+        filter="url(#carrot-body-shadow)"
+      />
+      <!-- 車身手繪細節 -->
+      <path
+        d="M 42 91 Q 49 93 55 89"
+        fill="none"
+        stroke="var(--carrot-body-deep)"
+        stroke-opacity="0.65"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M 84 105 Q 92 108 100 104"
+        fill="none"
+        stroke="var(--carrot-body-deep)"
+        stroke-opacity="0.65"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M 130 103 Q 137 105 143 101"
+        fill="none"
+        stroke="var(--carrot-body-deep)"
+        stroke-opacity="0.65"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <!-- 車身亮面 -->
+      <path
+        d="M 35 65 Q 42 53 51 50"
+        fill="none"
+        stroke="var(--carrot-highlight)"
+        stroke-width="3"
+        stroke-linecap="round"
+      />
+    </g>
+    <!-- 車輪：後繪製，讓車輪位於車身前景 -->
+    <g class="carrot-car__wheels">
+      <!-- 前輪 -->
+      <g class="carrot-wheel wheel-a">
+        <circle
+          cx="59"
+          cy="132"
+          r="17"
+          fill="var(--carrot-wheel)"
+          stroke="none"
+        />
+        <circle
+          cx="59"
+          cy="132"
+          r="11.5"
+          fill="var(--carrot-wheel-inner)"
+          stroke="none"
+        />
+        <circle
+          cx="59"
+          cy="132"
+          r="7.5"
+          fill="var(--carrot-leaf-deep)"
+          stroke="none"
+        />
+        <path
+          d="M 54 127 Q 59 124 63 128"
+          fill="none"
+          stroke="var(--carrot-leaf-highlight)"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </g>
+      <!-- 後輪 -->
+      <g class="carrot-wheel wheel-b">
+        <circle
+          cx="160"
+          cy="132"
+          r="17"
+          fill="var(--carrot-wheel)"
+          stroke="none"
+        />
+        <circle
+          cx="160"
+          cy="132"
+          r="11.5"
+          fill="var(--carrot-wheel-inner)"
+          stroke="none"
+        />
+        <circle
+          cx="160"
+          cy="132"
+          r="7.5"
+          fill="var(--carrot-leaf-deep)"
+          stroke="none"
+        />
+        <path
+          d="M 155 127 Q 160 124 164 128"
+          fill="none"
+          stroke="var(--carrot-leaf-highlight)"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </g>
+    </g>
+    <!-- 車尾葉片 -->
+    <g class="carrot-car__leaves" transform="translate(188 49)">
+      <!-- 上方葉片 -->
+      <g class="carrot-leaf leaf-a">
+        <path
+          d="
+            M 0 0
+            C 13 -14, 34 -31, 57 -34
+            C 68 -35, 73 -29, 67 -22
+            C 55 -10, 29 -3, 0 0
+            Z
+          "
+          fill="url(#carrot-leaf-gradient)"
+          stroke="none"
+        />
+        <path
+          d="M 2 -1 Q 32 -18 64 -27"
+          fill="none"
+          stroke="var(--carrot-leaf-deep)"
+          stroke-opacity="0.8"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </g>
+      <!-- 下方葉片 -->
+      <g class="carrot-leaf leaf-c">
+        <path
+          d="
+            M 0 0
+            C 14 12, 35 26, 55 29
+            C 66 31, 72 26, 66 19
+            C 54 8, 27 1, 0 0
+            Z
+          "
+          fill="url(#carrot-leaf-gradient)"
+          stroke="none"
+        />
+        <path
+          d="M 2 1 Q 32 17 63 25"
+          fill="none"
+          stroke="var(--carrot-leaf-deep)"
+          stroke-opacity="0.8"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </g>
+      <!-- 中間葉片：最後繪製，與上下葉片自然重疊 -->
+      <g class="carrot-leaf leaf-b">
+        <path
+          d="
+            M 0 0
+            C 18 -7, 42 -12, 63 -10
+            C 76 -9, 81 -2, 73 3
+            C 57 12, 27 6, 0 0
+            Z
+          "
+          fill="url(#carrot-leaf-gradient)"
+          stroke="none"
+        />
+        <path
+          d="M 2 0 Q 36 2 74 -3"
+          fill="none"
+          stroke="var(--carrot-leaf-deep)"
+          stroke-opacity="0.8"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </g>
+    </g>
+  </svg>
+</div>
+
+          <div class="floating-note note-one">
+            <i class="bi bi-braces"></i>
+            <span>code</span>
+          </div>
+          <div class="floating-note note-two">
+            <i class="bi bi-vector-pen"></i>
+            <span>design</span>
+          </div>
+          <div class="art-label label-bottom">LEARN / ITERATE / GROW</div>
+          <div class="sparkle sparkle-a">✳</div>
+          <div class="sparkle sparkle-b">✦</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro-strip">
+  <div class="container py-4 d-flex flex-wrap justify-content-between gap-3">
+    <span>01 / <b data-i18n="strip.one">最新筆記</b></span>
+    <span>02 / <b data-i18n="strip.two">專案作品</b></span>
+    <span>03 / <b data-i18n="strip.three">寫信給我</b></span>
+    <span class="muted">SCROLL TO EXPLORE ↓</span>
+  </div>
+</section>
+
+<!-- 最新筆記 -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-heading mb-0 d-flex justify-content-between align-items-end gap-3">
+      <div>
+        <p class="eyebrow">LATEST ARTICLES</p>
+        <h2 data-i18n="latest.title">最新筆記</h2>
+        <p class="muted mt-2" data-i18n="latest.copy">
+          把學到的東西整理好，也讓下一次出發更容易。
+        </p>
+        <small class="muted p-1 rounded" data-i18n="lang-notice">目前以繁體中文為主</small>
+      </div>
+      <a
+        class="text-link"
+        href="/blog/"
+        data-i18n="latest.all"
+      >
+        所有筆記
+        <i class="bi-carrot-arrow"></i>
+      </a>
+    </div>
+    <!-- 最新三篇文章 -->
+    
+
+    <div class="row g-4 mt-2 latest-posts-row">
+      
+        <div class="col-md-6 col-lg-4 latest-posts-col">
+          <article class="post-card h-100">
+            <a
+              class="post-card-main-link"
+              href="/2026/10/16/iThome-033/"
+              aria-label="閱讀文章：DAY 33｜修正錯誤、提高效能，還看了一堆貓咪影片"
+            ></a>
+            <div class="post-card-inner">
+              <!-- 編號與日期 -->
+              <div class="post-card-top">
+                <span class="post-index">
+                  034
+                </span>
+                <time
+                  class="post-date"
+                  datetime="2026-10-15T16:44:22.000Z"
+                >
+                  2026.10.16
+                </time>
+              </div>
+              <!-- 文章標題、預覽與 Tag -->
+              <div class="post-card-body">
+                <h3 class="post-card-title">
+                  <a
+                    class="post-card-title-link"
+                    href="/2026/10/16/iThome-033/"
+                  >
+                    DAY 33｜修正錯誤、提高效能，還看了一堆貓咪影片
+                  </a>
+                </h3>
+                <p class="post-card-excerpt">
+                  在 TaskTimer 完成核心開發並發布穩定的 v1.0.0 版本後，我便持續使用它來輔助自己的日常學習。而在實際使用的過程中，我也陸續觀察到幾個能讓操作體驗更順暢、更貼近真實情境的優化點： 暗色模式（Dark Mode）視覺對比度優化在暗色模式下，原本用於副標題與備註說明的 Bootstrap …
+                </p>
+                <!-- 文章標籤 -->
+                
+                  <div class="post-card-tags">
+                    
+                      <a
+                        class="post-card-tag"
+                        href="/tags/iThome2026/"
+                      >
+                        iThome2026
+                      </a>
+                    
+                  </div>
+                
+              </div>
+              <div class="post-card-bottom">
+                <a
+                  class="post-card-read-link"
+                  href="/2026/10/16/iThome-033/"
+                  data-i18n="post.readNote"
+                >READ
+                  <i class="bi-carrot-arrow"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      
+        <div class="col-md-6 col-lg-4 latest-posts-col">
+          <article class="post-card h-100">
+            <a
+              class="post-card-main-link"
+              href="/2026/10/15/iThome-032/"
+              aria-label="閱讀文章：DAY 32 | UX優化：備份檔名時間戳與意見回饋管道"
+            ></a>
+            <div class="post-card-inner">
+              <!-- 編號與日期 -->
+              <div class="post-card-top">
+                <span class="post-index">
+                  033
+                </span>
+                <time
+                  class="post-date"
+                  datetime="2026-10-14T16:44:19.000Z"
+                >
+                  2026.10.15
+                </time>
+              </div>
+              <!-- 文章標題、預覽與 Tag -->
+              <div class="post-card-body">
+                <h3 class="post-card-title">
+                  <a
+                    class="post-card-title-link"
+                    href="/2026/10/15/iThome-032/"
+                  >
+                    DAY 32 | UX優化：備份檔名時間戳與意見回饋管道
+                  </a>
+                </h3>
+                <p class="post-card-excerpt">
+                  在開發部署完成並實際投入使用後，我在日常操作中發現了兩個可以持續優化使用者體驗（UX）的細節： 匯出檔案（CSV &amp;#x2F; JSON）的命名邏輯優化 新增使用者意見回饋管道 1. 備份檔名優化：加入精確時間戳記（Timestamp）原先系統在匯出 CSV 報表與 JSON 備份檔時，檔名會加入「…
+                </p>
+                <!-- 文章標籤 -->
+                
+                  <div class="post-card-tags">
+                    
+                      <a
+                        class="post-card-tag"
+                        href="/tags/iThome2026/"
+                      >
+                        iThome2026
+                      </a>
+                    
+                  </div>
+                
+              </div>
+              <div class="post-card-bottom">
+                <a
+                  class="post-card-read-link"
+                  href="/2026/10/15/iThome-032/"
+                  data-i18n="post.readNote"
+                >READ
+                  <i class="bi-carrot-arrow"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      
+        <div class="col-md-6 col-lg-4 latest-posts-col">
+          <article class="post-card h-100">
+            <a
+              class="post-card-main-link"
+              href="/2026/10/14/iThome-031/"
+              aria-label="閱讀文章：DAY 31 | 東西擺整齊的療癒感！專案開發後的回頭重構與架構優化"
+            ></a>
+            <div class="post-card-inner">
+              <!-- 編號與日期 -->
+              <div class="post-card-top">
+                <span class="post-index">
+                  032
+                </span>
+                <time
+                  class="post-date"
+                  datetime="2026-10-13T16:44:16.000Z"
+                >
+                  2026.10.14
+                </time>
+              </div>
+              <!-- 文章標題、預覽與 Tag -->
+              <div class="post-card-body">
+                <h3 class="post-card-title">
+                  <a
+                    class="post-card-title-link"
+                    href="/2026/10/14/iThome-031/"
+                  >
+                    DAY 31 | 東西擺整齊的療癒感！專案開發後的回頭重構與架構優化
+                  </a>
+                </h3>
+                <p class="post-card-excerpt">
+                  在初期開發這個作品時，因為採取 「邊做邊驗證」 的策略，並沒有預先對程式碼進行模組化拆分。當時的專案架構如下： 檔案 主要功能 程式碼行數 db.js IndexedDB 資料庫處理 86 行 i18n.js 多國語系（邏輯與字典） 737 行 theme.js 主題切換樣式 32 行 all.js…
+                </p>
+                <!-- 文章標籤 -->
+                
+                  <div class="post-card-tags">
+                    
+                      <a
+                        class="post-card-tag"
+                        href="/tags/iThome2026/"
+                      >
+                        iThome2026
+                      </a>
+                    
+                  </div>
+                
+              </div>
+              <div class="post-card-bottom">
+                <a
+                  class="post-card-read-link"
+                  href="/2026/10/14/iThome-031/"
+                  data-i18n="post.readNote"
+                >READ
+                  <i class="bi-carrot-arrow"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- 作品區 -->
+<section class="project-teaser section-pad">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <p class="eyebrow">SELECTED WORK</p>
+        <h2 data-i18n="work.title">想法不只停在筆記裡。</h2>
+        <p class="muted mt-3" data-i18n="work.copy">
+          從使用者問題出發，整理資訊、設計流程<br />
+          並實現為可運作的數位產品與創新概念設計
+        </p>
+        <a class="btn btn-outline-dark rounded-pill px-4 py-3 mt-3" href="/projects/" data-i18n="work.cta">看看作品
+        </a>
+      </div>
+      <div class="col-lg-6">
+        <a class="project-preview" href="/projects/">
+          <div class="preview-window">
+            <div class="window-dots">
+              <i></i><i></i><i></i>
+            </div>
+            <div class="preview-content">
+              <div class="preview-side"></div>
+              <div class="preview-main">
+                <div class="preview-line w-50"></div>
+                <div class="preview-line w-75"></div>
+                <div class="preview-cards">
+                  <i></i><i></i><i></i>
+                </div>
+                <div class="preview-line w-25">
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="preview-caption">PRODUCT DESIGN / FRONT-END / PROTOTYPE</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 寫信給我 -->
+<section class="contact-section section-pad">
+  <div class="container">
+    <div class="contact-panel">
+      <div>
+        <p class="eyebrow">HAVE A GOOD IDEA?</p>
+        <h2 data-i18n="contact.title" data-i18n-html>
+          一起讓下一個想法<br class="d-none d-md-block">
+          成真吧！
+        </h2>
+        <p data-i18n="contact.copy">如果你想聊設計、產品或有趣的點子，歡迎來信</p>
+      </div>
+      <a class="contact-button" href="mailto:aria.carrotlab@gmail.com">
+        <span data-i18n="contact.cta">寫信給我</span>
+      </a>
+      <span class="contact-decoration">hello!</span>
+    </div>
+  </div>
+</section>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.png" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact">
+        <i class="bi bi-envelope me-1"></i>
+        <span data-i18n="footer.contact">聯絡我</span>
+      </a>
+      <a
+        class="footer-policy-link small text-decoration-none"
+        href="/privacy-policy/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span data-i18n="footer.privacy">隱私權政策</span>
+      </a>
+      <span class="small muted"
+        >Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

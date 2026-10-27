@@ -1,0 +1,333 @@
+/* ========================================
+  navigation.css：導覽列
+======================================== */
+.brand-mark img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.site-header {
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+.navbar-brand,
+.brand-mark {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--ink);
+}
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50% 50% 50% 12%;
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+}
+.nav-link {
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding: 0.55rem 0.8rem;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--ink);
+}
+.navbar-toggler {
+  border: 1px solid var(--line);
+}
+.icon-button {
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  color: var(--ink);
+}
+.dropdown-menu {
+  background: var(--surface);
+  border-color: var(--line);
+}
+.dropdown-item {
+  color: var(--ink);
+}
+.dropdown-item:hover {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+/* Current page indicator in the primary navigation */
+.navbar .nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.8rem;
+  right: 0.8rem;
+  bottom: 0.15rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.2s ease;
+}
+
+.navbar .nav-link.active {
+  color: var(--ink);
+}
+
+.navbar .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* ========================================
+Mobile navigation — Editorial Paper Style
+======================================== */
+
+@media (max-width: 991.98px) {
+  /* 展開選單：紙本式版面 */
+  #siteNav {
+    padding: 0.75rem 0 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  /* 導覽清單 */
+  #siteNav .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  /* 導覽項目 */
+  #siteNav
+    .navbar-nav
+    > .nav-item:not(.language-switch-item):not(.theme-switch-item) {
+    display: block;
+    width: 100%;
+    margin: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* 導覽連結 */
+  #siteNav .navbar-nav > .nav-item > .nav-link {
+    display: block;
+    width: 100%;
+    padding: 1rem 0.25rem;
+    color: var(--ink);
+    font-size: 1rem;
+    text-align: center;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  /* 手機版取消原本的橘色底線 */
+  #siteNav .nav-link::after {
+    display: none;
+  }
+
+  /* 滑過與目前頁面 */
+  #siteNav .navbar-nav > .nav-item > .nav-link:hover {
+    color: var(--accent);
+    background: transparent;
+  }
+
+  #siteNav .navbar-nav > .nav-item > .nav-link.active {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* 語言與主題設定區 */
+  #siteNav .nav-item.language-switch-item,
+  #siteNav .nav-item.theme-switch-item {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin: 0;
+    padding: 1.25rem 0.25rem 0;
+  }
+
+  /* 設定區標題：LANGUAGE / APPEARANCE */
+  #siteNav .language-switch-item::before,
+  #siteNav .theme-switch-item::before {
+    display: block;
+    margin-bottom: 0.65rem;
+    color: var(--muted);
+    font-family:
+      “DM Mono”,
+      monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-align: center;
+  }
+
+  #siteNav .language-switch-item::before {
+    content: “LANGUAGE”;
+  }
+
+  #siteNav .theme-switch-item::before {
+    content: “APPEARANCE”;
+  }
+
+  /* 隱藏桌面版語言選單與檯燈 */
+  #siteNav .language-switch-item > .dropdown.d-lg-block,
+  #siteNav .lamp-switch {
+    display: none;
+  }
+
+  /* 語言與主題選擇器 */
+  #siteNav .mobile-choice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    position: relative;
+    width: 100%;
+    min-height: 42px;
+  }
+
+  /* 左右箭頭：取消圓形按鈕 */
+  #siteNav .mobile-choice__arrow {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  #siteNav .mobile-choice__arrow:hover {
+    color: var(--accent);
+  }
+
+  #siteNav .mobile-choice__arrow:active {
+    transform: scale(0.92);
+  }
+
+  /* 中央文字：維持簡潔的文字按鈕 */
+  #siteNav .mobile-choice__current {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-width: 120px;
+    min-height: 40px;
+    padding: 0.45rem 0.5rem;
+
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+
+    color: var(--ink);
+    font-size: 0.92rem;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    cursor: default;
+
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  /* 中央文字：固定顏色，不顯示互動效果 */
+
+  #siteNav .mobile-choice__current:hover,
+  #siteNav .mobile-choice__current:focus,
+  #siteNav .mobile-choice__current:focus-visible,
+  #siteNav .mobile-choice__current:active {
+    color: var(--ink);
+
+    background: transparent;
+
+    outline: none;
+
+    box-shadow: none;
+  }
+
+  /* 鍵盤操作的焦點樣式 */
+  #siteNav .mobile-choice__arrow:focus-visible,
+  #siteNav .mobile-choice__current:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  /* 舊版手機主題按鈕不使用 */
+  #mobileThemeToggle {
+    display: none;
+  }
+}
+
+/* ========================================
+Selector transition
+======================================== */
+
+/* 預設狀態 */
+#siteNav .mobile-choice__current {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 文字切換動畫：淡出 */
+#siteNav .mobile-choice__current.is-changing {
+  opacity: 0;
+  transform: translateX(var(--choice-exit-x, -8px));
+}
+
+/* 新文字淡入 */
+#siteNav .mobile-choice__current.is-entering {
+  animation: choice-enter 0.22s ease both;
+}
+
+@keyframes choice-enter {
+  from {
+    opacity: 0;
+    transform: translateX(var(--choice-enter-x, 8px));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 尊重使用者的減少動態效果偏好 */
+@media (prefers-reduced-motion: reduce) {
+  #siteNav .mobile-choice__current,
+  #siteNav .mobile-choice__arrow {
+    transition: none;
+  }
+
+  #siteNav .mobile-choice__current.is-entering {
+    animation: none;
+  }
+}

@@ -1,0 +1,68 @@
+/* ========================================
+  token.css：字體、深淺色系定義
+======================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap");
+:root {
+  --paper: #f8f7f3;
+  --surface: #fffefa;
+  --ink: #252820;
+  --muted: #77796f;
+  --line: #e5e3da;
+  --accent: #ed744b;
+  --accent-soft: #f9e5dc;
+  --green: #7a8d65;
+  --shadow: 0 18px 50px rgba(39, 42, 31, 0.07);
+
+  /* 胡蘿蔔車 */
+  --carrot-highlight: #ffb477;
+  --carrot-body-shadow: #ed744b;
+  --carrot-body-deep: #c95e3c;
+  --carrot-leaf-highlight: #a8b58a;
+  --carrot-leaf-deep: #7a8d65;
+  --carrot-wheel: #596b50;
+  --carrot-wheel-inner: var(--paper);
+  --carrot-shadow: rgba(39, 42, 31, 0.16);
+
+  /* 檯燈配色 */
+  --lamp-shade: #f6df9b;
+  --lamp-rim: #fff4d5;
+  --lamp-outline: #687653;
+  --lamp-glow: #ffdf80;
+  --lamp-paw: #f2d4b8;
+  --lamp-paw-outline: #a88a70;
+  --lamp-paw-pad: var(--accent);
+  --lamp-paw-pad-outline: #d96543;
+}
+
+[data-bs-theme="dark"] {
+  --paper: #191b18;
+  --surface: #222520;
+  --ink: #f3f0e7;
+  --muted: #b4b5a9;
+  --line: #3b3e36;
+  --accent: #ff9671;
+  --accent-soft: #452e27;
+  --green: #a8bd8f;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+
+  /* 胡蘿蔔車 */
+  --carrot-highlight: #ffc094;
+  --carrot-body-shadow: #ff9671;
+  --carrot-body-deep: #bd6045;
+  --carrot-leaf-highlight: #c0d0a6;
+  --carrot-leaf-deep: #a8bd8f;
+  --carrot-wheel: #82966e;
+  --carrot-wheel-inner: var(--paper);
+  --carrot-shadow: rgba(0, 0, 0, 0.24);
+
+  /* 檯燈配色 */
+  --lamp-shade: #d6ad69;
+  --lamp-rim: #f1d8a0;
+  --lamp-outline: #a8bd8f;
+  --lamp-glow: #ffd66b;
+  --lamp-paw: #d9bba3;
+  --lamp-paw-outline: #a98b76;
+  --lamp-paw-pad: var(--accent);
+  --lamp-paw-pad-outline: #e98563;
+}

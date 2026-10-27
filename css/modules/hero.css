@@ -1,0 +1,288 @@
+/* ========================================
+  hero.css：hero區域
+======================================== */
+
+.hero-section {
+  padding: 90px 0 85px;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 5vw, 5.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0;
+  max-width: 800px;
+}
+.title-accent {
+  color: var(--accent);
+}
+.hero-copy {
+  font-size: 1.05rem;
+  line-height: 1.95;
+  color: var(--muted);
+  max-width: 570px;
+  margin-top: 1.5rem;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  color: var(--muted);
+  font:
+    0.72rem "DM Mono",
+    monospace;
+}
+.status-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.status-pill span {
+  width: 7px;
+  height: 7px;
+  background: #75a77b;
+  border-radius: 50%;
+}
+.hero-art {
+  position: relative;
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+.hero-art:before {
+  content: "";
+  position: absolute;
+  width: min(100%, 400px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  z-index: -2;
+  animation: breathe 6s ease-in-out infinite;
+}
+.hero-art:after {
+  content: "";
+  position: absolute;
+  width: 82%;
+  aspect-ratio: 1;
+  border: 1px dashed color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 50%;
+  z-index: -1;
+  animation: rotate 35s linear infinite;
+}
+
+/* ========================================
+   Carrot Car
+======================================== */
+
+.carrot-car {
+  position: relative;
+  width: 250px;
+  height: 180px;
+  transform: translateY(20px);
+  animation: carrot-car-float 4s ease-in-out infinite;
+}
+
+/* ========================================
+   Carrot Car SVG
+======================================== */
+
+.carrot-car__illustration {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* 車身群組 */
+.carrot-car__body {
+  transform-origin: center;
+  stroke: none;
+  filter: drop-shadow(0 3px 2px rgb(120 65 35 / 12%));
+}
+
+/* 葉片群組 */
+.carrot-car__leaves {
+  transform-origin: 0 0;
+}
+
+/* 車輪群組 */
+.carrot-car__wheels {
+  transform-origin: center;
+}
+
+.carrot-leaf {
+  transform-box: fill-box;
+  transform-origin: left center;
+}
+
+.leaf-a {
+  animation: carrot-leaf-sway-a 2.4s ease-in-out infinite;
+}
+
+.leaf-b {
+  animation: carrot-leaf-sway-b 2.8s ease-in-out infinite;
+}
+
+.leaf-c {
+  animation: carrot-leaf-sway-c 2.6s ease-in-out infinite;
+}
+
+/* 尊重減少動態效果的偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .carrot-car,
+  .carrot-leaf {
+    animation: none;
+  }
+}
+
+/* 車身輕輕漂浮 */
+@keyframes carrot-car-float {
+  0%,
+  100% {
+    transform: translateY(20px) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(13px) rotate(1deg);
+  }
+}
+/* 上方葉片：角度稍微收斂 */
+@keyframes carrot-leaf-sway-a {
+  0%,
+  100% {
+    transform: rotate(-25deg);
+  }
+
+  50% {
+    transform: rotate(-18deg);
+  }
+}
+
+/* 中間葉片：維持接近水平 */
+@keyframes carrot-leaf-sway-b {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+/* 下方葉片：角度稍微收斂 */
+@keyframes carrot-leaf-sway-c {
+  0%,
+  100% {
+    transform: rotate(18deg);
+  }
+
+  50% {
+    transform: rotate(25deg);
+  }
+}
+/* 尊重減少動態效果的偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .carrot-car,
+  .carrot-leaf {
+    animation: none;
+  }
+}
+
+.art-label {
+  position: absolute;
+  font:
+    500 0.63rem/1.7 "DM Mono",
+    monospace;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.label-top {
+  top: 10%;
+  left: 4%;
+}
+.label-bottom {
+  bottom: 8%;
+  right: 0;
+}
+.floating-note {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 11px 15px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  font:
+    0.72rem "DM Mono",
+    monospace;
+  animation: float 5s ease-in-out infinite;
+}
+.floating-note i {
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+.note-one {
+  right: 1%;
+  top: 26%;
+}
+.note-two {
+  left: 0;
+  bottom: 25%;
+  animation-delay: -2s;
+}
+.sparkle {
+  position: absolute;
+  color: var(--accent);
+  font-size: 1.5rem;
+}
+.sparkle-a {
+  right: 10%;
+  bottom: 25%;
+  animation: twinkle 2.8s infinite;
+}
+.sparkle-b {
+  left: 20%;
+  top: 20%;
+  color: var(--green);
+  animation: twinkle 3.4s infinite 0.5s;
+}
+.hero-orbit {
+  position: absolute;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.orbit-one {
+  width: 70px;
+  height: 70px;
+  right: 4%;
+  top: 3%;
+}
+.orbit-two {
+  width: 18px;
+  height: 18px;
+  left: 43%;
+  bottom: 5%;
+  background: var(--green);
+  border: 0;
+}
+.intro-strip {
+  border-block: 1px solid var(--line);
+  font:
+    0.72rem "DM Mono",
+    monospace;
+  color: var(--muted);
+}
+.intro-strip b {
+  color: var(--ink);
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 500;
+}

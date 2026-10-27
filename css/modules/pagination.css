@@ -1,0 +1,53 @@
+/* ========================================
+  pagination.css：頁碼
+======================================== */
+
+.pagination-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.pagination-side,
+.pagination-numbers {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.page-link-custom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+
+  color: var(--ink);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.page-link-custom:hover,
+.page-link-custom:focus-visible,
+.page-link-custom.active {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.page-link-custom.active {
+  background: var(--accent-soft);
+  pointer-events: none;
+}
+
+.page-link-custom.disabled {
+  opacity: 0.35;
+}

@@ -1,0 +1,183 @@
+/* ========================================
+  contact.css：聯繫區塊
+======================================== */
+
+.contact-panel {
+  position: relative;
+  overflow: hidden;
+  background: var(--accent-soft);
+  border-radius: 24px;
+  padding: clamp(30px, 6vw, 72px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 35px;
+}
+.contact-panel .eyebrow {
+  color: color-mix(in srgb, var(--ink) 65%, var(--accent));
+}
+.contact-panel h2 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+}
+.contact-panel p {
+  color: var(--muted);
+  margin-top: 1.1rem;
+}
+.contact-button {
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+
+  background: var(--ink);
+  color: var(--paper);
+
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  border-radius: 100px;
+  padding: 17px 23px;
+  white-space: nowrap;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* 滑鼠移入 */
+.contact-button:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 12%);
+}
+
+/* 按鈕內的圖示 */
+.contact-button i {
+  color: var(--accent);
+  transition: color 0.25s ease;
+}
+
+/* Hover 時圖示跟著改變 */
+.contact-button:hover i {
+  color: var(--paper);
+}
+
+/* 鍵盤操作的焦點效果 */
+.contact-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* 點擊時的回饋 */
+.contact-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
+}
+
+/* 尊重使用者的減少動態效果設定 */
+@media (prefers-reduced-motion: reduce) {
+  .contact-button,
+  .contact-button i {
+    transition: none;
+  }
+
+  .contact-button:hover,
+  .contact-button:active {
+    transform: none;
+  }
+}
+.contact-decoration {
+  position: absolute;
+  right: 22%;
+  top: -65px;
+  font-size: 13rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: color-mix(in srgb, var(--accent) 15%, transparent);
+  pointer-events: none;
+}
+
+/* 精簡版聯絡區塊 */
+.contact-compact {
+  padding: 2rem 0;
+}
+
+.contact-compact .contact-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+
+  padding: 2rem 2.5rem;
+  border-radius: 1.25rem;
+}
+
+.contact-compact .contact-content {
+  flex: 1;
+}
+
+.contact-compact .eyebrow {
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.contact-compact h2 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  line-height: 1.4;
+}
+
+.contact-compact .contact-content > p:last-child {
+  margin-bottom: 0;
+  line-height: 1.8;
+}
+
+.contact-compact .contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  flex-shrink: 0;
+  padding: 0.8rem 1.25rem;
+  border-radius: 999px;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.contact-compact .contact-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
+/* 平板與手機 */
+@media (max-width: 767.98px) {
+  .contact-compact {
+    padding: 1.5rem 0;
+  }
+
+  .contact-compact .contact-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+
+  .contact-compact .contact-button {
+    align-self: flex-start;
+  }
+}

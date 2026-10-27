@@ -1,0 +1,35 @@
+/* ========================================
+  reset.css：樣式調整
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Inter,
+    "Noto Sans TC",
+    sans-serif;
+  letter-spacing: 0.08em;
+  background: var(--paper);
+  color: var(--ink);
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+a {
+  color: inherit;
+}
+
+/* 文字被選取時的反白顏色 */
+::selection {
+  background: var(--accent-soft);
+}

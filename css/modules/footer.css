@@ -1,0 +1,24 @@
+/* ========================================
+  footer.css
+======================================== */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+}
+.footer-contact {
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.footer-contact:hover {
+  color: var(--accent);
+}
+
+.footer-policy-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-policy-link:hover {
+  color: #c76b36;
+}

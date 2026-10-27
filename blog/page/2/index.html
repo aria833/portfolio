@@ -1,0 +1,976 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>Blog — ARIA&#39;S CARROTLAB</title>
+  <meta
+    name="description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.comblog/page/2/index.html"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <link rel="apple-touch-icon" href="/images/logo.png" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="website"
+  />
+  <meta
+    property="og:title"
+    content="Blog — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="Blog — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.png" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1">
+<!-- 標題 -->
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">CARROTLAB / THE LEARNING NOTES</p>
+        <h1><span data-i18n="blog.title">學習筆記</span><span class="title-dot">.</span></h1>
+        <p class="muted" data-i18n="blog.intro">把學習變成可以回顧的實驗紀錄</p>
+    </div>
+</section>
+
+<section class="container pb-5 blog-archive">
+    <div class="row g-4 g-lg-5">
+        <!-- 左側：文章列表 -->
+        <div class="col-lg-9">
+            <!-- 統計文章數量 -->
+            <div class="blog-toolbar">
+                <span>34 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
+                <span class="muted p-1 rounded" data-i18n="lang-notice">筆記目前以繁體中文為主</span>
+            </div>
+
+            <!-- 手機版：依主題探索 -->
+            <div class="mobile-topic-explorer">
+                <button
+                    class="topic-explorer-toggle"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mobileTopicCloud"
+                    aria-expanded="false"
+                    aria-controls="mobileTopicCloud"
+                >
+                    <span class="topic-explorer-label" data-i18n="blog.exploreTopics">
+                        依主題探索
+                    </span>
+                    <i
+                        class="bi bi-plus-lg topic-explorer-icon"
+                        aria-hidden="true"
+                    ></i>
+                </button>
+                <div class="collapse" id="mobileTopicCloud">
+                    <div class="mobile-topic-cloud">
+                        
+                            
+                                <a
+                                    class="archive-tag-link"
+                                    href="/tags/iThome2026/"
+                                >
+                                    iThome2026
+                                    <span class="tag-count">33</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
+                                    href="/tags/markdown/"
+                                >
+                                    markdown
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
+                                    href="/tags/%E6%8A%80%E8%A1%93%E5%AF%AB%E4%BD%9C/"
+                                >
+                                    技術寫作
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- 文章列表 -->
+            <div class="post-list">
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        024
+                        </span>
+                        <time datetime="2026-10-05T16:43:55.000Z">
+                            2026.10.06
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/10/06/iThome-023/"
+                            >
+                            DAY 23｜Local-First 架構（二）：實作 Promise 版 IndexedDB 工具模組
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            因為 IndexedDB 的原生寫法太過古老繁瑣且難以維護，因此實作中會使用 Promise版的IndexedDB。
+
+一、什麼是「Promise 版」？為什麼要這樣做？1. 原生 IndexedDB 的問題：傳統的事件監聽（Callback）IndexedDB 是很久以前就有的語法，採用 「發起請…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        023
+                        </span>
+                        <time datetime="2026-10-04T16:43:52.000Z">
+                            2026.10.05
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/10/05/iThome-022/"
+                            >
+                            DAY 22｜Local-First 架構（一）：什麼是 Local-First？為什麼選擇使用 IndexedDB？
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            一開始在規劃 TaskTimer 時，我的核心目標非常明確——簡潔方便、功能單純。
+我希望它是一個能讓使用者隨開即用、沒有任何學習門檻的小幫手。更重要的是，我希望它 就算在離線狀態下使用也不受任何影響；同時，盡可能不收集使用者的個人資料，保護隱私與數據安全。
+在查詢一些資料後，我發現 Local-F…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        022
+                        </span>
+                        <time datetime="2026-10-03T16:43:49.000Z">
+                            2026.10.04
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/10/04/iThome-021/"
+                            >
+                            DAY 21｜數據統計：任務列表進度條與時間呈現
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            在 Day 20 完成了 CRUD 的連動渲染後，接下來要處理「數據視覺化」與「時間統計」的功能，讓使用者一眼就能掌握各個任務的完成進度與累積花費時間。
+
+進度與時間計算函式1. 進度百分比計算（calculateTaskProgress）計算該主任務下已完成（completed）的子任務比例：
+
+…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        021
+                        </span>
+                        <time datetime="2026-10-02T16:43:47.000Z">
+                            2026.10.03
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/10/03/iThome-020/"
+                            >
+                            DAY 20｜任務管理（三）：將主任務與子任務 CRUD 動態連結至任務清單 Accordion
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            完成了狀態管理與 Modal 互動視窗後，接下來的目標是將任務清單（Accordion 摺疊區塊）動態化，讓主任務與子任務的新增、修改、刪除（CRUD）能即時反映在畫面上。
+
+一、畫面結構重構：從靜態 HTML 到 JavaScript 動態渲染在實作動態渲染之前，需要先調整 HTML 結構。
+將原…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        020
+                        </span>
+                        <time datetime="2026-10-01T16:43:44.000Z">
+                            2026.10.02
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/10/02/iThome-019/"
+                            >
+                            DAY 19｜任務管理（二）：自動狀態流轉邏輯
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            接下來我們要處理任務的狀態（未開始、進行中、已完成）。
+使用者建立任務時，會自動分類成「未開始」；當該子任務有計時紀錄時，會自動轉為「進行中」；只有已完成是需要使用者自己勾選。
+所以這篇將實現透過使用者的 「計時行為」 與 「Modal 勾選」 ，讓任務狀態自動且精確地切換。
+
+狀態轉換規則1. 未…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        019
+                        </span>
+                        <time datetime="2026-09-30T16:43:41.000Z">
+                            2026.10.01
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/10/01/iThome-018/"
+                            >
+                            DAY 18｜任務管理（一）：主任務與子任務的 State 管理與 CRUD 實作
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            在前幾天的實作中，已經完成了計時器核心運作與計時結束後的紀錄 Modal。但在實際的應用場景中，「計時」並非單獨存在，它必須精確地隸屬於某個「主任務」下的「子任務」。
+在正式對接 Local-first 本地資料庫（如 IndexedDB）之前，我們需要先在記憶體中建立一套清晰的 State（狀態）…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        018
+                        </span>
+                        <time datetime="2026-09-29T16:43:38.000Z">
+                            2026.09.30
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/09/30/iThome-017/"
+                            >
+                            DAY 17｜功能實作（五）：計時結束跳出Modal 彈窗
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            做好計時器邏輯之後，我們要來實作計時結束後的互動——當使用者按下停止計時時，自動彈出 Modal 彈窗，讓使用者編輯當次備註、勾選任務完成狀態，並提供 「儲存紀錄」 與 「捨棄當次計時」 兩種彈性選擇。
+
+1. HTML 結構：防誤觸的 Modal 設定在 index.html 中，需要建立一個專用…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        017
+                        </span>
+                        <time datetime="2026-09-28T16:43:29.000Z">
+                            2026.09.29
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/09/29/iThome-016/"
+                            >
+                            DAY 16｜功能實作（四）：精確計時（Date.now()）與 background 防休眠
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            這幾天的功能實作中，順利完成了計時器的啟動、按鈕UI的切換，一切看起來都在完美運作。但我發現如果把網頁切換到別的分頁，計時器似乎變慢了。
+所以這篇要來找出為什麼會變慢，以及如何透過 「時間戳記差值計算」 與 Page Visibility API 來改善目前的計時器。
+
+為什麼 setInterva…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        016
+                        </span>
+                        <time datetime="2026-09-27T16:43:26.000Z">
+                            2026.09.28
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/09/28/iThome-015/"
+                            >
+                            DAY 15｜功能實作（三）：UI 按鈕狀態切換與暫停／結束控制
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            前兩天的實作中，成功地讓計時器開始動起來，但當按下開始計時後，按鈕的UI卻沒有變化，今天就要來完成這一部分：點擊「開始」時動態隱藏&amp;#x2F;顯示按鈕，並實現「暫停&amp;#x2F;繼續」與「結束」功能。
+
+步驟 1：使用 Bootstrap 5 類別切換介面在切版時，針對計時中的按鈕（暫停&amp;#x2F;結…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        015
+                        </span>
+                        <time datetime="2026-09-26T16:43:23.000Z">
+                            2026.09.27
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/09/27/iThome-014/"
+                            >
+                            DAY 14｜功能實作（二）：setInterval 與計時核心邏輯
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            在準備好了時間格式化工具與變數之後，接下來要解決計時器的關鍵問題：如何讓數字每秒自動加 1 並更新到畫面上？
+我們可以使用JavaScript 的原生函式－ setInterval 。
+
+觀念解析：setInterval 與 clearIntervalJavaScript 提供原生的 setInte…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
+                
+            </div>
+            
+            
+            <nav class="pagination-wrap" aria-label="Blog pagination">
+            <div class="pagination-side">
+                
+                <a class="page-link-custom" href="/blog/">
+                    <i class="bi bi-arrow-left"></i> <span data-i18n="blog.previous">PREVIOUS</span>
+                </a>
+                
+            </div>
+            <div class="pagination-numbers" aria-label="Page numbers">
+                
+                
+                    <a class="page-link-custom" href="/blog/">1</a>
+                
+                
+                
+                    <span class="page-link-custom active" aria-current="page">2</span>
+                
+                
+                
+                    <a class="page-link-custom" href="/blog/page/3/">3</a>
+                
+                
+                
+                    <a class="page-link-custom" href="/blog/page/4/">4</a>
+                
+                
+            </div>
+            <div class="pagination-side pagination-side-next">
+                
+                <a class="page-link-custom" href="/blog/page/3/"><span data-i18n="blog.next">NEXT</span> <i class="bi bi-arrow-right"></i></a>
+                
+            </div>
+            </nav>
+            
+        </div>
+        <!-- 右側：標籤雲 -->
+        <aside class="col-lg-3 blog-sidebar">
+            <section class="sidebar-section">
+                <h2 class="sidebar-title" data-i18n="blog.tagCloud">標籤</h2>
+                
+                <div class="archive-tag-cloud">
+                    
+                    <a
+                        class="archive-tag-link"
+                        href="/tags/iThome2026/"
+                    >
+                        iThome2026
+                        <span class="tag-count">33</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
+                        href="/tags/markdown/"
+                    >
+                        markdown
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
+                        href="/tags/%E6%8A%80%E8%A1%93%E5%AF%AB%E4%BD%9C/"
+                    >
+                        技術寫作
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                </div>
+                
+            </section>
+        </aside>
+    </div>
+</section>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.png" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact">
+        <i class="bi bi-envelope me-1"></i>
+        <span data-i18n="footer.contact">聯絡我</span>
+      </a>
+      <a
+        class="footer-policy-link small text-decoration-none"
+        href="/privacy-policy/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span data-i18n="footer.privacy">隱私權政策</span>
+      </a>
+      <span class="small muted"
+        >Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

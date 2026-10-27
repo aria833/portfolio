@@ -1,0 +1,326 @@
+/* ========================================
+  motion-responsive.css：動畫
+======================================== */
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(13deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(9deg);
+  }
+}
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(0.97);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    transform: scale(0.8) rotate(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.2) rotate(30deg);
+    opacity: 1;
+  }
+}
+@media (max-width: 991px) {
+  .hero-section {
+    padding: 65px 0;
+  }
+  .hero-art {
+    min-height: 360px;
+  }
+  .section-pad {
+    padding: 75px 0;
+  }
+  .contact-panel {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .contact-decoration {
+    right: 3%;
+    top: 0;
+    font-size: 9rem;
+  }
+}
+@media (max-width: 575px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .hero-meta {
+    gap: 0.8rem;
+  }
+  .hero-art {
+    min-height: 330px;
+  }
+  .art-label {
+    font-size: 0.55rem;
+  }
+  .section-pad {
+    padding: 60px 0;
+  }
+  .page-hero {
+    padding: 65px 0 40px;
+  }
+  .post-card-link {
+    min-height: 300px;
+  }
+  .contact-panel {
+    border-radius: 18px;
+  }
+  .intro-strip .muted {
+    display: none;
+  }
+}
+
+[data-i18n="work.copy"] {
+  white-space: pre-line;
+}
+
+/* ========================================
+  Cat Paw Lamp：垂掛式檯燈
+  Theme: Carrot Orange × Sage Green
+======================================== */
+
+/* ----------------------------------------
+  燈罩
+---------------------------------------- */
+
+.lamp-switch__shade {
+  fill: var(--lamp-shade);
+  stroke: var(--lamp-outline);
+  stroke-width: 1.5;
+}
+
+/* 燈罩邊緣 */
+.lamp-switch__rim {
+  fill: var(--lamp-rim);
+  stroke: var(--lamp-outline);
+  stroke-width: 1.5;
+}
+
+/* 燈繩 */
+.lamp-switch__cord-top,
+.lamp-switch__chain {
+  stroke: var(--lamp-outline);
+  stroke-width: 2;
+  stroke-linecap: round;
+  fill: none;
+}
+
+/* ----------------------------------------
+  光暈
+---------------------------------------- */
+
+.lamp-glow {
+  fill: var(--lamp-glow);
+  opacity: 0.38;
+  stroke: none;
+
+  transition:
+    opacity 0.35s ease,
+    fill 0.35s ease;
+}
+
+/* 淺色模式：柔和的奶油黃光 */
+html[data-bs-theme="light"] .lamp-glow {
+  fill: var(--lamp-glow);
+  opacity: 0.4;
+}
+
+/* 深色模式：更明亮的暖金色光暈 */
+html[data-bs-theme="dark"] .lamp-glow {
+  fill: var(--lamp-glow);
+  opacity: 0.7;
+}
+
+/* ----------------------------------------
+  貓掌
+---------------------------------------- */
+
+/* 貓掌手臂 */
+.cat-paw__arm {
+  fill: var(--lamp-paw);
+  stroke: var(--lamp-paw-outline);
+  stroke-width: 1.5;
+}
+
+/* 中央肉球 */
+.cat-paw__pad {
+  fill: var(--lamp-paw-pad);
+  stroke: var(--lamp-paw-pad-outline);
+  stroke-width: 0.8;
+}
+
+/* 四顆小趾球 */
+.cat-paw__toe {
+  fill: var(--lamp-paw-pad);
+  stroke: var(--lamp-paw-pad-outline);
+  stroke-width: 0.6;
+}
+
+/* 貓掌的小肉球 */
+.cat-paw__bean {
+  fill: var(--lamp-paw-pad);
+}
+
+/* ----------------------------------------
+  Header 與檯燈定位
+---------------------------------------- */
+
+/* Header 作為檯燈定位的參考層 */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  overflow: visible;
+}
+
+/* 確保導覽列容器不裁切檯燈 */
+.site-header .navbar,
+.site-header .navbar > .container,
+.site-header .navbar-collapse {
+  overflow: visible;
+}
+
+/* 主題切換按鈕的導覽列項目 */
+.theme-switch-item {
+  position: relative;
+  align-self: stretch;
+}
+
+/* 桌面版檯燈定位 */
+@media (min-width: 992px) {
+  .theme-switch-item {
+    position: relative;
+    width: 64px;
+    min-width: 64px;
+  }
+
+  .theme-switch-item .lamp-switch {
+    position: absolute;
+    top: -18px;
+    right: -8px;
+    z-index: 1040;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: 88px;
+    height: 180px;
+    overflow: visible;
+  }
+
+  .theme-switch-item .lamp-switch__button {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: 88px;
+    height: 180px;
+    padding: 0;
+
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+
+    overflow: visible;
+    cursor: pointer;
+  }
+
+  .theme-switch-item .lamp-switch__svg {
+    display: block;
+
+    width: 88px;
+    height: 154px;
+    flex-shrink: 0;
+    overflow: visible;
+  }
+
+  .theme-switch-item .lamp-switch__button:hover {
+    background: transparent;
+  }
+
+  .theme-switch-item .lamp-switch__button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 12px;
+  }
+}
+
+/* 手機版隱藏檯燈，保留主題選擇器 */
+@media (max-width: 991.98px) {
+  .theme-switch-item {
+    width: auto;
+    min-width: 0;
+  }
+
+  .theme-switch-item .lamp-switch {
+    display: none;
+  }
+
+  .theme-switch-item #mobileThemeToggle {
+    display: grid;
+    place-items: center;
+  }
+}
+
+/* ========================================
+Cat Paw Lamp：拉繩動畫
+======================================== */
+
+/* 燈繩與貓掌作為一個整體移動 */
+.chain-container {
+  transform-box: view-box;
+  transform-origin: 40px 42px;
+
+  transition: transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 點擊時往下拉 */
+.chain-container.pulled {
+  transform: translateY(14px);
+}
+
+/* 滑鼠移上去時，貓掌輕輕晃動 */
+@media (hover: hover) and (pointer: fine) {
+  .lamp-switch__button:hover .cat-paw {
+    animation: paw-wiggle 0.6s ease-in-out infinite alternate;
+    transform-origin: center;
+  }
+}
+
+@keyframes paw-wiggle {
+  from {
+    transform: rotate(-4deg);
+  }
+
+  to {
+    transform: rotate(4deg);
+  }
+}
+
+/* 尊重使用者的減少動態效果設定 */
+@media (prefers-reduced-motion: reduce) {
+  .chain-container {
+    transition: none;
+  }
+
+  .lamp-switch__button:hover .cat-paw {
+    animation: none;
+  }
+}

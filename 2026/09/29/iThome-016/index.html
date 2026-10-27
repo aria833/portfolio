@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>DAY 16｜功能實作（四）：精確計時（Date.now()）與 background 防休眠 — ARIA&#39;S CARROTLAB</title>
+  <meta
+    name="description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/09/29/iThome-016/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <link rel="apple-touch-icon" href="/images/logo.png" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="DAY 16｜功能實作（四）：精確計時（Date.now()）與 background 防休眠 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/09/29/iThome-016/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="DAY 16｜功能實作（四）：精確計時（Date.now()）與 background 防休眠 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.png" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.09.29</p>
+        <h1>DAY 16｜功能實作（四）：精確計時（Date.now()）與 background 防休眠</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/iThome2026/">iThome2026</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>這幾天的功能實作中，順利完成了計時器的啟動、按鈕UI的切換，一切看起來都在完美運作。但我發現如果把網頁切換到別的分頁，計時器似乎變慢了。</p>
+<p>所以這篇要來找出為什麼會變慢，以及如何透過 <strong>「時間戳記差值計算」</strong> 與 <code>Page Visibility API</code> 來改善目前的計時器。</p>
+<hr>
+<h2 id="為什麼-setInterval-會越計越慢？"><a href="#為什麼-setInterval-會越計越慢？" class="headerlink" title="為什麼 setInterval 會越計越慢？"></a>為什麼 setInterval 會越計越慢？</h2><p>瀏覽器為了省電與優化效能，有一套 <strong>頁面休眠與節能機制（Background Throttle）</strong>：</p>
+<ol>
+<li><p><strong>分頁降頻</strong>：當使用者切換到其他頁面（分頁處於背景）時，瀏覽器會大幅降低背景分頁中 <code>setInterval</code> 或 <code>setTimeout</code> 的執行頻率（有時會從每 <code>1000ms</code> 觸發一次降至數秒甚至數分鐘才觸發一次）。</p>
+</li>
+<li><p><strong>手機鎖屏休眠</strong>：在行動裝置上，螢幕關閉時作業系統會直接凍結 JavaScript 的執行。</p>
+</li>
+</ol>
+<p>如果按照原本的計時邏輯，依賴「每秒把 seconds 變數 +1」的方式，一旦 <code>setInterval</code> 停止或被降頻，<code>seconds</code> 就會停止增加，<strong>導致實際過了一小時，計時器卻只跑了 10 分鐘</strong>。</p>
+<p>參考資料<br><a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/web-platform/page-lifecycle-api">1. Chrome Developers - Page Lifecycle API</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API">2. MDN Web Docs - Page Visibility API</a></p>
+<p>個人筆記：<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10416645">瀏覽器 | 頁面休眠與節能機制（Background Throttle）</a></p>
+<hr>
+<h2 id="解決方案：改用「時間戳記差值（Timestamp-Delta）」"><a href="#解決方案：改用「時間戳記差值（Timestamp-Delta）」" class="headerlink" title="解決方案：改用「時間戳記差值（Timestamp Delta）」"></a>解決方案：改用「時間戳記差值（Timestamp Delta）」</h2><p><strong>所謂的時間戳記差值（Timestamp Delta）是指兩個時間點相差多少。</strong></p>
+<p>為了解決這個問題，要改變以 <code>setInterval</code> 的計數次數為主的做法，變成以系統時間為基準。這樣才可以避免受到頁面休眠的影響。</p>
+<p><strong>新舊計時邏輯對比</strong></p>
+<ul>
+<li><p>❌ <strong>舊邏輯（累計法）</strong>：<code>總秒數 = 原有秒數 + 1</code> （受 <code>setInterval</code> 觸發次數影響）</p>
+</li>
+<li><p>✅ <strong>新邏輯（時間差法）</strong>：<code>總秒數 = 過去已累積秒數 + Math.floor((當前時間戳 - 開始時間戳) / 1000)</code></p>
+</li>
+</ul>
+<hr>
+<h3 id="步驟-1：重構狀態變數與計時邏輯"><a href="#步驟-1：重構狀態變數與計時邏輯" class="headerlink" title="步驟 1：重構狀態變數與計時邏輯"></a>步驟 1：重構狀態變數與計時邏輯</h3><p>調整 <code>all.js</code> 中的狀態變數，引入 <code>startTime</code> 與 <code>elapsedTime</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// ===== 狀態變數重構 =====</span><br><span class="line">let timerInterval = null;</span><br><span class="line">let startTime = 0;      // 紀錄當前這一段計時開始的時間戳記 (Date.now())</span><br><span class="line">let elapsedTime = 0;    // 紀錄之前已累積的毫秒數（例如暫停前累積的時間）</span><br><span class="line">let isRunning = false;</span><br><span class="line"></span><br><span class="line">// 取得目前總累積秒數</span><br><span class="line">function getCalculatedSeconds() &#123;</span><br><span class="line">  if (!isRunning) return Math.floor(elapsedTime / 1000);</span><br><span class="line"></span><br><span class="line">  // 當前累積時間 = 過去已累積時間 + (現在時間 - 本次開始時間)</span><br><span class="line">  const currentSessionMs = Date.now() - startTime;</span><br><span class="line">  return Math.floor((elapsedTime + currentSessionMs) / 1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>備註</strong><br><code>Date.now()</code> 與 <code>elapsedTime</code> 的時間單位都是「毫秒 (Milliseconds)」，要記得換算成「秒 (Seconds)」。</p>
+<hr>
+<h3 id="步驟-2：更新啟動、暫停與重置函式"><a href="#步驟-2：更新啟動、暫停與重置函式" class="headerlink" title="步驟 2：更新啟動、暫停與重置函式"></a>步驟 2：更新啟動、暫停與重置函式</h3><p>接著更新計時器的控制邏輯：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">// 1. 開始計時</span><br><span class="line">function startTimer() &#123;</span><br><span class="line">  if (isRunning) return;</span><br><span class="line"></span><br><span class="line">  isRunning = true;</span><br><span class="line">  startTime = Date.now(); // 紀錄精確的開始時間點</span><br><span class="line"></span><br><span class="line">  // 更新 UI 顯示與按鈕組</span><br><span class="line">  btnStart.classList.add(&#x27;d-none&#x27;);</span><br><span class="line">  btnGroupActive.classList.remove(&#x27;d-none&#x27;);</span><br><span class="line"></span><br><span class="line">  // 每 200ms 觸發一次（提高頻率讓 UI 響應更流暢，但不影響精確度）</span><br><span class="line">  timerInterval = setInterval(() =&gt; &#123;</span><br><span class="line">    const totalSeconds = getCalculatedSeconds();</span><br><span class="line">    timerDisplay.textContent = formatTime(totalSeconds);</span><br><span class="line">  &#125;, 200);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 2. 暫停 / 繼續切換</span><br><span class="line">function togglePauseTimer() &#123;</span><br><span class="line">  if (isRunning) &#123;</span><br><span class="line">    // 進入暫停：把這次運行的時間加到 elapsedTime 存起來</span><br><span class="line">    elapsedTime += Date.now() - startTime;</span><br><span class="line">    clearInterval(timerInterval);</span><br><span class="line">    isRunning = false;</span><br><span class="line"></span><br><span class="line">    // UI 更新為「繼續」</span><br><span class="line">    btnPause.innerHTML = &#x27;&lt;i class=&quot;bi bi-play-fill me-1&quot;&gt;&lt;/i&gt;繼續&#x27;;</span><br><span class="line">    btnPause.classList.replace(&#x27;btn-warning&#x27;, &#x27;btn-primary&#x27;);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    // 恢復計時：重新設定全新的 startTime</span><br><span class="line">    isRunning = true;</span><br><span class="line">    startTime = Date.now();</span><br><span class="line"></span><br><span class="line">    // UI 更新為「暫停」</span><br><span class="line">    btnPause.innerHTML = &#x27;&lt;i class=&quot;bi bi-pause-fill me-1&quot;&gt;&lt;/i&gt;暫停&#x27;;</span><br><span class="line">    btnPause.classList.replace(&#x27;btn-primary&#x27;, &#x27;btn-warning&#x27;);</span><br><span class="line"></span><br><span class="line">    timerInterval = setInterval(() =&gt; &#123;</span><br><span class="line">      const totalSeconds = getCalculatedSeconds();</span><br><span class="line">      timerDisplay.textContent = formatTime(totalSeconds);</span><br><span class="line">    &#125;, 200);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 3. 結束/重置計時</span><br><span class="line">function resetTimerUI() &#123;</span><br><span class="line">  clearInterval(timerInterval);</span><br><span class="line">  isRunning = false;</span><br><span class="line">  startTime = 0;</span><br><span class="line">  elapsedTime = 0;</span><br><span class="line"></span><br><span class="line">  timerDisplay.textContent = formatTime(0);</span><br><span class="line">  btnStart.classList.remove(&#x27;d-none&#x27;);</span><br><span class="line">  btnGroupActive.classList.add(&#x27;d-none&#x27;);</span><br><span class="line"></span><br><span class="line">  // 按鈕樣式還原</span><br><span class="line">  btnPause.innerHTML = &#x27;&lt;i class=&quot;bi bi-pause-fill me-1&quot;&gt;&lt;/i&gt;暫停&#x27;;</span><br><span class="line">  btnPause.classList.replace(&#x27;btn-primary&#x27;, &#x27;btn-warning&#x27;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>備註</strong><br>將 <code>setInterval</code> 的間隔從 <code>1000ms</code> 降到 <code>200ms</code>，可以避免因為畫面更新延遲而出現「秒數跳格」的感覺。</p>
+<hr>
+<h3 id="引入-Page-Visibility-API-校正"><a href="#引入-Page-Visibility-API-校正" class="headerlink" title="引入 Page Visibility API 校正"></a>引入 Page Visibility API 校正</h3><p>雖然改用 <code>Date.now()</code> 後，邏輯上的時間已經很精確，但當使用者切回瀏覽器分頁時，畫面上的數字可能會停在切出去的那一刻，直到下一次 <code>setInterval</code> 觸發才跳動。</p>
+<p>我們可以監聽瀏覽器的 <code>visibilitychange</code> 事件，當使用者重新回到頁面時，立即強制刷一次 UI：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 監聽頁面可見性改變（切換分頁 / 螢幕鎖屏喚醒）</span><br><span class="line">document.addEventListener(&#x27;visibilitychange&#x27;, () =&gt; &#123;</span><br><span class="line">  // 當頁面重新變為可見 (visible) 且計時器正在運作中時</span><br><span class="line">  if (document.visibilityState === &#x27;visible&#x27; &amp;&amp; isRunning) &#123;</span><br><span class="line">    // 立即更新畫面上的時間顯示，免去等待 setInterval 的微小延遲</span><br><span class="line">    const currentSeconds = getCalculatedSeconds();</span><br><span class="line">    timerDisplay.textContent = formatTime(currentSeconds);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>備註：document.visibilityState</strong></p>
+<ul>
+<li><p><code>visible</code>：頁面目前處於前台分頁且螢幕開啟狀態。</p>
+</li>
+<li><p><code>hidden</code>：頁面在背景分頁、最小化或手機處於鎖屏狀態。</p>
+</li>
+</ul>
+<hr>
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>經過了上面的優化，我們的計時器就可以不受瀏覽器休眠的影響，正確地紀錄任務時間了。</p>
+<hr>
+<p>個人筆記：<br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10416670">瀏覽器 | 跟貓貓玩123木頭人：Page Visibility API（頁面可見性 API）</a><br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10418922">名詞介紹 | 什麼是毫秒時間戳（Timestamp）？電腦世界的「大碼錶」</a></p>
+</div>
+
+    
+
+    
+    <section
+        class="related-posts section-pad mb-0"
+        aria-labelledby="related-posts-title"
+    >
+        <div class="container">
+        <!-- 區塊標題 -->
+        <div
+            class="section-heading mb-0 d-flex justify-content-between align-items-end gap-3"
+        >
+            <div>
+            <p class="eyebrow" data-i18n="post.keepExploring">KEEP EXPLORING</p>
+            <h2 id="related-posts-title">
+                <span data-i18n="post.relatedTitle">相關筆記</span><span class="title-dot">.</span>
+            </h2>
+            <p class="muted mt-2" data-i18n="post.relatedCopy">
+                繼續探索其他有趣的學習紀錄。
+            </p>
+            </div>
+            <span class="related-posts-count" data-i18n="post.relatedLabel">
+            RELATED NOTES
+            </span>
+        </div>
+
+        <!-- 相關文章卡片 -->
+        <div class="related-posts-track row g-4 mt-2">
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/16/iThome-033/"
+                    aria-label="閱讀文章：DAY 33｜修正錯誤、提高效能，還看了一堆貓咪影片"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        034
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-15T16:44:22.000Z"
+                    >
+                        2026.10.16
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/16/iThome-033/"
+                        >
+                        DAY 33｜修正錯誤、提高效能，還看了一堆貓咪影片
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在 TaskTimer 完成核心開發並發布穩定的 v1.0.0 版本後，我便持續使用它來輔助自己的日常學習。而在實際使用的過程中，我也陸續觀察到幾個能讓操作體驗更順暢、更貼近真實情境的優化點： 暗色模式（Dark Mode）視覺對比度優化在暗色模式下，原本用於副標題與備註說明的 Bootstrap …
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/16/iThome-033/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/15/iThome-032/"
+                    aria-label="閱讀文章：DAY 32 | UX優化：備份檔名時間戳與意見回饋管道"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        033
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-14T16:44:19.000Z"
+                    >
+                        2026.10.15
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/15/iThome-032/"
+                        >
+                        DAY 32 | UX優化：備份檔名時間戳與意見回饋管道
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在開發部署完成並實際投入使用後，我在日常操作中發現了兩個可以持續優化使用者體驗（UX）的細節： 匯出檔案（CSV &amp;#x2F; JSON）的命名邏輯優化 新增使用者意見回饋管道 1. 備份檔名優化：加入精確時間戳記（Timestamp）原先系統在匯出 CSV 報表與 JSON 備份檔時，檔名會加入「…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/15/iThome-032/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/14/iThome-031/"
+                    aria-label="閱讀文章：DAY 31 | 東西擺整齊的療癒感！專案開發後的回頭重構與架構優化"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        032
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-13T16:44:16.000Z"
+                    >
+                        2026.10.14
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/14/iThome-031/"
+                        >
+                        DAY 31 | 東西擺整齊的療癒感！專案開發後的回頭重構與架構優化
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在初期開發這個作品時，因為採取 「邊做邊驗證」 的策略，並沒有預先對程式碼進行模組化拆分。當時的專案架構如下： 檔案 主要功能 程式碼行數 db.js IndexedDB 資料庫處理 86 行 i18n.js 多國語系（邏輯與字典） 737 行 theme.js 主題切換樣式 32 行 all.js…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/14/iThome-031/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/13/iThome-030/"
+                    aria-label="閱讀文章：DAY 30｜終點亦是起點： 完賽回顧、與新夥伴一起出發"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        031
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-12T16:44:14.000Z"
+                    >
+                        2026.10.13
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/13/iThome-030/"
+                        >
+                        DAY 30｜終點亦是起點： 完賽回顧、與新夥伴一起出發
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在這 30 天不間斷地思考、設計、發想與寫程式碼（還有被發文截止時間追著跑）（做夢都在想著哪裡要修改）（中秋節時兩口烤肉🥓一口程式碼），終於把腦海中的想法，變成一個功能完整的實用工具。 在鐵人賽的最後一天（感動！），除了統整一下技術工具和文章，也紀錄了這 30 天下來的開發心得。 作品成果雖然還有…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/13/iThome-030/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.png" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact">
+        <i class="bi bi-envelope me-1"></i>
+        <span data-i18n="footer.contact">聯絡我</span>
+      </a>
+      <a
+        class="footer-policy-link small text-decoration-none"
+        href="/privacy-policy/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span data-i18n="footer.privacy">隱私權政策</span>
+      </a>
+      <span class="small muted"
+        >Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>DAY 25｜資料備份：資料主權歸於使用者，實作 CSV 報表匯出功能 — ARIA&#39;S CARROTLAB</title>
+  <meta
+    name="description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/10/08/iThome-025/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <link rel="apple-touch-icon" href="/images/logo.png" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="DAY 25｜資料備份：資料主權歸於使用者，實作 CSV 報表匯出功能 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/10/08/iThome-025/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="DAY 25｜資料備份：資料主權歸於使用者，實作 CSV 報表匯出功能 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.png" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.10.08</p>
+        <h1>DAY 25｜資料備份：資料主權歸於使用者，實作 CSV 報表匯出功能</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/iThome2026/">iThome2026</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>在前面的文章中，我們實現了以 <strong>IndexedDB</strong> 做為本地儲存的 <strong>Local-First</strong> 架構。</p>
+<p>但對於一個「不收集個人資料、資料存在使用者本地裝置」的工具來說，光是把資料存放在瀏覽器裡還不夠。萬一使用者更換電腦、清除瀏覽器快取，或是想把紀錄拿去做其他用途呢？</p>
+<p>因此，我希望可以有資料匯出功能，讓使用者可以備份相關紀錄，所以接下來就要來加上 <strong>CSV 報表匯出</strong> 功能。</p>
+<hr>
+<h2 id="資料結構轉化的挑戰：陣列扁平化"><a href="#資料結構轉化的挑戰：陣列扁平化" class="headerlink" title="資料結構轉化的挑戰：陣列扁平化"></a>資料結構轉化的挑戰：陣列扁平化</h2><p>TaskTimer 的原始資料結構是有層級關係的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">主任務（Task）→ 子任務（Subtask） → 計時紀錄（Records）</span><br></pre></td></tr></table></figure>
+
+<p>但是，試算表軟體（如 Microsoft Excel、Google Sheets）讀取的 CSV 檔案是<strong>單層的橫列表格</strong>。</p>
+<p>因此，我們需要進行 <strong>資料扁平化（Data Flattening）</strong> ：將每一筆「計時紀錄」連同它所屬的主任務名稱與子任務名稱，拆解組合為獨立的一列資料。</p>
+<hr>
+<h2 id="匯出-CSV-的三個關鍵細節"><a href="#匯出-CSV-的三個關鍵細節" class="headerlink" title="匯出 CSV 的三個關鍵細節"></a>匯出 CSV 的三個關鍵細節</h2><p>在用原生 JavaScript 寫 CSV 匯出時，有三個地方需要特別注意：</p>
+<h3 id="1-UTF-8-BOM-標頭（-uFEFF）："><a href="#1-UTF-8-BOM-標頭（-uFEFF）：" class="headerlink" title="1. UTF-8 BOM 標頭（\uFEFF）："></a>1. UTF-8 BOM 標頭（<code>\uFEFF</code>）：</h3><p>如果直接輸出 UTF-8 編碼的中文文字，Microsoft Excel 開啟時常會出現整頁 <strong>中文亂碼</strong>。在字串開頭加上 <code>\uFEFF</code>（Byte Order Mark）可以強制引導 Excel 以 UTF-8 正確解析中文字元。</p>
+<h3 id="2-特殊字元跳脫（CSV-Escaping）："><a href="#2-特殊字元跳脫（CSV-Escaping）：" class="headerlink" title="2. 特殊字元跳脫（CSV Escaping）："></a>2. 特殊字元跳脫（CSV Escaping）：</h3><p>使用者的「備註」或「任務名稱」中可能包含<code>逗號 ,</code>、<code>雙引號 &quot;</code> 或<code>換行符號 \n</code>。若沒有處理，會導致 CSV 欄位錯位拆分。<br>規則是：只要欄位內含有特殊字元，就必須將整段內容用雙引號包起來，並把內部的 <code>&quot;</code> 替換為 <code>&quot;&quot;</code>。</p>
+<h3 id="3-動態下載觸發（Blob-Object-URL）："><a href="#3-動態下載觸發（Blob-Object-URL）：" class="headerlink" title="3. 動態下載觸發（Blob &amp; Object URL）："></a>3. 動態下載觸發（Blob &amp; Object URL）：</h3><p>利用原生 <code>Blob</code> 物件將文字轉換為二進位檔案，並建立臨時的 <code>&lt;a download&gt;</code> 標籤觸發瀏覽器下載，下載完成後及時釋放記憶體（<code>URL.revokeObjectURL</code>）。</p>
+<hr>
+<h2 id="實作-CSV-匯出邏輯"><a href="#實作-CSV-匯出邏輯" class="headerlink" title="實作 CSV 匯出邏輯"></a>實作 CSV 匯出邏輯</h2><p>實作 CSV 匯出的核心邏輯可拆解為三個步驟：<strong>格式防錯</strong>、<strong>資料扁平化</strong> 與 <strong>觸發下載</strong>。</p>
+<h3 id="1-處理-CSV-欄位跳脫（Escape）"><a href="#1-處理-CSV-欄位跳脫（Escape）" class="headerlink" title="1. 處理 CSV 欄位跳脫（Escape）"></a>1. 處理 CSV 欄位跳脫（Escape）</h3><p>當欄位內容含有逗號 <code>,</code>、雙引號 <code>&quot;</code> 或換行符號 <code>\n</code> 時，必須用雙引號將內容包起來，並把內部的 <code>&quot;</code> 替換為 <code>&quot;&quot;</code>，避免試算表解析欄位錯亂：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function escapeCSVField(str) &#123;</span><br><span class="line">  if (typeof str !== &quot;string&quot;) return str;</span><br><span class="line">  if (str.includes(&quot;,&quot;) || str.includes(&#x27;&quot;&#x27;) || str.includes(&quot;\n&quot;)) &#123;</span><br><span class="line">    return `&quot;$&#123;str.replace(/&quot;/g, &#x27;&quot;&quot;&#x27;)&#125;&quot;`;</span><br><span class="line">  &#125;</span><br><span class="line">  return str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-將嵌套資料「扁平化」展開"><a href="#2-將嵌套資料「扁平化」展開" class="headerlink" title="2. 將嵌套資料「扁平化」展開"></a>2. 將嵌套資料「扁平化」展開</h3><p>走訪 <code>tasks</code> 陣列，把主任務、子任務與計時紀錄展開組合成單一維度的橫列字串陣列：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 1. 定義 CSV 標頭</span><br><span class="line">const headers = [&quot;主任務名稱&quot;, &quot;子任務名稱&quot;, &quot;子任務狀態&quot;, &quot;計時時間區間&quot;, &quot;專注時間(分鐘)&quot;, &quot;備註&quot;];</span><br><span class="line">const csvRows = [headers.join(&quot;,&quot;)];</span><br><span class="line"></span><br><span class="line">// 2. 展開三層嵌套結構</span><br><span class="line">tasks.forEach((task) =&gt; &#123;</span><br><span class="line">  task.subtasks?.forEach((sub) =&gt; &#123;</span><br><span class="line">    // 遍歷每一筆計時紀錄並轉為 CSV 行</span><br><span class="line">    sub.records?.forEach((rec) =&gt; &#123;</span><br><span class="line">      csvRows.push([</span><br><span class="line">        escapeCSVField(task.title),</span><br><span class="line">        escapeCSVField(sub.title),</span><br><span class="line">        sub.status === &quot;completed&quot; ? &quot;已完成&quot; : &quot;進行中&quot;,</span><br><span class="line">        escapeCSVField(rec.timeRange || &quot;-&quot;),</span><br><span class="line">        rec.durationMinutes || 0,</span><br><span class="line">        escapeCSVField(rec.note || &quot;&quot;)</span><br><span class="line">      ].join(&quot;,&quot;));</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-加入-UTF-8-BOM-並觸發瀏覽器下載"><a href="#3-加入-UTF-8-BOM-並觸發瀏覽器下載" class="headerlink" title="3. 加入 UTF-8 BOM 並觸發瀏覽器下載"></a>3. 加入 UTF-8 BOM 並觸發瀏覽器下載</h2><p>在字串最前方加上 <code>\uFEFF</code> 標頭防範 Excel 中文亂碼，最後利用原生 <code>Blob</code> 與動態 <code>&lt;a&gt;</code> 標籤觸發下載：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 3. 組合內容字串，加入 \uFEFF 防範 Excel 中文亂碼</span><br><span class="line">const csvString = &quot;\uFEFF&quot; + csvRows.join(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">// 4. 建立 Blob 物件與動態下載連結</span><br><span class="line">const blob = new Blob([csvString], &#123; type: &quot;text/csv;charset=utf-8;&quot; &#125;);</span><br><span class="line">const url = URL.createObjectURL(blob);</span><br><span class="line"></span><br><span class="line">const downloadLink = document.createElement(&quot;a&quot;);</span><br><span class="line">downloadLink.href = url;</span><br><span class="line">downloadLink.setAttribute(&quot;download&quot;, `TaskTimer_Backup_$&#123;new Date().toISOString().split(&quot;T&quot;)[0]&#125;.csv`);</span><br><span class="line">document.body.appendChild(downloadLink);</span><br><span class="line"></span><br><span class="line">// 5. 觸發下載並釋放記憶體</span><br><span class="line">downloadLink.click();</span><br><span class="line">document.body.removeChild(downloadLink);</span><br><span class="line">URL.revokeObjectURL(url);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="成果驗證"><a href="#成果驗證" class="headerlink" title="成果驗證"></a>成果驗證</h2><p>點擊頁面上的 <strong>「下載 CSV 檔案」</strong> 按鈕後，瀏覽器會自動下載檔名如 <code>TaskTimer_Backup_2026-09-27.csv</code> 的檔案。</p>
+<p>開啟後，可以獲得結構完整、中文呈現正常的統計報表：</p>
+<p><img src="https://github.com/aria833/img/blob/main/CSV%20file.png?raw=true" alt="下載 CSV 檔案"></p>
+</div>
+
+    
+
+    
+    <section
+        class="related-posts section-pad mb-0"
+        aria-labelledby="related-posts-title"
+    >
+        <div class="container">
+        <!-- 區塊標題 -->
+        <div
+            class="section-heading mb-0 d-flex justify-content-between align-items-end gap-3"
+        >
+            <div>
+            <p class="eyebrow" data-i18n="post.keepExploring">KEEP EXPLORING</p>
+            <h2 id="related-posts-title">
+                <span data-i18n="post.relatedTitle">相關筆記</span><span class="title-dot">.</span>
+            </h2>
+            <p class="muted mt-2" data-i18n="post.relatedCopy">
+                繼續探索其他有趣的學習紀錄。
+            </p>
+            </div>
+            <span class="related-posts-count" data-i18n="post.relatedLabel">
+            RELATED NOTES
+            </span>
+        </div>
+
+        <!-- 相關文章卡片 -->
+        <div class="related-posts-track row g-4 mt-2">
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/16/iThome-033/"
+                    aria-label="閱讀文章：DAY 33｜修正錯誤、提高效能，還看了一堆貓咪影片"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        034
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-15T16:44:22.000Z"
+                    >
+                        2026.10.16
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/16/iThome-033/"
+                        >
+                        DAY 33｜修正錯誤、提高效能，還看了一堆貓咪影片
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在 TaskTimer 完成核心開發並發布穩定的 v1.0.0 版本後，我便持續使用它來輔助自己的日常學習。而在實際使用的過程中，我也陸續觀察到幾個能讓操作體驗更順暢、更貼近真實情境的優化點： 暗色模式（Dark Mode）視覺對比度優化在暗色模式下，原本用於副標題與備註說明的 Bootstrap …
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/16/iThome-033/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/15/iThome-032/"
+                    aria-label="閱讀文章：DAY 32 | UX優化：備份檔名時間戳與意見回饋管道"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        033
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-14T16:44:19.000Z"
+                    >
+                        2026.10.15
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/15/iThome-032/"
+                        >
+                        DAY 32 | UX優化：備份檔名時間戳與意見回饋管道
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在開發部署完成並實際投入使用後，我在日常操作中發現了兩個可以持續優化使用者體驗（UX）的細節： 匯出檔案（CSV &amp;#x2F; JSON）的命名邏輯優化 新增使用者意見回饋管道 1. 備份檔名優化：加入精確時間戳記（Timestamp）原先系統在匯出 CSV 報表與 JSON 備份檔時，檔名會加入「…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/15/iThome-032/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/14/iThome-031/"
+                    aria-label="閱讀文章：DAY 31 | 東西擺整齊的療癒感！專案開發後的回頭重構與架構優化"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        032
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-13T16:44:16.000Z"
+                    >
+                        2026.10.14
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/14/iThome-031/"
+                        >
+                        DAY 31 | 東西擺整齊的療癒感！專案開發後的回頭重構與架構優化
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在初期開發這個作品時，因為採取 「邊做邊驗證」 的策略，並沒有預先對程式碼進行模組化拆分。當時的專案架構如下： 檔案 主要功能 程式碼行數 db.js IndexedDB 資料庫處理 86 行 i18n.js 多國語系（邏輯與字典） 737 行 theme.js 主題切換樣式 32 行 all.js…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/14/iThome-031/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/13/iThome-030/"
+                    aria-label="閱讀文章：DAY 30｜終點亦是起點： 完賽回顧、與新夥伴一起出發"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        031
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-12T16:44:14.000Z"
+                    >
+                        2026.10.13
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/13/iThome-030/"
+                        >
+                        DAY 30｜終點亦是起點： 完賽回顧、與新夥伴一起出發
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在這 30 天不間斷地思考、設計、發想與寫程式碼（還有被發文截止時間追著跑）（做夢都在想著哪裡要修改）（中秋節時兩口烤肉🥓一口程式碼），終於把腦海中的想法，變成一個功能完整的實用工具。 在鐵人賽的最後一天（感動！），除了統整一下技術工具和文章，也紀錄了這 30 天下來的開發心得。 作品成果雖然還有…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/13/iThome-030/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.png" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact">
+        <i class="bi bi-envelope me-1"></i>
+        <span data-i18n="footer.contact">聯絡我</span>
+      </a>
+      <a
+        class="footer-policy-link small text-decoration-none"
+        href="/privacy-policy/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span data-i18n="footer.privacy">隱私權政策</span>
+      </a>
+      <span class="small muted"
+        >Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

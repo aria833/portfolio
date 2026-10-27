@@ -1,0 +1,373 @@
+/* ========================================
+  projects.css：專案作品
+======================================== */
+
+.project-teaser {
+  background: var(--surface);
+  border-block: 1px solid var(--line);
+}
+.project-preview {
+  text-decoration: none;
+  display: block;
+}
+.preview-window {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transform: rotate(1.5deg);
+  transition: transform 0.3s;
+}
+.project-preview:hover .preview-window {
+  transform: rotate(0) translateY(-4px);
+}
+.window-dots {
+  display: flex;
+  gap: 5px;
+  padding: 15px;
+  border-bottom: 1px solid var(--line);
+}
+.window-dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+}
+.preview-content {
+  display: flex;
+  min-height: 245px;
+  padding: 22px;
+  gap: 18px;
+}
+.preview-side {
+  width: 22%;
+  background: var(--accent-soft);
+  border-radius: 9px;
+}
+.preview-main {
+  flex: 1;
+}
+.preview-line {
+  height: 9px;
+  background: var(--line);
+  border-radius: 10px;
+  margin-bottom: 13px;
+}
+.preview-cards {
+  display: flex;
+  gap: 9px;
+  margin: 25px 0;
+}
+.preview-cards i {
+  height: 75px;
+  flex: 1;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--green) 30%, var(--paper));
+  border: 1px solid var(--line);
+}
+.preview-caption {
+  display: block;
+  text-align: center;
+  font:
+    0.65rem "DM Mono",
+    monospace;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-top: 25px;
+}
+
+/* ========================================
+  Product Designer portfolio project listing
+======================================== */
+.projects-hero .projects-intro {
+  max-width: 44rem;
+  line-height: 1.9;
+}
+.projects-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.7rem;
+}
+.projects-summary > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--surface);
+  font-size: 0.78rem;
+}
+.projects-summary i {
+  color: var(--accent);
+}
+.projects-list-section {
+  padding-top: clamp(2.5rem, 6vw, 5rem);
+}
+.projects-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+.projects-section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  letter-spacing: -0.04em;
+}
+.projects-section-heading .eyebrow {
+  margin-bottom: 0.45rem;
+}
+.projects-count {
+  color: var(--muted);
+  font:
+    0.7rem "DM Mono",
+    monospace;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.project-card--featured .project-card-visual {
+  min-height: 310px;
+}
+.project-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+  color: var(--muted);
+  font:
+    0.64rem "DM Mono",
+    monospace;
+  letter-spacing: 0.07em;
+}
+.project-card-meta span:first-child {
+  color: var(--green);
+}
+.project-card-info h2 {
+  letter-spacing: -0.04em;
+}
+.project-card-info > p {
+  max-width: 36rem;
+  line-height: 1.85;
+}
+.project-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1.15rem;
+}
+.project-card-footer .project-card-cta {
+  margin-top: 0;
+}
+.project-card-arrow {
+  display: grid;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+.project-card:hover .project-card-arrow {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--surface);
+  transform: rotate(45deg);
+}
+.visual-timer,
+.visual-postcard {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.visual-label {
+  position: absolute;
+  top: 1rem;
+  left: 1.2rem;
+  color: color-mix(in srgb, var(--ink) 60%, transparent);
+  font:
+    0.6rem "DM Mono",
+    monospace;
+  letter-spacing: 0.1em;
+}
+.visual-timer {
+  background:
+    radial-gradient(
+      circle at 50% 48%,
+      color-mix(in srgb, var(--green) 25%, transparent),
+      transparent 36%
+    ),
+    color-mix(in srgb, var(--green) 9%, var(--paper));
+}
+.timer-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: clamp(145px, 18vw, 185px);
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--green) 55%, var(--line));
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--surface) 84%, transparent);
+  box-shadow: 0 14px 45px rgba(45, 55, 38, 0.08);
+}
+.timer-circle span {
+  font:
+    clamp(1.8rem, 4vw, 2.5rem) "DM Mono",
+    monospace;
+  letter-spacing: -0.08em;
+}
+.timer-circle small {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font:
+    0.55rem "DM Mono",
+    monospace;
+  letter-spacing: 0.12em;
+}
+.timer-mini {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 0.7rem;
+}
+.visual-orbit {
+  position: absolute;
+  color: color-mix(in srgb, var(--green) 70%, var(--muted));
+  font:
+    0.58rem "DM Mono",
+    monospace;
+  letter-spacing: 0.14em;
+}
+.visual-orbit--one {
+  top: 32%;
+  left: 10%;
+  transform: rotate(-90deg);
+}
+.visual-orbit--two {
+  right: 8%;
+  top: 35%;
+  transform: rotate(90deg);
+}
+.visual-postcard {
+  background: #f7f0e3;
+  color: #3d4b36;
+}
+.bloom-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 46%;
+  max-width: 245px;
+  aspect-ratio: 1.3;
+  padding: 1rem;
+  border: 1px solid rgba(80, 95, 67, 0.18);
+  border-radius: 12px;
+  background: #fffdf6;
+  box-shadow: 0 18px 38px rgba(75, 67, 46, 0.14);
+}
+.bloom-card > span,
+.bloom-card > b {
+  font:
+    0.55rem "DM Mono",
+    monospace;
+  letter-spacing: 0.09em;
+}
+.bloom-card > i {
+  align-self: center;
+  color: #d98c70;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-style: normal;
+}
+.bloom-card--back {
+  transform: translate(-15%, -5%) rotate(-9deg);
+  background: #e5eadb;
+}
+.bloom-card--back > i {
+  color: #81936e;
+}
+.bloom-card--front {
+  transform: translate(15%, 8%) rotate(7deg);
+}
+.bloom-card--front > b {
+  align-self: flex-end;
+}
+.bloom-spark {
+  position: absolute;
+  color: #d98c70;
+  font-size: 1.8rem;
+}
+.bloom-spark--one {
+  top: 22%;
+  right: 16%;
+}
+.bloom-spark--two {
+  bottom: 17%;
+  left: 16%;
+  color: #81936e;
+}
+.projects-honesty-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.8;
+}
+.projects-honesty-note i {
+  margin-top: 0.2rem;
+  color: var(--accent);
+}
+@media (max-width: 767.98px) {
+  .projects-section-heading {
+    align-items: flex-start;
+  }
+  .project-card--featured .project-card-visual {
+    min-height: 255px;
+  }
+  .projects-summary {
+    gap: 0.45rem;
+  }
+  .projects-summary > span {
+    font-size: 0.72rem;
+  }
+  .visual-orbit--one {
+    left: 4%;
+  }
+  .visual-orbit--two {
+    right: 2%;
+  }
+}
+
+
+/* Project listing: theme-aware project visuals */
+[data-bs-theme="dark"] .project-card-visual { border-color: var(--line); }
+[data-bs-theme="dark"] .visual-timer { background: #292f25; color: var(--ink); }
+[data-bs-theme="dark"] .visual-postcard { background: #2c3028; }
+[data-bs-theme="dark"] .bloom-card--back { background: #34402e; border-color: #46513d; color: #f3f0e7; }
+[data-bs-theme="dark"] .bloom-card--front { background: #292d26; border-color: var(--line); color: var(--ink); }
+[data-bs-theme="dark"] .visual-yarn { background: #302a2a; color: var(--ink); }
+[data-bs-theme="dark"] .visual-lab { background: #272c24; color: var(--ink); }
+[data-bs-theme="dark"] .projects-honesty-note { color: var(--muted); }
