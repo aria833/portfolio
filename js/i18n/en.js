@@ -692,9 +692,9 @@ window.CarrotLabDictionaries["en"] = {
   "tasktimer.ithomeCopy":
     "TaskTimer is also a project developed for the iThome Ironman Contest. By continuously breaking down problems, implementing features, and documenting development progress, I practiced turning ideas into usable products step by step.",
 
-  "bloom.galleryCover": "Album Cover",
-  "bloom.galleryPages": "Album Pages",
-  "bloom.galleryVariant": "Alternative Cover Designs",
+  "bloom.galleryCover": "Cover",
+  "bloom.galleryPages": "Pages",
+  "bloom.galleryVariant": "Back Cover",
   "bloom.galleryCaption":
     "The album product visuals are conceptual mockups and have not been physically printed.",
 
@@ -709,4 +709,6 @@ window.CarrotLabDictionaries["en"] = {
   "project.bloom.title": "Bloom Memories",
   "project.bloom.intro":
     "Extending in-game postcard collections into physical keepsakes that can be preserved, shared, and revisited.",
+  "bloom.flow1": "Select Postcard",
+  "bloom.flow2": "Edit Postcard",
 };

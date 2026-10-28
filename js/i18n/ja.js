@@ -605,9 +605,9 @@ window.CarrotLabDictionaries["ja"] = {
   "tasktimer.ithomeCopy":
     "実装で直面した課題や設計上の判断を整理し、技術記事としてまとめることで、開発の過程を振り返り、知識を共有できる形にしています。",
 
-  "bloom.galleryCover": "アルバムの表紙",
-  "bloom.galleryPages": "アルバムのページ",
-  "bloom.galleryVariant": "デザインバリエーション",
+  "bloom.galleryCover": "表紙",
+  "bloom.galleryPages": "ページ",
+  "bloom.galleryVariant": "裏表紙",
   "bloom.galleryCaption": "Bloom Memoriesのデザインイメージ",
 
   "tasktimer.visitProduct": "プロダクトを見る",
@@ -619,4 +619,6 @@ window.CarrotLabDictionaries["ja"] = {
   "project.bloom.title": "Bloom Memories",
   "project.bloom.intro":
     "Pikmin Bloomで集めたポストカードを、自分だけのアルバムに。旅の記憶を集め、編集し、形にするサービスのコンセプトです。",
+  "bloom.flow1": "ポストカードの選択",
+  "bloom.flow2": "ポストカードの編集",
 };

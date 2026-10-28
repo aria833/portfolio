@@ -65,9 +65,77 @@
       }
     });
   }
+
+  /**
+   * 依照網站語系切換作品圖片
+   *
+   * 支援類型：
+   * page：相冊內頁
+   * edit：編輯畫面
+   * select：選取明信片
+   * preview：預覽相冊
+   */
+  function updateLanguageImages() {
+    // 取得目前網站語系
+    const language = window.CarrotLabI18n?.getLanguage?.() || "zh-TW";
+
+    // 圖片類型與各語系檔案的對照表
+    const imageMap = {
+      page: {
+        "zh-TW": "page_tw.png",
+        en: "page_en.png",
+        ja: "page_jp.png",
+      },
+      edit: {
+        "zh-TW": "edit_tw.png",
+        en: "edit_en.png",
+        ja: "edit_jp.png",
+      },
+      select: {
+        "zh-TW": "select_tw.png",
+        en: "select_en.png",
+        ja: "select_jp.png",
+      },
+      preview: {
+        "zh-TW": "preview_tw.png",
+        en: "preview_en.png",
+        ja: "preview_jp.png",
+      },
+    };
+
+    // 更新所有需要切換語系的圖片
+    document.querySelectorAll("[data-language-image]").forEach((img) => {
+      // 讀取圖片類型，未指定時預設為 page
+      const imageType = img.dataset.languageImageType || "page";
+
+      // 取得該類型的圖片設定
+      const languageImages = imageMap[imageType];
+
+      // 未設定的圖片類型不處理
+      if (!languageImages) return;
+
+      // 找出目前語系對應的圖片
+      const imageName = languageImages[language] || languageImages["zh-TW"];
+
+      // 取得 Hexo 產生的圖片目錄路徑
+      const imageBase = img.dataset.imageBase;
+
+      // 缺少圖片路徑時不處理
+      if (!imageBase) return;
+
+      // 組合完整圖片路徑
+      const imageUrl = `${imageBase}${imageName}`;
+
+      // 圖片路徑不同時才更新
+      if (img.getAttribute("src") !== imageUrl) {
+        img.setAttribute("src", imageUrl);
+      }
+    });
+  }
   /**
    * 套用網站主題
    */
+
   function applyTheme(theme) {
     root.setAttribute("data-bs-theme", theme);
 
@@ -123,6 +191,7 @@
         : "light";
 
   applyTheme(initialTheme);
+  updateLanguageImages();
 
   /**
 
@@ -232,10 +301,15 @@
       link.removeAttribute("aria-current");
     }
   });
+  // 語系變更時，同步更新主題文字與圖片
   document.addEventListener("languageChanged", () => {
     const currentTheme = root.getAttribute("data-bs-theme");
 
+    // 更新主題相關文字
     applyTheme(currentTheme);
+
+    // 更新相冊內頁圖片
+    updateLanguageImages();
   });
   /**
 

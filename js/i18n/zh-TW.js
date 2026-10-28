@@ -495,9 +495,9 @@ window.CarrotLabDictionaries["zh-TW"] = {
   "tasktimer.ithomeTitle": "從參賽過程累積實作經驗",
   "tasktimer.ithomeCopy":
     "TaskTimer 也是 iThome 鐵人賽的參賽作品。我透過持續拆解問題、實作功能與整理開發紀錄，練習把想法一步步轉化成可使用的產品。",
-  "bloom.galleryCover": "相冊封面",
-  "bloom.galleryPages": "相冊內頁",
-  "bloom.galleryVariant": "其他封面方向",
+  "bloom.galleryCover": "封面",
+  "bloom.galleryPages": "內頁",
+  "bloom.galleryVariant": "封底",
   "bloom.galleryCaption": "相冊商品視覺為概念示意，尚未實際印製。",
   // Optional released product link
   "tasktimer.visitProduct": "前往正式作品",
@@ -507,4 +507,6 @@ window.CarrotLabDictionaries["zh-TW"] = {
   "project.bloom.title": "Bloom Memories",
   "project.bloom.intro":
     "讓遊戲中的明信片收藏，延伸成能保存、分享與再次翻閱的實體回憶。",
+  "bloom.flow1": "選取明信片畫面",
+  "bloom.flow2": "編輯明信片",
 };
