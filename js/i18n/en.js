@@ -711,9 +711,9 @@ window.CarrotLabDictionaries["en"] = {
     "Extending in-game postcard collections into physical keepsakes that can be preserved, shared, and revisited.",
   "bloom.flow1": "Select Postcard",
   "bloom.flow2": "Edit Postcard",
-  "bloom.showcaseTitle": "Keep Your Travel Memories in an Album",
+  "bloom.showcaseTitle": "Turn Your Memories into a Photo Album",
   "bloom.showcaseDescription":
-    "Explore a postcard album inspired by a trip to Yamagata and discover how travel memories can be preserved.",
+    "Flip through a postcard album themed around life abroad, and see how everyday moments overseas become cherished memories worth saving.",
   "bloom.showcasePrevious": "Previous",
   "bloom.showcaseNext": "Next",
   "bloom.showcaseNote":

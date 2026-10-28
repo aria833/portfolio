@@ -935,7 +935,7 @@
 }
 
 /* ========================================
-   Bloom Memories：明信片輪播
+   Bloom Memories：明信片輪播與相冊翻頁
 ======================================== */
 
 .bloom-album {
@@ -946,7 +946,9 @@
   width: 100%;
 }
 
-/* 標題 */
+/* ========================================
+   標題
+======================================== */
 
 .bloom-album-heading {
   max-width: 680px;
@@ -960,7 +962,9 @@
   letter-spacing: 0.14em;
 }
 
-/* 輪播外框 */
+/* ========================================
+   相冊外框
+======================================== */
 
 .bloom-album-carousel {
   width: 100%;
@@ -968,45 +972,121 @@
   margin-inline: auto;
   padding: clamp(0.5rem, 2vw, 1rem);
 
-  overflow: hidden;
   border: 1px solid var(--album-line);
   border-radius: 1.25rem;
   background: var(--album-surface);
   box-shadow: 0 12px 36px rgb(0 0 0 / 5%);
 }
 
-/* 圖片 */
+/* ========================================
+   相冊翻頁舞台
+======================================== */
 
-.bloom-album-image {
-  width: 100%;
-  aspect-ratio: 1023 / 684;
-  object-fit: contain;
+.bloom-page-turn .carousel-inner {
+  position: relative;
+  overflow: hidden;
+  perspective: 1600px;
   border-radius: 0.5rem;
 }
 
-/* 輪播切換動畫 */
+/* 所有頁面共用設定 */
 
-.bloom-album-carousel .carousel-item {
+.bloom-page-turn .carousel-item {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: rotateY(0deg);
+  transform-origin: left center;
   transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 
-.bloom-album-carousel .carousel-item img {
-  transition:
-    transform 450ms ease,
-    opacity 450ms ease;
+/* 目前顯示的頁面 */
+
+.bloom-page-turn .carousel-item.active {
+  position: relative;
+
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
-.bloom-album-carousel .carousel-item-next img,
-.bloom-album-carousel .active.carousel-item-start img {
-  transform: rotateY(-3deg) scale(0.98);
+/* ========================================
+   相冊圖片
+======================================== */
+
+.bloom-album-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1023 / 684;
+  object-fit: contain;
+
+  border-radius: 0.5rem;
+  backface-visibility: hidden;
 }
 
-.bloom-album-carousel .carousel-item-prev img,
-.bloom-album-carousel .active.carousel-item-end img {
-  transform: rotateY(3deg) scale(0.98);
+/* ========================================
+   翻頁動畫
+======================================== */
+
+/* 下一頁：以左側為軸心向內翻轉 */
+
+.bloom-page-turn .carousel-item.page-turn-next {
+  z-index: 2;
+  transform-origin: left center;
+  animation: bloom-page-next 0.7s ease-in-out both;
 }
 
-/* 左右按鈕 */
+/* 上一頁：以右側為軸心向內翻轉 */
+
+.bloom-page-turn .carousel-item.page-turn-prev {
+  z-index: 2;
+  transform-origin: right center;
+  animation: bloom-page-prev 0.7s ease-in-out both;
+}
+
+@keyframes bloom-page-next {
+  0% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateY(-180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes bloom-page-prev {
+  0% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   左右切換按鈕
+======================================== */
 
 .bloom-album-control {
   width: 12%;
@@ -1024,7 +1104,9 @@
   background-size: 50%;
 }
 
-/* 頁碼指示器 */
+/* ========================================
+   頁碼指示器
+======================================== */
 
 .bloom-album-indicators {
   position: static;
@@ -1046,7 +1128,9 @@
   background-color: var(--album-accent);
 }
 
-/* 說明文字 */
+/* ========================================
+   說明文字
+======================================== */
 
 .bloom-album-caption {
   color: var(--muted, #77796f);
@@ -1054,7 +1138,9 @@
   line-height: 1.8;
 }
 
-/* 手機版 */
+/* ========================================
+   手機版
+======================================== */
 
 @media (max-width: 767.98px) {
   .bloom-album-heading {
@@ -1076,10 +1162,13 @@
   }
 }
 
-/* 尊重減少動態效果的設定 */
+/* ========================================
+   無障礙：減少動態效果
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .bloom-album-carousel .carousel-item img {
-    transition: none;
+  .bloom-page-turn .carousel-item.page-turn-next,
+  .bloom-page-turn .carousel-item.page-turn-prev {
+    animation: none;
   }
 }

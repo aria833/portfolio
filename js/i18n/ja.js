@@ -622,8 +622,9 @@ window.CarrotLabDictionaries["ja"] = {
   "bloom.flow1": "ポストカードの選択",
   "bloom.flow2": "ポストカードの編集",
   "bloom.showcaseTitle": "旅の思い出を一冊のアルバムに",
+  "bloom.showcaseTitle": "思い出を、一冊のアルバムに",
   "bloom.showcaseDescription":
-    "山形旅行をテーマにしたポストカードアルバムをめくりながら、旅の風景を思い出として残す体験をご覧ください。",
+    "海外生活をテーマにしたポストカードブックをめくりながら、異国での日常がどのように大切に保存すべき思い出となっていくのかをご覧ください。",
   "bloom.showcasePrevious": "前のページ",
   "bloom.showcaseNext": "次のページ",
   "bloom.showcaseNote": "このアルバムはポートフォリオ用のコンセプト展示です。",
