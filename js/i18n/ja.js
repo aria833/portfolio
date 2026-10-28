@@ -323,7 +323,7 @@ window.CarrotLabDictionaries["ja"] = {
   "case.nextValidation": "次に検証したいこと",
   "case.reflectionEyebrow": "REFLECTION",
   "case.nextProjectEyebrow": "NEXT PROJECT",
-  "case.nextProjectTitle": "次のプロジェクトへ",
+  "case.relatedTitle": "次のプロジェクトへ",
   "case.imagePlaceholder": "画像をここに配置",
   "case.captionPlaceholder": "画像の説明をここに入力",
   "tasktimer.captionPlaceholder": "TaskTimerの画面イメージ",

@@ -336,7 +336,7 @@ window.CarrotLabDictionaries["en"] = {
   "case.nextValidation": "Next Steps for Validation",
   "case.reflectionEyebrow": "REFLECTION",
   "case.nextProjectEyebrow": "KEEP EXPLORING",
-  "case.nextProjectTitle": "Explore More Projects",
+  "case.relatedTitle": "Explore More Projects",
   "case.imagePlaceholder": "Image Placeholder",
   "case.captionPlaceholder":
     "Suggested content: screenshots, flowcharts, or prototype links.",

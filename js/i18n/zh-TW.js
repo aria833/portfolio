@@ -275,7 +275,7 @@ window.CarrotLabDictionaries["zh-TW"] = {
   "case.nextValidation": "下一步驗證",
   "case.reflectionEyebrow": "REFLECTION",
   "case.nextProjectEyebrow": "KEEP EXPLORING",
-  "case.nextProjectTitle": "繼續探索其他作品",
+  "case.relatedTitle": "繼續探索其他作品",
   "case.imagePlaceholder": "圖片預留位置",
   "case.captionPlaceholder": "建議補上：畫面截圖、流程圖或原型連結。",
   "tasktimer.captionPlaceholder": "主要操作流程",
@@ -482,7 +482,7 @@ window.CarrotLabDictionaries["zh-TW"] = {
   // Project page updates
   "tasktimer.ithomeSide": "鐵人賽",
   "tasktimer.caseStudy": "產品實作紀錄",
-  "tasktimer.releaseLabel": "正式發行",
+  "tasktimer.releaseLabel": "正式上線",
   "tasktimer.ithomeLabel": "iThome 鐵人賽參賽作品",
   "tasktimer.heroCta": "實際使用看看",
   "tasktimer.originEyebrow": "A PROBLEM FROM DAILY LIFE",

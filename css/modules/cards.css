@@ -92,8 +92,7 @@
 }
 
 .section-heading h2,
-.project-teaser h2,
-.contact-panel h2 {
+.project-teaser h2 {
   font-size: clamp(2rem, 3.3vw, 3.2rem);
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -255,30 +254,36 @@
   position: relative;
   z-index: 3;
 }
-
 /* ========================================
    Latest Posts — Horizontal Scroll
 ======================================== */
 
-/* 手機版以外，維持原本的 Bootstrap 排版 */
+/* 桌機版：維持 Bootstrap 原本的排版 */
 .latest-posts-row {
   --bs-gutter-x: 1.5rem;
 }
 
-/* 手機版：橫向滑動 */
+/* 手機版：最新文章橫向滑動 */
 @media (max-width: 767.98px) {
   .latest-posts-row {
     display: flex;
     flex-wrap: nowrap;
 
+    /* 限制滑動範圍 */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
     overflow-x: auto;
     overflow-y: hidden;
 
+    /* 保留 Bootstrap 欄位間距 */
     margin-right: 0;
     margin-left: 0;
 
     padding: 0.75rem 0.25rem 1.25rem;
 
+    /* 滑動與卡片定位 */
     scroll-snap-type: x mandatory;
     scroll-padding-left: 0.25rem;
 
@@ -286,11 +291,12 @@
     overscroll-behavior-x: contain;
   }
 
-  /* 每張卡片的寬度 */
+  /* 每張卡片：維持約 85% 寬度 */
   .latest-posts-row > .latest-posts-col {
     flex: 0 0 85%;
     width: 85%;
     max-width: 85%;
+    min-width: 0;
 
     scroll-snap-align: start;
   }
@@ -300,7 +306,7 @@
     height: 100%;
   }
 
-  /* 滑動列的捲軸 */
+  /* 橫向滑動捲軸 */
   .latest-posts-row::-webkit-scrollbar {
     height: 4px;
   }
