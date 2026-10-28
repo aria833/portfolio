@@ -509,4 +509,10 @@ window.CarrotLabDictionaries["zh-TW"] = {
     "讓遊戲中的明信片收藏，延伸成能保存、分享與再次翻閱的實體回憶。",
   "bloom.flow1": "選取明信片畫面",
   "bloom.flow2": "編輯明信片",
+  "bloom.showcaseTitle": "把旅行的回憶，收藏成一本相冊",
+  "bloom.showcaseDescription":
+    "翻閱以山形旅行為主題的明信片冊，看看旅行中的風景如何成為值得保存的回憶。",
+  "bloom.showcasePrevious": "上一頁",
+  "bloom.showcaseNext": "下一頁",
+  "bloom.showcaseNote": "此相冊為概念展示，圖片與內容僅用於作品集示意。",
 };

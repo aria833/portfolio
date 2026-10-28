@@ -933,3 +933,153 @@
   max-width: 100%;
   object-fit: contain;
 }
+
+/* ========================================
+   Bloom Memories：明信片輪播
+======================================== */
+
+.bloom-album {
+  --album-accent: var(--accent, #ed744b);
+  --album-line: var(--line, #e5e3da);
+  --album-surface: var(--surface, #fffefa);
+
+  width: 100%;
+}
+
+/* 標題 */
+
+.bloom-album-heading {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.bloom-album-eyebrow {
+  color: var(--album-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+/* 輪播外框 */
+
+.bloom-album-carousel {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+  padding: clamp(0.5rem, 2vw, 1rem);
+
+  overflow: hidden;
+  border: 1px solid var(--album-line);
+  border-radius: 1.25rem;
+  background: var(--album-surface);
+  box-shadow: 0 12px 36px rgb(0 0 0 / 5%);
+}
+
+/* 圖片 */
+
+.bloom-album-image {
+  width: 100%;
+  aspect-ratio: 1023 / 684;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+/* 輪播切換動畫 */
+
+.bloom-album-carousel .carousel-item {
+  transform-style: preserve-3d;
+}
+
+.bloom-album-carousel .carousel-item img {
+  transition:
+    transform 450ms ease,
+    opacity 450ms ease;
+}
+
+.bloom-album-carousel .carousel-item-next img,
+.bloom-album-carousel .active.carousel-item-start img {
+  transform: rotateY(-3deg) scale(0.98);
+}
+
+.bloom-album-carousel .carousel-item-prev img,
+.bloom-album-carousel .active.carousel-item-end img {
+  transform: rotateY(3deg) scale(0.98);
+}
+
+/* 左右按鈕 */
+
+.bloom-album-control {
+  width: 12%;
+  opacity: 0.8;
+}
+
+.bloom-album-control .carousel-control-prev-icon,
+.bloom-album-control .carousel-control-next-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0.5rem;
+
+  border-radius: 50%;
+  background-color: var(--album-accent);
+  background-size: 50%;
+}
+
+/* 頁碼指示器 */
+
+.bloom-album-indicators {
+  position: static;
+  margin: 1rem 0 0;
+}
+
+.bloom-album-indicators [data-bs-target] {
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-inline: 0.25rem;
+
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--album-line);
+  opacity: 1;
+}
+
+.bloom-album-indicators .active {
+  background-color: var(--album-accent);
+}
+
+/* 說明文字 */
+
+.bloom-album-caption {
+  color: var(--muted, #77796f);
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+
+/* 手機版 */
+
+@media (max-width: 767.98px) {
+  .bloom-album-heading {
+    text-align: left;
+  }
+
+  .bloom-album-carousel {
+    border-radius: 0.9rem;
+  }
+
+  .bloom-album-control {
+    width: 15%;
+  }
+
+  .bloom-album-control .carousel-control-prev-icon,
+  .bloom-album-control .carousel-control-next-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}
+
+/* 尊重減少動態效果的設定 */
+
+@media (prefers-reduced-motion: reduce) {
+  .bloom-album-carousel .carousel-item img {
+    transition: none;
+  }
+}

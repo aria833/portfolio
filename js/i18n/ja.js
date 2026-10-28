@@ -621,4 +621,10 @@ window.CarrotLabDictionaries["ja"] = {
     "Pikmin Bloomで集めたポストカードを、自分だけのアルバムに。旅の記憶を集め、編集し、形にするサービスのコンセプトです。",
   "bloom.flow1": "ポストカードの選択",
   "bloom.flow2": "ポストカードの編集",
+  "bloom.showcaseTitle": "旅の思い出を一冊のアルバムに",
+  "bloom.showcaseDescription":
+    "山形旅行をテーマにしたポストカードアルバムをめくりながら、旅の風景を思い出として残す体験をご覧ください。",
+  "bloom.showcasePrevious": "前のページ",
+  "bloom.showcaseNext": "次のページ",
+  "bloom.showcaseNote": "このアルバムはポートフォリオ用のコンセプト展示です。",
 };

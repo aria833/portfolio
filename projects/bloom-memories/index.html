@@ -757,19 +757,532 @@
             </p>
           </article>
         </div>
-        <figure class="case-media-placeholder case-media-placeholder--large">
-          <div>
-            <i class="bi bi-images"></i
-            ><strong data-i18n="case.finalUIPlaceholder"
-              >高保真畫面 / 互動示意預留位置</strong
-            ><span data-i18n="bloom.finalUICopy"
-              >建議展示明信片篩選、相冊編輯器、翻頁預覽與結帳</span
-            >
-          </div>
-          <figcaption data-i18n="case.captionPlaceholder">
-            可替換為截圖、GIF、短影片或可操作 Demo。
-          </figcaption>
-        </figure>
+       <section class="bloom-album my-5">
+
+  <!-- 相冊標題 -->
+  <div class="bloom-album-heading text-center mb-4">
+    <span class="bloom-album-eyebrow">
+      BLOOM MEMORIES · ALBUM PREVIEW
+    </span>
+
+    <h3 class="mt-2" data-i18n="bloom.showcaseTitle">
+      把旅行的回憶，收藏成一本相冊
+    </h3>
+
+    <p class="text-secondary" data-i18n="bloom.showcaseDescription">
+      翻閱以日本旅行為主題的明信片冊。
+    </p>
+  </div>
+
+  <!-- 相冊輪播 -->
+  <div
+    id="bloomAlbumCarousel"
+    class="carousel slide bloom-album-carousel"
+    data-bs-ride="false"
+    data-bs-touch="true"
+    data-bs-interval="false"
+  >
+
+    <div class="carousel-inner">
+
+      <!-- 封面：所有語系共用 -->
+      <div class="carousel-item active">
+        <img
+          src="/images/bloom-showcase/album_cover.png"
+          class="d-block w-100 bloom-album-image"
+          alt="Bloom Memories 相冊封面"
+        >
+      </div>
+
+      <!-- 明信片：依照網站語系切換 -->
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_1_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="1"
+            alt="日本旅行明信片 1"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_2_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="2"
+            alt="日本旅行明信片 2"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_3_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="3"
+            alt="日本旅行明信片 3"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_4_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="4"
+            alt="日本旅行明信片 4"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_5_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="5"
+            alt="日本旅行明信片 5"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_6_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="6"
+            alt="日本旅行明信片 6"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_7_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="7"
+            alt="日本旅行明信片 7"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_8_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="8"
+            alt="日本旅行明信片 8"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_9_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="9"
+            alt="日本旅行明信片 9"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_10_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="10"
+            alt="日本旅行明信片 10"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_11_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="11"
+            alt="日本旅行明信片 11"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_12_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="12"
+            alt="日本旅行明信片 12"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_13_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="13"
+            alt="日本旅行明信片 13"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_14_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="14"
+            alt="日本旅行明信片 14"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_15_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="15"
+            alt="日本旅行明信片 15"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_16_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="16"
+            alt="日本旅行明信片 16"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_17_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="17"
+            alt="日本旅行明信片 17"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_18_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="18"
+            alt="日本旅行明信片 18"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_19_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="19"
+            alt="日本旅行明信片 19"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_20_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="20"
+            alt="日本旅行明信片 20"
+            loading="lazy"
+          >
+        </div>
+      
+        <div class="carousel-item">
+          <img
+            src="/images/bloom-showcase/japan_21_tw.png"
+            class="d-block w-100 bloom-album-image"
+            data-bloom-postcard="21"
+            alt="日本旅行明信片 21"
+            loading="lazy"
+          >
+        </div>
+      
+
+      <!-- 封底：所有語系共用 -->
+      <div class="carousel-item">
+        <img
+          src="/images/bloom-showcase/back_cover.png"
+          class="d-block w-100 bloom-album-image"
+          alt="Bloom Memories 相冊封底"
+          loading="lazy"
+        >
+      </div>
+
+    </div>
+
+    <!-- 上一頁 -->
+    <button
+      class="carousel-control-prev bloom-album-control"
+      type="button"
+      data-bs-target="#bloomAlbumCarousel"
+      data-bs-slide="prev"
+      aria-label="上一頁"
+      data-i18n-aria-label="bloom.showcasePrevious"
+    >
+      <span
+        class="carousel-control-prev-icon"
+        aria-hidden="true"
+      ></span>
+    </button>
+
+    <!-- 下一頁 -->
+    <button
+      class="carousel-control-next bloom-album-control"
+      type="button"
+      data-bs-target="#bloomAlbumCarousel"
+      data-bs-slide="next"
+      aria-label="下一頁"
+      data-i18n-aria-label="bloom.showcaseNext"
+    >
+      <span
+        class="carousel-control-next-icon"
+        aria-hidden="true"
+      ></span>
+    </button>
+
+    <!-- 頁面指示點：封面 + 21 張明信片 + 封底 -->
+    <div class="carousel-indicators bloom-album-indicators">
+
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="0"
+          class="active"
+          
+            aria-current="true"
+          
+          aria-label="第 1 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="1"
+          class=""
+          
+          aria-label="第 2 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="2"
+          class=""
+          
+          aria-label="第 3 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="3"
+          class=""
+          
+          aria-label="第 4 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="4"
+          class=""
+          
+          aria-label="第 5 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="5"
+          class=""
+          
+          aria-label="第 6 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="6"
+          class=""
+          
+          aria-label="第 7 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="7"
+          class=""
+          
+          aria-label="第 8 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="8"
+          class=""
+          
+          aria-label="第 9 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="9"
+          class=""
+          
+          aria-label="第 10 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="10"
+          class=""
+          
+          aria-label="第 11 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="11"
+          class=""
+          
+          aria-label="第 12 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="12"
+          class=""
+          
+          aria-label="第 13 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="13"
+          class=""
+          
+          aria-label="第 14 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="14"
+          class=""
+          
+          aria-label="第 15 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="15"
+          class=""
+          
+          aria-label="第 16 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="16"
+          class=""
+          
+          aria-label="第 17 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="17"
+          class=""
+          
+          aria-label="第 18 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="18"
+          class=""
+          
+          aria-label="第 19 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="19"
+          class=""
+          
+          aria-label="第 20 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="20"
+          class=""
+          
+          aria-label="第 21 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="21"
+          class=""
+          
+          aria-label="第 22 頁"
+        ></button>
+      
+        <button
+          type="button"
+          data-bs-target="#bloomAlbumCarousel"
+          data-bs-slide-to="22"
+          class=""
+          
+          aria-label="第 23 頁"
+        ></button>
+      
+
+    </div>
+
+  </div>
+
+  <!-- 概念作品說明 -->
+  <p
+    class="bloom-album-caption text-center mt-3"
+    data-i18n="bloom.showcaseNote"
+  >
+    此相冊為概念展示，圖片與內容僅用於作品集示意。
+  </p>
+
+</section>
+        
+
+
+
+
+
+
         <div class="case-implementation">
           <div>
             <p class="eyebrow" data-i18n="case.implementationEyebrow">

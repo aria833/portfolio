@@ -373,3 +373,63 @@ document.addEventListener("DOMContentLoaded", () => {
     topicIcon.classList.add("bi-plus-lg");
   });
 });
+
+/**
+ * Bloom Memories 相冊圖片語系切換
+ *
+ * 封面與封底共用同一張圖片。
+ * 只有 21 張明信片會依照網站語系切換。
+ */
+function updateBloomAlbumImages() {
+  // 取得 CarrotLab 目前使用的語系
+  const language = window.CarrotLabI18n?.getLanguage?.() || "zh-TW";
+
+  // 網站語系對應的圖片檔名
+  const languageSuffix = {
+    "zh-TW": "tw",
+    en: "en",
+    ja: "jp",
+  };
+
+  // 找不到對應語系時，預設使用繁體中文
+  const suffix = languageSuffix[language] || "tw";
+
+  // 找出相冊內所有明信片
+  const postcards = document.querySelectorAll(
+    "#bloomAlbumCarousel [data-bloom-postcard]",
+  );
+
+  postcards.forEach((img) => {
+    // 取得明信片編號
+    const postcardNumber = img.dataset.bloomPostcard;
+
+    // 組合對應語系的圖片路徑
+    const imageUrl =
+      `${img.dataset.imageBase || img.src.substring(0, img.src.lastIndexOf("/") + 1)}` +
+      `japan_${postcardNumber}_${suffix}.png`;
+
+    // 只有圖片路徑不同時才更新
+    if (img.getAttribute("src") !== imageUrl) {
+      img.setAttribute("src", imageUrl);
+    }
+
+    // 更新圖片替代文字
+    const altText = {
+      "zh-TW": `日本旅行明信片 ${postcardNumber}`,
+      en: `Japan travel postcard ${postcardNumber}`,
+      ja: `日本旅行のポストカード ${postcardNumber}`,
+    };
+
+    img.alt = altText[language] || altText["zh-TW"];
+  });
+}
+
+// 網頁載入後，依照目前語系更新圖片
+document.addEventListener("DOMContentLoaded", () => {
+  updateBloomAlbumImages();
+});
+
+// 網站語系切換時，同步更新相冊圖片
+document.addEventListener("languageChanged", () => {
+  updateBloomAlbumImages();
+});
