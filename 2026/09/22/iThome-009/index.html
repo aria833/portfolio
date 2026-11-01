@@ -20,8 +20,12 @@
   />
 
   <!-- 2. Favicon & 裝置圖示 -->
-  <link rel="icon" type="image/png" href="/images/logo.png" />
-  <link rel="apple-touch-icon" href="/images/logo.png" />
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
 
   <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
   <meta
@@ -40,7 +44,7 @@
   <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
   <meta
     property="og:image"
-    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
   />
   <meta property="og:locale" content="zh_TW" />
 
@@ -56,7 +60,7 @@
   />
   <meta
     name="twitter:image"
-    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
   />
 
   <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
@@ -112,7 +116,7 @@
     <div class="container">
       <!-- icon -->
       <a class="navbar-brand brand-mark" href="/">
-        <img src="/images/logo.png" alt="logo" />
+        <img src="/images/logo.webp" alt="logo" />
         <span>Aria's CarrotLab</span>
       </a>
 
@@ -349,7 +353,7 @@
 
     <div class="article-content"><p>在上一篇文章中，介紹了如何運用 <strong>Accordion（手風琴）</strong> 元件來製作常見 FAQ 的頁面。這個元件同樣非常適合延伸套用在「任務列表頁面」上，讓過長的內容可以自由折疊，維持介面的乾淨清爽。</p>
 <p>不過在任務列表的情境中，需要加上一些視覺變化來滿足實際的產品需求：<strong>在手風琴標題上直觀呈現任務進度與累積時數</strong>。</p>
-<p>先將手風琴元件套用到任務清單頁面：<br><img src="https://raw.githubusercontent.com/aria833/img/main/tasklist-accordion.png" alt="套用了accordion的task-list"></p>
+<p>先將手風琴元件套用到任務清單頁面：<br><img src="https://raw.githubusercontent.com/aria833/img/main/tasklist-accordion.webp" alt="套用了accordion的task-list"></p>
 <hr>
 <h2 id="步驟-1-：引入-Progress-元件讓進度視覺化"><a href="#步驟-1-：引入-Progress-元件讓進度視覺化" class="headerlink" title="步驟 1 ：引入 Progress 元件讓進度視覺化"></a>步驟 1 ：引入 Progress 元件讓進度視覺化</h2><p>為了可以直觀地看到進度，我選擇在 Accordion 的標題按鈕（<code>&lt;button&gt;</code>）內部放上 Bootstrap 5 的 <strong><code>progress</code> 元件</strong> 與 <strong>總計時數文字</strong>。</p>
 <h3 id="Progress-Bar-簡介"><a href="#Progress-Bar-簡介" class="headerlink" title="Progress Bar 簡介"></a>Progress Bar 簡介</h3><p>Bootstrap 的 Progress 元件由兩層結構組成：</p>
@@ -366,7 +370,7 @@
 <h2 id="實作中遇到的版面問題：如何讓進度條起點完美對齊？"><a href="#實作中遇到的版面問題：如何讓進度條起點完美對齊？" class="headerlink" title="實作中遇到的版面問題：如何讓進度條起點完美對齊？"></a>實作中遇到的版面問題：如何讓進度條起點完美對齊？</h2><p>在開發過程中，遇到了視覺上的排版挑戰：<strong>不同任務標題的文字長短不一，且總計時數的位數也不同</strong>。如果讓元件自然排列，會導致每個標題內的進度條起點參差不齊，看起來非常凌亂。</p>
 <p>針對這個問題，我嘗試了兩種解法：</p>
 <h3 id="❌-嘗試-1：使用-ms-auto-推擠右側容器"><a href="#❌-嘗試-1：使用-ms-auto-推擠右側容器" class="headerlink" title="❌ 嘗試 1：使用 ms-auto 推擠右側容器"></a>❌ 嘗試 1：使用 ms-auto 推擠右側容器</h3><p>最初嘗試將「進度條 + 總計時數」包在同一個容器並加上 <strong>ms-auto</strong> 推至最右側。但因為「總計時數」的字數長短不一（例如 <strong>1 天 8 小時 20 分</strong> vs <strong>21 天 8 小時 20 分</strong>），導致進度條的起點無法對齊。</p>
-<p>(使用 ms-auto 的效果)<br><img src="https://raw.githubusercontent.com/aria833/img/main/tasklist-flexbox.png" alt="使用 ms-auto 的效果"></p>
+<p>(使用 ms-auto 的效果)<br><img src="https://raw.githubusercontent.com/aria833/img/main/tasklist-flexbox.webp" alt="使用 ms-auto 的效果"></p>
 <h3 id="✅-嘗試-2：運用-Grid-System-分配欄位（最終採用）"><a href="#✅-嘗試-2：運用-Grid-System-分配欄位（最終採用）" class="headerlink" title="✅ 嘗試 2：運用 Grid System 分配欄位（最終採用）"></a>✅ 嘗試 2：運用 Grid System 分配欄位（最終採用）</h3><p>使用 Bootstrap 的 <strong>Grid System（網格系統）</strong> 來分配排版空間。</p>
 <p>在 Accordion 的標題 <code>&lt;button&gt;</code> 內部建立 <code>.row</code>，並在斷點 <code>md</code> (768px) 以上劃分欄位：</p>
 <ul>
@@ -378,10 +382,10 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;row w-100 align-items-center me-2&quot;&gt;</span><br><span class="line">  &lt;!-- 1. 左側：任務標題 (佔據 4 欄) --&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">    &lt;p class=&quot;text-truncate me-3 mb-2 mb-md-0 fw-bold&quot;&gt;</span><br><span class="line">      JavaScript線上課程</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 2. 右側：進度條與總計時數 (佔據 8 欄) --&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;d-flex align-items-center&quot;&gt;</span><br><span class="line">      &lt;!-- 進度條 --&gt;</span><br><span class="line">      &lt;div class=&quot;progress me-3 w-100&quot; style=&quot;height: 12px;&quot;&gt;</span><br><span class="line">        &lt;div</span><br><span class="line">          class=&quot;progress-bar&quot;</span><br><span class="line">          role=&quot;progressbar&quot;</span><br><span class="line">          style=&quot;width: 60%&quot;</span><br><span class="line">          aria-valuenow=&quot;60&quot;</span><br><span class="line">          aria-valuemin=&quot;0&quot;</span><br><span class="line">          aria-valuemax=&quot;100&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          60%</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">      &lt;!-- 總計時間 --&gt;</span><br><span class="line">      &lt;span class=&quot;text-nowrap text-secondary d-none d-md-inline-block&quot;&gt;</span><br><span class="line">        總計：1 天 15 小時 20 分</span><br><span class="line">      &lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
 <p>透過 Grid System 分配比例後，無論標題文字和總計時間長度如何變化，所有手風琴標題內的進度條起點都會從第 5 欄的開始，呈現對齊的視覺效果。</p>
-<p>(使用 Grid System 後完美對齊)<br><img src="https://raw.githubusercontent.com/aria833/img/main/tasklist-gridsystem.png" alt="使用 Grid System 後完美對齊"></p>
+<p>(使用 Grid System 後完美對齊)<br><img src="https://raw.githubusercontent.com/aria833/img/main/tasklist-gridsystem.webp" alt="使用 Grid System 後完美對齊"></p>
 <hr>
 <h2 id="步驟-2-：製作展開後的子任務清單"><a href="#步驟-2-：製作展開後的子任務清單" class="headerlink" title="步驟 2 ：製作展開後的子任務清單"></a>步驟 2 ：製作展開後的子任務清單</h2><p>解決了標題排版後，接著處理點擊手風琴展開後的「子任務清單」。改寫了先前介紹過的 <strong>List Group（帶有標籤與狀態的範例）</strong> 來建立這個清單。</p>
-<p><img src="https://raw.githubusercontent.com/aria833/img/main/list%20group%20with%20badge.png" alt="帶有標籤的範例"></p>
+<p><img src="https://raw.githubusercontent.com/aria833/img/main/list%20group%20with%20badge.webp" alt="帶有標籤的範例"></p>
 <p>在此區塊中，我們還會用到了以下三個 Bootstrap 元件：</p>
 <ul>
 <li><p><strong>Badges（標籤）</strong>：用於標示子任務狀態（例如：未開始、進行中、已完成）。</p>
@@ -391,7 +395,7 @@
 <li><p><strong>Bootstrap Icons</strong>：配合按鈕呈現「編輯」與「刪除」等操作圖示。</p>
 </li>
 </ul>
-<p>(任務清單)<br><img src="https://raw.githubusercontent.com/aria833/img/main/tasklist_ver1.png" alt="任務清單"></p>
+<p>(任務清單)<br><img src="https://raw.githubusercontent.com/aria833/img/main/tasklist_ver1.webp" alt="任務清單"></p>
 <p>(參考資料：<a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/5.0/components/badge/"><em>Bootstrap 5 components-Badges</em></a>、<a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/5.0/components/buttons/"><em>Bootstrap 5 components-Buttons</em></a>)</p>
 <hr>
 <h3 id="補充：如何在專案中導入-Bootstrap-Icons？"><a href="#補充：如何在專案中導入-Bootstrap-Icons？" class="headerlink" title="補充：如何在專案中導入 Bootstrap Icons？"></a>補充：如何在專案中導入 Bootstrap Icons？</h3><p>Bootstrap 官方提供了豐富且高彈性的圖示庫。套用步驟非常簡單：</p>
@@ -706,7 +710,7 @@
     <!-- 品牌與標語 -->
     <div>
       <a class="brand-mark text-decoration-none" href="/">
-        <img src="/images/logo.png" alt="logo" />
+        <img src="/images/logo.webp" alt="logo" />
         <span>Aria's CarrotLab</span>
       </a>
 

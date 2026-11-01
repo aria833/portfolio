@@ -82,24 +82,24 @@
     // 圖片類型與各語系檔案的對照表
     const imageMap = {
       page: {
-        "zh-TW": "page_tw.png",
-        en: "page_en.png",
-        ja: "page_jp.png",
+        "zh-TW": "page_tw.webp",
+        en: "page_en.webp",
+        ja: "page_jp.webp",
       },
       edit: {
-        "zh-TW": "edit_tw.png",
-        en: "edit_en.png",
-        ja: "edit_jp.png",
+        "zh-TW": "edit_tw.webp",
+        en: "edit_en.webp",
+        ja: "edit_jp.webp",
       },
       select: {
-        "zh-TW": "select_tw.png",
-        en: "select_en.png",
-        ja: "select_jp.png",
+        "zh-TW": "select_tw.webp",
+        en: "select_en.webp",
+        ja: "select_jp.webp",
       },
       preview: {
-        "zh-TW": "preview_tw.png",
-        en: "preview_en.png",
-        ja: "preview_jp.png",
+        "zh-TW": "preview_tw.webp",
+        en: "preview_en.webp",
+        ja: "preview_jp.webp",
       },
     };
 
@@ -169,7 +169,7 @@
       // 從目前圖片路徑取得目錄
       const imageBase = img.src.substring(0, img.src.lastIndexOf("/") + 1);
 
-      const imageUrl = `${imageBase}japan_${postcardNumber}_${suffix}.png`;
+      const imageUrl = `${imageBase}japan_${postcardNumber}_${suffix}.webp`;
 
       // 只有路徑不同時才更新圖片
       if (img.getAttribute("src") !== imageUrl) {

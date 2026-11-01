@@ -20,8 +20,12 @@
   />
 
   <!-- 2. Favicon & 裝置圖示 -->
-  <link rel="icon" type="image/png" href="/images/logo.png" />
-  <link rel="apple-touch-icon" href="/images/logo.png" />
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
 
   <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
   <meta
@@ -40,7 +44,7 @@
   <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
   <meta
     property="og:image"
-    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
   />
   <meta property="og:locale" content="zh_TW" />
 
@@ -56,7 +60,7 @@
   />
   <meta
     name="twitter:image"
-    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
   />
 
   <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
@@ -112,7 +116,7 @@
     <div class="container">
       <!-- icon -->
       <a class="navbar-brand brand-mark" href="/">
-        <img src="/images/logo.png" alt="logo" />
+        <img src="/images/logo.webp" alt="logo" />
         <span>Aria's CarrotLab</span>
       </a>
 
@@ -353,32 +357,32 @@
 <ul>
 <li><strong>修改前（對比度較低，閱讀較吃力）</strong></li>
 </ul>
-<p><img src="https://github.com/aria833/img/blob/main/%E6%9A%97%E8%89%B2%E6%A8%A1%E5%BC%8F%E4%BF%AE%E6%94%B9%E5%89%8D.png?raw=true" alt="修改前（對比度較低，閱讀較吃力）"></p>
+<p><img src="https://github.com/aria833/img/blob/main/%E6%9A%97%E8%89%B2%E6%A8%A1%E5%BC%8F%E4%BF%AE%E6%94%B9%E5%89%8D.webp?raw=true" alt="修改前（對比度較低，閱讀較吃力）"></p>
 <ul>
 <li><strong>修改後（提升文字對比度，訊息更清晰）</strong></li>
 </ul>
-<p><img src="https://github.com/aria833/img/blob/main/%E6%9A%97%E8%89%B2%E6%A8%A1%E5%BC%8F%E4%BF%AE%E6%94%B9%E5%BE%8C.png?raw=true" alt="修改後（提升文字對比度，訊息更清晰）"></p>
+<p><img src="https://github.com/aria833/img/blob/main/%E6%9A%97%E8%89%B2%E6%A8%A1%E5%BC%8F%E4%BF%AE%E6%94%B9%E5%BE%8C.webp?raw=true" alt="修改後（提升文字對比度，訊息更清晰）"></p>
 <hr>
 <h2 id="儲存彈窗時間格式：保持完整秒數顯示"><a href="#儲存彈窗時間格式：保持完整秒數顯示" class="headerlink" title="儲存彈窗時間格式：保持完整秒數顯示"></a>儲存彈窗時間格式：保持完整秒數顯示</h2><p>為了避免餘光受到計時器數字跳動的干擾，我習慣開啟「隱藏秒數」功能。但在原先的邏輯中，隱藏秒數連帶讓「儲存計時紀錄」的對話框（Modal）也看不到秒數。</p>
 <p>考慮到儲存紀錄時使用者需要確認本次計時的精確時間，我修改了結算 Modal 的時間渲染邏輯：無論主計時器是否開啟隱藏秒數，在跳出儲存確認時，均強制顯示完整的時間格式（<code>HH:mm:ss</code>），確保紀錄內容精確無誤。</p>
 <ul>
 <li><strong>修改後（結算 Modal 強制顯示完整 <code>HH:mm:ss</code> 格式）</strong></li>
 </ul>
-<p><img src="https://github.com/aria833/img/blob/main/%E5%AE%8C%E6%95%B4%E9%A1%AF%E7%A4%BA%E8%A8%88%E6%99%82%E6%99%82%E9%95%B7.png?raw=true" alt="修改後（結算 Modal 強制顯示完整格式）"></p>
+<p><img src="https://github.com/aria833/img/blob/main/%E5%AE%8C%E6%95%B4%E9%A1%AF%E7%A4%BA%E8%A8%88%E6%99%82%E6%99%82%E9%95%B7.webp?raw=true" alt="修改後（結算 Modal 強制顯示完整格式）"></p>
 <hr>
 <h2 id="已完成子任務順序往後：優化選單選取效率"><a href="#已完成子任務順序往後：優化選單選取效率" class="headerlink" title="已完成子任務順序往後：優化選單選取效率"></a>已完成子任務順序往後：優化選單選取效率</h2><p>隨著專案推移、子任務越開越多，我發現已完成的任務依然留在列表上方，導致每次要選擇「進行中」的子任務時，都必須先滑過一整排已完成的項目，增加了操作時間。</p>
 <p>因此，我優化了子任務列表的渲染與排序邏輯：將狀態為「已完成」的子任務自動排至列表底部，讓使用者開啟選單時，第一時間就能直接選取尚未完成的任務，大幅提升效率。</p>
 <ul>
 <li><strong>修改後（已完成項目順序調整，優先呈現進行中任務）</strong></li>
 </ul>
-<p><img src="https://github.com/aria833/img/blob/main/%E6%94%B9%E8%AE%8A%E4%BB%BB%E5%8B%99%E6%8E%92%E5%BA%8F.png?raw=true" alt="修改後（已完成項目順序調整，優先呈現進行中任務）"></p>
+<p><img src="https://github.com/aria833/img/blob/main/%E6%94%B9%E8%AE%8A%E4%BB%BB%E5%8B%99%E6%8E%92%E5%BA%8F.webp?raw=true" alt="修改後（已完成項目順序調整，優先呈現進行中任務）"></p>
 <hr>
 <h2 id="跨分頁（Tab）切換之計時防錯提醒"><a href="#跨分頁（Tab）切換之計時防錯提醒" class="headerlink" title="跨分頁（Tab）切換之計時防錯提醒"></a>跨分頁（Tab）切換之計時防錯提醒</h2><p>在操作過程中發現了一個潛在的 UX 痛點：當計時正在進行時，若切換到其他頁面（如任務列表、常見 QA 或系統資料），介面並不會提醒「目前仍在計時中」。有時切換頁面後處理其他事情，就會忘記原本的計時器還在運作，導致下次切回時發現錄下了不準確的超長計時紀錄。</p>
 <p>為了避免這種忘記關閉計時的情況，我新增了頁面切換防呆提醒機制：當系統偵測到「計時器運作中」且使用者嘗試切換 Tab 時，會立即跳出提示視窗，詢問使用者是否需要先結束並儲存當前計時。</p>
 <ul>
 <li><strong>修改後（切換分頁時主動跳出防呆提醒，避免誤計時）</strong></li>
 </ul>
-<p><img src="https://github.com/aria833/img/blob/main/%E6%8F%90%E9%86%92%E5%88%87%E6%8F%9B%E6%B8%85%E5%96%AE.png?raw=true" alt="修改後（切換分頁時主動跳出防呆提醒，避免誤計時）"></p>
+<p><img src="https://github.com/aria833/img/blob/main/%E6%8F%90%E9%86%92%E5%88%87%E6%8F%9B%E6%B8%85%E5%96%AE.webp?raw=true" alt="修改後（切換分頁時主動跳出防呆提醒，避免誤計時）"></p>
 <hr>
 <h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>雖然在最初的產品設計與開發階段，就已經對 TaskTimer 規劃了整體藍圖；但當產品真正落地、融入自己的日常使用後，依然發現許多能讓操作更為順手與貼心的細節。</p>
 <p>這讓我體會到，開發時的藍圖設想與真實的使用情境之間，永遠存在著些許落差。而這或許正是軟體產品需要持續迭代的價值所在。</p>
@@ -686,7 +690,7 @@
     <!-- 品牌與標語 -->
     <div>
       <a class="brand-mark text-decoration-none" href="/">
-        <img src="/images/logo.png" alt="logo" />
+        <img src="/images/logo.webp" alt="logo" />
         <span>Aria's CarrotLab</span>
       </a>
 

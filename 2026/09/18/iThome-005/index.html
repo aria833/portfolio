@@ -20,8 +20,12 @@
   />
 
   <!-- 2. Favicon & 裝置圖示 -->
-  <link rel="icon" type="image/png" href="/images/logo.png" />
-  <link rel="apple-touch-icon" href="/images/logo.png" />
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
 
   <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
   <meta
@@ -40,7 +44,7 @@
   <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
   <meta
     property="og:image"
-    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
   />
   <meta property="og:locale" content="zh_TW" />
 
@@ -56,7 +60,7 @@
   />
   <meta
     name="twitter:image"
-    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
   />
 
   <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
@@ -112,7 +116,7 @@
     <div class="container">
       <!-- icon -->
       <a class="navbar-brand brand-mark" href="/">
-        <img src="/images/logo.png" alt="logo" />
+        <img src="/images/logo.webp" alt="logo" />
         <span>Aria's CarrotLab</span>
       </a>
 
@@ -411,7 +415,7 @@
 <h3 id="網格骨架實作"><a href="#網格骨架實作" class="headerlink" title="網格骨架實作"></a>網格骨架實作</h3><p>我們可以先在 <code>div</code> 加上 <code>.border</code> 輔助框線，方便在瀏覽器確認是否成功依據斷點切分比例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;container my-4&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">    &lt;!-- 左側選單：手機版 100%、md 以上佔 3 欄 --&gt;</span><br><span class="line">    &lt;div class=&quot;col-md-3 mb-3&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;border p-3&quot;&gt;Tab 選單區&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 右側內容：手機版 100%、md 以上佔 9 欄 --&gt;</span><br><span class="line">    &lt;div class=&quot;col-md-9&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;border p-3&quot;&gt;選單內容區&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
-<p>[介面呈現]<br><img src="https://raw.githubusercontent.com/aria833/img/main/grid-system.png" alt="grid system設定"></p>
+<p>[介面呈現]<br><img src="https://raw.githubusercontent.com/aria833/img/main/grid-system.webp" alt="grid system設定"></p>
 <hr>
 <h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>透過 Bootstrap 5 的 <strong>Grid System</strong>，成功建立了一套在手機端為滿版、在中大螢幕（≥ 768px）自動切分為 3:9 比例的響應式骨架。</p>
 <p>建立了劃分區域的骨架後，接下來將在這個骨架上套用 <code>Navs &amp; Tabs</code> 元件，實現免刷新頁面（SPA 體驗）的視圖切換功能。</p>
@@ -718,7 +722,7 @@
     <!-- 品牌與標語 -->
     <div>
       <a class="brand-mark text-decoration-none" href="/">
-        <img src="/images/logo.png" alt="logo" />
+        <img src="/images/logo.webp" alt="logo" />
         <span>Aria's CarrotLab</span>
       </a>
 

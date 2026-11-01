@@ -20,8 +20,12 @@
   />
 
   <!-- 2. Favicon & 裝置圖示 -->
-  <link rel="icon" type="image/png" href="/images/logo.png" />
-  <link rel="apple-touch-icon" href="/images/logo.png" />
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
 
   <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
   <meta
@@ -40,7 +44,7 @@
   <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
   <meta
     property="og:image"
-    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
   />
   <meta property="og:locale" content="zh_TW" />
 
@@ -56,7 +60,7 @@
   />
   <meta
     name="twitter:image"
-    content="https://portfolio.aria-carrotlab.com/images/og-image.jpg"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
   />
 
   <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
@@ -112,7 +116,7 @@
     <div class="container">
       <!-- icon -->
       <a class="navbar-brand brand-mark" href="/">
-        <img src="/images/logo.png" alt="logo" />
+        <img src="/images/logo.webp" alt="logo" />
         <span>Aria's CarrotLab</span>
       </a>
 
@@ -368,7 +372,7 @@
 <p>(參考資料：<a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/5.0/components/accordion/"><em>Bootstrap 5 components-Accordion</em></a>)</p>
 <hr>
 <h2 id="2-整合進常見-QA-tab-pane"><a href="#2-整合進常見-QA-tab-pane" class="headerlink" title="2. 整合進常見 QA tab-pane"></a>2. 整合進常見 QA <code>tab-pane</code></h2><p>我們將複製好的 Accordion 程式碼貼入上一篇寫好的常見 QA <code>.tab-pane</code> 容器中。<br>當點擊左側選單的「常見 QA」按鈕時，右邊就會順利呈現手風琴內容了！</p>
-<p><img src="https://raw.githubusercontent.com/aria833/img/main/accordion%20item1-example.png" alt="Accordion"></p>
+<p><img src="https://raw.githubusercontent.com/aria833/img/main/accordion%20item1-example.webp" alt="Accordion"></p>
 <p>因為官方範例預設第一個項目是展開狀態（帶有 <code>.show</code> 與未帶 <code>.collapsed</code>），但我希望初始狀態全部都是預設收合，使用者有需要再點擊展開即可，因此需要手動調整第一個項目：</p>
 <ol>
 <li><p>將第一個按鈕的 <code>class</code> 加上 <code>.collapsed</code>。</p>
@@ -376,7 +380,7 @@
 <li><p>將第一個內容區容器的 <code>class</code> 拿掉 <code>.show</code>。</p>
 </li>
 </ol>
-<p><img src="https://raw.githubusercontent.com/aria833/img/main/accordion%20item1.png" alt="revised Accordion"></p>
+<p><img src="https://raw.githubusercontent.com/aria833/img/main/accordion%20item1.webp" alt="revised Accordion"></p>
 <p>再將文字與問答替換成設計稿內容後，常見 QA 區塊就完成了。</p>
 <hr>
 <h2 id="套用-Shadows-通用類別"><a href="#套用-Shadows-通用類別" class="headerlink" title="套用 Shadows 通用類別"></a>套用 Shadows 通用類別</h2><p>為了讓畫面看起來不那麼平淡，我打算為左側的 <strong>List Group</strong> 與右側的 <strong>Accordion</strong> 加上一點微微的陰影，提升介面的視覺層次感。</p>
@@ -390,7 +394,7 @@
 </li>
 </ul>
 <p>只要在元件最外層的 <code>class</code> 中加入 <code>shadow-sm</code> 即可輕鬆完成套用：</p>
-<p>套用後的效果<br><img src="https://raw.githubusercontent.com/aria833/img/main/QA.png" alt="revised Accordion"></p>
+<p>套用後的效果<br><img src="https://raw.githubusercontent.com/aria833/img/main/QA.webp" alt="revised Accordion"></p>
 <p>(參考資料：<a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/5.0/utilities/shadows/"><em>Bootstrap 5 utilities-shadows</em></a>)</p>
 <hr>
 <h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>通過套用bootstrap的手風琴元件，再稍微更改一些設定來符合我們的設計稿，就可以快速地完成這一個功能頁面，往下一頁前進了。</p>
@@ -697,7 +701,7 @@
     <!-- 品牌與標語 -->
     <div>
       <a class="brand-mark text-decoration-none" href="/">
-        <img src="/images/logo.png" alt="logo" />
+        <img src="/images/logo.webp" alt="logo" />
         <span>Aria's CarrotLab</span>
       </a>
 
