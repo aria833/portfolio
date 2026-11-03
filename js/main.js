@@ -137,14 +137,12 @@
   function updateBloomAlbumImages() {
     const language = window.CarrotLabI18n?.getLanguage?.() || "zh-TW";
 
-    // 網站語系與圖片檔名後綴對照
     const languageSuffix = {
       "zh-TW": "tw",
       en: "en",
       ja: "jp",
     };
 
-    // 圖片替代文字
     const altText = {
       "zh-TW": "日本旅行明信片",
       en: "Japan travel postcard",
@@ -154,36 +152,26 @@
     const suffix = languageSuffix[language] || "tw";
     const description = altText[language] || altText["zh-TW"];
 
-    // 取得相冊內的明信片
     const postcards = document.querySelectorAll(
       "#bloomAlbumCarousel [data-bloom-postcard]",
     );
 
     postcards.forEach((img) => {
       const postcardNumber = img.dataset.bloomPostcard;
-
-      // 取得圖片目錄
       const imageBase = img.dataset.imageBase;
 
-      // 缺少圖片目錄時不處理
+      // 取得圖片檔名前綴，預設為 concept
+      const imagePrefix = img.dataset.imagePrefix || "concept";
+
       if (!imageBase) return;
 
       // 組合對應語系的圖片路徑
-      const imageUrl = `${imageBase}concept_${postcardNumber}_${suffix}.webp`;
-      // 相冊圖片除錯訊息
+      const imageUrl = `${imageBase}${imagePrefix}_${postcardNumber}_${suffix}.webp`;
 
-      console.log("目前語系：", language);
-
-      console.log("明信片編號：", postcardNumber);
-
-      console.log("圖片網址：", imageUrl);
-
-      // 圖片路徑不同時才更新
       if (img.getAttribute("src") !== imageUrl) {
         img.setAttribute("src", imageUrl);
       }
 
-      // 更新圖片替代文字
       img.alt = `${description} ${postcardNumber}`;
     });
   }
