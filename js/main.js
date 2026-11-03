@@ -117,15 +117,13 @@
       // 找出目前語系對應的圖片
       const imageName = languageImages[language] || languageImages["zh-TW"];
 
-      // 取得 Hexo 產生的圖片目錄路徑
       const imageBase = img.dataset.imageBase;
 
-      // 缺少圖片路徑時不處理
+      // 缺少圖片目錄時不處理
       if (!imageBase) return;
 
-      // 組合完整圖片路徑
-      const imageUrl = `${imageBase}${imageName}`;
-
+      // 組合目前語系對應的圖片路徑
+      const imageUrl = `${imageBase.replace(/\/?$/, "/")}${imageName}`;
       // 圖片路徑不同時才更新
       if (img.getAttribute("src") !== imageUrl) {
         img.setAttribute("src", imageUrl);
@@ -133,22 +131,20 @@
     });
   }
   /**
-   * Bloom Memories：切換相冊明信片的語系
-   *
-   * 封面與封底共用同一張圖片。
-   * 只有 21 張明信片會依照網站語系切換。
+   * Bloom Memories 相冊圖片語系切換
    */
+
   function updateBloomAlbumImages() {
     const language = window.CarrotLabI18n?.getLanguage?.() || "zh-TW";
 
-    // 網站語系與圖片檔名後綴的對照
+    // 網站語系與圖片檔名後綴對照
     const languageSuffix = {
       "zh-TW": "tw",
       en: "en",
       ja: "jp",
     };
 
-    // 各語系的圖片替代文字
+    // 圖片替代文字
     const altText = {
       "zh-TW": "日本旅行明信片",
       en: "Japan travel postcard",
@@ -158,7 +154,7 @@
     const suffix = languageSuffix[language] || "tw";
     const description = altText[language] || altText["zh-TW"];
 
-    // 取得相冊中的 21 張明信片
+    // 取得相冊內的明信片
     const postcards = document.querySelectorAll(
       "#bloomAlbumCarousel [data-bloom-postcard]",
     );
@@ -166,17 +162,28 @@
     postcards.forEach((img) => {
       const postcardNumber = img.dataset.bloomPostcard;
 
-      // 從目前圖片路徑取得目錄
-      const imageBase = img.src.substring(0, img.src.lastIndexOf("/") + 1);
+      // 取得圖片目錄
+      const imageBase = img.dataset.imageBase;
 
-      const imageUrl = `${imageBase}japan_${postcardNumber}_${suffix}.webp`;
+      // 缺少圖片目錄時不處理
+      if (!imageBase) return;
 
-      // 只有路徑不同時才更新圖片
+      // 組合對應語系的圖片路徑
+      const imageUrl = `${imageBase}concept_${postcardNumber}_${suffix}.webp`;
+      // 相冊圖片除錯訊息
+
+      console.log("目前語系：", language);
+
+      console.log("明信片編號：", postcardNumber);
+
+      console.log("圖片網址：", imageUrl);
+
+      // 圖片路徑不同時才更新
       if (img.getAttribute("src") !== imageUrl) {
         img.setAttribute("src", imageUrl);
       }
 
-      // 同步更新無障礙替代文字
+      // 更新圖片替代文字
       img.alt = `${description} ${postcardNumber}`;
     });
   }
@@ -377,12 +384,12 @@
 
     // 設定動畫方向
     mobileThemeCurrent.style.setProperty(
-      "–choice-exit-x",
+      "-–choice-exit-x",
       step > 0 ? "-8px" : "8px",
     );
 
     mobileThemeCurrent.style.setProperty(
-      "–choice-enter-x",
+      "–-choice-enter-x",
       step > 0 ? "8px" : "-8px",
     );
 
