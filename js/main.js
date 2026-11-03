@@ -68,12 +68,6 @@
 
   /**
    * 依照網站語系切換作品圖片
-   *
-   * 支援類型：
-   * page：相冊內頁
-   * edit：編輯畫面
-   * select：選取明信片
-   * preview：預覽相冊
    */
   function updateLanguageImages() {
     // 取得目前網站語系
@@ -128,6 +122,15 @@
       if (img.getAttribute("src") !== imageUrl) {
         img.setAttribute("src", imageUrl);
       }
+      console.log("[Bloom Album Debug]", {
+        currentSrc: img.getAttribute("src"),
+
+        imageUrl,
+
+        imagePrefix,
+
+        language,
+      });
     });
   }
   /**
@@ -144,9 +147,9 @@
     };
 
     const altText = {
-      "zh-TW": "日本旅行明信片",
-      en: "Japan travel postcard",
-      ja: "日本旅行のポストカード",
+      "zh-TW": "產品概念簡報",
+      en: "Product Concept Presentation",
+      ja: "コンセプトプレゼン",
     };
 
     const suffix = languageSuffix[language] || "tw";
