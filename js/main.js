@@ -122,15 +122,6 @@
       if (img.getAttribute("src") !== imageUrl) {
         img.setAttribute("src", imageUrl);
       }
-      console.log("[Bloom Album Debug]", {
-        currentSrc: img.getAttribute("src"),
-
-        imageUrl,
-
-        imagePrefix,
-
-        language,
-      });
     });
   }
   /**
