@@ -1,0 +1,1124 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>CarrotLab — ARIA&#39;S CARROTLAB</title>
+  <meta
+    name="description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/projects/carrotlab/index.html"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="website"
+  />
+  <meta
+    property="og:title"
+    content="CarrotLab — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/projects/carrotlab/index.html" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="CarrotLab — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SZD9X7XMWG"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-SZD9X7XMWG");
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1">
+
+<section class="carrotlab-hero">
+  <div class="container">
+    <a class="back-link detail-back" href="/projects/">
+      <i class="bi bi-arrow-left" aria-hidden="true"></i>
+      <span data-i18n="projects.back">返回作品集</span>
+    </a>
+
+    <div class="carrotlab-hero__grid">
+      <div class="carrotlab-hero__copy">
+        <p class="eyebrow"><span>CASE STUDY</span> / 01 · RELEASED</p>
+        <h1 data-i18n="project.carrotlab.title">CarrotLab</h1>
+        <p class="carrotlab-hero__lead" data-i18n="carrotlab.heroLead">
+          把好奇心、設計與程式實驗，慢慢做成一座可以持續成長的個人網站。
+        </p>
+        <div class="carrotlab-hero__tags" aria-label="Project tools">
+          <span>Personal Web</span><span>Content Design</span><span>Hexo</span
+          ><span>EJS</span>
+        </div>
+      </div>
+
+      <div class="carrotlab-lab-art" aria-hidden="true">
+        <div class="carrotlab-lab-art__window">
+          <div class="carrotlab-lab-art__bar">
+            <i></i><i></i><i></i><span>CarrotLab / home</span>
+          </div>
+          <div class="carrotlab-lab-art__scene">
+            <span class="carrotlab-lab-art__moon">✦</span>
+            <div class="carrotlab-lab-art__road"></div>
+          </div>
+        </div>
+        <span class="carrotlab-lab-art__sticker sticker-a">curiosity</span>
+        <span class="carrotlab-lab-art__sticker sticker-b">make it real</span>
+      </div>
+    </div>
+
+    <div class="carrotlab-meta-row">
+      <div>
+        <span data-i18n="detail.roleLabel">我的角色</span
+        ><strong data-i18n="carrotlab.role"
+          >資訊架構、介面設計與前端開發</strong
+        >
+      </div>
+      <div>
+        <span data-i18n="detail.typeLabel">專案類型</span
+        ><strong data-i18n="carrotlab.type">個人網站</strong>
+      </div>
+      <div>
+        <span data-i18n="detail.toolsLabel">工具與方法</span
+        ><strong>Hexo · EJS · Bootstrap 5 · CSS</strong>
+      </div>
+      <div>
+        <span data-i18n="case.timelineLabel">狀態</span
+        ><strong data-i18n="carrotlab.status">2026/10/17~持續迭代中</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="carrotlab-case">
+  <section class="container carrotlab-section carrotlab-origin">
+    <div class="carrotlab-section-heading">
+      <span>01</span>
+      <div>
+        <p class="eyebrow">THE ORIGIN</p>
+        <h2 data-i18n="carrotlab.originTitle">從展示作品，到記錄成長</h2>
+      </div>
+    </div>
+    <div class="carrotlab-origin__layout align-items-center">
+      <div class="carrotlab-pullquote">
+        <span class="carrotlab-pullquote__label">CORE IDEA</span>
+
+        <p data-i18n="carrotlab.originQuote">
+          作品不該只在完成時才被更新；它也可以跟著學習、嘗試與修正一起長大
+        </p>
+      </div>
+      <div class="carrotlab-prose">
+        <p data-i18n="carrotlab.originCopy1">
+          原本，我想將作品集與技術文章分開經營。開始參與鐵人賽後，我逐漸發現，文章不只是學習成果的輸出，更能記錄過程中的想法、嘗試與問題解法。
+        </p>
+        <p data-i18n="carrotlab.originCopy2">
+          因此，我決定將兩者整合，讓作品集不再只是展示完成品的地方，也能記錄每一次學習、優化與成長，讓作品與探索過程成為一段完整的旅程。
+        </p>
+      </div>
+    </div>
+    <div class="carrotlab-path" aria-label="CarrotLab journey">
+      <article>
+        <span>01</span><i class="bi bi-grid-1x2" aria-hidden="true"></i>
+        <h3 data-i18n="carrotlab.pathPortfolioTitle">作品集</h3>
+        <p data-i18n="carrotlab.pathPortfolioCopy">
+          把設計與開發成果整理成可閱讀的案例
+        </p>
+      </article>
+      <article>
+        <span>02</span><i class="bi bi-journal-text" aria-hidden="true"></i>
+        <h3 data-i18n="carrotlab.pathNotesTitle">學習筆記</h3>
+        <p data-i18n="carrotlab.pathNotesCopy">
+          記錄想法、決策、嘗試與解題過程
+        </p>
+      </article>
+      <article>
+        <span>03</span><i class="bi bi-arrow-repeat" aria-hidden="true"></i>
+        <h3 data-i18n="carrotlab.pathLoopTitle">持續迭代</h3>
+        <p data-i18n="carrotlab.pathLoopCopy">
+          讓每一次學習，都能回到下一次的作品裡
+        </p>
+      </article>
+    </div>
+  </section>
+  <section class="container carrotlab-section carrotlab-build">
+    <div class="carrotlab-section-heading">
+      <span>02</span>
+      <div>
+        <p class="eyebrow">BUILD &amp; LEARN</p>
+        <h2 data-i18n="carrotlab.buildTitle">
+          從 Hexo 出發，一步步打造自己的網站
+        </h2>
+      </div>
+    </div>
+    <div class="carrotlab-build__grid">
+      <div class="carrotlab-prose">
+        <p data-i18n="carrotlab.buildCopy">
+          原本考慮使用 Webflow 或 Framer
+          架站，但隨著前端學習逐漸累積，開始能自己撰寫網站、設計動畫並部署上線後，也想挑戰親手打造自己的網站。No-code
+          工具雖然方便，但我希望能有更多互動與設計上的自由度，像是網站裡的吊燈開關，就是其中一個小小的實驗。
+        </p>
+        <p data-i18n="carrotlab.struggleCopy">
+          整合兩個網站的過程也讓我遇上不少挑戰。尤其一開始不熟悉
+          EJS，常常為了調整一小段程式碼花上不少時間。不過，也是在這些反覆嘗試的過程中，逐漸理解模板、內容與畫面之間是如何連動的。
+        </p>
+      </div>
+      <aside class="carrotlab-why-hexo">
+        <p class="eyebrow">WHY HEXO</p>
+        <ol>
+          <li data-i18n="carrotlab.hexo1">
+            架構相對簡單，適合長期維護與持續寫作。
+          </li>
+          <li data-i18n="carrotlab.hexo2">
+            已經熟悉 Markdown，可以專注在內容本身。
+          </li>
+          <li data-i18n="carrotlab.hexo3">
+            文章以檔案形式保存，方便備份與遷移。
+          </li>
+          <li data-i18n="carrotlab.hexo4">內建文章、標籤等部落格管理機制。</li>
+          <li data-i18n="carrotlab.hexo5">
+            保有足夠的彈性，能逐步打造自己的網站風格。
+          </li>
+        </ol>
+      </aside>
+    </div>
+  </section>
+  <section class="carrotlab-section carrotlab-motivation">
+    <div class="container">
+      <div class="carrotlab-section-heading">
+        <span>03</span>
+        <div>
+          <p class="eyebrow">THE CARROT METAPHOR</p>
+          <h2 data-i18n="carrotlab.motivationTitle">
+            往前走，不是因為害怕，而是因為有想去的地方
+          </h2>
+        </div>
+      </div>
+      <div class="carrotlab-motivation__grid align-items-center">
+        <div class="carrotlab-carrot-illustration" aria-hidden="true">
+          <div class="carrot-car" aria-hidden="true">
+  <svg
+    class="carrot-car__illustration"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 250 180"
+    preserveAspectRatio="xMidYMid meet"
+    focusable="false"
+  >
+    <defs>
+      <!-- 胡蘿蔔車身漸層 -->
+      <linearGradient id="carrot-body-gradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="var(--carrot-highlight)" />
+        <stop offset="48%" stop-color="var(--carrot-body-shadow)" />
+        <stop offset="100%" stop-color="var(--carrot-body-deep)" />
+      </linearGradient>
+      <!-- 葉片漸層 -->
+      <linearGradient id="carrot-leaf-gradient" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="var(--carrot-leaf-highlight)" />
+        <stop offset="100%" stop-color="var(--carrot-leaf-deep)" />
+      </linearGradient>
+      <!-- 車身柔和陰影 -->
+      <filter
+        id="carrot-body-shadow"
+        x="-15%"
+        y="-15%"
+        width="130%"
+        height="145%"
+      >
+        <feDropShadow
+          dx="0"
+          dy="3"
+          stdDeviation="2.5"
+          flood-color="var(--carrot-shadow)"
+          flood-opacity="1"
+        />
+      </filter>
+    </defs>
+    <!-- 胡蘿蔔車身 -->
+    <g class="carrot-car__body">
+      <path
+        class="carrot-body-shape"
+        d="
+          M 30 113
+          C 19 109, 14 98, 14 82
+          C 14 65, 24 49, 39 40
+          C 49 34, 58 39, 69 49
+          C 80 59, 91 66, 106 65
+          C 119 65, 129 58, 136 46
+          C 143 34, 150 26, 164 27
+          C 179 28, 188 39, 188 53
+          L 188 91
+          C 188 104, 178 111, 161 115
+          C 128 122, 75 124, 43 119
+          C 37 118, 33 116, 30 113
+          Z
+        "
+        fill="url(#carrot-body-gradient)"
+        stroke="none"
+        filter="url(#carrot-body-shadow)"
+      />
+      <!-- 車身手繪細節 -->
+      <path
+        d="M 42 91 Q 49 93 55 89"
+        fill="none"
+        stroke="var(--carrot-body-deep)"
+        stroke-opacity="0.65"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M 84 105 Q 92 108 100 104"
+        fill="none"
+        stroke="var(--carrot-body-deep)"
+        stroke-opacity="0.65"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M 130 103 Q 137 105 143 101"
+        fill="none"
+        stroke="var(--carrot-body-deep)"
+        stroke-opacity="0.65"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <!-- 車身亮面 -->
+      <path
+        d="M 35 65 Q 42 53 51 50"
+        fill="none"
+        stroke="var(--carrot-highlight)"
+        stroke-width="3"
+        stroke-linecap="round"
+      />
+    </g>
+    <!-- 車輪：後繪製，讓車輪位於車身前景 -->
+    <g class="carrot-car__wheels">
+      <!-- 前輪 -->
+      <g class="carrot-wheel wheel-a">
+        <circle
+          cx="59"
+          cy="132"
+          r="17"
+          fill="var(--carrot-wheel)"
+          stroke="none"
+        />
+        <circle
+          cx="59"
+          cy="132"
+          r="11.5"
+          fill="var(--carrot-wheel-inner)"
+          stroke="none"
+        />
+        <circle
+          cx="59"
+          cy="132"
+          r="7.5"
+          fill="var(--carrot-leaf-deep)"
+          stroke="none"
+        />
+        <path
+          d="M 54 127 Q 59 124 63 128"
+          fill="none"
+          stroke="var(--carrot-leaf-highlight)"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </g>
+      <!-- 後輪 -->
+      <g class="carrot-wheel wheel-b">
+        <circle
+          cx="160"
+          cy="132"
+          r="17"
+          fill="var(--carrot-wheel)"
+          stroke="none"
+        />
+        <circle
+          cx="160"
+          cy="132"
+          r="11.5"
+          fill="var(--carrot-wheel-inner)"
+          stroke="none"
+        />
+        <circle
+          cx="160"
+          cy="132"
+          r="7.5"
+          fill="var(--carrot-leaf-deep)"
+          stroke="none"
+        />
+        <path
+          d="M 155 127 Q 160 124 164 128"
+          fill="none"
+          stroke="var(--carrot-leaf-highlight)"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </g>
+    </g>
+    <!-- 車尾葉片 -->
+    <g class="carrot-car__leaves" transform="translate(188 49)">
+      <!-- 上方葉片 -->
+      <g class="carrot-leaf leaf-a">
+        <path
+          d="
+            M 0 0
+            C 13 -14, 34 -31, 57 -34
+            C 68 -35, 73 -29, 67 -22
+            C 55 -10, 29 -3, 0 0
+            Z
+          "
+          fill="url(#carrot-leaf-gradient)"
+          stroke="none"
+        />
+        <path
+          d="M 2 -1 Q 32 -18 64 -27"
+          fill="none"
+          stroke="var(--carrot-leaf-deep)"
+          stroke-opacity="0.8"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </g>
+      <!-- 下方葉片 -->
+      <g class="carrot-leaf leaf-c">
+        <path
+          d="
+            M 0 0
+            C 14 12, 35 26, 55 29
+            C 66 31, 72 26, 66 19
+            C 54 8, 27 1, 0 0
+            Z
+          "
+          fill="url(#carrot-leaf-gradient)"
+          stroke="none"
+        />
+        <path
+          d="M 2 1 Q 32 17 63 25"
+          fill="none"
+          stroke="var(--carrot-leaf-deep)"
+          stroke-opacity="0.8"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </g>
+      <!-- 中間葉片：最後繪製，與上下葉片自然重疊 -->
+      <g class="carrot-leaf leaf-b">
+        <path
+          d="
+            M 0 0
+            C 18 -7, 42 -12, 63 -10
+            C 76 -9, 81 -2, 73 3
+            C 57 12, 27 6, 0 0
+            Z
+          "
+          fill="url(#carrot-leaf-gradient)"
+          stroke="none"
+        />
+        <path
+          d="M 2 0 Q 36 2 74 -3"
+          fill="none"
+          stroke="var(--carrot-leaf-deep)"
+          stroke-opacity="0.8"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </g>
+    </g>
+  </svg>
+</div>
+
+        </div>
+        <div class="carrotlab-prose">
+          <p data-i18n="carrotlab.motivationCopy1">
+            有個說法是：要讓驢子往前走，就在牠面前放一根胡蘿蔔，或用鞭子催促。我更想把「胡蘿蔔」看成前進的內在動力——想靠近的目標。
+          </p>
+          <p data-i18n="carrotlab.motivationCopy2">
+            不一定是多麼遠大的成就，也許只是幫助別人、完成一件有成就感的事，或單純享受創造的樂趣。對我而言，學習不是出於恐懼或不得不，而是源自好奇心，以及想把腦海中的想法一步步實現的熱情。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container carrotlab-section">
+    <div class="carrotlab-section-heading">
+      <span>04</span>
+      <div>
+        <p class="eyebrow">DESIGN WITH EASTER EGGS</p>
+        <h2 data-i18n="carrotlab.designTitle">
+          讓網站有個性，也留下一些等待被發現的小地方
+        </h2>
+      </div>
+    </div>
+    <div class="carrotlab-easter-grid">
+      <article class="easter-card easter-card--cat">
+        <div class="easter-card__visual logo-cat" aria-hidden="true">
+          <img src="/images/logo.webp" alt="logo">
+        </div>
+        <p class="eyebrow">LOGO</p>
+        <h3 data-i18n="carrotlab.easterLogoTitle">拿著胡蘿蔔的貓</h3>
+        <p data-i18n="carrotlab.easterLogoCopy">
+          靈感來自家裡的貓咪。某天，她挑玩具時拿著我親手做的胡蘿蔔，遠遠看起來有點像拿著什麼兵器。除此之外，胡蘿蔔偶爾也會成為她的小枕頭。
+        </p>
+      </article>
+      <article class="easter-card easter-card--lamp">
+        <div class="easter-card__visual lamp-scene" id="easterLampScene">
+
+          <button
+
+            class="lamp-switch__button lamp-scene__button"
+
+            id="easterLampToggle"
+
+            type="button"
+
+            aria-label="切換燈光"
+
+            aria-pressed="false"
+
+            title="拉下燈繩"
+
+          >
+
+            <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+
+          </button>
+
+        </div>
+        <p class="eyebrow">THEME TOGGLE</p>
+        <h3 data-i18n="carrotlab.easterLampTitle">像貓一樣拉一下吊燈</h3>
+        <p data-i18n="carrotlab.easterLampCopy">
+          原本想用黑貓、白貓來切換主題，甚至讓暗色模式的貓咪眼睛發光。後來覺得有點太有存在感，於是改用檯燈呈現，讓使用者也能假裝自己是正在玩燈的貓。
+        </p>
+      </article>
+      <article class="easter-card easter-card--arrow">
+        <div class="easter-card__visual carrot-arrow" aria-hidden="true">
+          <i class="bi-carrot-arrow"></i>
+        </div>
+        <p class="eyebrow">SMALL DETAIL</p>
+        <h3 data-i18n="carrotlab.easterArrowTitle">蒐集胡蘿蔔素材</h3>
+        <p data-i18n="carrotlab.easterArrowCopy">
+          網站將原本的斜箭頭換成胡蘿蔔，讓閱讀文章也像是在收集素材。隨著知識與想法累積，這些胡蘿蔔或許有一天會變成車、飛機，或更多意想不到的東西。
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="carrotlab-section carrotlab-reality">
+    <div class="container carrotlab-reality__grid">
+      <div class="carrotlab-reality__content">
+        <p class="eyebrow">IMAGINE → CREATE</p>
+
+        <h2 data-i18n="carrotlab.realityTitle">把想像，變成看得見的作品</h2>
+
+        <p class="carrotlab-prose" data-i18n="carrotlab.realityCopy">
+          首頁的胡蘿蔔車，其實藏著一個與「關於我」頁面的呼應。
+          首頁代表腦海中的想像，而親手用毛線編織的實體作品，
+          則讓這些想像有了真實的形狀。 只要願意開始，
+          就能用不同的方式，讓腦海中的點子成真。
+        </p>
+      </div>
+
+      <!-- 胡蘿蔔鉛筆 -->
+      <div class="carrot-pencil" aria-hidden="true">
+        <img src="/images/carrot car.webp" alt="carrot car">
+      </div>
+    </div>
+  </section>
+
+  <section class="container carrotlab-next w-100">
+    <div class="carrotlab-next__content w-100">
+
+      <p class="eyebrow">NEXT ITERATION</p>
+
+      <h2 data-i18n="carrotlab.nextTitle">
+        還有一些想繼續探索的事
+      </h2>
+
+      <p class="carrotlab-prose w-100" data-i18n="carrotlab.nextCopy">
+        CarrotLab 還在持續成長中。未來也想嘗試更多有趣的可能，
+        讓這座實驗室隨著新的想法不斷進化。
+      </p>
+
+      <ul class="carrotlab-next__list">
+
+<li>
+
+        <span class="next-tag">MULTILINGUAL</span>
+
+        <p data-i18n="carrotlab.next1">
+
+          讓文章也能支援更完整的多語系切換。
+
+        </p>
+
+      </li>
+
+      <li>
+
+        <span class="next-tag">NEW MEDIA ART</span>
+
+        <p data-i18n="carrotlab.next2">
+
+          嘗試新媒體藝術，探索互動、聲音與動態視覺。
+
+        </p>
+
+      </li>
+
+      <li>
+
+        <span class="next-tag">INTERACTION</span>
+
+        <p data-i18n="carrotlab.next3">
+
+          加入更多有趣的互動細節，讓瀏覽網站也成為一種體驗。
+
+        </p>
+
+      </li>
+
+      </ul>
+    </div>
+
+  </section>
+
+  <section class="container carrotlab-closing">
+    <div class="carrotlab-closing__inner">
+<div class="lab-status">
+  <span class="lab-status__light"></span>
+  <span class="lab-status__text">LAB STATUS:</span>
+  <span class="lab-status__value">OPEN</span>
+</div>
+
+
+      <div class="carrotlab-closing__decoration decoration-left">
+        ✳
+      </div>
+
+      <p data-i18n="carrotlab.closing1">
+        這裡，是我的胡蘿蔔實驗室。        
+      </p>
+      <p data-i18n="carrotlab.closing2">歡迎你來參觀，或是跟我一起玩。</p>
+
+      <div class="carrotlab-closing__decoration decoration-right">
+        <span class="closing-spark">✦</span>
+      </div>
+
+      <span class="closing-footer">
+        THANKS FOR STOPPING BY !
+      </span>
+
+    </div>
+  </section>
+</main>
+
+<div class="container">
+  <!-- Related Projects：最多顯示三個其他作品 -->
+
+
+<section class="related-projects-section">
+  <div class="related-projects-heading">
+    <div>
+      <p
+        class="eyebrow"
+        data-i18n="bloom.relatedEyebrow"
+      >
+        KEEP EXPLORING
+      </p>
+
+      <h2 data-i18n="bloom.relatedTitle">
+        繼續探索其他作品
+      </h2>
+    </div>
+
+    <a
+      href="/projects/"
+      class="related-projects-all"
+      data-i18n="detail.moreProjects"
+    >
+      探索更多作品
+      <i class="bi-carrot-arrow"></i>
+    </a>
+  </div>
+
+  <div class="related-projects-grid">
+    
+      
+
+      
+        
+        <a
+          class="related-project-card"
+          href="/projects/tasktimer/"
+        >
+          <span class="related-project-number">
+            02
+          </span>
+
+          <div class="related-project-content">
+            <h3 data-i18n="project.tasktimer.title">TaskTimer</h3>
+
+            <p data-i18n="project.tasktimer.short"></p>
+          </div>
+
+          <span class="related-project-link" aria-hidden="true">
+            <i class="bi bi-arrow-up-right"></i>
+          </span>
+        </a>
+      
+    
+      
+
+      
+        
+        <a
+          class="related-project-card"
+          href="/projects/bloom-memories/"
+        >
+          <span class="related-project-number">
+            03
+          </span>
+
+          <div class="related-project-content">
+            <h3 data-i18n="project.bloom.title">Bloom Memories</h3>
+
+            <p data-i18n="project.bloom.short"></p>
+          </div>
+
+          <span class="related-project-link" aria-hidden="true">
+            <i class="bi bi-arrow-up-right"></i>
+          </span>
+        </a>
+      
+    
+      
+
+      
+        <div
+          class="related-project-card related-project-card--empty"
+          aria-hidden="true"
+        ></div>
+      
+    
+  </div>
+</section>
+
+    </div>
+  </div>
+</section>
+
+</div></main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <!-- 品牌與標語 -->
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+
+    <!-- 聯絡方式、隱私權政策與版權 -->
+    <div class="footer-info">
+      <!-- 第一行：聯絡我與隱私權政策 -->
+      <div class="footer-links">
+        <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
+          <i class="bi bi-envelope me-1"></i>
+          <span data-i18n="footer.contact">聯絡我</span>
+        </a>
+
+        <a
+          class="footer-policy-link small text-decoration-none"
+          href="/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="footer.privacy">隱私權政策</span>
+        </a>
+      </div>
+
+      <!-- 第二行：版權 -->
+      <span class="footer-copyright small muted">
+        Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+<!--axios JS-->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

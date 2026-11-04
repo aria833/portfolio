@@ -415,3 +415,22 @@ document.addEventListener("DOMContentLoaded", () => {
     topicIcon.classList.add("bi-plus-lg");
   });
 });
+/* ========================================
+   Easter Lamp Toggle
+======================================== */
+
+const easterLampToggle = document.querySelector("#easterLampToggle");
+
+const easterLampScene = document.querySelector("#easterLampScene");
+
+if (easterLampToggle && easterLampScene) {
+  easterLampToggle.addEventListener("click", () => {
+    const isDark = easterLampScene.classList.toggle("is-dark");
+
+    easterLampToggle.setAttribute(
+      "aria-pressed",
+
+      String(isDark),
+    );
+  });
+}

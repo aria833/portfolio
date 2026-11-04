@@ -35,7 +35,7 @@
   margin-left: 7px;
 }
 
-/* 胡蘿蔔箭頭：以 CSS 線條繪製，避免 SVG mask 在部分瀏覽器中不顯示 */
+/* 胡蘿蔔箭頭 */
 .bi-carrot-arrow {
   display: inline-block;
   position: relative;

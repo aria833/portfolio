@@ -47,7 +47,7 @@ window.CarrotLabDictionaries["zh-TW"] = {
   "project.yaong.short":
     "以寵物鉤針玩具為核心的品牌網站概念，整合線上商店、課程與靈感社群。",
   "project.carrotlab.short":
-    "用 Hexo 管理學習筆記，將設計練習與前端實驗整理成持續更新的個人網站。",
+    "以 Hexo 打造的個人網站，將作品集與學習筆記結合，透過設計練習、前端實驗與開發紀錄，分享每一次的想法、嘗試與成長。讓網站不只是展示作品的地方，更是一個能持續累積靈感、實踐創意並陪伴自己不斷進步的空間。",
   "detail.caseStudy": "專案研究",
   "detail.roleLabel": "我的角色",
   "detail.typeLabel": "專案類型",
@@ -121,9 +121,9 @@ window.CarrotLabDictionaries["zh-TW"] = {
   "project.yaong.outcome":
     "好的資訊架構能把購買、學習與交流串起來，讓品牌從單次交易延伸成長期陪伴。",
   "project.carrotlab.title": "CarrotLab",
-  "project.carrotlab.intro": "把學習筆記變成一座持續生長的前端實驗室。",
+  "project.carrotlab.intro": "把學習筆記變成一座持續成長的前端實驗室。",
   "project.carrotlab.role": "資訊架構、介面設計與前端開發",
-  "project.carrotlab.type": "個人網站／學習實驗",
+  "project.carrotlab.type": "個人網站",
   "project.carrotlab.tools": "Hexo・EJS・Bootstrap 5・CSS",
   "project.carrotlab.challenge":
     "如何將持續累積的學習筆記整理成容易瀏覽、維護且具有個人風格的網站？",
@@ -233,7 +233,7 @@ window.CarrotLabDictionaries["zh-TW"] = {
   "projects.focus3": "設計到實作",
   "projects.selectedEyebrow": "CASE STUDIES",
   "projects.selectedTitle": "從問題到體驗",
-  "projects.count": "02 個專案",
+  "projects.count": "03 個專案",
   "projects.honesty":
     "案例會標示實際完成、概念設計與尚待驗證的部分；不以假設數據代替真實成果。",
   "project.status.build": "實作上線",
@@ -514,4 +514,55 @@ window.CarrotLabDictionaries["zh-TW"] = {
   "bloom.showcasePrevious": "上一頁",
   "bloom.showcaseNext": "下一頁",
   "bloom.showcaseNote": "此相冊為概念展示，圖片與內容僅用於作品集示意。",
+  "carrotlab.heroLead":
+    "把好奇心、設計與程式實驗，慢慢做成一座可以持續成長的個人網站。",
+  "carrotlab.role": "資訊架構、介面設計與前端開發",
+  "carrotlab.type": "個人網站",
+  "carrotlab.status": "2026/10/17~持續迭代中",
+  "carrotlab.originTitle": "從展示作品，到記錄成長",
+  "carrotlab.originQuote":
+    "作品不該只在完成時才被更新；它也可以跟著學習、嘗試與修正一起長大",
+  "carrotlab.originCopy1":
+    "原本，我想將作品集與技術文章分開經營。開始參與鐵人賽後，我逐漸發現，文章不只是學習成果的輸出，更能記錄過程中的想法、嘗試與問題解法。",
+  "carrotlab.originCopy2":
+    "因此，我決定將兩者整合，讓作品集不再只是展示完成品的地方，也能記錄每一次學習、優化與成長，讓作品與探索過程成為一段完整的旅程。",
+  "carrotlab.pathPortfolioTitle": "作品集",
+  "carrotlab.pathPortfolioCopy": "把設計與開發成果整理成可閱讀的案例",
+  "carrotlab.pathNotesTitle": "學習筆記",
+  "carrotlab.pathNotesCopy": "記錄想法、決策、嘗試與解題過程",
+  "carrotlab.pathLoopTitle": "持續迭代",
+  "carrotlab.pathLoopCopy": "讓每一次學習，都能回到下一次的作品裡",
+  "carrotlab.motivationTitle": "往前走，不是因為害怕，而是有因為想去的地方",
+  "carrotlab.motivationCopy1":
+    "有個說法是：要讓驢子往前走，就在牠面前放一根胡蘿蔔，或用鞭子催促。我更想把「胡蘿蔔」看成前進的內在動力——想靠近的目標。",
+  "carrotlab.motivationCopy2":
+    "不一定是多麼遠大的成就，也許只是幫助別人、完成一件有成就感的事，或單純享受創造的樂趣。對我而言，學習不是出於恐懼或不得不，而是源自好奇心，以及想把腦海中的想法一步步實現的熱情。",
+  "carrotlab.designTitle": "讓網站有個性，也留下一些等待被發現的小地方",
+  "carrotlab.easterLogoTitle": "拿著胡蘿蔔的貓",
+  "carrotlab.easterLogoCopy":
+    "靈感來自家裡的貓咪。某天，她挑玩具時拿著我親手做的胡蘿蔔，遠遠看起來有點像拿著什麼兵器。除此之外，胡蘿蔔偶爾也會成為她的小枕頭。",
+  "carrotlab.easterLampTitle": "像貓一樣拉一下吊燈",
+  "carrotlab.easterLampCopy":
+    "原本想用黑貓、白貓來切換主題，甚至讓暗色模式的貓咪眼睛發光。後來覺得有點太有存在感，於是改用檯燈呈現，讓使用者也能假裝自己是正在玩燈的貓。",
+  "carrotlab.easterArrowTitle": "蒐集胡蘿蔔素材",
+  "carrotlab.easterArrowCopy":
+    "網站將原本的斜箭頭換成胡蘿蔔，讓閱讀文章也像是在收集素材。隨著知識與想法累積，這些胡蘿蔔或許有一天會變成車、飛機，或更多意想不到的東西。",
+  "carrotlab.realityTitle": "把想像，變成看得見的作品",
+  "carrotlab.realityCopy":
+    "首頁的胡蘿蔔車，其實藏著一個與「關於我」頁面的呼應。首頁代表腦海中的想像，而親手用毛線編織的實體作品，則讓這些想像有了真實的形狀。只要願意開始，就能用不同的方式，讓腦海中的點子成真。",
+  "carrotlab.buildTitle": "選擇 Hexo，也選擇把系統慢慢弄懂",
+  "carrotlab.buildCopy":
+    "原本考慮使用 Webflow 或 Framer 架站，但隨著前端學習逐漸累積，開始能自己撰寫網站、設計動畫並部署上線後，也想挑戰親手打造自己的網站。No-code 工具雖然方便，但我希望能有更多互動與設計上的自由度，像是網站裡的吊燈開關，就是其中一個小小的實驗。",
+  "carrotlab.struggleCopy":
+    "整合兩個網站的過程也讓我遇上不少挑戰。尤其一開始不熟悉 EJS，常常為了調整一小段程式碼花上不少時間。不過，也是在這些反覆嘗試的過程中，逐漸理解模板、內容與畫面之間是如何連動的。",
+  "carrotlab.hexo1": "架構相對簡單，適合長期維護與持續寫作。",
+  "carrotlab.hexo2": "已經熟悉 Markdown，可以專注在內容本身。",
+  "carrotlab.hexo3": "文章以檔案形式保存，方便備份與遷移。",
+  "carrotlab.hexo4": "內建文章、標籤等部落格管理機制。",
+  "carrotlab.hexo5": "保有足夠的彈性，能逐步打造自己的網站風格。",
+  "carrotlab.nextTitle": "還有一些想繼續探索的事",
+  "carrotlab.nextCopy":
+    "CarrotLab 還在持續成長中。未來也想嘗試更多有趣的可能，讓這座實驗室隨著新的想法不斷進化。",
+  "carrotlab.closing1": "這裡，是我的胡蘿蔔實驗室。",
+  "carrotlab.closing2": "歡迎你來參觀，或是跟我一起玩。",
 };

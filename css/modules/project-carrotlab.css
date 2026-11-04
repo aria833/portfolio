@@ -1,0 +1,1140 @@
+.carrotlab-hero {
+  overflow: hidden;
+  padding: 3.2rem 0 3.8rem;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(
+    125deg,
+    var(--surface) 0%,
+    var(--accent-soft) 100%
+  );
+}
+.carrotlab-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.82fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+  margin-top: 2rem;
+}
+.carrotlab-hero h1 {
+  margin: 0.65rem 0 1rem;
+  font-size: clamp(3.4rem, 8vw, 6.4rem);
+  font-weight: 750;
+  letter-spacing: -0.075em;
+  line-height: 0.9;
+}
+.carrotlab-hero__lead {
+  max-width: 39rem;
+  color: var(--muted);
+  font-size: clamp(1.08rem, 2vw, 1.35rem);
+  line-height: 1.8;
+}
+.carrotlab-hero__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.carrotlab-hero__tags span {
+  padding: 0.42rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font:
+    0.65rem "DM Mono",
+    monospace;
+  letter-spacing: 0.04em;
+}
+.carrotlab-meta-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 3.5rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--line);
+}
+.carrotlab-meta-row div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.carrotlab-meta-row span {
+  color: var(--muted);
+  font:
+    0.62rem "DM Mono",
+    monospace;
+  letter-spacing: 0.08em;
+}
+.carrotlab-meta-row strong {
+  font-size: 0.83rem;
+  line-height: 1.55;
+}
+
+/* hero illustration */
+.carrotlab-lab-art {
+  position: relative;
+  width: min(100%, 430px);
+  margin-inline: auto;
+  transform: rotate(2.5deg);
+}
+.carrotlab-lab-art__window {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 1.1rem;
+  background: var(--surface);
+  box-shadow: 0 28px 54px rgba(41, 43, 34, 0.13);
+}
+.carrotlab-lab-art__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font:
+    0.56rem "DM Mono",
+    monospace;
+  letter-spacing: 0.06em;
+}
+.carrotlab-lab-art__bar i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.65;
+}
+.carrotlab-lab-art__bar span {
+  margin-left: auto;
+}
+.carrotlab-lab-art__scene {
+  position: relative;
+  height: 275px;
+  overflow: hidden;
+  /* Light mode */
+  background:
+    linear-gradient(rgba(255, 253, 244, 0.05), rgba(255, 253, 244, 0.05)),
+    url("/images/carrotlab-cover.webp") center / cover no-repeat;
+  transition: background-color 0.3s ease;
+}
+/* Dark Mode */
+html[data-bs-theme="dark"] .carrotlab-lab-art__scene {
+  background:
+    linear-gradient(rgba(25, 27, 24, 0.3), rgba(25, 27, 24, 0.3)),
+    url("/images/carrotlab-cover-dark.webp") center / cover no-repeat;
+}
+.carrotlab-lab-art__moon {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  color: #f6b65e;
+  font-size: 2rem;
+}
+
+.carrotlab-lab-art__road {
+  position: absolute;
+  right: -8%;
+  bottom: -50px;
+  width: 120%;
+  height: 80px;
+  border-radius: 50% 50% 0 0;
+  background: #7f9071;
+}
+.carrotlab-lab-art__road::after {
+  position: absolute;
+  inset: 20% 0 auto;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 14px,
+    #f4df9f 14px 28px
+  );
+  content: "";
+}
+html[data-bs-theme="dark"] .carrotlab-lab-art__road {
+  background: #465440;
+}
+
+html[data-bs-theme="dark"] .carrotlab-lab-art__sticker {
+  background: #292d27;
+
+  color: #d5dfca;
+
+  border-color: #454b40;
+}
+.carrotlab-lab-art__body {
+  position: absolute;
+  inset: 22px 0 0;
+  border-radius: 60% 35% 35% 45%;
+  background: #ed744b;
+  box-shadow: inset -15px -8px #d9633d;
+  transform: rotate(-7deg);
+}
+
+.carrotlab-lab-art__sticker {
+  position: absolute;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fffdf4;
+  color: #54634e;
+  box-shadow: 0 5px 12px rgba(41, 43, 34, 0.1);
+  font:
+    0.53rem "DM Mono",
+    monospace;
+}
+.sticker-a {
+  top: 4%;
+  left: -8%;
+  transform: rotate(-9deg);
+}
+.sticker-b {
+  right: -6%;
+  bottom: 2%;
+  transform: rotate(7deg);
+}
+
+.carrotlab-case {
+  overflow: hidden;
+}
+.carrotlab-section {
+  padding-top: clamp(4.5rem, 10vw, 8rem);
+  padding-bottom: clamp(4.5rem, 10vw, 8rem);
+}
+.carrotlab-section-heading {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 2.6rem;
+}
+.carrotlab-section-heading > span {
+  padding-top: 0.45rem;
+  color: var(--accent);
+  font:
+    0.8rem "DM Mono",
+    monospace;
+}
+.carrotlab-section-heading .eyebrow {
+  margin-bottom: 0.55rem;
+}
+.carrotlab-section-heading h2,
+.carrotlab-reality h2,
+.carrotlab-next h2 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(2rem, 4.4vw, 3.45rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1.1;
+}
+.carrotlab-prose {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 2;
+}
+.carrotlab-prose p + p {
+  margin-top: 1.15rem;
+}
+.carrotlab-origin__layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.15fr);
+  gap: clamp(2rem, 7vw, 7rem);
+}
+.carrotlab-pullquote {
+  margin: 2.5rem 0;
+  padding: 1.5rem 1.75rem;
+
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: var(--surface);
+}
+
+.carrotlab-pullquote__label {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  font:
+    0.65rem "DM Mono",
+    monospace;
+  letter-spacing: 0.12em;
+}
+
+.carrotlab-pullquote p {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.7;
+}
+.carrotlab-path {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 4rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  align-items: stretch;
+}
+
+.carrotlab-path article {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem 1.5rem 1.7rem 0;
+}
+
+.carrotlab-path article + article {
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--line);
+}
+
+.carrotlab-path span {
+  color: var(--accent);
+  font:
+    0.6rem "DM Mono",
+    monospace;
+}
+
+.carrotlab-path i {
+  display: block;
+  margin: 1.5rem 0 0.8rem;
+  color: var(--accent);
+  font-size: 1.45rem;
+}
+
+.carrotlab-path h3 {
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.carrotlab-path p {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+.carrotlab-motivation {
+  background: var(--accent-soft);
+}
+.carrotlab-motivation__grid {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.7fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: clamp(2rem, 9vw, 8rem);
+}
+.carrotlab-carrot-illustration {
+  position: relative;
+  width: min(100%, 245px);
+  height: 290px;
+  margin: auto;
+  transform: rotate(21deg);
+}
+.carrot-shape {
+  position: absolute;
+  top: 77px;
+  left: 45px;
+  width: 135px;
+  height: 190px;
+  border-radius: 55% 45% 65% 35%;
+  background: #ed744b;
+  transform: rotate(45deg);
+  box-shadow: inset -13px -11px #d76140;
+}
+.carrot-line {
+  position: absolute;
+  z-index: 1;
+  width: 53px;
+  height: 3px;
+  border-radius: 99px;
+  background: #cc5639;
+  transform: rotate(35deg);
+}
+.line-one {
+  top: 145px;
+  left: 80px;
+}
+.line-two {
+  top: 190px;
+  left: 104px;
+}
+.carrotlab-carrot-illustration > [class^="leaf"] {
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  width: 46px;
+  height: 112px;
+  border-radius: 100% 0 100% 0;
+  background: #5b8961;
+  transform-origin: bottom;
+}
+.leaf-one {
+  left: 77px;
+  transform: rotate(-42deg);
+}
+.leaf-two {
+  left: 112px;
+  transform: rotate(-5deg);
+}
+.leaf-three {
+  left: 145px;
+  transform: rotate(33deg);
+}
+.carrotlab-easter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.easter-card {
+  min-height: 340px;
+  padding: 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface);
+}
+.easter-card__visual {
+  display: grid;
+  height: 160px;
+  margin-bottom: 1.3rem;
+  place-items: center;
+  border-radius: 0.7rem;
+  background: var(--accent-soft);
+}
+.easter-card .eyebrow {
+  margin-bottom: 0.6rem;
+  font-size: 0.59rem;
+}
+.easter-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.easter-card p:last-child {
+  color: var(--muted);
+  font-size: 0.87rem;
+  line-height: 1.75;
+}
+.easter-card__visual.logo-cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.easter-card__visual.logo-cat img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.lamp-scene {
+  position: relative;
+  overflow: hidden;
+  background: #596454;
+}
+.lamp-scene__cord {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 68px;
+  background: #e8debd;
+}
+.lamp-scene__shade {
+  position: absolute;
+  top: 61px;
+  width: 80px;
+  height: 40px;
+  border-radius: 50% 50% 12px 12px;
+  background: #f1c66e;
+}
+.lamp-scene__glow {
+  position: absolute;
+  top: 99px;
+  width: 170px;
+  height: 105px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at top,
+    rgba(255, 239, 180, 0.68),
+    transparent 67%
+  );
+}
+.lamp-scene__pull {
+  position: absolute;
+  top: 96px;
+  left: calc(50% + 18px);
+  width: 2px;
+  height: 40px;
+  background: #e8debd;
+}
+.lamp-scene__pull::after {
+  position: absolute;
+  bottom: -4px;
+  left: -4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e8debd;
+  content: "";
+}
+.carrot-arrow {
+  position: relative;
+}
+
+.carrotlab-reality {
+  background: var(--carrotlab-reality-bg);
+}
+.carrotlab-reality__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 0.65fr);
+  align-items: center;
+  gap: clamp(2rem, 9vw, 8rem);
+}
+.carrotlab-reality .carrotlab-prose {
+  margin-top: 1.5rem;
+}
+.yarn-car {
+  position: relative;
+  width: 250px;
+  height: 170px;
+  margin: auto;
+  border-radius: 45% 35% 30% 35%;
+  background: repeating-radial-gradient(
+    circle at 45% 38%,
+    #db815c 0 3px,
+    #e8946c 4px 7px
+  );
+  box-shadow: inset -18px -12px rgba(145, 72, 50, 0.17);
+  transform: rotate(-8deg);
+}
+.yarn-car__leaf {
+  position: absolute;
+  top: -46px;
+  width: 42px;
+  height: 88px;
+  border-radius: 100% 0 100% 0;
+  background: repeating-radial-gradient(
+    circle at 40% 40%,
+    #648d62 0 3px,
+    #77a572 4px 7px
+  );
+}
+.leaf-left {
+  left: 83px;
+  transform: rotate(-34deg);
+}
+.leaf-right {
+  left: 122px;
+  transform: rotate(20deg);
+}
+.yarn-car__wheel {
+  position: absolute;
+  bottom: -22px;
+  width: 61px;
+  height: 61px;
+  border: 11px solid #4d5145;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle, #d7c997 0 3px, #e8dcae 4px 7px);
+}
+.wheel-left {
+  left: 30px;
+}
+.wheel-right {
+  right: 30px;
+}
+.yarn-car span {
+  position: absolute;
+  right: 2px;
+  bottom: -54px;
+  color: #65725f;
+  font:
+    0.61rem "DM Mono",
+    monospace;
+  transform: rotate(8deg);
+}
+.carrotlab-build__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.72fr);
+  gap: clamp(2rem, 7vw, 6rem);
+}
+.carrotlab-why-hexo {
+  padding: 1.8rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--accent-soft);
+}
+.carrotlab-why-hexo .eyebrow {
+  margin-bottom: 1.1rem;
+}
+.carrotlab-why-hexo ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  counter-reset: why;
+}
+.carrotlab-why-hexo li {
+  display: grid;
+  grid-template-columns: 1.8rem 1fr;
+  gap: 0.5rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.carrotlab-why-hexo li::before {
+  counter-increment: why;
+  content: "0" counter(why);
+  color: var(--accent);
+  font:
+    0.6rem "DM Mono",
+    monospace;
+  padding-top: 0.2rem;
+}
+.carrotlab-next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding: clamp(2rem, 5vw, 4rem);
+  border: 1px solid var(--line);
+  border-radius: 1.3rem;
+  background: var(--surface);
+}
+.carrotlab-next p:not(.eyebrow) {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  line-height: 1.9;
+}
+.carrotlab-next__mark {
+  flex: 0 0 auto;
+  padding: 1.2rem 0.75rem;
+  border: 1px dashed var(--accent);
+  border-radius: 99px;
+  color: var(--accent);
+  font:
+    0.7rem "DM Mono",
+    monospace;
+  writing-mode: vertical-rl;
+}
+.carrotlab-closing {
+  padding: clamp(5rem, 11vw, 9rem) 0;
+  text-align: center;
+}
+.carrotlab-closing p {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-weight: 650;
+  letter-spacing: -0.055em;
+  line-height: 1.55;
+}
+@media (max-width: 767.98px) {
+  .carrotlab-hero__grid,
+  .carrotlab-origin__layout,
+  .carrotlab-motivation__grid,
+  .carrotlab-reality__grid,
+  .carrotlab-build__grid {
+    grid-template-columns: 1fr;
+  }
+  .carrotlab-lab-art {
+    max-width: 360px;
+  }
+  .carrotlab-meta-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .carrotlab-path,
+  .carrotlab-easter-grid {
+    grid-template-columns: 1fr;
+  }
+  .carrotlab-path article + article {
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+  .easter-card {
+    min-height: 0;
+  }
+  .carrotlab-next {
+    align-items: flex-start;
+  }
+  .carrotlab-next__mark {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .carrotlab-lab-art {
+    transform: none;
+  }
+}
+/* Projects-list card preview */
+/* CarrotLab Project Visual */
+.carrot-lab {
+  position: relative;
+  min-height: 255px;
+  overflow: hidden;
+  background: #dfe8d3;
+  transition: background-color 0.3s ease;
+}
+
+.carrot-lab::before {
+  position: absolute;
+  width: 70%;
+  aspect-ratio: 2188 / 1410;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  background:
+    linear-gradient(rgba(255, 253, 244, 0.08), rgba(255, 253, 244, 0.08)),
+    url("/images/carrotlab-cover.webp") center / 100% 100% no-repeat;
+
+  border: 1px solid rgba(62, 73, 60, 0.18);
+  border-radius: 1rem;
+  box-shadow: 0 15px 30px rgba(48, 59, 44, 0.12);
+
+  content: "";
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Dark Mode */
+html[data-bs-theme="dark"] .carrot-lab {
+  background: #303a2d;
+}
+
+html[data-bs-theme="dark"] .carrot-lab::before {
+  background:
+    linear-gradient(rgba(25, 27, 24, 0.18), rgba(25, 27, 24, 0.18)),
+    url("/images/carrotlab-cover-dark.webp") center / 100% 100% no-repeat;
+
+  border-color: rgba(220, 230, 210, 0.16);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+.carrot-lab .lab-code {
+  position: absolute;
+  z-index: 1;
+  color: #5c7259;
+  font:
+    0.68rem "DM Mono",
+    monospace;
+}
+.carrot-lab .lab-code {
+  right: 5%;
+  bottom: 15%;
+}
+
+.carrotlab-hero__copy .eyebrow {
+  color: var(--accent);
+}
+.carrot-pencil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.carrot-pencil img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* 未來計畫列表 */
+.carrotlab-next__content {
+  max-width: none;
+}
+
+.carrotlab-next__list {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* 單一項目 */
+.carrotlab-next__list li {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* 最後一項不顯示底線 */
+.carrotlab-next__list li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* 英文標籤 */
+.carrotlab-next__list .next-tag {
+  flex: 0 0 125px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* 中文說明 */
+.carrotlab-next__list p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+@media (max-width: 575.98px) {
+  .carrotlab-next__list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .carrotlab-next__list .next-tag {
+    flex-basis: auto;
+  }
+}
+
+/* ========================================
+   Closing Section
+======================================== */
+
+.carrotlab-closing {
+  padding-top: 60px;
+  padding-bottom: 100px;
+}
+
+.carrotlab-closing__inner {
+  position: relative;
+  min-height: 260px;
+  padding: 60px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+}
+
+/* 上方標籤 */
+.closing-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+}
+
+/* 小圓點 */
+.closing-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 4px rgba(122, 141, 101, 0.12);
+}
+
+/* 主文字 */
+.carrotlab-closing__inner p {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: clamp(20px, 3vw, 28px);
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+/* 第一句 */
+.carrotlab-closing__inner p:first-of-type {
+  font-weight: 700;
+}
+
+/* 第二句 */
+.carrotlab-closing__inner p:last-of-type {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+/* 裝飾 */
+.carrotlab-closing__decoration {
+  position: absolute;
+  color: var(--accent);
+  pointer-events: none;
+}
+
+.decoration-left {
+  top: 42px;
+  left: 13%;
+  font-size: 30px;
+  animation: closing-rotate 12s linear infinite;
+}
+
+.decoration-right {
+  right: 13%;
+  bottom: 38px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.closing-carrot {
+  display: inline-block;
+  font-size: 35px;
+  transform: rotate(-35deg);
+  animation: closing-float 3s ease-in-out infinite;
+}
+
+.closing-spark {
+  position: absolute;
+  top: -18px;
+  right: -14px;
+  font-size: 17px;
+}
+
+/* 下方小字 */
+.closing-footer {
+  position: absolute;
+  bottom: 22px;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* 動畫 */
+@keyframes closing-float {
+  0%,
+  100% {
+    transform: rotate(-35deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(-30deg) translateY(-7px);
+  }
+}
+
+@keyframes closing-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 手機 */
+@media (max-width: 575.98px) {
+  .carrotlab-closing {
+    padding-top: 40px;
+    padding-bottom: 70px;
+  }
+
+  .carrotlab-closing__inner {
+    min-height: 230px;
+    padding: 55px 20px;
+    border-radius: 18px;
+  }
+
+  .decoration-left {
+    top: 25px;
+    left: 8%;
+    font-size: 22px;
+  }
+
+  .decoration-right {
+    right: 8%;
+    bottom: 38px;
+  }
+
+  .closing-carrot {
+    font-size: 26px;
+  }
+
+  .closing-footer {
+    font-size: 8px;
+  }
+}
+
+/* 減少動態效果 */
+@media (prefers-reduced-motion: reduce) {
+  .closing-carrot,
+  .decoration-left {
+    animation: none;
+  }
+}
+/* ========================================
+   Lab Status Light
+======================================== */
+
+/* Light Mode */
+.lab-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 15px;
+
+  background: #f0f3eb;
+  border: 1px solid #d8e0cf;
+  border-radius: 6px;
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.05),
+    inset 0 1px 2px rgba(255, 255, 255, 0.7);
+
+  margin-bottom: 26px;
+}
+
+.lab-status__light {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #80b95d;
+
+  box-shadow:
+    0 0 5px #80b95d,
+    0 0 10px rgba(128, 185, 93, 0.7);
+
+  animation: lab-pulse-light 2s ease-in-out infinite;
+}
+
+.lab-status__text {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: #77836d;
+}
+
+.lab-status__value {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #668d4c;
+
+  text-shadow:
+    0 0 5px rgba(102, 141, 76, 0.35),
+    0 0 12px rgba(102, 141, 76, 0.15);
+}
+
+/* ========================================
+   Dark Mode
+======================================== */
+
+html[data-bs-theme="dark"] .lab-status {
+  background: #252a23;
+  border-color: #414a3d;
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 0.05);
+}
+
+html[data-bs-theme="dark"] .lab-status__light {
+  background: #a8d98a;
+
+  box-shadow:
+    0 0 5px #a8d98a,
+    0 0 10px rgba(168, 217, 138, 0.7);
+}
+
+html[data-bs-theme="dark"] .lab-status__text {
+  color: #a5ad9d;
+}
+
+html[data-bs-theme="dark"] .lab-status__value {
+  color: #b8ed98;
+
+  text-shadow:
+    0 0 5px rgba(184, 237, 152, 0.5),
+    0 0 12px rgba(184, 237, 152, 0.25);
+}
+
+/* ========================================
+   Animation
+======================================== */
+
+@keyframes lab-pulse-light {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow:
+      0 0 5px #80b95d,
+      0 0 10px rgba(128, 185, 93, 0.7);
+  }
+
+  50% {
+    opacity: 0.65;
+    box-shadow:
+      0 0 2px #80b95d,
+      0 0 5px rgba(128, 185, 93, 0.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-status__light {
+    animation: none;
+  }
+}
+/* ========================================
+   Easter Lamp Scene
+======================================== */
+
+.lamp-scene {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f0f3eb;
+
+  transition: background-color 0.5s ease;
+}
+
+/* 檯燈按鈕 */
+.lamp-scene__button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* SVG 大小 */
+.lamp-scene__button .lamp-switch__svg {
+  display: block;
+  width: 80px;
+  height: 140px;
+  overflow: visible;
+}
+
+/* 開燈狀態 */
+.lamp-scene.is-dark {
+  background: #252a23;
+}
+
+.easter-card__visual.carrot-arrow .bi-carrot-arrow {
+  font-size: 5rem;
+}
+.easter-card__visual.carrot-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
