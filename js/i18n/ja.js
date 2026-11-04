@@ -17,7 +17,7 @@ window.CarrotLabDictionaries["ja"] = {
   "lang-notice": "（現在は繁体字中国語を中心に公開しています）",
 
   "strip.one": "学習ノート",
-  "strip.two": "制作実績",
+  "strip.two": "プロジェクト",
   "strip.three": "お問い合わせ",
 
   "latest.title": "最新の学習ノート",
@@ -27,7 +27,7 @@ window.CarrotLabDictionaries["ja"] = {
   "work.title": "アイデアを、ノートの中だけで終わらせない",
   "work.copy":
     "ユーザーの課題を起点に、情報を整理し、使いやすいフローを設計。\nそして、実際に動くデジタルプロダクトや新しいコンセプトへと形にします。",
-  "work.cta": "制作実績を見る",
+  "work.cta": "プロジェクトを見る",
 
   "contact.title":
     '次のアイデアを<br class="d-none d-md-block">一緒にカタチにしませんか？',
@@ -47,11 +47,11 @@ window.CarrotLabDictionaries["ja"] = {
     "面白いものをつくっている方、協業できるパートナーを探している方、アイデアを交換したい方など、さまざまな方とお話しできることを楽しみにしています！",
   "contact.compact.cta": "気軽に話しかける",
 
-  "projects.title": "制作実績",
+  "projects.title": "プロジェクト",
   "projects.intro":
     "ユーザーの課題を起点に情報やフローを整理し、実際に操作できるデジタル体験へとデザインを落とし込みます。",
   "projects.viewCase": "ケーススタディを見る",
-  "projects.back": "制作実績一覧に戻る",
+  "projects.back": "プロジェクト一覧に戻る",
 
   "blog.tagArchive": "タグ別アーカイブ",
 
@@ -91,7 +91,7 @@ window.CarrotLabDictionaries["ja"] = {
   "detail.outcomeTitle": "アイデアから操作可能なプロトタイプへ",
   "detail.reflectionEyebrow": "PROJECT REFLECTION",
   "detail.reflectionTitle": "学んだこと",
-  "detail.moreProjects": "ほかの制作実績を見る",
+  "detail.moreProjects": "ほかのプロジェクトを見る",
   "detail.contact": "このプロジェクトについて話しませんか？",
   "detail.conceptLabel": "コンセプト検討",
 
@@ -168,7 +168,7 @@ window.CarrotLabDictionaries["ja"] = {
   "project.carrotlab.challenge":
     "増え続ける学習ノートを、閲覧しやすく、管理しやすく、自分らしさのあるウェブサイトにまとめるには？",
   "project.carrotlab.context":
-    "CarrotLabでは、学習ノートをひとつひとつの実験記録として扱っています。Hexoで記事を管理し、独自テーマを通じて制作実績、学習ノート、プロフィールを統合しています。",
+    "CarrotLabでは、学習ノートをひとつひとつの実験記録として扱っています。Hexoで記事を管理し、独自テーマを通じてプロジェクト、学習ノート、プロフィールを統合しています。",
   "project.carrotlab.outcome":
     "Hexoをコンテンツ管理の基盤とする個人サイトを構築し、多言語辞書、ライト・ダークテーマ、レスポンシブレイアウトを実装しました。",
   "project.carrotlab.reflection":
@@ -581,7 +581,7 @@ window.CarrotLabDictionaries["ja"] = {
     "このデモはコンセプト検証用のプロトタイプです。実際の注文や決済は行われません。",
 
   "bloom.relatedEyebrow": "RELATED PROJECT",
-  "bloom.relatedTitle": "ほかの制作実績を見る",
+  "bloom.relatedTitle": "ほかのプロジェクトを見る",
 
   // ========================================
   // Project page additions
@@ -629,25 +629,25 @@ window.CarrotLabDictionaries["ja"] = {
   "bloom.showcaseNote": "このアルバムはポートフォリオ用のコンセプト展示です。",
   "carrotlab.heroLead":
     "好奇心、デザイン、そしてプログラムの実験を、ゆっくりと成長し続ける個人サイトへ。",
-  "carrotlab.role": "情報アーキテクチャ・UIデザイン・フロントエンド開発",
+  "carrotlab.role": "IA・UIUXデザイン・フロントエンド開発",
   "carrotlab.type": "個人ウェブサイト",
   "carrotlab.status": "2026/10/17〜 継続的にアップデート中",
   "carrotlab.originTitle": "作品を見せる場所から、成長を記録する場所へ",
   "carrotlab.originQuote":
     "作品は完成した時だけ更新されるものではなく、学びや試行錯誤、改善とともに成長していけるもの。",
   "carrotlab.originCopy1":
-    "もともとは、ポートフォリオと技術記事を分けて運用しようと考えていました。しかし「鐵人賽（IT30）」に参加し始めてから、記事は単なる学習成果の出力にとどまらず、プロセスの思考や試み、解決策を記録できるものだと気づきました。",
+    "もともとは、ポートフォリオと技術記事を分けて運用しようと考えていました。しかし「iThome 30days challenge」に参加し始めてから、記事は単なる学習成果の出力にとどまらず、プロセスの思考や試み、解決策を記録できるものだと気づきました。",
   "carrotlab.originCopy2":
     "そこで、2つを統合することにしました。ポートフォリオを単なる完成品の展示場にするのではなく、すべての学び、最適化、成長の歩みを記録し、作品と探求のプロセスをひとつの完全な旅にすることを目指しました。",
   "carrotlab.pathPortfolioTitle": "ポートフォリオ",
   "carrotlab.pathPortfolioCopy":
-    "デザインと開発の成果を読みやすいケーススタディとして整理。",
+    "デザインと開発の成果を読みやすいケーススタディとして整理",
   "carrotlab.pathNotesTitle": "学習ノート",
-  "carrotlab.pathNotesCopy": "思考、決断、試行錯誤、問題解決のプロセスを記録。",
+  "carrotlab.pathNotesCopy": "思考、決断、試行錯誤、問題解決のプロセスを記録",
   "carrotlab.pathLoopTitle": "継続的なイテレーション",
-  "carrotlab.pathLoopCopy": "毎回の学びを、次の作品へ還元していく。",
+  "carrotlab.pathLoopCopy": "毎回の学びを、次の作品に応用",
   "carrotlab.motivationTitle":
-    "恐れからではなく、行きたい場所があるから前へ進む",
+    "恐れからではなく、叶いたい目標があるから前へ進む",
   "carrotlab.motivationCopy1":
     "「ロバを進ませるには、目の前にニンジンをぶら下げるか、ムチで叩くかだ」という言葉があります。私はこの「ニンジン」を、前進するための内発的な動機——自ら近づきたい目標だと捉えています。",
   "carrotlab.motivationCopy2":
@@ -666,7 +666,7 @@ window.CarrotLabDictionaries["ja"] = {
   "carrotlab.realityTitle": "想像を、目に見える形へ",
   "carrotlab.realityCopy":
     "トップページのニンジンカーは、実は「About Me」ページと密かに連動しています。トップページは「頭の中の想像」を表し、毛糸で編んだ手作りの実体作品は「想像が現実の形になったもの」です。一歩を踏み出せば、さまざまな方法でアイデアを形にできます。",
-  "carrotlab.buildTitle": "Hexoを選び、仕組みを少しずつ理解していく道を選ぶ",
+  "carrotlab.buildTitle": "Hexoを選び、仕組みを少しずつ理解していく",
   "carrotlab.buildCopy":
     "当初はWebflowやFramerの利用も検討しましたが、フロントエンドの学習が進み、自分でコードを書き、アニメーションを設計し、デプロイできるようになるにつれ、自分の手でサイトを構築したくなりました。ノーコードツールは便利ですが、インタラクティブ性やデザインの自由度を高めたかったのです。サイト内の照明スイッチも、その小さな実験のひとつです。",
   "carrotlab.struggleCopy":
@@ -683,7 +683,7 @@ window.CarrotLabDictionaries["ja"] = {
   "carrotlab.nextTitle": "これからも探求し続けたいこと",
   "carrotlab.nextCopy":
     "CarrotLab はまだ成長の途中にあります。今後はさらに面白い可能性に挑戦し、新しいアイデアとともにこのラボを進化させていきたいです。",
-  "carrotlab.closing1": "ここが、私の CarrotLab（ニンジン実験室）です。",
+  "carrotlab.closing1": "ここが、私の CarrotLab です。",
   "carrotlab.closing2": "ぜひ見に来たり、一緒に遊んだりしていってください。",
   "carrotlab.next1":
     "記事でも、より充実した多言語切り替えに対応できるようにする。",
