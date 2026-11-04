@@ -490,10 +490,6 @@
   letter-spacing: 0.09em;
 }
 
-.bloom-kicker span + span {
-  padding-left: 1rem;
-}
-
 .bloom-hero-copy .eyebrow {
   margin-top: 2rem;
   color: #778a66;
@@ -756,10 +752,6 @@
 @media (max-width: 420px) {
   .bloom-kicker {
     gap: 0.6rem;
-  }
-
-  .bloom-kicker span + span {
-    padding-left: 0.6rem;
   }
 }
 
