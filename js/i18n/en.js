@@ -91,7 +91,7 @@ window.CarrotLabDictionaries["en"] = {
   "detail.outcomeTitle": "From Idea to Interactive Prototype",
   "detail.reflectionEyebrow": "PROJECT REFLECTION",
   "detail.reflectionTitle": "What I Learned",
-  "detail.moreProjects": "Explore More Projects",
+  "detail.moreProjects": "More Projects",
   "detail.contact": "Want to Talk About This Project?",
   "detail.conceptLabel": "Concept Exploration",
 
@@ -721,16 +721,16 @@ window.CarrotLabDictionaries["en"] = {
   "carrotlab.heroLead":
     "Turning curiosity, design, and coding experiments into a personal website that grows continuously.",
   "carrotlab.role":
-    "Information Architecture, UI Design & Frontend Development",
+    "Information Architecture, UIUX Design & Frontend Development",
   "carrotlab.type": "Personal Website",
   "carrotlab.status": "2026/10/17 ~ Iterating continuously",
   "carrotlab.originTitle": "From Showcasing Works to Recording Growth",
   "carrotlab.originQuote":
     "A project shouldn't be updated only upon completion; it can grow alongside learning, experimenting, and refining.",
   "carrotlab.originCopy1":
-    "Originally, I wanted to manage my portfolio and technical articles separately. However, after participating in the IT30 competition, I realized that articles aren't just outputs of learning—they also document ideas, experiments, and solutions along the way.",
+    "Originally, I wanted to manage my portfolio and technical articles separately. However, after participating in the iThome 30 days challenge, I realized that articles aren't just outputs of learning—they also document ideas, experiments, and solutions along the way.",
   "carrotlab.originCopy2":
-    "Therefore, I decided to integrate the two. The portfolio is no longer just a display of finished products, but a place to log every learning moment, optimization, and growth, making both the works and the exploration a complete journey.",
+    "Therefore, I decided to integrate them into one website. The portfolio is no longer just a display of finished products, but a place to log every learning moment, optimization, and growth, making both the works and the exploration a complete journey.",
   "carrotlab.pathPortfolioTitle": "Portfolio",
   "carrotlab.pathPortfolioCopy":
     "Organizing design and development outcomes into readable case studies.",
@@ -761,7 +761,7 @@ window.CarrotLabDictionaries["en"] = {
   "carrotlab.realityCopy":
     "The carrot car on the homepage subtly echoes the 'About Me' page. The homepage represents imagination in the mind, while the physical handcrafted yarn item gives that imagination a real form. As long as you're willing to start, ideas can come to life in various ways.",
   "carrotlab.buildTitle":
-    "Choosing Hexo, and Choosing to Master the System Step by Step",
+    "Choosing Hexo, and Learning to Master the System Step by Step",
   "carrotlab.buildCopy":
     "I initially considered Webflow or Framer, but as my frontend skills grew—enabling me to write code, design animations, and deploy on my own—I wanted to challenge myself to build my site from scratch. No-code tools are convenient, but I craved more interactive and creative freedom; the lamp switch in the site is one such small experiment.",
   "carrotlab.struggleCopy":
@@ -780,4 +780,10 @@ window.CarrotLabDictionaries["en"] = {
     "CarrotLab is still growing. I look forward to exploring more fun possibilities in the future, allowing this lab to evolve with new ideas.",
   "carrotlab.closing1": "This is my CarrotLab.",
   "carrotlab.closing2": "Welcome to visit, or come play along with me.",
+  "carrotlab.next1":
+    "Make blog posts support a more comprehensive multilingual experience.",
+  "carrotlab.next2":
+    "Explore new media art through interaction, sound, and dynamic visuals.",
+  "carrotlab.next3":
+    "Add more engaging interactive details, turning website browsing into an experience of its own.",
 };

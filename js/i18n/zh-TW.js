@@ -565,4 +565,9 @@ window.CarrotLabDictionaries["zh-TW"] = {
     "CarrotLab 還在持續成長中。未來也想嘗試更多有趣的可能，讓這座實驗室隨著新的想法不斷進化。",
   "carrotlab.closing1": "這裡，是我的胡蘿蔔實驗室。",
   "carrotlab.closing2": "歡迎你來參觀，或是跟我一起玩。",
+  "carrotlab.next1": "讓文章也能支援更完整的多語系切換。",
+
+  "carrotlab.next2": "嘗試新媒體藝術，探索互動、聲音與動態視覺。",
+
+  "carrotlab.next3": "加入更多有趣的互動細節，讓瀏覽網站也成為一種體驗。",
 };
