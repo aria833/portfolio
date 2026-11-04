@@ -387,7 +387,7 @@ window.CarrotLabDictionaries["zh-TW"] = {
   "bloom.constraints": "非官方概念，遊戲資料串接與印刷供應鏈尚未驗證",
   "bloom.status": "前端概念原型，非正式產品或官方服務",
   "bloom.disclaimer":
-    "Bloom Memories 是個人作品集概念專案，與 Scopely 或 Pikmin Bloom 官方無隸屬或合作關係。",
+    "Bloom Memories 是個人作品集概念專案，與任天堂、 Scopely Explore 或 Pikmin Bloom 官方無隸屬或合作關係。",
   "bloom.overviewImage": "可放服務概念、相冊樣品或主要流程",
   "bloom.problemTitle": "從數位收藏到實體商品，價值如何被延伸？",
   "bloom.pain1Title": "數位收藏缺少新的使用情境",

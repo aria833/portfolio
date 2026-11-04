@@ -510,7 +510,7 @@ window.CarrotLabDictionaries["en"] = {
     "Front-End Concept Prototype; Not an Official Product or Service",
 
   "bloom.disclaimer":
-    "Bloom Memories is a personal portfolio concept project and is not affiliated with or endorsed by Scopely or the official Pikmin Bloom team.",
+    "Bloom Memories is a personal portfolio concept project and is not affiliated with or endorsed by Nintendo, Scopely Explore or the official Pikmin Bloom team.",
 
   "bloom.overviewImage":
     "Suggested content: service concept, sample album, or key workflow.",

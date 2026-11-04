@@ -465,7 +465,7 @@ window.CarrotLabDictionaries["ja"] = {
   "bloom.status":
     "コンセプトと操作可能なフロントエンドのプロトタイプを制作しています。",
   "bloom.disclaimer":
-    "本プロジェクトは個人制作の非公式コンセプトです。任天堂およびPikmin Bloomの公式サービスではなく、公式との提携・承認を受けたものではありません。",
+    "本プロジェクトは個人制作の非公式コンセプトです。任天堂、 Scopely Explore およびPikmin Bloomの公式サービスではなく、公式との提携・承認を受けたものではありません。",
 
   "bloom.overviewImage": "Bloom Memoriesのアルバムイメージ",
 
