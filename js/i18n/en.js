@@ -719,62 +719,65 @@ window.CarrotLabDictionaries["en"] = {
   "bloom.showcaseNote":
     "This is a conceptual album created for portfolio demonstration purposes.",
   "carrotlab.heroLead":
-    "A personal site where curiosity, design, and front-end experiments can keep growing together.",
+    "Turning curiosity, design, and coding experiments into a personal website that grows continuously.",
   "carrotlab.role":
-    "Information architecture, interface design, and front-end development",
-  "carrotlab.type": "Personal website / learning experiment",
-  "carrotlab.status": "Continuously evolving",
-  "carrotlab.originTitle":
-    "What began as two websites became one shared journey",
+    "Information Architecture, UI Design & Frontend Development",
+  "carrotlab.type": "Personal Website",
+  "carrotlab.status": "2026/10/17 ~ Iterating continuously",
+  "carrotlab.originTitle": "From Showcasing Works to Recording Growth",
   "carrotlab.originQuote":
-    "A portfolio does not have to change only when a project is finished. It can grow with every attempt, revision, and lesson.",
+    "A project shouldn't be updated only upon completion; it can grow alongside learning, experimenting, and refining.",
   "carrotlab.originCopy1":
-    "At first, I wanted one personal site for my work. After joining the Ironman Contest, I also found writing to be a valuable form of output: a way to preserve ideas, decisions, failed attempts, and the paths that led to solutions.",
+    "Originally, I wanted to manage my portfolio and technical articles separately. However, after participating in the IT30 competition, I realized that articles aren't just outputs of learning—they also document ideas, experiments, and solutions along the way.",
   "carrotlab.originCopy2":
-    "I originally planned separate portfolio and technical-writing sites. I later chose to combine them, so the portfolio could become a place that evolves with my learning journey. Improvements and problem-solving notes can then sit alongside the work they shape.",
+    "Therefore, I decided to integrate the two. The portfolio is no longer just a display of finished products, but a place to log every learning moment, optimization, and growth, making both the works and the exploration a complete journey.",
   "carrotlab.pathPortfolioTitle": "Portfolio",
   "carrotlab.pathPortfolioCopy":
-    "Turn design and development work into readable case studies.",
-  "carrotlab.pathNotesTitle": "Learning notes",
-  "carrotlab.pathNotesCopy": "Keep ideas, decisions, attempts, and solutions.",
-  "carrotlab.pathLoopTitle": "Keep iterating",
-  "carrotlab.pathLoopCopy": "Let each lesson inform the next piece of work.",
+    "Organizing design and development outcomes into readable case studies.",
+  "carrotlab.pathNotesTitle": "Study Notes",
+  "carrotlab.pathNotesCopy":
+    "Documenting thoughts, decisions, experiments, and problem-solving processes.",
+  "carrotlab.pathLoopTitle": "Continuous Iteration",
+  "carrotlab.pathLoopCopy":
+    "Allowing every piece of learning to feed back into the next project.",
   "carrotlab.motivationTitle":
-    "Moving forward for where I want to go, not for fear",
+    "Moving Forward Not Out of Fear, But Out of Passion",
   "carrotlab.motivationCopy1":
-    "There is a saying that a donkey moves when a carrot is held in front of it and a whip urges it on. I prefer to see the carrot as an inner motivation: a destination worth moving toward.",
+    "There's a saying: To make a donkey walk, you put a carrot in front of it or push it with a whip. I prefer to view the 'carrot' as an intrinsic drive—a goal you truly want to reach.",
   "carrotlab.motivationCopy2":
-    "That destination does not need to be a grand achievement. It can be helping someone, the satisfaction of making something, or simply the joy of play. I learn from curiosity and a wish to make what I imagine—not from obligation or fear of being replaced.",
+    "It doesn't have to be a grand achievement; it could be helping others, accomplishing something fulfilling, or simply enjoying the joy of creation. For me, learning isn't driven by fear or obligation, but by curiosity and the passion to bring ideas to life step by step.",
   "carrotlab.designTitle":
-    "A calm website with small details waiting to be discovered",
-  "carrotlab.easterLogoTitle": "A cat holding a carrot",
+    "Giving the Site Personality and Leaving Hidden Surprises",
+  "carrotlab.easterLogoTitle": "Cat Holding a Carrot",
   "carrotlab.easterLogoCopy":
-    "A carrot replaces the gun in the logo cat, making it the playful keeper of this lab.",
-  "carrotlab.easterLampTitle": "Pull the lamp like a cat would",
+    "Inspired by my cat at home. One day, while picking out a toy, she held a handmade carrot that looked almost like a weapon from a distance. Other times, the carrot doubles as her little pillow.",
+  "carrotlab.easterLampTitle": "Pulling the Pendant Lamp Like a Cat",
   "carrotlab.easterLampCopy":
-    "The theme switch is more than day and night: visitors can pretend to be a cat playing with a lamp.",
-  "carrotlab.easterArrowTitle": "A diagonal arrow, replaced by a carrot",
+    "I initially considered using a black cat and a white cat to toggle themes, or even making the cat's eyes glow in dark mode. Feeling that might be a bit too distracting, I switched to a desk lamp, letting users playfully pretend to be a cat playing with the light pull chain.",
+  "carrotlab.easterArrowTitle": "Collecting Carrot Assets",
   "carrotlab.easterArrowCopy":
-    "New material collected while reading may slowly accumulate into a car, a plane, or something not yet imagined.",
-  "carrotlab.realityTitle":
-    "The homepage imagines it; the About page proves I can make it",
+    "The site replaced standard diagonal arrows with carrots, making reading articles feel like gathering materials. As knowledge and ideas accumulate, these carrots might one day turn into cars, airplanes, or unexpected creations.",
+  "carrotlab.realityTitle": "Turning Imagination into Tangible Works",
   "carrotlab.realityCopy":
-    "The carrot car on the homepage echoes its handmade yarn counterpart on the About page. Making an image in my head into a tangible thing is fun, even when it is not code.",
+    "The carrot car on the homepage subtly echoes the 'About Me' page. The homepage represents imagination in the mind, while the physical handcrafted yarn item gives that imagination a real form. As long as you're willing to start, ideas can come to life in various ways.",
   "carrotlab.buildTitle":
-    "Choosing Hexo also meant choosing to understand the system",
+    "Choosing Hexo, and Choosing to Master the System Step by Step",
   "carrotlab.buildCopy":
-    "I considered Webflow and Framer. Once I began learning front-end development and knew I could build, animate, and deploy a static site myself, I wanted to try. No-code tools are convenient, but I was unsure whether they could fully hold the interactions I wanted—such as this lamp switch.",
+    "I initially considered Webflow or Framer, but as my frontend skills grew—enabling me to write code, design animations, and deploy on my own—I wanted to challenge myself to build my site from scratch. No-code tools are convenient, but I craved more interactive and creative freedom; the lamp switch in the site is one such small experiment.",
   "carrotlab.struggleCopy":
-    "Bringing the two sites together was not easy. I was especially unfamiliar with EJS at first, so adjusting the code took time. It also helped me understand how templates, content, and visual output connect.",
-  "carrotlab.hexo1": "Straightforward to use for ongoing writing.",
-  "carrotlab.hexo2": "Markdown was already familiar, keeping focus on content.",
-  "carrotlab.hexo3": "Posts are easy to move, package, and keep.",
-  "carrotlab.hexo4": "Provides useful blog foundations such as posts and tags.",
-  "carrotlab.hexo5": "Offers a stable structure I can make my own over time.",
-  "carrotlab.nextTitle": "The next thing I want to improve",
+    "Merging two sites brought its share of challenges. Not being familiar with EJS at first meant spending a lot of time just tweaking short snippets of code. However, through trial and error, I gradually understood how templates, content, and views interconnect.",
+  "carrotlab.hexo1":
+    "Relatively simple architecture, suitable for long-term maintenance and writing.",
+  "carrotlab.hexo2":
+    "Familiarity with Markdown allows complete focus on content.",
+  "carrotlab.hexo3":
+    "Articles are saved as files for easy backup and migration.",
+  "carrotlab.hexo4": "Built-in blog management features for posts and tags.",
+  "carrotlab.hexo5":
+    "Sufficient flexibility to craft a custom site style over time.",
+  "carrotlab.nextTitle": "Things Still Left to Explore",
   "carrotlab.nextCopy":
-    "I would like the articles themselves to support a more complete multilingual switch, so visitors in different languages can explore this lab more comfortably.",
-  "carrotlab.closing1":
-    "這裡，是我的胡蘿蔔實驗室。<br>歡迎你來參觀，或是跟我一起玩。",
-  "carrotlab.closing2": "歡迎你來參觀，或是跟我一起玩。",
+    "CarrotLab is still growing. I look forward to exploring more fun possibilities in the future, allowing this lab to evolve with new ideas.",
+  "carrotlab.closing1": "This is my CarrotLab.",
+  "carrotlab.closing2": "Welcome to visit, or come play along with me.",
 };
