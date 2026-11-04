@@ -106,21 +106,71 @@
 .carrotlab-lab-art__bar span {
   margin-left: auto;
 }
+/* ========================================
+   CarrotLab Lab Art Scene
+======================================== */
+
 .carrotlab-lab-art__scene {
   position: relative;
   height: 275px;
   overflow: hidden;
-  /* Light mode */
+
+  /* Light Mode：繁體中文 */
   background:
     linear-gradient(rgba(255, 253, 244, 0.05), rgba(255, 253, 244, 0.05)),
-    url("/images/carrotlab-cover.webp") center / cover no-repeat;
+    url("/images/carrotlab-cover-tw.webp") center / cover no-repeat;
+
   transition: background-color 0.3s ease;
 }
-/* Dark Mode */
+
+/* ========================================
+   Language：English
+======================================== */
+
+html[lang="en"] .carrotlab-lab-art__scene {
+  background:
+    linear-gradient(rgba(255, 253, 244, 0.05), rgba(255, 253, 244, 0.05)),
+    url("/images/carrotlab-cover-en.webp") center / cover no-repeat;
+}
+
+/* ========================================
+   Language：Japanese
+======================================== */
+
+html[lang="ja"] .carrotlab-lab-art__scene {
+  background:
+    linear-gradient(rgba(255, 253, 244, 0.05), rgba(255, 253, 244, 0.05)),
+    url("/images/carrotlab-cover-jp.webp") center / cover no-repeat;
+}
+
+/* ========================================
+   Dark Mode：繁體中文
+======================================== */
+
 html[data-bs-theme="dark"] .carrotlab-lab-art__scene {
   background:
     linear-gradient(rgba(25, 27, 24, 0.3), rgba(25, 27, 24, 0.3)),
-    url("/images/carrotlab-cover-dark.webp") center / cover no-repeat;
+    url("/images/carrotlab-cover-tw-dark.webp") center / cover no-repeat;
+}
+
+/* ========================================
+   Dark Mode：English
+======================================== */
+
+html[lang="en"][data-bs-theme="dark"] .carrotlab-lab-art__scene {
+  background:
+    linear-gradient(rgba(25, 27, 24, 0.3), rgba(25, 27, 24, 0.3)),
+    url("/images/carrotlab-cover-en-dark.webp") center / cover no-repeat;
+}
+
+/* ========================================
+   Dark Mode：Japanese
+======================================== */
+
+html[lang="ja"][data-bs-theme="dark"] .carrotlab-lab-art__scene {
+  background:
+    linear-gradient(rgba(25, 27, 24, 0.3), rgba(25, 27, 24, 0.3)),
+    url("/images/carrotlab-cover-jp-dark.webp") center / cover no-repeat;
 }
 .carrotlab-lab-art__moon {
   position: absolute;
@@ -666,15 +716,9 @@ html[data-bs-theme="dark"] .carrotlab-lab-art__sticker {
     transform: none;
   }
 }
-/* Projects-list card preview */
-/* CarrotLab Project Visual */
-.carrot-lab {
-  position: relative;
-  min-height: 255px;
-  overflow: hidden;
-  background: #dfe8d3;
-  transition: background-color 0.3s ease;
-}
+/* ========================================
+   CarrotLab Cover
+======================================== */
 
 .carrot-lab::before {
   position: absolute;
@@ -686,20 +730,44 @@ html[data-bs-theme="dark"] .carrotlab-lab-art__sticker {
 
   background:
     linear-gradient(rgba(255, 253, 244, 0.08), rgba(255, 253, 244, 0.08)),
-    url("/images/carrotlab-cover.webp") center / 100% 100% no-repeat;
+    url("/images/carrotlab-cover-tw.webp") center / 100% 100% no-repeat;
 
   border: 1px solid rgba(62, 73, 60, 0.18);
   border-radius: 1rem;
   box-shadow: 0 15px 30px rgba(48, 59, 44, 0.12);
 
   content: "";
+
   transition:
     background-color 0.3s ease,
     box-shadow 0.3s ease,
     border-color 0.3s ease;
 }
 
-/* Dark Mode */
+/* ========================================
+   Language：English
+======================================== */
+
+html[lang="en"] .carrot-lab::before {
+  background:
+    linear-gradient(rgba(255, 253, 244, 0.08), rgba(255, 253, 244, 0.08)),
+    url("/images/carrotlab-cover-en.webp") center / 100% 100% no-repeat;
+}
+
+/* ========================================
+   Language：Japanese
+======================================== */
+
+html[lang="ja"] .carrot-lab::before {
+  background:
+    linear-gradient(rgba(255, 253, 244, 0.08), rgba(255, 253, 244, 0.08)),
+    url("/images/carrotlab-cover-jp.webp") center / 100% 100% no-repeat;
+}
+
+/* ========================================
+   Dark Mode：繁體中文
+======================================== */
+
 html[data-bs-theme="dark"] .carrot-lab {
   background: #303a2d;
 }
@@ -707,10 +775,30 @@ html[data-bs-theme="dark"] .carrot-lab {
 html[data-bs-theme="dark"] .carrot-lab::before {
   background:
     linear-gradient(rgba(25, 27, 24, 0.18), rgba(25, 27, 24, 0.18)),
-    url("/images/carrotlab-cover-dark.webp") center / 100% 100% no-repeat;
+    url("/images/carrotlab-cover-tw-dark.webp") center / 100% 100% no-repeat;
 
   border-color: rgba(220, 230, 210, 0.16);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* ========================================
+   Dark Mode：English
+======================================== */
+
+html[lang="en"][data-bs-theme="dark"] .carrot-lab::before {
+  background:
+    linear-gradient(rgba(25, 27, 24, 0.18), rgba(25, 27, 24, 0.18)),
+    url("/images/carrotlab-cover-en-dark.webp") center / 100% 100% no-repeat;
+}
+
+/* ========================================
+   Dark Mode：Japanese
+======================================== */
+
+html[lang="ja"][data-bs-theme="dark"] .carrot-lab::before {
+  background:
+    linear-gradient(rgba(25, 27, 24, 0.18), rgba(25, 27, 24, 0.18)),
+    url("/images/carrotlab-cover-jp-dark.webp") center / 100% 100% no-repeat;
 }
 .carrot-lab .lab-code {
   position: absolute;

@@ -2,7 +2,7 @@
 window.CarrotLabDictionaries = window.CarrotLabDictionaries || {};
 window.CarrotLabDictionaries["en"] = {
   "nav.home": "Home",
-  "nav.notes": "Learning Notes",
+  "nav.notes": "Notes",
   "nav.projects": "Projects",
   "nav.about": "About",
   title: "About Me",

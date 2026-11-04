@@ -2,8 +2,8 @@
 window.CarrotLabDictionaries = window.CarrotLabDictionaries || {};
 window.CarrotLabDictionaries["ja"] = {
   "nav.home": "ホーム",
-  "nav.notes": "学習ノート",
-  "nav.projects": "制作実績",
+  "nav.notes": "ノート",
+  "nav.projects": "プロジェクト",
   "nav.about": "プロフィール",
   title: "自己紹介",
 
@@ -12,8 +12,8 @@ window.CarrotLabDictionaries["ja"] = {
   "hero.line2": "目に見えるカタチに",
   "hero.copy":
     "こんにちは、Ariaです。ここでは、デザイン作品やプログラミングの実験、さまざまな挑戦から得た小さな発見を紹介しています。",
-  "hero.cta1": "制作実績を見る",
-  "hero.cta2": "学習ノートを読む",
+  "hero.cta1": "プロジェクトを見る",
+  "hero.cta2": "ノートを読む",
   "lang-notice": "（現在は繁体字中国語を中心に公開しています）",
 
   "strip.one": "学習ノート",
