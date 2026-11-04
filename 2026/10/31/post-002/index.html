@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- 1. 基本 SEO 資訊 -->
-  <title>Bloom Memories 效能優化｜載入時間從 22s 縮短至 1.76s — ARIA&#39;S CARROTLAB</title>
+  <title>找家無線電｜科教館多媒體導覽體驗心得 — ARIA&#39;S CARROTLAB</title>
   <meta
     name="description"
     content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
@@ -16,7 +16,7 @@
   <!-- 標準網址（防止重複內容影響權重） -->
   <link
     rel="canonical"
-    href="https://portfolio.aria-carrotlab.com/2026/11/01/dev-001/"
+    href="https://portfolio.aria-carrotlab.com/2026/10/31/post-002/"
   />
 
   <!-- 2. Favicon & 裝置圖示 -->
@@ -34,13 +34,13 @@
   />
   <meta
     property="og:title"
-    content="Bloom Memories 效能優化｜載入時間從 22s 縮短至 1.76s — ARIA&#39;S CARROTLAB"
+    content="找家無線電｜科教館多媒體導覽體驗心得 — ARIA&#39;S CARROTLAB"
   />
   <meta
     property="og:description"
     content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
   />
-  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/11/01/dev-001/" />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/10/31/post-002/" />
   <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
   <meta
     property="og:image"
@@ -52,7 +52,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta
     name="twitter:title"
-    content="Bloom Memories 效能優化｜載入時間從 22s 縮短至 1.76s — ARIA&#39;S CARROTLAB"
+    content="找家無線電｜科教館多媒體導覽體驗心得 — ARIA&#39;S CARROTLAB"
   />
   <meta
     name="twitter:description"
@@ -341,100 +341,49 @@
         <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
     </a>
     <header class="article-header">
-        <p class="eyebrow">LAB NOTES / 2026.11.01</p>
-        <h1>Bloom Memories 效能優化｜載入時間從 22s 縮短至 1.76s</h1>
+        <p class="eyebrow">LAB NOTES / 2026.10.31</p>
+        <h1>找家無線電｜科教館多媒體導覽體驗心得</h1>
         
         <div class="article-tags">
             
-                <a href="/tags/%E6%95%88%E8%83%BD%E5%84%AA%E5%8C%96/">效能優化</a>
+                <a href="/tags/%E7%94%A2%E5%93%81%E9%AB%94%E9%A9%97/">產品體驗</a>
             
-                <a href="/tags/Bloom-Memories/">Bloom Memories</a>
+                <a href="/tags/%E6%95%B8%E4%BD%8D%E5%B0%8E%E8%A6%BD/">數位導覽</a>
             
-                <a href="/tags/%E7%B6%B2%E7%AB%99%E5%8A%A0%E9%80%9F/">網站加速</a>
+                <a href="/tags/%E4%BA%92%E5%8B%95%E9%AB%94%E9%A9%97/">互動體驗</a>
             
         </div>
     </header>
 
-    <div class="article-content"><p>將專案 <a target="_blank" rel="noopener" href="https://bloom-memories.aria-carrotlab.com/"><strong>Bloom Memories</strong></a> 發布之後，我發現初次進到網站的載入時間有點長。透過開發人員工具（DevTools）的 Network 檢查，發現 <code>load</code> 時間竟然高達 <strong>22 秒</strong>！</p>
-<p>為了提供更好的使用者體驗，決定進行效能優化。</p>
-<hr>
-<h2 id="一、-問題定位：兇手是圖片"><a href="#一、-問題定位：兇手是圖片" class="headerlink" title="一、 問題定位：兇手是圖片"></a>一、 問題定位：兇手是圖片</h2><p>為了確認主要問題出在哪裡，使用瀏覽器開發人員工具進行了檢查：</p>
-<ol>
-<li>按 <code>F12</code> 開啟開發人員工具。</li>
-<li>切換到 <strong>Network</strong> 頁籤。</li>
-<li>勾選 <strong>Disable cache</strong>（停用快取）。</li>
-<li>將 <strong>Throttling</strong> 設定為 <strong>No throttling</strong>（無節流）。</li>
-<li>重新整理網頁並等待載入完成。</li>
-<li>查看 Network 的請求清單，尤其是 Size、Time 與總計資訊。</li>
-</ol>
-<p>檢查後發現問題非常明確——<strong>圖片</strong>是主要因素。光是首頁的 5 張圖片就佔了 <strong>6.1 MB</strong>。</p>
-<p>相較之下，其他資源顯得輕量許多：</p>
+    <div class="article-content"><p><img src="https://images.aria-carrotlab.com/Homing%20Walkie%20Talkie.webp" alt="「找家無線電」(Homing Walkie Talkie)"></p>
+<p>前陣子參觀了國立臺灣科學教育館，現場有一個多媒體導覽活動——「找家無線電」(Homing Walkie Talkie)。</p>
+<p>活動邀請了 23 位專家進行聲音錄製，和大家聊聊他們心目中「家」的模樣，以及生活周遭各種有趣的動植物。</p>
+<p>邊看展品邊聽老師們的解說，跟自己逛很不同，不僅能好好捕捉到平時自己可能會忽略的地方，也能聽到老師們用心錄製的聲音，邊逛展品邊聽故事，整個體驗是很有溫度很親切的。</p>
+<p><strong>豐富的數位互動體驗</strong><br>除了讓人感到親切的聲音導覽外，展場還結合了 AR 互動、360 度動物模型與模擬動畫。</p>
 <ul>
-<li>JavaScript 主檔：74.9 KB</li>
-<li>CSS：56.6 KB</li>
-<li>明信片資料：約 16 KB</li>
-<li>其他 JavaScript：大多只有幾 KB</li>
-</ul>
-<p>因此，我決定<strong>先針對圖片進行優化</strong>，後續視情況再進行程式碼層面的調整。</p>
-<hr>
-<h2 id="二、-優化策略規劃"><a href="#二、-優化策略規劃" class="headerlink" title="二、 優化策略規劃"></a>二、 優化策略規劃</h2><ul>
-<li><p><strong>第一階段：圖片格式與尺寸（本次實作）</strong><br>除了 Logo 使用 SVG 以外，其餘圖片主要為 PNG 與 JPEG。由於大部分不需要透明背景或特殊效果，決定全面轉為新一代的 <strong>WebP</strong> 格式。<br><em>💡 注意事項：轉檔後務必確認圖片品質，尤其是文字、細節和透明背景是否有失真。</em></p>
+<li><p><strong>AR 互動體驗：</strong><br>這個 AR 可能跟平常想像的有點不一樣。當我用這個功能看金門蟒蛇時，第一眼真的有點驚訝，但又覺得挺特別的。原來還可以這樣用，可能最近用到AR是皮克敏手遊裡面的功能，突然這麼詳細看到蟒蛇的內在，還是反差感挺大的。</p>
 </li>
-<li><p><strong>第二階段：延遲載入圖片（Lazy Loading）</strong><br>將使用者一開始不需要看到的圖片延後載入時間。</p>
-</li>
-<li><p><strong>第三階段：範例明信片冊按需載入</strong><br>原本初始化時會載入三本範例明信片，可改為：</p>
-<ol>
-<li>首頁僅載入相冊封面。</li>
-<li>使用者點擊特定相冊時，才動態載入該本明信片的內容。</li>
-<li>使用者翻頁時再逐步載入後續圖片。</li>
-</ol>
+<li><p><strong>360 度動物模型：</strong><br>手機上的動物模型可以 360 度隨意旋轉，從各種不同角度觀察牠們。感覺就像是從太空艙偷看貓的腳底板一樣，有趣又可愛。<br>不過，部分動物因為圖片畫質的關係，細節沒辦法看得太清楚，覺得有點小可惜。</p>
 </li>
 </ul>
-<p><em>（本次因階段一成效顯著，階段二、三暫緩）</em></p>
-<hr>
-<h2 id="三、-實作：使用-Mac-終端機批次轉換-WebP"><a href="#三、-實作：使用-Mac-終端機批次轉換-WebP" class="headerlink" title="三、 實作：使用 Mac 終端機批次轉換 WebP"></a>三、 實作：使用 Mac 終端機批次轉換 WebP</h2><p>為了有效率地處理大量圖片，使用 Mac 終端機透過 Homebrew 安裝的 <strong>WebP 工具</strong> 進行批次轉換。</p>
-<h3 id="Step-1：安裝-WebP-工具"><a href="#Step-1：安裝-WebP-工具" class="headerlink" title="Step 1：安裝 WebP 工具"></a>Step 1：安裝 WebP 工具</h3><p>開啟終端機，輸入以下指令安裝：</p>
-<p><code>brew install webp</code></p>
-<h3 id="Step-2：移動到目標資料夾"><a href="#Step-2：移動到目標資料夾" class="headerlink" title="Step 2：移動到目標資料夾"></a>Step 2：移動到目標資料夾</h3><p>如果不知道完整的資料夾路徑，最快的方法是：</p>
-<ol>
-<li>在 Finder 中找到圖片資料夾（例如 <code>sample-yamagata</code>）。</li>
-<li>直接把資料夾拖曳到終端機視窗中，終端機就會自動帶入完整路徑。</li>
-<li>在路徑前方加上 <code>cd </code>，然後按下 <code>Enter</code>。</li>
-</ol>
-<p><code>cd /你的專案路徑/images</code></p>
-<h3 id="Step-3：執行批次轉換腳本"><a href="#Step-3：執行批次轉換腳本" class="headerlink" title="Step 3：執行批次轉換腳本"></a>Step 3：執行批次轉換腳本</h3><p>使用以下 Shell Script 將資料夾內所有的 PNG、JPG、JPEG 轉為 WebP（設定品質為 80）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">find . -type f \( -iname &quot;*.png&quot; -o -iname &quot;*.jpg&quot; -o -iname &quot;*.jpeg&quot; \) -print0 |</span><br><span class="line">while IFS= read -r -d &#x27;&#x27; file; do</span><br><span class="line">  output=&quot;$&#123;file%.*&#125;.webp&quot;</span><br><span class="line"></span><br><span class="line">  if [ ! -f &quot;$output&quot; ]; then</span><br><span class="line">    cwebp -q 80 &quot;$file&quot; -o &quot;$output&quot;</span><br><span class="line">  else</span><br><span class="line">    echo &quot;已存在，跳過：$output&quot;</span><br><span class="line">  fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-<p><strong>指令功能解析：</strong></p>
+<p>除了多媒體數位導覽之外，現場還有聞香泵、顯微鏡等可以體驗的設施（甚至體驗用鳥喙夾食物？）。而且，展場的工作人員都非常熱情又專業，有好奇的地方可以詢問他們，他們會很親切的介紹。</p>
+<p><strong>逛展小建議與彩蛋</strong></p>
 <ul>
-<li><code>find .</code>：搜尋目前資料夾。</li>
-<li><code>-type f</code>：只處理檔案。</li>
-<li><code>*.png / *.jpg / *.jpeg</code>：指定要搜尋的圖片格式。</li>
-<li><code>-q 80</code>：設定 WebP 品質為 80（在畫質與檔案大小之間取得平衡）。</li>
-<li><code>-print0</code>：安全處理包含空格的檔名。</li>
-<li><code>if [ ! -f &quot;$output&quot; ]</code>：避免重複覆蓋已存在的 WebP 檔案。</li>
+<li><p><strong>建議自備耳機</strong>：因為展場有豐富的聲音導覽內容，強烈建議大家帶著耳機去，聆聽時會方便舒適許多！</p>
+</li>
+<li><p><strong>集章小任務</strong>：多媒體導覽網頁可以蒐集徽章，完成指定任務後可以到服務台領取可愛的小禮物。</p>
+</li>
 </ul>
-<h3 id="Step-4：確認轉換前後的檔案大小"><a href="#Step-4：確認轉換前後的檔案大小" class="headerlink" title="Step 4：確認轉換前後的檔案大小"></a>Step 4：確認轉換前後的檔案大小</h3><p>檢查整個圖片資料夾目前的總容量：</p>
-<p><code>du -sh .</code></p>
-<p><em>(原始圖片資料夾總容量約為 73MB)</em></p>
-<p>計算轉換後的 WebP 總容量：</p>
-<p><code>find . -type f -iname &quot;*.webp&quot; -exec du -ch {} + | tail -n 1</code></p>
-<p><em>(轉換後的 WebP 總容量縮減至 <strong>5.8MB</strong>)</em></p>
-<p>可以看到，改用 WebP 後，圖片資料夾大幅「輕量化」，<strong>壓縮率高達約 92.1%</strong>！</p>
-<h3 id="Step-5：確認-WebP-圖片正常顯示"><a href="#Step-5：確認-WebP-圖片正常顯示" class="headerlink" title="Step 5：確認 WebP 圖片正常顯示"></a>Step 5：確認 WebP 圖片正常顯示</h3><p>開啟轉檔後的圖片，確認畫質無異常、文字清晰，且沒有產生多餘瑕疵。</p>
-<h3 id="Step-6：修改程式碼中的圖片副檔名"><a href="#Step-6：修改程式碼中的圖片副檔名" class="headerlink" title="Step 6：修改程式碼中的圖片副檔名"></a>Step 6：修改程式碼中的圖片副檔名</h3><p>將專案程式碼中所有對應的圖片副檔名替換（例如：將 <code>.png</code> &#x2F; <code>.jpg</code> 改為 <code>.webp</code>）。</p>
-<h3 id="Step-7：開啟本地端-Server-測試與清理原始檔"><a href="#Step-7：開啟本地端-Server-測試與清理原始檔" class="headerlink" title="Step 7：開啟本地端 Server 測試與清理原始檔"></a>Step 7：開啟本地端 Server 測試與清理原始檔</h3><p>開啟 Local Server 驗證網頁運作正常、圖片皆能成功顯示後，使用終端機指令清理原本的 PNG&#x2F;JPG 舊檔：</p>
-<p><code>find . -type f \( -iname &quot;*.png&quot; -o -iname &quot;*.jpg&quot; -o -iname &quot;*.jpeg&quot; \) -delete</code></p>
-<h3 id="Step-8：重新部署專案"><a href="#Step-8：重新部署專案" class="headerlink" title="Step 8：重新部署專案"></a>Step 8：重新部署專案</h3><p>將優化後的圖片與程式碼推送到遠端伺服器進行部署。</p>
-<h3 id="Step-9：使用-Chrome-Network-檢測最終成效"><a href="#Step-9：使用-Chrome-Network-檢測最終成效" class="headerlink" title="Step 9：使用 Chrome Network 檢測最終成效"></a>Step 9：使用 Chrome Network 檢測最終成效</h3><p>再次開啟 DevTools Network 頁籤，進行 Disable cache 狀態下的首頁載入測試。</p>
+<p>科教館的展品豐富度真的很高，內容也相當用心，如果想要仔細閱讀與體驗，我覺得滿適合分成多次前去，時間上會比較有餘裕，可以每次針對特定的主題慢慢品味、細細逛。</p>
 <hr>
-<h2 id="四、-結語與成果"><a href="#四、-結語與成果" class="headerlink" title="四、 結語與成果"></a>四、 結語與成果</h2><p>在完成 <strong>第一階段的圖片格式轉換</strong> 後，成效非常顯著：</p>
-<ul>
-<li><strong>優化前：</strong> 首頁載入耗時 <strong>22 秒</strong></li>
-<li><strong>優化後：</strong> 首頁載入縮短至 <strong>1.76 秒</strong></li>
-<li><strong>容量壓縮比：</strong> 圖片總體積由 <strong>73MB</strong> 降至 <strong>5.8MB</strong>（壓縮率 92.1%）</li>
+<p><strong>題外話</strong><br>中間有個展區展示「台灣農作物跟啤酒結合」的商品，可以聞到氣味，包裝設計也很好看，覺得是很好的紀念品，我跟朋友都一度以為會在館內的商店內有販賣，一直說要在逛完後去買，結果並沒有看到在販售，有點可惜（？</p>
+<hr>
+<h3 id="展覽資訊"><a href="#展覽資訊" class="headerlink" title="展覽資訊"></a>展覽資訊</h3><ul>
+<li><strong>展覽地點</strong>：國立臺灣科學教育館（臺北市士林區士商路189號）</li>
+<li><strong>體驗項目</strong>：常設展多媒體導覽「找家無線電」</li>
+<li><strong>建議配備</strong>：智慧型手機、個人耳機</li>
+<li><strong>官方網站</strong>：<a target="_blank" rel="noopener" href="https://www.ntsec.gov.tw/">國立臺灣科學教育館 官網</a></li>
 </ul>
-<p>因為僅執行第一階段的 WebP 轉換就已經達到了極為理想的效果，因此原本規劃的第二階段（圖片延遲載入）與第三階段（動態拆分相冊）就先暫緩執行。</p>
 </div>
 
     
