@@ -247,8 +247,6 @@ html[data-bs-theme="dark"] .carrotlab-lab-art__sticker {
   overflow: hidden;
 }
 .carrotlab-section {
-  margin-left: auto;
-  margin-right: auto;
   padding-top: clamp(4.5rem, 10vw, 8rem);
   padding-bottom: clamp(4.5rem, 10vw, 8rem);
 }
