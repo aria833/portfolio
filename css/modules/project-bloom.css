@@ -1163,3 +1163,22 @@
     animation: none;
   }
 }
+
+/* ========================================
+   Bloom Memories：Case Study 內容置中
+======================================== */
+
+.bloom-case-body {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.bloom-case-body > .case-section {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.bloom-case-body .related-projects-section {
+  width: 100%;
+}
