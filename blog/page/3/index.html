@@ -352,7 +352,7 @@
         <div class="col-lg-9">
             <!-- 統計文章數量 -->
             <div class="blog-toolbar">
-                <span>37 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
+                <span>38 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
                 <span class="muted p-1 rounded" data-i18n="lang-notice">筆記目前以繁體中文為主</span>
             </div>
 
@@ -392,6 +392,14 @@
                                 >
                                     TaskTimer
                                     <span class="tag-count">33</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
+                                    href="/tags/Timestamp/"
+                                >
+                                    Timestamp
+                                    <span class="tag-count">1</span>
                                 </a>
                             
                                 <a
@@ -452,6 +460,14 @@
                             
                                 <a
                                     class="archive-tag-link"
+                                    href="/tags/%E6%99%82%E9%96%93%E6%88%B3/"
+                                >
+                                    時間戳
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
                                     href="/tags/%E7%94%A2%E5%93%81%E9%AB%94%E9%A9%97/"
                                 >
                                     產品體驗
@@ -473,6 +489,58 @@
 
             <!-- 文章列表 -->
             <div class="post-list">
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        018
+                        </span>
+                        <time datetime="2026-09-29T16:43:38.000Z">
+                            2026.09.30
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/09/30/post-018/"
+                            >
+                            DAY 17｜功能實作（五）：計時結束跳出Modal 彈窗
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            做好計時器邏輯之後，我們要來實作計時結束後的互動——當使用者按下停止計時時，自動彈出 Modal 彈窗，讓使用者編輯當次備註、勾選任務完成狀態，並提供 「儲存紀錄」 與 「捨棄當次計時」 兩種彈性選擇。
+
+1. HTML 結構：防誤觸的 Modal 設定在 index.html 中，需要建立一個專用…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/TaskTimer/"
+                                >
+                                TaskTimer
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
@@ -955,59 +1023,6 @@ DOM 元素選取與狀態變數初始化
                 </div>
             </article>
                 
-                <article class="post-list-item">
-                    <div class="post-list-link">
-
-                    <!-- 文章編號與日期 -->
-                    <div class="post-list-meta">
-                        <span class="post-index">
-                        008
-                        </span>
-                        <time datetime="2026-09-19T16:43:01.000Z">
-                            2026.09.20
-                        </time>
-                    </div>
-
-                    <!-- 標題、摘要、Tag -->
-                    <div class="post-list-content">
-                        <h2>
-                            <a
-                            class="post-title-link"
-                            href="/2026/09/20/post-008/"
-                            >
-                            DAY 07｜切版實作：Bootstrap 5 Tab 頁籤切換與 List Group 整合
-                            </a>
-                        </h2>
-                        <p class="post-list-excerpt">
-                            在翻閱 Bootstrap 官方文件時，會發現 Components 中的 Navs &amp;amp; Tabs 提供了非常便利的頁籤切換機制，讓使用者點擊選單按鈕時能直接切換相對應的內容。
-官方主要提供了兩種常見的呈現效果：
-1. nav-tabs 標籤樣式適合傳統頁籤風格，帶有底部邊框。
-2. nav…
-                        </p>
-
-                        
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/iThome2026/"
-                                >
-                                iThome2026
-                                </a>
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/TaskTimer/"
-                                >
-                                TaskTimer
-                                </a>
-                            
-                            </div>
-                        
-                    </div>
-                </div>
-            </article>
-                
             </div>
             
             
@@ -1071,6 +1086,14 @@ DOM 元素選取與狀態變數初始化
                     
                     <a
                         class="archive-tag-link"
+                        href="/tags/Timestamp/"
+                    >
+                        Timestamp
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
                         href="/tags/iThome2026/"
                     >
                         iThome2026
@@ -1122,6 +1145,14 @@ DOM 元素選取與狀態變數初始化
                         href="/tags/%E6%95%B8%E4%BD%8D%E5%B0%8E%E8%A6%BD/"
                     >
                         數位導覽
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
+                        href="/tags/%E6%99%82%E9%96%93%E6%88%B3/"
+                    >
+                        時間戳
                         <span class="tag-count">1</span>
                     </a>
                     
