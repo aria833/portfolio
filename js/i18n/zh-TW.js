@@ -535,7 +535,7 @@ window.CarrotLabDictionaries["zh-TW"] = {
   "carrotlab.pathNotesCopy": "記錄想法、決策、嘗試與解題過程",
   "carrotlab.pathLoopTitle": "持續迭代",
   "carrotlab.pathLoopCopy": "讓每一次學習，都能回到下一次的作品裡",
-  "carrotlab.motivationTitle": "往前走，不是因為害怕，而是有因為想去的地方",
+  "carrotlab.motivationTitle": "往前走，不是因為害怕，而是因為有想去的地方",
   "carrotlab.motivationCopy1":
     "有個說法是：要讓驢子往前走，就在牠面前放一根胡蘿蔔，或用鞭子催促。我更想把「胡蘿蔔」看成前進的內在動力——想靠近的目標。",
   "carrotlab.motivationCopy2":
