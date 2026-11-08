@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>ES6｜「接著奏樂，接著舞」，現代JavaScript — ARIA&#39;S CARROTLAB</title>
+  
+  <meta
+    name="description"
+    content="不知道大家有沒有看過網路流傳的一段白話文版的出師表，大致上是這樣的：「你爹死得早，把你交給我，我就是你爹，飯在鍋里，水在缸里，錢在抽屜里，我帶你趙叔、興弟、苞弟他們找曹賊打架去了。在家一定要照顧好自己，不要光顧著玩，要按時寫作業，有什麼不懂的就問你費叔、蔣叔他們，我知道你不如你爹，但你是個好孩子，我們都很愛你。」 如果"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/10/24/post-042/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="ES6｜「接著奏樂，接著舞」，現代JavaScript — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="不知道大家有沒有看過網路流傳的一段白話文版的出師表，大致上是這樣的：「你爹死得早，把你交給我，我就是你爹，飯在鍋里，水在缸里，錢在抽屜里，我帶你趙叔、興弟、苞弟他們找曹賊打架去了。在家一定要照顧好自己，不要光顧著玩，要按時寫作業，有什麼不懂的就問你費叔、蔣叔他們，我知道你不如你爹，但你是個好孩子，我們都很愛你。」 如果"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/10/24/post-042/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="ES6｜「接著奏樂，接著舞」，現代JavaScript — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="不知道大家有沒有看過網路流傳的一段白話文版的出師表，大致上是這樣的：「你爹死得早，把你交給我，我就是你爹，飯在鍋里，水在缸里，錢在抽屜里，我帶你趙叔、興弟、苞弟他們找曹賊打架去了。在家一定要照顧好自己，不要光顧著玩，要按時寫作業，有什麼不懂的就問你費叔、蔣叔他們，我知道你不如你爹，但你是個好孩子，我們都很愛你。」 如果"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"ES6｜「接著奏樂，接著舞」，現代JavaScript","description":"不知道大家有沒有看過網路流傳的一段白話文版的出師表，大致上是這樣的：「你爹死得早，把你交給我，我就是你爹，飯在鍋里，水在缸里，錢在抽屜里，我帶你趙叔、興弟、苞弟他們找曹賊打架去了。在家一定要照顧好自己，不要光顧著玩，要按時寫作業，有什麼不懂的就問你費叔、蔣叔他們，我知道你不如你爹，但你是個好孩子，我們都很愛你。」 如果","datePublished":"2026-10-24T20:09:56+08:00","dateModified":"2026-11-08T22:30:04+08:00","author":{"@type":"Person","name":"Aria"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://portfolio.aria-carrotlab.com/2026/10/24/post-042/"},"image":"https://portfolio.aria-carrotlab.com/images/og-image.webp"}
+  </script>
+  
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SZD9X7XMWG"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-SZD9X7XMWG");
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.10.24</p>
+        <h1>ES6｜「接著奏樂，接著舞」，現代JavaScript</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/JavaScript/">JavaScript</a>
+            
+                <a href="/tags/ES6/">ES6</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>不知道大家有沒有看過網路流傳的一段白話文版的出師表，大致上是這樣的：「你爹死得早，把你交給我，我就是你爹，飯在鍋里，水在缸里，錢在抽屜里，我帶你趙叔、興弟、苞弟他們找曹賊打架去了。在家一定要照顧好自己，不要光顧著玩，要按時寫作業，有什麼不懂的就問你費叔、蔣叔他們，我知道你不如你爹，但你是個好孩子，我們都很愛你。」</p>
+<p>如果你明白以上的內容，那你就知道什麼是ES6了（？）</p>
+<hr>
+<p>簡單來說，<strong>ES6 就是 JavaScript 的「升級版現代語法標準」</strong>。<br>JavaScript（正式名稱是 <strong>ECMAScript</strong>）隨著時代不斷演進。在 2015 年推出的 ES6（正式官方名稱為 <strong>ECMAScript 2015</strong>）是 JavaScript 歷史上最重要的一次大改版。引入了大量現代化的語法特性，徹底改變了過去寫起來比較繁瑣、不夠直覺的痛點。</p>
+<p>以下來盤點幾個在日常開發中最常用、也最實用的 ES6 核心語法：</p>
+<h2 id="1-變數宣告：let-與-const"><a href="#1-變數宣告：let-與-const" class="headerlink" title="1. 變數宣告：let 與 const"></a>1. 變數宣告：<code>let</code> 與 <code>const</code></h2><p>在 ES6 以前，宣告變數都是使用 <code>var</code>。但 <code>var</code> 有時候會因為 <strong>「作用域（Scope）」</strong> 不清楚而造成意料之外的 bug。ES6 推出了兩個更嚴謹的宣告方式：</p>
+<h3 id="const（常數）"><a href="#const（常數）" class="headerlink" title="const（常數）"></a>const（常數）</h3><p>宣告後就不能再被重新賦值（Re-assign）</p>
+<h3 id="let（變數）"><a href="#let（變數）" class="headerlink" title="let（變數）"></a>let（變數）</h3><p>允許重新賦值。當明確知道這個變數的值未來會改變時（例如迴圈計數器）才使用它。</p>
+<h2 id="2-簡潔俐落的箭頭函式（Arrow-Functions）"><a href="#2-簡潔俐落的箭頭函式（Arrow-Functions）" class="headerlink" title="2. 簡潔俐落的箭頭函式（Arrow Functions）"></a>2. 簡潔俐落的箭頭函式（Arrow Functions）</h2><p>箭頭函式可以用更短的語法來寫函式，省去了打 <code>function</code> 與 <code>return</code>，讓程式碼看起來乾淨很多。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 傳統寫法</span><br><span class="line">const add = function(a, b) &#123;</span><br><span class="line">  return a + b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// ES6 箭頭函式寫法（超級簡潔！）</span><br><span class="line">const add = (a, b) =&gt; a + b;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-字串的好幫手：樣板字串（Template-Literals）"><a href="#3-字串的好幫手：樣板字串（Template-Literals）" class="headerlink" title="3. 字串的好幫手：樣板字串（Template Literals）"></a>3. 字串的好幫手：樣板字串（Template Literals）</h2><p>以前要把變數塞進字串裡，必須用一堆加號（<code>+</code>）拼接，容易漏掉空格或引號。ES6 引入了反引號（<code>`</code>）與 <code>${}</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const userName = &quot;Aria&quot;;</span><br><span class="line">const taskCount = 5;</span><br><span class="line"></span><br><span class="line">// 傳統拼接</span><br><span class="line">console.log(&quot;使用者 &quot; + userName + &quot; 還有 &quot; + taskCount + &quot; 個任務未完成。&quot;);</span><br><span class="line"></span><br><span class="line">// ES6 樣板字串（直覺又好讀）</span><br><span class="line">console.log(`使用者 $&#123;userName&#125; 還有 $&#123;taskCount&#125; 個任務未完成。`);</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-解構賦值（Destructuring-Assignment）"><a href="#4-解構賦值（Destructuring-Assignment）" class="headerlink" title="4. 解構賦值（Destructuring Assignment）"></a>4. 解構賦值（Destructuring Assignment）</h2><p>可以很方便地把物件或陣列裡面的值「抽出來」存成獨立變數：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 物件解構</span><br><span class="line">const user = &#123; name: &quot;Aria&quot;, role: &quot;Developer&quot; &#125;;</span><br><span class="line">const &#123; name, role &#125; = user;</span><br><span class="line">console.log(name); // &quot;Aria&quot;</span><br><span class="line"></span><br><span class="line">// 陣列解構</span><br><span class="line">const points = [10, 20];</span><br><span class="line">const [x, y] = points;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-模組化語法：import-與-export"><a href="#5-模組化語法：import-與-export" class="headerlink" title="5. 模組化語法：import 與 export"></a>5. 模組化語法：<code>import</code> 與 <code>export</code></h2><p>前面在 <a href="https://portfolio.aria-carrotlab.com/2026/10/23/post-041/">程式碼拆分與重構｜打敗程式碼的河馬大怪獸</a> 時有提到，可以把不同的功能寫在各自的檔案裡，再互相引入：</p>
+<h3 id="export：把變數、函式或類別「匯出」給其他檔案使用。"><a href="#export：把變數、函式或類別「匯出」給其他檔案使用。" class="headerlink" title="export：把變數、函式或類別「匯出」給其他檔案使用。"></a><code>export</code>：把變數、函式或類別「匯出」給其他檔案使用。</h3><h3 id="import：把別的檔案寫好的功能「匯入」到當前檔案中。"><a href="#import：把別的檔案寫好的功能「匯入」到當前檔案中。" class="headerlink" title="import：把別的檔案寫好的功能「匯入」到當前檔案中。"></a><code>import</code>：把別的檔案寫好的功能「匯入」到當前檔案中。</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// utils.js 匯出函式</span><br><span class="line">export const formatDate = (date) =&gt; &#123; /* ... */ &#125;;</span><br><span class="line"></span><br><span class="line">// main.js 引入函式</span><br><span class="line">import &#123; formatDate &#125; from &#x27;./utils.js&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p><del>相信大家現在看到出師表，可以很清楚內容在說些什麼了。</del><br>總之，推薦大家使用現代化語法的 ES6 來套用到專案，<strong>不僅能大幅減少程式碼行數，也能讓專案架構變得更有條理、更好維護</strong>。</p>
+<hr>
+<h2 id="題外話：三國電視劇（2010版）"><a href="#題外話：三國電視劇（2010版）" class="headerlink" title="題外話：三國電視劇（2010版）"></a>題外話：三國電視劇（2010版）</h2><p><img src="https://images.aria-carrotlab.com/ThreeKingdoms.webp" alt="「説出吾名，嚇汝一跳)"></p>
+<p>不知道大家有沒有看過2010播映的三國電視劇，導演是高希希，《後宮甄嬛傳》的皇上陳建斌也有出演唷。</p>
+<p>雖然這版《三國》推出時，有些對話被批評得太過現代、太白話，但就個人來說，我其實還蠻喜歡這個版本的！比起 1994 年的經典老版，2010 年版在節奏與台詞上親民許多，可以讓人很輕鬆無負擔地看懂三國錯綜複雜的劇情，同時又充滿娛樂性——網路上也誕生了不少經典迷因跟梗圖，如果想輕鬆了解三國劇情，可以在空檔時看看。</p>
+</div>
+
+    
+
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <!-- 品牌與標語 -->
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+
+    <!-- 聯絡方式、隱私權政策與版權 -->
+    <div class="footer-info">
+      <!-- 第一行：聯絡我與隱私權政策 -->
+      <div class="footer-links">
+        <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
+          <i class="bi bi-envelope me-1"></i>
+          <span data-i18n="footer.contact">聯絡我</span>
+        </a>
+
+        <a
+          class="footer-policy-link small text-decoration-none"
+          href="/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="footer.privacy">隱私權政策</span>
+        </a>
+      </div>
+
+      <!-- 第二行：版權 -->
+      <span class="footer-copyright small muted">
+        Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+<!--axios JS-->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>
