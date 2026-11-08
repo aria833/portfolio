@@ -360,7 +360,7 @@
         <div class="col-lg-9">
             <!-- 統計文章數量 -->
             <div class="blog-toolbar">
-                <span>43 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
+                <span>44 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
                 <span class="muted p-1 rounded" data-i18n="lang-notice">筆記目前以繁體中文為主</span>
             </div>
 
@@ -609,6 +609,58 @@
 
             <!-- 文章列表 -->
             <div class="post-list">
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        024
+                        </span>
+                        <time datetime="2026-10-05T16:43:55.000Z">
+                            2026.10.06
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/10/06/post-024/"
+                            >
+                            DAY 23｜Local-First 架構（二）：實作 Promise 版 IndexedDB 工具模組
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            因為 IndexedDB 的原生寫法太過古老繁瑣且難以維護，因此實作中會使用 Promise版的IndexedDB。
+
+一、什麼是「Promise 版」？為什麼要這樣做？1. 原生 IndexedDB 的問題：傳統的事件監聽（Callback）IndexedDB 是很久以前就有的語法，採用 「發起請…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/TaskTimer/"
+                                >
+                                TaskTimer
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
@@ -1059,67 +1111,6 @@
 我們可以使用JavaScript 的原生函式－ setInterval 。
 
 觀念解析：setInterval 與 clearIntervalJavaScript 提供原生的 setInte…
-                        </p>
-
-                        
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/iThome2026/"
-                                >
-                                iThome2026
-                                </a>
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/TaskTimer/"
-                                >
-                                TaskTimer
-                                </a>
-                            
-                            </div>
-                        
-                    </div>
-                </div>
-            </article>
-                
-                <article class="post-list-item">
-                    <div class="post-list-link">
-
-                    <!-- 文章編號與日期 -->
-                    <div class="post-list-meta">
-                        <span class="post-index">
-                        014
-                        </span>
-                        <time datetime="2026-09-25T16:43:20.000Z">
-                            2026.09.26
-                        </time>
-                    </div>
-
-                    <!-- 標題、摘要、Tag -->
-                    <div class="post-list-content">
-                        <h2>
-                            <a
-                            class="post-title-link"
-                            href="/2026/09/26/post-014/"
-                            >
-                            DAY 13 | 功能實作（一）：時間格式化與 DOM 狀態初始化
-                            </a>
-                        </h2>
-                        <p class="post-list-excerpt">
-                            完成切版之後，接下來要進入 JavaScript 實作。
-在讓計時器動起來之前，先做一些準備：
-
-建立與載入 all.js
-
-DOM 元素選取與狀態變數初始化
-
-寫出一個 時間格式化工具函式 ：將「純秒數」轉換為「HH:MM:SS」
-
-
-
-步驟1：建立與載入 all.js先來建立一個 all.js，…
                         </p>
 
                         

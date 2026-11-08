@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>CRUD｜4 個最基本的資料操作動作 — ARIA&#39;S CARROTLAB</title>
+  
+  <meta
+    name="description"
+    content="CRUD是什麼？CRUD乍看很陌生，但其實在我們的日常生活中，時時刻刻都在接觸這些操作。 例如： 在手機裡新增一筆備忘錄 編輯社群平台發佈出去的貼文 在網購時將喜歡的商品加入購物車或修改數量 刪除不再需要的照片或訊息 這些動作其實都可以用 CRUD 來涵蓋。 CRUD 是 4 個英文單字的縮寫，分別代表資料最基本的 4"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/10/22/post-040/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="CRUD｜4 個最基本的資料操作動作 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="CRUD是什麼？CRUD乍看很陌生，但其實在我們的日常生活中，時時刻刻都在接觸這些操作。 例如： 在手機裡新增一筆備忘錄 編輯社群平台發佈出去的貼文 在網購時將喜歡的商品加入購物車或修改數量 刪除不再需要的照片或訊息 這些動作其實都可以用 CRUD 來涵蓋。 CRUD 是 4 個英文單字的縮寫，分別代表資料最基本的 4"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/10/22/post-040/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="CRUD｜4 個最基本的資料操作動作 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="CRUD是什麼？CRUD乍看很陌生，但其實在我們的日常生活中，時時刻刻都在接觸這些操作。 例如： 在手機裡新增一筆備忘錄 編輯社群平台發佈出去的貼文 在網購時將喜歡的商品加入購物車或修改數量 刪除不再需要的照片或訊息 這些動作其實都可以用 CRUD 來涵蓋。 CRUD 是 4 個英文單字的縮寫，分別代表資料最基本的 4"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"CRUD｜4 個最基本的資料操作動作","description":"CRUD是什麼？CRUD乍看很陌生，但其實在我們的日常生活中，時時刻刻都在接觸這些操作。 例如： 在手機裡新增一筆備忘錄 編輯社群平台發佈出去的貼文 在網購時將喜歡的商品加入購物車或修改數量 刪除不再需要的照片或訊息 這些動作其實都可以用 CRUD 來涵蓋。 CRUD 是 4 個英文單字的縮寫，分別代表資料最基本的 4","datePublished":"2026-10-22T17:50:46+08:00","dateModified":"2026-11-08T17:56:37+08:00","author":{"@type":"Person","name":"Aria"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://portfolio.aria-carrotlab.com/2026/10/22/post-040/"},"image":"https://portfolio.aria-carrotlab.com/images/og-image.webp"}
+  </script>
+  
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SZD9X7XMWG"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-SZD9X7XMWG");
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.10.22</p>
+        <h1>CRUD｜4 個最基本的資料操作動作</h1>
+        
+        <div class="article-tags">
+            
+        </div>
+    </header>
+
+    <div class="article-content"><h2 id="CRUD是什麼？"><a href="#CRUD是什麼？" class="headerlink" title="CRUD是什麼？"></a>CRUD是什麼？</h2><p>CRUD乍看很陌生，但其實在我們的日常生活中，時時刻刻都在接觸這些操作。</p>
+<p>例如：</p>
+<ul>
+<li>在手機裡新增一筆備忘錄</li>
+<li>編輯社群平台發佈出去的貼文</li>
+<li>在網購時將喜歡的商品加入購物車或修改數量</li>
+<li>刪除不再需要的照片或訊息</li>
+</ul>
+<p>這些動作其實都可以用 <strong>CRUD</strong> 來涵蓋。</p>
+<p>CRUD 是 4 個英文單字的縮寫，分別代表資料最基本的 4 種操作：</p>
+<table>
+<thead>
+<tr>
+<th>縮寫</th>
+<th>英文</th>
+<th>中文</th>
+<th>解釋</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C</td>
+<td>Create</td>
+<td>新增</td>
+<td>建立資料</td>
+</tr>
+<tr>
+<td>R</td>
+<td>Read</td>
+<td>讀取 &#x2F; 檢視</td>
+<td>查看或取得資料</td>
+</tr>
+<tr>
+<td>U</td>
+<td>Update</td>
+<td>更新</td>
+<td>修改原本的資料</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Delete</td>
+<td>刪除</td>
+<td>移除資料</td>
+</tr>
+</tbody></table>
+<p>只要是需要管理與儲存資料的系統（像是部落格、電商網站、待辦事項 App），通常都脫離不了 CRUD 的概念。</p>
+<hr>
+<h3 id="CRUD-和-API-有什麼關係？"><a href="#CRUD-和-API-有什麼關係？" class="headerlink" title="CRUD 和 API 有什麼關係？"></a>CRUD 和 API 有什麼關係？</h3><p>開始接觸 API 時，也會常常看到 CRUD。</p>
+<p>在網頁開發中，API 通常會搭配 <strong>HTTP Method（請求方法）</strong>，來明確告訴伺服器我們想對資料進行哪一種 CRUD 操作：</p>
+<table>
+<thead>
+<tr>
+<th>CRUD</th>
+<th>HTTP Method</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Create</td>
+<td><code>POST</code></td>
+<td>新增資料</td>
+</tr>
+<tr>
+<td>Read</td>
+<td><code>GET</code></td>
+<td>取得資料</td>
+</tr>
+<tr>
+<td>Update</td>
+<td><code>PUT</code> &#x2F; <code>PATCH</code></td>
+<td>更新資料</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td><code>DELETE</code></td>
+<td>刪除資料</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="名稱的延伸"><a href="#名稱的延伸" class="headerlink" title="名稱的延伸"></a>名稱的延伸</h3><p>在不同的系統或開發情境中，除了最經典的 CRUD 之外，有時候也可能會聽到其他類似的資料操作簡稱，例如 <strong>BREAD（Browse, Read, Edit, Add, Delete）</strong> 等。</p>
+<p>這些不同的縮寫其實都是在 CRUD 的基礎上，依據特定框架的需求去增加或微調操作的稱呼。</p>
+<p>(參考資料：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E5%A2%9E%E5%88%AA%E6%9F%A5%E6%94%B9"><em>Wikipedia - CRUD</em></a>)</p>
+</div>
+
+    
+
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <!-- 品牌與標語 -->
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+
+    <!-- 聯絡方式、隱私權政策與版權 -->
+    <div class="footer-info">
+      <!-- 第一行：聯絡我與隱私權政策 -->
+      <div class="footer-links">
+        <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
+          <i class="bi bi-envelope me-1"></i>
+          <span data-i18n="footer.contact">聯絡我</span>
+        </a>
+
+        <a
+          class="footer-policy-link small text-decoration-none"
+          href="/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="footer.privacy">隱私權政策</span>
+        </a>
+      </div>
+
+      <!-- 第二行：版權 -->
+      <span class="footer-copyright small muted">
+        Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+<!--axios JS-->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>
