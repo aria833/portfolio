@@ -360,7 +360,7 @@
         <div class="col-lg-9">
             <!-- 統計文章數量 -->
             <div class="blog-toolbar">
-                <span>44 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
+                <span>45 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
                 <span class="muted p-1 rounded" data-i18n="lang-notice">筆記目前以繁體中文為主</span>
             </div>
 
@@ -556,6 +556,22 @@
                             
                                 <a
                                     class="archive-tag-link"
+                                    href="/tags/%E6%A8%A1%E7%B5%84%E5%8C%96/"
+                                >
+                                    模組化
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
+                                    href="/tags/%E6%B2%B3%E9%A6%AC%E5%A4%A7%E6%80%AA%E7%8D%B8/"
+                                >
+                                    河馬大怪獸
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
                                     href="/tags/%E6%B7%B1%E6%B7%BA%E8%89%B2%E6%A8%A1%E5%BC%8F/"
                                 >
                                     深淺色模式
@@ -575,6 +591,22 @@
                                     href="/tags/%E7%94%A2%E5%93%81%E9%AB%94%E9%A9%97/"
                                 >
                                     產品體驗
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
+                                    href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E6%8B%86%E5%88%86/"
+                                >
+                                    程式碼拆分
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
+                                    href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E9%87%8D%E6%A7%8B/"
+                                >
+                                    程式碼重構
                                     <span class="tag-count">1</span>
                                 </a>
                             
@@ -609,6 +641,57 @@
 
             <!-- 文章列表 -->
             <div class="post-list">
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        035
+                        </span>
+                        <time datetime="2026-10-17T05:54:01.000Z">
+                            2026.10.17
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/10/17/post-035/"
+                            >
+                            毫秒時間戳(Timestamp)｜電腦世界的格林威治時間
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            神秘的 13 位數在寫 JavaScript 或是串接 API 資料時，有時候會遇到長成這樣的資料：
+12345json&amp;#123;  &amp;quot;orderId&amp;quot;: &amp;quot;A123456&amp;quot;,  &amp;quot;createdTime&amp;quot;: 1790685000000&amp;…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/%E6%99%82%E9%96%93%E6%88%B3/"
+                                >
+                                時間戳
+                                </a>
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/Timestamp/"
+                                >
+                                Timestamp
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
@@ -1099,57 +1182,6 @@ theme.js
                 </div>
             </article>
                 
-                <article class="post-list-item">
-                    <div class="post-list-link">
-
-                    <!-- 文章編號與日期 -->
-                    <div class="post-list-meta">
-                        <span class="post-index">
-                        025
-                        </span>
-                        <time datetime="2026-10-06T16:43:58.000Z">
-                            2026.10.07
-                        </time>
-                    </div>
-
-                    <!-- 標題、摘要、Tag -->
-                    <div class="post-list-content">
-                        <h2>
-                            <a
-                            class="post-title-link"
-                            href="/2026/10/07/post-025/"
-                            >
-                            DAY 24｜Local-First 架構（三）：整合資料到 IndexedDB
-                            </a>
-                        </h2>
-                        <p class="post-list-excerpt">
-                            在 Day 22 介紹了 Local-First 的核心理念，並在 Day 23 成功用 Promise 包裝出獨立的 db.js 資料庫工具模組。
-今天要來進行整合實作，將原本存在記憶體（Memory）中的 tasks 全域變數，與 IndexedDB 進行連線，實現 「重新整理頁面資料不遺失、無…
-                        </p>
-
-                        
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/iThome2026/"
-                                >
-                                iThome2026
-                                </a>
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/TaskTimer/"
-                                >
-                                TaskTimer
-                                </a>
-                            
-                            </div>
-                        
-                    </div>
-                </div>
-            </article>
-                
             </div>
             
             
@@ -1369,6 +1401,22 @@ theme.js
                     
                     <a
                         class="archive-tag-link"
+                        href="/tags/%E6%A8%A1%E7%B5%84%E5%8C%96/"
+                    >
+                        模組化
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
+                        href="/tags/%E6%B2%B3%E9%A6%AC%E5%A4%A7%E6%80%AA%E7%8D%B8/"
+                    >
+                        河馬大怪獸
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
                         href="/tags/%E6%B7%B1%E6%B7%BA%E8%89%B2%E6%A8%A1%E5%BC%8F/"
                     >
                         深淺色模式
@@ -1388,6 +1436,22 @@ theme.js
                         href="/tags/%E7%94%A2%E5%93%81%E9%AB%94%E9%A9%97/"
                     >
                         產品體驗
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
+                        href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E6%8B%86%E5%88%86/"
+                    >
+                        程式碼拆分
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
+                        href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E9%87%8D%E6%A7%8B/"
+                    >
+                        程式碼重構
                         <span class="tag-count">1</span>
                     </a>
                     
