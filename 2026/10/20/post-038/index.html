@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>深淺色模式｜善用深淺色模式，降低視覺疲勞 — ARIA&#39;S CARROTLAB</title>
+  <meta
+    name="description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/10/20/post-038/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="深淺色模式｜善用深淺色模式，降低視覺疲勞 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/10/20/post-038/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="深淺色模式｜善用深淺色模式，降低視覺疲勞 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SZD9X7XMWG"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-SZD9X7XMWG");
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.10.20</p>
+        <h1>深淺色模式｜善用深淺色模式，降低視覺疲勞</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/TaskTimer/">TaskTimer</a>
+            
+                <a href="/tags/%E6%B7%B1%E6%B7%BA%E8%89%B2%E6%A8%A1%E5%BC%8F/">深淺色模式</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>其實一開始在開發 TaskTimer 工具時，我並沒有覺得深淺色切換是一定要加入的功能。</p>
+<p>平時我自己的使用習慣，大部分都是維持在淺色模式；只有在兩種特定情境下例外– 一個是使用 VS Code 寫程式的時候，另一個則是看手機的時候。</p>
+<p>會這樣是因為：</p>
+<ul>
+<li><p>在用 VS Code 寫程式或整理 code 時，通常會盯著螢幕看很久，如果用淺色模式，眼睛會很容易感到疲勞。</p>
+</li>
+<li><p>手機的話，則是因為環境光源不充足，如果開著淺色模式，有時候感覺像看到 <del>「聖光」</del>。</p>
+</li>
+</ul>
+<p>TaskTimer 一開始是為了學習程式而動手打造的小工具。常常一邊開著深色的 VS Code 寫code，轉頭看旁邊正在測試的淺色計時畫面，高對比的畫面很容易造成視覺疲勞，因此為了避免這種情況，最終還是決定為它加上深淺色模式。</p>
+<hr>
+<h2 id="什麼是深淺色模式？"><a href="#什麼是深淺色模式？" class="headerlink" title="什麼是深淺色模式？"></a>什麼是深淺色模式？</h2><p>深淺色模式指的是網頁能夠根據使用者的偏好或環境光源，動態切換介面的色彩配置。</p>
+<ul>
+<li><p><strong>淺色模式（Light Mode）</strong>：以明亮的背景（如白色、淺灰）搭配深色文字，視覺上乾淨清爽，適合在光線充足的白天使用。</p>
+</li>
+<li><p><strong>深色模式（Dark Mode）</strong>：以深色背景（如深灰、墨黑）搭配淺色文字，能大幅降低螢幕在暗光環境下的刺眼感。</p>
+</li>
+</ul>
+<h2 id="如何實作深淺色模式？"><a href="#如何實作深淺色模式？" class="headerlink" title="如何實作深淺色模式？"></a>如何實作深淺色模式？</h2><p>在現代前端開發中，最主流的做法是利用 <strong>CSS 變數</strong> 搭配 <strong>JavaScript</strong> 來控制。</p>
+<h3 id="1-用-CSS-變數建立色彩系統"><a href="#1-用-CSS-變數建立色彩系統" class="headerlink" title="1. 用 CSS 變數建立色彩系統"></a>1. 用 CSS 變數建立色彩系統</h3><p>可以先在 <code>:root</code> 定義預設的顏色變數，再透過一個 <code>.dark</code> 類別來覆寫深色模式下的顏色：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">/* 預設為淺色模式變數 */</span><br><span class="line">:root &#123;</span><br><span class="line">  --bg-color: #ffffff;</span><br><span class="line">  --text-color: #222222;</span><br><span class="line">  --primary-color: #4a90e2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 深色模式變數 */</span><br><span class="line">body.dark &#123;</span><br><span class="line">  --bg-color: #1a1a1a;</span><br><span class="line">  --text-color: #f0f0f0;</span><br><span class="line">  --primary-color: #64b5f6;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 實際套用 */</span><br><span class="line">body &#123;</span><br><span class="line">  background-color: var(--bg-color);</span><br><span class="line">  color: var(--text-color);</span><br><span class="line">  transition: background-color 0.3s, color 0.3s; /* 讓切換時有平滑的漸變效果 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-用-JavaScript-輕鬆切換"><a href="#2-用-JavaScript-輕鬆切換" class="headerlink" title="2. 用 JavaScript 輕鬆切換"></a>2. 用 JavaScript 輕鬆切換</h3><p>搭配 JavaScript，只要在使用者點擊按鈕時，幫 <code>&lt;body&gt;</code> 加上或移除 <code>.dark</code> 類別，並用 <code>localStorage</code> 把選擇記下來即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const themeToggleBtn = document.querySelector(&#x27;#theme-toggle&#x27;);</span><br><span class="line"></span><br><span class="line">themeToggleBtn.addEventListener(&#x27;click&#x27;, () =&gt; &#123;</span><br><span class="line">  // 切換 dark 類別</span><br><span class="line">  document.body.classList.toggle(&#x27;dark&#x27;);</span><br><span class="line"></span><br><span class="line">  // 記錄使用者的偏好到 localStorage</span><br><span class="line">  const isDark = document.body.classList.contains(&#x27;dark&#x27;);</span><br><span class="line">  localStorage.setItem(&#x27;theme&#x27;, isDark ? &#x27;dark&#x27; : &#x27;light&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="如何實作深淺色模式？（使用Bootstrap）"><a href="#如何實作深淺色模式？（使用Bootstrap）" class="headerlink" title="如何實作深淺色模式？（使用Bootstrap）"></a>如何實作深淺色模式？（使用Bootstrap）</h2><p>因為我的專案裡本來就有使用Bootstrap，所以我是使用它的原生模式支援。如果你的專案也有使用Bootstrap，可以考慮下面的做法。</p>
+<h3 id="1-使用-Bootstrap-的-data-bs-theme-屬性"><a href="#1-使用-Bootstrap-的-data-bs-theme-屬性" class="headerlink" title="1. 使用 Bootstrap 的 data-bs-theme 屬性"></a>1. 使用 Bootstrap 的 <code>data-bs-theme</code> 屬性</h3><p>只要在整份文件的最外層（例如 <html> 標籤）加上屬性 <code>data-bs-theme=&quot;dark&quot;</code> 或 <code>data-bs-theme=&quot;light&quot;</code>，整頁的顏色就會自動切換。如果想要自訂或覆寫某些深色模式下的顏色，就可以直接在 CSS 裡使用屬性選擇器：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/* 自訂你在深色模式下想覆寫的樣式或變數 */</span><br><span class="line">[data-bs-theme=&quot;dark&quot;] &#123;</span><br><span class="line">  --bs-body-bg: #1a1a1a;</span><br><span class="line">  --bs-body-color: #f0f0f0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 HTML 標籤上直接切換：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 切換成深色模式 --&gt;</span><br><span class="line">&lt;html lang=&quot;zh-Hant&quot; data-bs-theme=&quot;dark&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-用-JavaScript-切換與儲存"><a href="#2-用-JavaScript-切換與儲存" class="headerlink" title="2.用 JavaScript 切換與儲存"></a>2.用 JavaScript 切換與儲存</h3><p>搭配 JavaScript，只要在使用者點擊按鈕時，去動態修改 <code>&lt;html&gt;</code> 的 <code>data-bs-theme</code> 屬性，並用 <code>localStorage</code> 把使用者的選擇記下來即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const themeToggleBtn = document.querySelector(&#x27;#theme-toggle&#x27;);</span><br><span class="line">const htmlElement = document.documentElement; // 取得 &lt;html&gt; 標籤</span><br><span class="line"></span><br><span class="line">themeToggleBtn.addEventListener(&#x27;click&#x27;, () =&gt; &#123;</span><br><span class="line">  // 檢查目前是 dark 還是 light</span><br><span class="line">  const currentTheme = htmlElement.getAttribute(&#x27;data-bs-theme&#x27;);</span><br><span class="line">  const newTheme = currentTheme === &#x27;dark&#x27; ? &#x27;light&#x27; : &#x27;dark&#x27;;</span><br><span class="line"></span><br><span class="line">  // 設定新的屬性</span><br><span class="line">  htmlElement.setAttribute(&#x27;data-bs-theme&#x27;, newTheme);</span><br><span class="line"></span><br><span class="line">  // 記錄使用者的偏好到 localStorage</span><br><span class="line">  localStorage.setItem(&#x27;theme&#x27;, newTheme);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="實作時的小細節"><a href="#實作時的小細節" class="headerlink" title="實作時的小細節"></a>實作時的小細節</h2><h3 id="1-圖片與圖示的隱形危機："><a href="#1-圖片與圖示的隱形危機：" class="headerlink" title="1. 圖片與圖示的隱形危機："></a>1. 圖片與圖示的隱形危機：</h3><p>有些 PNG 圖示或 SVG 圖標，如果顏色剛好是深色的，切換到深色背景時就會直接消失或是效果不好。所以也要留意，改為深色模式後，這些圖片與圖示是否需要做調整。</p>
+<h3 id="2-重整時的畫面閃爍（FOUC）："><a href="#2-重整時的畫面閃爍（FOUC）：" class="headerlink" title="2. 重整時的畫面閃爍（FOUC）："></a>2. 重整時的畫面閃爍（FOUC）：</h3><p><strong>FOUC</strong> 的全名是 <strong>Flash of Unstyled Content</strong>（中文常翻譯為「無樣式內容閃爍」）。</p>
+<p>當瀏覽器載入網頁時，如果 HTML 結構先下載完成，但 CSS 樣式表還沒下載好（或正在解析），瀏覽器就會先用預設的樣式把畫面渲染出來。等到 CSS 一載入，畫面才突然「閃」變成正確的樣式。</p>
+<p>這時必須在 HTML 的 <code>&lt;head&gt;</code> 裡先用一小段 JavaScript 腳本，在畫面渲染前就讀取 <code>localStorage</code> 並套用類別，才能解決這個閃爍的小瑕疵。</p>
+</div>
+
+    
+
+    
+    <section
+        class="related-posts section-pad mb-0"
+        aria-labelledby="related-posts-title"
+    >
+        <div class="container">
+        <!-- 區塊標題 -->
+        <div
+            class="section-heading mb-0 d-flex justify-content-between align-items-end gap-3"
+        >
+            <div>
+            <p class="eyebrow" data-i18n="post.keepExploring">KEEP EXPLORING</p>
+            <h2 id="related-posts-title">
+                <span data-i18n="post.relatedTitle">相關筆記</span><span class="title-dot">.</span>
+            </h2>
+            <p class="muted mt-2" data-i18n="post.relatedCopy">
+                繼續探索其他有趣的學習紀錄。
+            </p>
+            </div>
+            <span class="related-posts-count" data-i18n="post.relatedLabel">
+            RELATED NOTES
+            </span>
+        </div>
+
+        <!-- 相關文章卡片 -->
+        <div class="related-posts-track row g-4 mt-2">
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/21/post-039/"
+                    aria-label="閱讀文章：語系切換｜使用 data-i18n 實現多國語系的流暢切換"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        039
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-21T04:19:15.000Z"
+                    >
+                        2026.10.21
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/21/post-039/"
+                        >
+                        語系切換｜使用 data-i18n 實現多國語系的流暢切換
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在開發網站時，如果希望網頁能夠同時支援多種語言切換，最經典的做法之一就是使用 data-i18n 屬性。 「i18n」代表 Internationalization（國際化） – 因為這個單字開頭是 i、結尾是 n，中間剛好有 18 個字母，所以簡稱為 i18n。覺得想出這個方式的人也是蠻幽默的，那…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/TaskTimer/"
+                            >
+                            TaskTimer
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/data-i18n/"
+                            >
+                            data-i18n
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/%E5%A4%9A%E8%AA%9E%E7%B3%BB%E5%88%87%E6%8F%9B/"
+                            >
+                            多語系切換
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/Bloom-Memories/"
+                            >
+                            Bloom Memories
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/CarrotLab/"
+                            >
+                            CarrotLab
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/21/post-039/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/18/post-036/"
+                    aria-label="閱讀文章：開發筆記｜TaskTimer 的身高尺，來聊聊「版本號」的命名邏輯"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        036
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-18T15:08:41.000Z"
+                    >
+                        2026.10.18
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/18/post-036/"
+                        >
+                        開發筆記｜TaskTimer 的身高尺，來聊聊「版本號」的命名邏輯
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        使用網站的時候，因為資料與程式碼都在伺服器端，重新整理網頁就能取得最新版本，所以在本地端不需要手動更新，很少會去留意到「版本號」的存在。 但手機 App 就完全不同了。大家應該都有經驗，手機常常會因為軟體不定時更新，跳出通知要求我們到 App Store 或 Google Play 下載最新版本。在…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/TaskTimer/"
+                            >
+                            TaskTimer
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/%E7%89%88%E6%9C%AC%E8%99%9F/"
+                            >
+                            版本號
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/18/post-036/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/16/post-034/"
+                    aria-label="閱讀文章：DAY 33｜修正錯誤、提高效能，還看了一堆貓咪影片"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        034
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-15T16:44:22.000Z"
+                    >
+                        2026.10.16
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/16/post-034/"
+                        >
+                        DAY 33｜修正錯誤、提高效能，還看了一堆貓咪影片
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在 TaskTimer 完成核心開發並發布穩定的 v1.0.0 版本後，我便持續使用它來輔助自己的日常學習。而在實際使用的過程中，我也陸續觀察到幾個能讓操作體驗更順暢、更貼近真實情境的優化點： 暗色模式（Dark Mode）視覺對比度優化在暗色模式下，原本用於副標題與備註說明的 Bootstrap …
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/TaskTimer/"
+                            >
+                            TaskTimer
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/16/post-034/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/15/post-033/"
+                    aria-label="閱讀文章：DAY 32 | UX優化：備份檔名時間戳與意見回饋管道"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        033
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-14T16:44:19.000Z"
+                    >
+                        2026.10.15
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/15/post-033/"
+                        >
+                        DAY 32 | UX優化：備份檔名時間戳與意見回饋管道
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在開發部署完成並實際投入使用後，我在日常操作中發現了兩個可以持續優化使用者體驗（UX）的細節： 匯出檔案（CSV &amp;#x2F; JSON）的命名邏輯優化 新增使用者意見回饋管道 1. 備份檔名優化：加入精確時間戳記（Timestamp）原先系統在匯出 CSV 報表與 JSON 備份檔時，檔名會加入「…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/iThome2026/"
+                            >
+                            iThome2026
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/TaskTimer/"
+                            >
+                            TaskTimer
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/15/post-033/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <!-- 品牌與標語 -->
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+
+    <!-- 聯絡方式、隱私權政策與版權 -->
+    <div class="footer-info">
+      <!-- 第一行：聯絡我與隱私權政策 -->
+      <div class="footer-links">
+        <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
+          <i class="bi bi-envelope me-1"></i>
+          <span data-i18n="footer.contact">聯絡我</span>
+        </a>
+
+        <a
+          class="footer-policy-link small text-decoration-none"
+          href="/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="footer.privacy">隱私權政策</span>
+        </a>
+      </div>
+
+      <!-- 第二行：版權 -->
+      <span class="footer-copyright small muted">
+        Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+<!--axios JS-->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

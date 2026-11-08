@@ -197,6 +197,8 @@ window.CarrotLabDictionaries["ja"] = {
   "post.relatedTitle": "関連記事",
   "post.relatedCopy": "ほかの興味深い学習記録もチェックしてみてください。",
   "post.relatedLabel": "関連記事",
+  "projectNotes.countPrefix": "全",
+  "projectNotes.countSuffix": "件の関連記事を見る",
   "post.readArticle": "記事を読む",
   "post.readNote": "読む",
 
@@ -221,7 +223,7 @@ window.CarrotLabDictionaries["ja"] = {
   "about.exploring.hexo": "静的サイト・Hexo・コンテンツ管理",
   "about.exploring.ai":
     "デザインや開発のワークフローにAIツールを取り入れる方法",
-
+  "about.exploring.mediaart": "メディアアート",
   "language.zhTW": "繁体字中国語",
   "language.en": "英語",
   "language.ja": "日本語",

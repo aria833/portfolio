@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>課程心得｜新媒體藝術全景課：開啟程式創意的第一堂課 — ARIA&#39;S CARROTLAB</title>
+  <meta
+    name="description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/11/06/post-055/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="課程心得｜新媒體藝術全景課：開啟程式創意的第一堂課 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/11/06/post-055/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="課程心得｜新媒體藝術全景課：開啟程式創意的第一堂課 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SZD9X7XMWG"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-SZD9X7XMWG");
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.11.06</p>
+        <h1>課程心得｜新媒體藝術全景課：開啟程式創意的第一堂課</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/%E8%AA%B2%E7%A8%8B%E5%BF%83%E5%BE%97/">課程心得</a>
+            
+                <a href="/tags/%E6%96%B0%E5%AA%92%E9%AB%94%E8%97%9D%E8%A1%93/">新媒體藝術</a>
+            
+                <a href="/tags/p5-js/">p5.js</a>
+            
+                <a href="/tags/TouchDesigner/">TouchDesigner</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>之前偶然聽到 <strong>「網頁藝術品」</strong> 這個概念，查詢了之後才發現原來網頁也可以有如此豐富的表現形式與趣味性。</p>
+<p>剛好上個月底在瀏覽 Hahow 課程時，發現了一堂 <strong>「新媒體藝術全景課」</strong> ，跟我想了解的網頁藝術品有重疊的部分，因此就報名參加了。</p>
+<h2 id="什麼是新媒體藝術與網頁藝術品？"><a href="#什麼是新媒體藝術與網頁藝術品？" class="headerlink" title="什麼是新媒體藝術與網頁藝術品？"></a>什麼是新媒體藝術與網頁藝術品？</h2><ul>
+<li><p><strong>新媒體藝術（New Media Art）</strong>：是一個涵蓋廣泛的總稱，只要是運用新興科技、數位技術或電子媒介創作的藝術形式都算。比如實體展場的互動裝置、VR&#x2F;AR 體驗、AI 生成藝術等。</p>
+</li>
+<li><p><strong>網頁藝術品（Web Art &#x2F; Net Art）</strong>：屬於新媒體藝術的一個分支。專指以「網際網路與瀏覽器」為載體的作品，講求超連結、程式碼（HTML&#x2F;CSS&#x2F;JS）、數據互動與網頁特有的瀏覽體驗。</p>
+</li>
+</ul>
+<hr>
+<h2 id="新媒體藝術全景課心得"><a href="#新媒體藝術全景課心得" class="headerlink" title="新媒體藝術全景課心得"></a>新媒體藝術全景課心得</h2><p>（以下是針對 <strong>L0-新媒體藝術的全景地圖</strong> 的感想。）</p>
+<p>這門課是以直播的形式進行。雖然我加入的時候整體進度大概已經進行到一半，目前是從頭開始看回放，但我覺得不影響課堂帶給我的樂趣。</p>
+<p>第一堂課老師先做了整體課程說明、個人背景介紹，並展示許多有巧思、令人驚豔的設計作品，每個作品都很值得去探索。</p>
+<p>接著老師帶大家註冊了 <strong>OpenProcessing 平台</strong>，並進入實作環節。<br>老師的講解非常清晰，一步一步拆解步驟，用辭跟說明小工具也很容易讓人馬上抓到重點、理解概念。課堂實作過程比起一般的「上課」，反而更像是大家聚在一起玩。跟著老師一步步做完基礎效果後，還能加入自己的想法自由調整，創造出屬於自己的風格，非常好玩。</p>
+<p>這次課堂有兩個實作示範，都非常有趣，但就不分享在這邊暴雷了。</p>
+<p><strong>整體來說，我覺得上完課後，讓我會很想自己繼續動手玩課堂上的實作；同時也很期待下次的上課內容。</strong></p>
+<hr>
+<h2 id="L0-課後作業：聖誕樹點燈小互動"><a href="#L0-課後作業：聖誕樹點燈小互動" class="headerlink" title="L0 課後作業：聖誕樹點燈小互動"></a>L0 課後作業：聖誕樹點燈小互動</h2><p>這堂課的作業我做了一個可以自己裝飾聖誕樹的互動小作品。<br>只要用滑鼠在畫面上點擊，就能在聖誕樹對應的位置放上閃閃發光的燈泡。</p>
+<p>雖然我的第一個嘗試還很初階，但其他同學的作品很多都充滿創意跟豐富的變化，很值得一看。</p>
+<p><img src="https://images.aria-carrotlab.com/decorate%20christmas%20tree.webp" alt="裝飾自己的聖誕樹mockup"></p>
+<p><a target="_blank" rel="noopener" href="https://openprocessing.org/@aria-carrot/3055946">裝飾自己的聖誕樹</a></p>
+<p>這次作業的創作流程：</p>
+<ol>
+<li><p>先在 Pinterest 收集 10 張參考圖找靈感。</p>
+</li>
+<li><p>程式做好後，導出 10 張不同的變體作品。</p>
+</li>
+<li><p>從中挑選出一張最喜歡的成果，做成 Mockup 展示圖。</p>
+</li>
+</ol>
+<hr>
+<h2 id="遺憾與小結"><a href="#遺憾與小結" class="headerlink" title="遺憾與小結"></a>遺憾與小結</h2><p>目前覺得可惜的點有兩個：</p>
+<p><strong>1. 太晚發現這門課了</strong>：現在還在慢慢學習前面的內容。</p>
+<p><strong>2. 直播時間比較難搭上</strong>：在看回放時，感覺到直播當下大家跟老師即時互動的氛圍非常好，老師也會第一時間給予反饋與回應，沒能當下參與到覺得很可惜。</p>
+<p>不過整體來說，老師的講課很清晰易懂，教學範例很好玩，也有很多課後補充，非常推薦給對新媒體藝術、互動程式有興趣的人。</p>
+<hr>
+<h2 id="課程資訊"><a href="#課程資訊" class="headerlink" title="課程資訊"></a>課程資訊</h2><ul>
+<li><p><strong>課程平台</strong>：Hahow</p>
+</li>
+<li><p><strong>課程名稱</strong>：新媒體藝術全景課：11 週完成 8 件作品，打造你的個人創作流</p>
+</li>
+<li><p><strong>授課老師</strong>：吳哲宇 老師</p>
+</li>
+<li><p><strong>直播課程時間</strong>：2026&#x2F;9&#x2F;22 ~ 2026&#x2F;12&#x2F;22</p>
+</li>
+<li><p><strong>課程資訊</strong>：<a target="_blank" rel="noopener" href="https://newmediaart.course.monolab.world/">https://newmediaart.course.monolab.world/</a></p>
+</li>
+<li><p><strong>適合對象</strong>：不需要有程式或藝術背景，只要對新媒體技術與互動創作有興趣的人都很適合。</p>
+</li>
+</ul>
+</div>
+
+    
+
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <!-- 品牌與標語 -->
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+
+    <!-- 聯絡方式、隱私權政策與版權 -->
+    <div class="footer-info">
+      <!-- 第一行：聯絡我與隱私權政策 -->
+      <div class="footer-links">
+        <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
+          <i class="bi bi-envelope me-1"></i>
+          <span data-i18n="footer.contact">聯絡我</span>
+        </a>
+
+        <a
+          class="footer-policy-link small text-decoration-none"
+          href="/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="footer.privacy">隱私權政策</span>
+        </a>
+      </div>
+
+      <!-- 第二行：版權 -->
+      <span class="footer-copyright small muted">
+        Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+<!--axios JS-->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

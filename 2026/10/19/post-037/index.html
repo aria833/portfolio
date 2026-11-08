@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>資料格式｜哪些是網站常用的資料格式？附加好用的 JSON 視覺化工具 — ARIA&#39;S CARROTLAB</title>
+  <meta
+    name="description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/10/19/post-037/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="資料格式｜哪些是網站常用的資料格式？附加好用的 JSON 視覺化工具 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/10/19/post-037/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="資料格式｜哪些是網站常用的資料格式？附加好用的 JSON 視覺化工具 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SZD9X7XMWG"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-SZD9X7XMWG");
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.10.19</p>
+        <h1>資料格式｜哪些是網站常用的資料格式？附加好用的 JSON 視覺化工具</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/%E8%B3%87%E6%96%99%E6%A0%BC%E5%BC%8F/">資料格式</a>
+            
+                <a href="/tags/JSON/">JSON</a>
+            
+                <a href="/tags/XML/">XML</a>
+            
+                <a href="/tags/YAML/">YAML</a>
+            
+                <a href="/tags/Markdown/">Markdown</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>在現代網站與前端開發中，資料格式的選擇主要圍繞著 <strong>「網頁結構傳遞」</strong> 以及 <strong>「資料交換（API）」</strong> 兩大需求。</p>
+<h2 id="1-網頁本身的「結構」與「樣式」格式（靜態與互動基礎）"><a href="#1-網頁本身的「結構」與「樣式」格式（靜態與互動基礎）" class="headerlink" title="1. 網頁本身的「結構」與「樣式」格式（靜態與互動基礎）"></a>1. 網頁本身的「結構」與「樣式」格式（靜態與互動基礎）</h2><p>這些是組成一個網頁最核心、瀏覽器原生看得懂的語言：</p>
+<h3 id="HTML-HyperText-Markup-Language"><a href="#HTML-HyperText-Markup-Language" class="headerlink" title="HTML (HyperText Markup Language)"></a>HTML (HyperText Markup Language)</h3><ul>
+<li><p><strong>用途</strong>：網頁的骨架。定義文字、圖片、區塊等網頁結構。</p>
+</li>
+<li><p><strong>特點</strong>：由標籤（Tags）組成（如 <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>等）。</p>
+</li>
+</ul>
+<h3 id="CSS-Cascading-Style-Sheets"><a href="#CSS-Cascading-Style-Sheets" class="headerlink" title="CSS (Cascading Style Sheets)"></a>CSS (Cascading Style Sheets)</h3><ul>
+<li><p><strong>用途</strong>：網頁的外觀與排版。負責顏色、字型、響應式 RWD 佈局等。</p>
+</li>
+<li><p><strong>特點</strong>：讓網頁從單調的黑白文字變成精美介面的關鍵。</p>
+</li>
+</ul>
+<h3 id="JS-JavaScript"><a href="#JS-JavaScript" class="headerlink" title="JS (JavaScript)"></a>JS (JavaScript)</h3><ul>
+<li><p><strong>用途</strong>：網頁的靈魂與互動邏輯。</p>
+</li>
+<li><p><strong>特點</strong>：前端程式語言，控制動態互動、API 資料請求。</p>
+</li>
+</ul>
+<h3 id="2-「資料交換與-API-傳輸」格式（前後端溝通）"><a href="#2-「資料交換與-API-傳輸」格式（前後端溝通）" class="headerlink" title="2. 「資料交換與 API 傳輸」格式（前後端溝通）"></a>2. 「資料交換與 API 傳輸」格式（前後端溝通）</h3><p>當網頁需要跟伺服器要資料（例如：抓取天氣、取得使用者清單、讀取資料庫）時，最常使用的序列化格式。</p>
+<h3 id="JSON-JavaScript-Object-Notation-——-主流"><a href="#JSON-JavaScript-Object-Notation-——-主流" class="headerlink" title="JSON (JavaScript Object Notation) —— 主流"></a>JSON (JavaScript Object Notation) —— 主流</h3><ul>
+<li><p><strong>用途</strong>：前後端資料交換、設定檔（Configuration）、資料儲存。</p>
+</li>
+<li><p><strong>為什麼受歡迎</strong>：</p>
+</li>
+</ul>
+<ol>
+<li>它本質上就是 JavaScript 物件的寫法，前端處理起來極為直覺。</li>
+<li>結構輕量、人類看得懂、電腦解析速度也快。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;taskId&quot;: 1,</span><br><span class="line">  &quot;taskName&quot;: &quot;寫程式&quot;,</span><br><span class="line">  &quot;completed&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="XML-Extensible-Markup-Language"><a href="#XML-Extensible-Markup-Language" class="headerlink" title="XML (Extensible Markup Language)"></a>XML (Extensible Markup Language)</h3><ul>
+<li><p><strong>用途</strong>：早期網頁資料交換、RSS 訂閱源、大型企業系統整合、Sitemap 網站地圖。</p>
+</li>
+<li><p><strong>特點</strong>：長得像 HTML，使用嚴格的標籤包覆（<code>&lt;tag&gt;...&lt;/tag&gt;</code>）。雖然結構嚴謹，但因為語法太冗長、檔案較大，現在在一般前端 API 開發中已經大多被 JSON 取代了。</p>
+</li>
+</ul>
+<h3 id="YAML-YML"><a href="#YAML-YML" class="headerlink" title="YAML &#x2F; YML"></a>YAML &#x2F; YML</h3><ul>
+<li><p><strong>用途</strong>：專案設定檔、靜態網站生成器、CI&#x2F;CD 部署流程。</p>
+</li>
+<li><p><strong>特點</strong>：縮排非常乾淨、人類閱讀性極高，不用寫一堆括號或引號。</p>
+</li>
+</ul>
+<h2 id="3-其他網頁常見的資料與傳輸格式"><a href="#3-其他網頁常見的資料與傳輸格式" class="headerlink" title="3. 其他網頁常見的資料與傳輸格式"></a>3. 其他網頁常見的資料與傳輸格式</h2><h3 id="Markdown-md"><a href="#Markdown-md" class="headerlink" title="Markdown (.md)"></a>Markdown (.md)</h3><ul>
+<li><p><strong>用途</strong>：文章寫作、部落格內容、專案說明文件（README）。</p>
+</li>
+<li><p><strong>特點</strong>：純文字格式，但透過簡單的符號（如 <code>#</code>, <code>*</code>）就能標示標題和粗體，常見於筆記與技術部落格。</p>
+</li>
+</ul>
+<h3 id="CSV-JSON-匯出檔"><a href="#CSV-JSON-匯出檔" class="headerlink" title="CSV &#x2F; JSON 匯出檔"></a>CSV &#x2F; JSON 匯出檔</h3><p><strong>用途</strong>：表格資料備份、數據匯出。</p>
+<hr>
+<h2 id="開發實用小工具：JSON-檢視與視覺化神器"><a href="#開發實用小工具：JSON-檢視與視覺化神器" class="headerlink" title="開發實用小工具：JSON 檢視與視覺化神器"></a>開發實用小工具：JSON 檢視與視覺化神器</h2><p>雖然 JSON 很實用，但有時候拿到一大包 JSON 原始檔案時，資料是密密麻麻的排在一起，肉眼看實在是很不方便，因此可以使用一些方便好用的工具，提升資料的易讀性。</p>
+<h3 id="1-使用-Chrome-套件直接美化-JSON"><a href="#1-使用-Chrome-套件直接美化-JSON" class="headerlink" title="1. 使用 Chrome 套件直接美化 JSON"></a>1. 使用 Chrome 套件直接美化 JSON</h3><p>如果是用瀏覽器直接開啟 JSON 檔案或 API 網址，可以安裝這款 <a target="_blank" rel="noopener" href="https://chromewebstore.google.com/detail/gmegofmjomhknnokphhckolhcffdaihd?utm_source=item-share-cb">JSONView Chrome 套件</a>。安裝後，瀏覽器就會自動把亂成一團的 JSON 排版成有縮排、有色彩的高亮格式，閱讀起來直覺很多。</p>
+<h3 id="2-JSON-Crack：把複雜結構畫成心智圖"><a href="#2-JSON-Crack：把複雜結構畫成心智圖" class="headerlink" title="2. JSON Crack：把複雜結構畫成心智圖"></a>2. JSON Crack：把複雜結構畫成心智圖</h3><p>遇到結構超深、資料很龐大的 JSON 時，可以使用 <a target="_blank" rel="noopener" href="https://jsoncrack.com/">JSON Crack</a>。只要把 JSON 程式碼貼進去，它就會自動把階層資料轉化成清晰的視覺化節點圖（Node Graph），整個架構瞬間一目了然。</p>
+</div>
+
+    
+
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <!-- 品牌與標語 -->
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+
+    <!-- 聯絡方式、隱私權政策與版權 -->
+    <div class="footer-info">
+      <!-- 第一行：聯絡我與隱私權政策 -->
+      <div class="footer-links">
+        <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
+          <i class="bi bi-envelope me-1"></i>
+          <span data-i18n="footer.contact">聯絡我</span>
+        </a>
+
+        <a
+          class="footer-policy-link small text-decoration-none"
+          href="/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="footer.privacy">隱私權政策</span>
+        </a>
+      </div>
+
+      <!-- 第二行：版權 -->
+      <span class="footer-copyright small muted">
+        Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+<!--axios JS-->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

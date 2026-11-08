@@ -199,6 +199,8 @@ window.CarrotLabDictionaries["en"] = {
   "post.relatedTitle": "Related Notes",
   "post.relatedCopy": "Discover more interesting learning records.",
   "post.relatedLabel": "Related Notes",
+  "projectNotes.countPrefix": "View all",
+  "projectNotes.countSuffix": "related notes",
   "post.readArticle": "Read Article",
   "post.readNote": "Read",
 
@@ -223,7 +225,7 @@ window.CarrotLabDictionaries["en"] = {
   "about.exploring.hexo": "Static Websites, Hexo & Content Management",
   "about.exploring.ai":
     "Integrating AI Tools into Design and Development Workflows",
-
+  "about.exploring.mediaart": "Media Art Creation",
   "language.zhTW": "Traditional Chinese",
   "language.en": "English",
   "language.ja": "Japanese",

@@ -6,7 +6,6 @@
   margin: 3rem auto 0;
   max-width: 700px;
   padding-top: 2.5rem;
-  border-top: 1px solid var(--line);
   overflow: hidden;
 }
 
@@ -192,5 +191,29 @@
 .related-post-title:hover,
 .related-post-title:focus-visible,
 .related-post-title:active {
+  color: var(--accent);
+}
+
+/* Project pages show notes at the same width as the surrounding sections. */
+.related-project-notes {
+  width: 100%;
+  max-width: none;
+}
+
+.related-project-notes .eyebrow {
+  color: var(--accent);
+}
+
+.related-project-notes-count {
+  color: var(--muted);
+  font:
+    0.75rem "DM Mono",
+    monospace;
+  letter-spacing: 0;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.related-project-notes-count:hover {
   color: var(--accent);
 }

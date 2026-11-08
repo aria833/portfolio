@@ -119,6 +119,11 @@
         <img src="/images/logo.webp" alt="logo" />
         <span>Aria's CarrotLab</span>
       </a>
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
 
       <!-- 導覽列 -->
       <button
@@ -358,11 +363,163 @@
 
             <div class="blog-toolbar">
                 <span>
-                    33
+                    36
                     <span data-i18n="tag.countLabel">NOTES IN THIS TAG</span>
                 </span>
             </div>
             <div class="post-list">
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+                        <!-- 左側：文章編號與日期 -->
+                        <div class="post-list-meta">
+                            <span class="post-index">
+                            017
+                            </span>
+                            <time datetime="2026-09-28T16:43:29.000Z">
+                            2026.09.29
+                            </time>
+                        </div>
+                        <!-- 右側：標題、摘要與標籤 -->
+                        <div class="post-list-content">
+                            <h2>
+                                <a
+                                    class="post-title-link"
+                                    href="/2026/09/29/post-017/"
+                                >
+                                    DAY 16｜功能實作（四）：精確計時（Date.now()）與 background 防休眠
+                                </a>
+                            </h2>
+                            <p class="post-list-excerpt">
+                                這幾天的功能實作中，順利完成了計時器的啟動、按鈕UI的切換，一切看起來都在完美運作。但我發現如果把網頁切換到別的分頁，計時器似乎變慢了。
+所以這篇要來找出為什麼會變慢，以及如何透過 「時間戳記差值計算」 與 Page Visibility API 來改善目前的計時器。
+
+為什麼 setInterva…
+                            </p>
+                            <!-- 文章內的 Tag -->
+                            
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                                
+                                <a
+                                    class="btn btn-outline-orange"
+                                    href="/tags/iThome2026/"
+                                >
+                                    iThome2026
+                                </a>
+                                
+                                <a
+                                    class="btn btn-outline-orange"
+                                    href="/tags/TaskTimer/"
+                                >
+                                    TaskTimer
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+                        <!-- 左側：文章編號與日期 -->
+                        <div class="post-list-meta">
+                            <span class="post-index">
+                            016
+                            </span>
+                            <time datetime="2026-09-27T16:43:26.000Z">
+                            2026.09.28
+                            </time>
+                        </div>
+                        <!-- 右側：標題、摘要與標籤 -->
+                        <div class="post-list-content">
+                            <h2>
+                                <a
+                                    class="post-title-link"
+                                    href="/2026/09/28/post-016/"
+                                >
+                                    DAY 15｜功能實作（三）：UI 按鈕狀態切換與暫停／結束控制
+                                </a>
+                            </h2>
+                            <p class="post-list-excerpt">
+                                前兩天的實作中，成功地讓計時器開始動起來，但當按下開始計時後，按鈕的UI卻沒有變化，今天就要來完成這一部分：點擊「開始」時動態隱藏&amp;#x2F;顯示按鈕，並實現「暫停&amp;#x2F;繼續」與「結束」功能。
+
+步驟 1：使用 Bootstrap 5 類別切換介面在切版時，針對計時中的按鈕（暫停&amp;#x2F;結…
+                            </p>
+                            <!-- 文章內的 Tag -->
+                            
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                                
+                                <a
+                                    class="btn btn-outline-orange"
+                                    href="/tags/iThome2026/"
+                                >
+                                    iThome2026
+                                </a>
+                                
+                                <a
+                                    class="btn btn-outline-orange"
+                                    href="/tags/TaskTimer/"
+                                >
+                                    TaskTimer
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+                        <!-- 左側：文章編號與日期 -->
+                        <div class="post-list-meta">
+                            <span class="post-index">
+                            015
+                            </span>
+                            <time datetime="2026-09-26T16:43:23.000Z">
+                            2026.09.27
+                            </time>
+                        </div>
+                        <!-- 右側：標題、摘要與標籤 -->
+                        <div class="post-list-content">
+                            <h2>
+                                <a
+                                    class="post-title-link"
+                                    href="/2026/09/27/post-015/"
+                                >
+                                    DAY 14｜功能實作（二）：setInterval 與計時核心邏輯
+                                </a>
+                            </h2>
+                            <p class="post-list-excerpt">
+                                在準備好了時間格式化工具與變數之後，接下來要解決計時器的關鍵問題：如何讓數字每秒自動加 1 並更新到畫面上？
+我們可以使用JavaScript 的原生函式－ setInterval 。
+
+觀念解析：setInterval 與 clearIntervalJavaScript 提供原生的 setInte…
+                            </p>
+                            <!-- 文章內的 Tag -->
+                            
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                                
+                                <a
+                                    class="btn btn-outline-orange"
+                                    href="/tags/iThome2026/"
+                                >
+                                    iThome2026
+                                </a>
+                                
+                                <a
+                                    class="btn btn-outline-orange"
+                                    href="/tags/TaskTimer/"
+                                >
+                                    TaskTimer
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </article>
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
@@ -726,157 +883,6 @@ DOM 元素選取與狀態變數初始化
                     </div>
                 </article>
                 
-                <article class="post-list-item">
-                    <div class="post-list-link">
-                        <!-- 左側：文章編號與日期 -->
-                        <div class="post-list-meta">
-                            <span class="post-index">
-                            007
-                            </span>
-                            <time datetime="2026-09-18T16:42:59.000Z">
-                            2026.09.19
-                            </time>
-                        </div>
-                        <!-- 右側：標題、摘要與標籤 -->
-                        <div class="post-list-content">
-                            <h2>
-                                <a
-                                    class="post-title-link"
-                                    href="/2026/09/19/post-007/"
-                                >
-                                    DAY 06｜切版實作：Bootstrap 5 List Group 側邊選單搭建
-                                </a>
-                            </h2>
-                            <p class="post-list-excerpt">
-                                上一篇我們運用了 Bootstrap 5 的網格系統（Grid System），讓畫面在不同裝置尺寸下（以 768px 為分界點）能呈現響應式的佈局。
-接下來，我們要先來搭建左側的選單結構，讓使用者未來可以透過點擊清單按鈕，切換對應的頁面內容。
-
-1. 認識 List Group 元件我們先從左側選…
-                            </p>
-                            <!-- 文章內的 Tag -->
-                            
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                                
-                                <a
-                                    class="btn btn-outline-orange"
-                                    href="/tags/iThome2026/"
-                                >
-                                    iThome2026
-                                </a>
-                                
-                                <a
-                                    class="btn btn-outline-orange"
-                                    href="/tags/TaskTimer/"
-                                >
-                                    TaskTimer
-                                </a>
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="post-list-item">
-                    <div class="post-list-link">
-                        <!-- 左側：文章編號與日期 -->
-                        <div class="post-list-meta">
-                            <span class="post-index">
-                            006
-                            </span>
-                            <time datetime="2026-09-17T16:42:56.000Z">
-                            2026.09.18
-                            </time>
-                        </div>
-                        <!-- 右側：標題、摘要與標籤 -->
-                        <div class="post-list-content">
-                            <h2>
-                                <a
-                                    class="post-title-link"
-                                    href="/2026/09/18/post-006/"
-                                >
-                                    DAY 05｜切版實作：Bootstrap 5 網格系統與響應式佈局
-                                </a>
-                            </h2>
-                            <p class="post-list-excerpt">
-                                在完成了 Mockup 與核心流程圖（Happy Path）後，接下來就要正式進入切版實作階段，我們將運用 Bootstrap 5 的元件與網格系統進行畫面切版以及響應式佈局。
-
-1.載入 Bootstrap 5 CDN要使用 Bootstrap 5，最快速的方式是在 HTML 中直接引入 CDN：…
-                            </p>
-                            <!-- 文章內的 Tag -->
-                            
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                                
-                                <a
-                                    class="btn btn-outline-orange"
-                                    href="/tags/iThome2026/"
-                                >
-                                    iThome2026
-                                </a>
-                                
-                                <a
-                                    class="btn btn-outline-orange"
-                                    href="/tags/TaskTimer/"
-                                >
-                                    TaskTimer
-                                </a>
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="post-list-item">
-                    <div class="post-list-link">
-                        <!-- 左側：文章編號與日期 -->
-                        <div class="post-list-meta">
-                            <span class="post-index">
-                            005
-                            </span>
-                            <time datetime="2026-09-16T16:42:53.000Z">
-                            2026.09.17
-                            </time>
-                        </div>
-                        <!-- 右側：標題、摘要與標籤 -->
-                        <div class="post-list-content">
-                            <h2>
-                                <a
-                                    class="post-title-link"
-                                    href="/2026/09/17/post-005/"
-                                >
-                                    DAY 04｜流程圖的邏輯梳理
-                                </a>
-                            </h2>
-                            <p class="post-list-excerpt">
-                                在完成介面雛形（mockup）後，下一步就是定義應用程式的 Happy Path（理想主流程） 與 視覺反饋。透過梳理流程圖，能幫助我們在動手寫 JavaScript 前，先釐清每個關鍵步驟的狀態切換與邏輯判斷。
-
-核心流程圖 (Flowchart)依照標準流程圖（Flowchart）規範，不同的形…
-                            </p>
-                            <!-- 文章內的 Tag -->
-                            
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                                
-                                <a
-                                    class="btn btn-outline-orange"
-                                    href="/tags/iThome2026/"
-                                >
-                                    iThome2026
-                                </a>
-                                
-                                <a
-                                    class="btn btn-outline-orange"
-                                    href="/tags/TaskTimer/"
-                                >
-                                    TaskTimer
-                                </a>
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-                </article>
-                
             </div>
             <!-- 沒有文章時 -->
             
@@ -982,6 +988,36 @@ DOM 元素選取與狀態變數初始化
                     
                     >
                     Bloom Memories
+                    <span class="tag-count">2</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/CarrotLab/"
+                    
+                    >
+                    CarrotLab
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/JSON/"
+                    
+                    >
+                    JSON
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/Markdown/"
+                    
+                    >
+                    Markdown
                     <span class="tag-count">1</span>
                     </a>
                 
@@ -992,7 +1028,7 @@ DOM 元素選取與狀態變數初始化
                     aria-current="page"
                     >
                     TaskTimer
-                    <span class="tag-count">33</span>
+                    <span class="tag-count">36</span>
                     </a>
                 
                     
@@ -1002,6 +1038,46 @@ DOM 元素選取與狀態變數初始化
                     
                     >
                     Timestamp
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/TouchDesigner/"
+                    
+                    >
+                    TouchDesigner
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/XML/"
+                    
+                    >
+                    XML
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/YAML/"
+                    
+                    >
+                    YAML
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/data-i18n/"
+                    
+                    >
+                    data-i18n
                     <span class="tag-count">1</span>
                     </a>
                 
@@ -1028,6 +1104,16 @@ DOM 元素選取與狀態變數初始化
                     
                     <a
                     class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/p5-js/"
+                    
+                    >
+                    p5.js
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
                     href="/tags/%E4%BA%92%E5%8B%95%E9%AB%94%E9%A9%97/"
                     
                     >
@@ -1042,6 +1128,16 @@ DOM 元素選取與狀態變數初始化
                     
                     >
                     圖片格式
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/%E5%A4%9A%E8%AA%9E%E7%B3%BB%E5%88%87%E6%8F%9B/"
+                    
+                    >
+                    多語系切換
                     <span class="tag-count">1</span>
                     </a>
                 
@@ -1078,10 +1174,40 @@ DOM 元素選取與狀態變數初始化
                     
                     <a
                     class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/%E6%96%B0%E5%AA%92%E9%AB%94%E8%97%9D%E8%A1%93/"
+                    
+                    >
+                    新媒體藝術
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
                     href="/tags/%E6%99%82%E9%96%93%E6%88%B3/"
                     
                     >
                     時間戳
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/%E6%B7%B1%E6%B7%BA%E8%89%B2%E6%A8%A1%E5%BC%8F/"
+                    
+                    >
+                    深淺色模式
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/%E7%89%88%E6%9C%AC%E8%99%9F/"
+                    
+                    >
+                    版本號
                     <span class="tag-count">1</span>
                     </a>
                 
@@ -1102,6 +1228,26 @@ DOM 元素選取與狀態變數初始化
                     
                     >
                     網站加速
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/%E8%AA%B2%E7%A8%8B%E5%BF%83%E5%BE%97/"
+                    
+                    >
+                    課程心得
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/%E8%B3%87%E6%96%99%E6%A0%BC%E5%BC%8F/"
+                    
+                    >
+                    資料格式
                     <span class="tag-count">1</span>
                     </a>
                 

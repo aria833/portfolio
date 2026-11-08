@@ -119,6 +119,11 @@
         <img src="/images/logo.webp" alt="logo" />
         <span>Aria's CarrotLab</span>
       </a>
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
 
       <!-- 導覽列 -->
       <button
@@ -358,11 +363,159 @@
 
             <div class="blog-toolbar">
                 <span>
-                    33
+                    36
                     <span data-i18n="tag.countLabel">NOTES IN THIS TAG</span>
                 </span>
             </div>
             <div class="post-list">
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+                        <!-- 左側：文章編號與日期 -->
+                        <div class="post-list-meta">
+                            <span class="post-index">
+                            027
+                            </span>
+                            <time datetime="2026-10-08T16:44:03.000Z">
+                            2026.10.09
+                            </time>
+                        </div>
+                        <!-- 右側：標題、摘要與標籤 -->
+                        <div class="post-list-content">
+                            <h2>
+                                <a
+                                    class="post-title-link"
+                                    href="/2026/10/09/post-027/"
+                                >
+                                    DAY 26｜資料被清掉怎麼辦？使用JSON 資料備份與還原
+                                </a>
+                            </h2>
+                            <p class="post-list-excerpt">
+                                前幾天我們完成了 IndexedDB 的本地資料儲存，在沒有後端 API 與伺服器資料庫的情況下，依然能順暢地在瀏覽器端運作與記錄資料。
+但是，雖然 Local-First（本地優先）架構帶來順暢使用與保有隱私，一旦使用者手動清理瀏覽器快取、開啟無痕模式，或是更換電腦與手機，原本記錄的任務資料就會消…
+                            </p>
+                            <!-- 文章內的 Tag -->
+                            
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                                
+                                <a
+                                    class="btn btn-outline-orange"
+                                    href="/tags/iThome2026/"
+                                >
+                                    iThome2026
+                                </a>
+                                
+                                <a
+                                    class="btn btn-outline-orange"
+                                    href="/tags/TaskTimer/"
+                                >
+                                    TaskTimer
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+                        <!-- 左側：文章編號與日期 -->
+                        <div class="post-list-meta">
+                            <span class="post-index">
+                            026
+                            </span>
+                            <time datetime="2026-10-07T16:44:00.000Z">
+                            2026.10.08
+                            </time>
+                        </div>
+                        <!-- 右側：標題、摘要與標籤 -->
+                        <div class="post-list-content">
+                            <h2>
+                                <a
+                                    class="post-title-link"
+                                    href="/2026/10/08/post-026/"
+                                >
+                                    DAY 25｜資料備份：資料主權歸於使用者，實作 CSV 報表匯出功能
+                                </a>
+                            </h2>
+                            <p class="post-list-excerpt">
+                                在前面的文章中，我們實現了以 IndexedDB 做為本地儲存的 Local-First 架構。
+但對於一個「不收集個人資料、資料存在使用者本地裝置」的工具來說，光是把資料存放在瀏覽器裡還不夠。萬一使用者更換電腦、清除瀏覽器快取，或是想把紀錄拿去做其他用途呢？
+因此，我希望可以有資料匯出功能，讓使用…
+                            </p>
+                            <!-- 文章內的 Tag -->
+                            
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                                
+                                <a
+                                    class="btn btn-outline-orange"
+                                    href="/tags/iThome2026/"
+                                >
+                                    iThome2026
+                                </a>
+                                
+                                <a
+                                    class="btn btn-outline-orange"
+                                    href="/tags/TaskTimer/"
+                                >
+                                    TaskTimer
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+                        <!-- 左側：文章編號與日期 -->
+                        <div class="post-list-meta">
+                            <span class="post-index">
+                            025
+                            </span>
+                            <time datetime="2026-10-06T16:43:58.000Z">
+                            2026.10.07
+                            </time>
+                        </div>
+                        <!-- 右側：標題、摘要與標籤 -->
+                        <div class="post-list-content">
+                            <h2>
+                                <a
+                                    class="post-title-link"
+                                    href="/2026/10/07/post-025/"
+                                >
+                                    DAY 24｜Local-First 架構（三）：整合資料到 IndexedDB
+                                </a>
+                            </h2>
+                            <p class="post-list-excerpt">
+                                在 Day 22 介紹了 Local-First 的核心理念，並在 Day 23 成功用 Promise 包裝出獨立的 db.js 資料庫工具模組。
+今天要來進行整合實作，將原本存在記憶體（Memory）中的 tasks 全域變數，與 IndexedDB 進行連線，實現 「重新整理頁面資料不遺失、無…
+                            </p>
+                            <!-- 文章內的 Tag -->
+                            
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                                
+                                <a
+                                    class="btn btn-outline-orange"
+                                    href="/tags/iThome2026/"
+                                >
+                                    iThome2026
+                                </a>
+                                
+                                <a
+                                    class="btn btn-outline-orange"
+                                    href="/tags/TaskTimer/"
+                                >
+                                    TaskTimer
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </article>
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
@@ -718,158 +871,6 @@
                     </div>
                 </article>
                 
-                <article class="post-list-item">
-                    <div class="post-list-link">
-                        <!-- 左側：文章編號與日期 -->
-                        <div class="post-list-meta">
-                            <span class="post-index">
-                            017
-                            </span>
-                            <time datetime="2026-09-28T16:43:29.000Z">
-                            2026.09.29
-                            </time>
-                        </div>
-                        <!-- 右側：標題、摘要與標籤 -->
-                        <div class="post-list-content">
-                            <h2>
-                                <a
-                                    class="post-title-link"
-                                    href="/2026/09/29/post-017/"
-                                >
-                                    DAY 16｜功能實作（四）：精確計時（Date.now()）與 background 防休眠
-                                </a>
-                            </h2>
-                            <p class="post-list-excerpt">
-                                這幾天的功能實作中，順利完成了計時器的啟動、按鈕UI的切換，一切看起來都在完美運作。但我發現如果把網頁切換到別的分頁，計時器似乎變慢了。
-所以這篇要來找出為什麼會變慢，以及如何透過 「時間戳記差值計算」 與 Page Visibility API 來改善目前的計時器。
-
-為什麼 setInterva…
-                            </p>
-                            <!-- 文章內的 Tag -->
-                            
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                                
-                                <a
-                                    class="btn btn-outline-orange"
-                                    href="/tags/iThome2026/"
-                                >
-                                    iThome2026
-                                </a>
-                                
-                                <a
-                                    class="btn btn-outline-orange"
-                                    href="/tags/TaskTimer/"
-                                >
-                                    TaskTimer
-                                </a>
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="post-list-item">
-                    <div class="post-list-link">
-                        <!-- 左側：文章編號與日期 -->
-                        <div class="post-list-meta">
-                            <span class="post-index">
-                            016
-                            </span>
-                            <time datetime="2026-09-27T16:43:26.000Z">
-                            2026.09.28
-                            </time>
-                        </div>
-                        <!-- 右側：標題、摘要與標籤 -->
-                        <div class="post-list-content">
-                            <h2>
-                                <a
-                                    class="post-title-link"
-                                    href="/2026/09/28/post-016/"
-                                >
-                                    DAY 15｜功能實作（三）：UI 按鈕狀態切換與暫停／結束控制
-                                </a>
-                            </h2>
-                            <p class="post-list-excerpt">
-                                前兩天的實作中，成功地讓計時器開始動起來，但當按下開始計時後，按鈕的UI卻沒有變化，今天就要來完成這一部分：點擊「開始」時動態隱藏&amp;#x2F;顯示按鈕，並實現「暫停&amp;#x2F;繼續」與「結束」功能。
-
-步驟 1：使用 Bootstrap 5 類別切換介面在切版時，針對計時中的按鈕（暫停&amp;#x2F;結…
-                            </p>
-                            <!-- 文章內的 Tag -->
-                            
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                                
-                                <a
-                                    class="btn btn-outline-orange"
-                                    href="/tags/iThome2026/"
-                                >
-                                    iThome2026
-                                </a>
-                                
-                                <a
-                                    class="btn btn-outline-orange"
-                                    href="/tags/TaskTimer/"
-                                >
-                                    TaskTimer
-                                </a>
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="post-list-item">
-                    <div class="post-list-link">
-                        <!-- 左側：文章編號與日期 -->
-                        <div class="post-list-meta">
-                            <span class="post-index">
-                            015
-                            </span>
-                            <time datetime="2026-09-26T16:43:23.000Z">
-                            2026.09.27
-                            </time>
-                        </div>
-                        <!-- 右側：標題、摘要與標籤 -->
-                        <div class="post-list-content">
-                            <h2>
-                                <a
-                                    class="post-title-link"
-                                    href="/2026/09/27/post-015/"
-                                >
-                                    DAY 14｜功能實作（二）：setInterval 與計時核心邏輯
-                                </a>
-                            </h2>
-                            <p class="post-list-excerpt">
-                                在準備好了時間格式化工具與變數之後，接下來要解決計時器的關鍵問題：如何讓數字每秒自動加 1 並更新到畫面上？
-我們可以使用JavaScript 的原生函式－ setInterval 。
-
-觀念解析：setInterval 與 clearIntervalJavaScript 提供原生的 setInte…
-                            </p>
-                            <!-- 文章內的 Tag -->
-                            
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                                
-                                <a
-                                    class="btn btn-outline-orange"
-                                    href="/tags/iThome2026/"
-                                >
-                                    iThome2026
-                                </a>
-                                
-                                <a
-                                    class="btn btn-outline-orange"
-                                    href="/tags/TaskTimer/"
-                                >
-                                    TaskTimer
-                                </a>
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-                </article>
-                
             </div>
             <!-- 沒有文章時 -->
             
@@ -975,6 +976,36 @@
                     
                     >
                     Bloom Memories
+                    <span class="tag-count">2</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/CarrotLab/"
+                    
+                    >
+                    CarrotLab
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/JSON/"
+                    
+                    >
+                    JSON
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/Markdown/"
+                    
+                    >
+                    Markdown
                     <span class="tag-count">1</span>
                     </a>
                 
@@ -985,7 +1016,7 @@
                     aria-current="page"
                     >
                     TaskTimer
-                    <span class="tag-count">33</span>
+                    <span class="tag-count">36</span>
                     </a>
                 
                     
@@ -995,6 +1026,46 @@
                     
                     >
                     Timestamp
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/TouchDesigner/"
+                    
+                    >
+                    TouchDesigner
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/XML/"
+                    
+                    >
+                    XML
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/YAML/"
+                    
+                    >
+                    YAML
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/data-i18n/"
+                    
+                    >
+                    data-i18n
                     <span class="tag-count">1</span>
                     </a>
                 
@@ -1021,6 +1092,16 @@
                     
                     <a
                     class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/p5-js/"
+                    
+                    >
+                    p5.js
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
                     href="/tags/%E4%BA%92%E5%8B%95%E9%AB%94%E9%A9%97/"
                     
                     >
@@ -1035,6 +1116,16 @@
                     
                     >
                     圖片格式
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/%E5%A4%9A%E8%AA%9E%E7%B3%BB%E5%88%87%E6%8F%9B/"
+                    
+                    >
+                    多語系切換
                     <span class="tag-count">1</span>
                     </a>
                 
@@ -1071,10 +1162,40 @@
                     
                     <a
                     class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/%E6%96%B0%E5%AA%92%E9%AB%94%E8%97%9D%E8%A1%93/"
+                    
+                    >
+                    新媒體藝術
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
                     href="/tags/%E6%99%82%E9%96%93%E6%88%B3/"
                     
                     >
                     時間戳
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/%E6%B7%B1%E6%B7%BA%E8%89%B2%E6%A8%A1%E5%BC%8F/"
+                    
+                    >
+                    深淺色模式
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/%E7%89%88%E6%9C%AC%E8%99%9F/"
+                    
+                    >
+                    版本號
                     <span class="tag-count">1</span>
                     </a>
                 
@@ -1095,6 +1216,26 @@
                     
                     >
                     網站加速
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/%E8%AA%B2%E7%A8%8B%E5%BF%83%E5%BE%97/"
+                    
+                    >
+                    課程心得
+                    <span class="tag-count">1</span>
+                    </a>
+                
+                    
+                    <a
+                    class="btn btn-sm btn-outline-orange archive-tag-link"
+                    href="/tags/%E8%B3%87%E6%96%99%E6%A0%BC%E5%BC%8F/"
+                    
+                    >
+                    資料格式
                     <span class="tag-count">1</span>
                     </a>
                 

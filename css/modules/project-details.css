@@ -1716,15 +1716,15 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    .case-research-grid::-webkit-scrollbar {
-      display: none;
-    }
     padding: 0 0 1rem;
+  }
+
+  .case-research-grid::-webkit-scrollbar {
+    display: none;
   }
 
   .case-research-grid article {
     scroll-snap-align: start;
-    min-width: 0;
     height: 100%;
   }
 
