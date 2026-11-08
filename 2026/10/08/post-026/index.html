@@ -6,9 +6,10 @@
 
   <!-- 1. 基本 SEO 資訊 -->
   <title>DAY 25｜資料備份：資料主權歸於使用者，實作 CSV 報表匯出功能 — ARIA&#39;S CARROTLAB</title>
+  
   <meta
     name="description"
-    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    content="在前面的文章中，我們實現了以 IndexedDB 做為本地儲存的 Local-First 架構。 但對於一個「不收集個人資料、資料存在使用者本地裝置」的工具來說，光是把資料存放在瀏覽器裡還不夠。萬一使用者更換電腦、清除瀏覽器快取，或是想把紀錄拿去做其他用途呢？ 因此，我希望可以有資料匯出功能，讓使用者可以備份相關紀錄，"
   />
   <meta name="author" content="Aria" />
   <meta name="robots" content="index, follow" />
@@ -38,7 +39,7 @@
   />
   <meta
     property="og:description"
-    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    content="在前面的文章中，我們實現了以 IndexedDB 做為本地儲存的 Local-First 架構。 但對於一個「不收集個人資料、資料存在使用者本地裝置」的工具來說，光是把資料存放在瀏覽器裡還不夠。萬一使用者更換電腦、清除瀏覽器快取，或是想把紀錄拿去做其他用途呢？ 因此，我希望可以有資料匯出功能，讓使用者可以備份相關紀錄，"
   />
   <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/10/08/post-026/" />
   <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
@@ -56,7 +57,7 @@
   />
   <meta
     name="twitter:description"
-    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    content="在前面的文章中，我們實現了以 IndexedDB 做為本地儲存的 Local-First 架構。 但對於一個「不收集個人資料、資料存在使用者本地裝置」的工具來說，光是把資料存放在瀏覽器裡還不夠。萬一使用者更換電腦、清除瀏覽器快取，或是想把紀錄拿去做其他用途呢？ 因此，我希望可以有資料匯出功能，讓使用者可以備份相關紀錄，"
   />
   <meta
     name="twitter:image"
@@ -75,6 +76,12 @@
       "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
     }
   </script>
+
+  
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"DAY 25｜資料備份：資料主權歸於使用者，實作 CSV 報表匯出功能","description":"在前面的文章中，我們實現了以 IndexedDB 做為本地儲存的 Local-First 架構。 但對於一個「不收集個人資料、資料存在使用者本地裝置」的工具來說，光是把資料存放在瀏覽器裡還不夠。萬一使用者更換電腦、清除瀏覽器快取，或是想把紀錄拿去做其他用途呢？ 因此，我希望可以有資料匯出功能，讓使用者可以備份相關紀錄，","datePublished":"2026-10-08T00:44:00+08:00","dateModified":"2026-11-04T15:57:13+08:00","author":{"@type":"Person","name":"Aria"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://portfolio.aria-carrotlab.com/2026/10/08/post-026/"},"image":"https://portfolio.aria-carrotlab.com/images/og-image.webp"}
+  </script>
+  
 
   <!-- 6. 外部資源載入 (CSS / Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />

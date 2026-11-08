@@ -1,3 +1,4 @@
 # Allow all search engines and AI crawlers to fully index the website
 User-agent: *
 Allow: /
+Sitemap: https://portfolio.aria-carrotlab.com/sitemap.xml

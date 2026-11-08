@@ -6,9 +6,10 @@
 
   <!-- 1. 基本 SEO 資訊 -->
   <title>DAY 16｜功能實作（四）：精確計時（Date.now()）與 background 防休眠 — ARIA&#39;S CARROTLAB</title>
+  
   <meta
     name="description"
-    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    content="這幾天的功能實作中，順利完成了計時器的啟動、按鈕UI的切換，一切看起來都在完美運作。但我發現如果把網頁切換到別的分頁，計時器似乎變慢了。 所以這篇要來找出為什麼會變慢，以及如何透過 「時間戳記差值計算」 與 Page Visibility API 來改善目前的計時器。 為什麼 setInterval 會越計越慢？瀏覽器"
   />
   <meta name="author" content="Aria" />
   <meta name="robots" content="index, follow" />
@@ -38,7 +39,7 @@
   />
   <meta
     property="og:description"
-    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    content="這幾天的功能實作中，順利完成了計時器的啟動、按鈕UI的切換，一切看起來都在完美運作。但我發現如果把網頁切換到別的分頁，計時器似乎變慢了。 所以這篇要來找出為什麼會變慢，以及如何透過 「時間戳記差值計算」 與 Page Visibility API 來改善目前的計時器。 為什麼 setInterval 會越計越慢？瀏覽器"
   />
   <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/09/29/post-017/" />
   <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
@@ -56,7 +57,7 @@
   />
   <meta
     name="twitter:description"
-    content="記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    content="這幾天的功能實作中，順利完成了計時器的啟動、按鈕UI的切換，一切看起來都在完美運作。但我發現如果把網頁切換到別的分頁，計時器似乎變慢了。 所以這篇要來找出為什麼會變慢，以及如何透過 「時間戳記差值計算」 與 Page Visibility API 來改善目前的計時器。 為什麼 setInterval 會越計越慢？瀏覽器"
   />
   <meta
     name="twitter:image"
@@ -75,6 +76,12 @@
       "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
     }
   </script>
+
+  
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"DAY 16｜功能實作（四）：精確計時（Date.now()）與 background 防休眠","description":"這幾天的功能實作中，順利完成了計時器的啟動、按鈕UI的切換，一切看起來都在完美運作。但我發現如果把網頁切換到別的分頁，計時器似乎變慢了。 所以這篇要來找出為什麼會變慢，以及如何透過 「時間戳記差值計算」 與 Page Visibility API 來改善目前的計時器。 為什麼 setInterval 會越計越慢？瀏覽器","datePublished":"2026-09-29T00:43:29+08:00","dateModified":"2026-11-04T15:57:18+08:00","author":{"@type":"Person","name":"Aria"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://portfolio.aria-carrotlab.com/2026/09/29/post-017/"},"image":"https://portfolio.aria-carrotlab.com/images/og-image.webp"}
+  </script>
+  
 
   <!-- 6. 外部資源載入 (CSS / Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
