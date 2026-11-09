@@ -79,7 +79,7 @@
 
   
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BlogPosting","headline":"程式碼拆分與重構｜打敗程式碼的河馬大怪獸","description":"(如果你點進來，是想知道什麼是河馬大怪獸，在文末～) 之前參加 iThome 鐵人賽的尾聲，回頭檢視 TaskTimer 的程式碼時，才驚覺單一檔案竟然變得如此冗長，維護時覺得很耗費心力，因此當時便決心進行了重構。(詳細的歷程可以參考這篇文章- DAY 31 | 東西擺整齊的療癒感！專案開發後的回頭重構與架構優化) 不","datePublished":"2026-10-23T18:00:07+08:00","dateModified":"2026-11-08T18:35:41+08:00","author":{"@type":"Person","name":"Aria"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://portfolio.aria-carrotlab.com/2026/10/23/post-041/"},"image":"https://portfolio.aria-carrotlab.com/images/og-image.webp"}
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"程式碼拆分與重構｜打敗程式碼的河馬大怪獸","description":"(如果你點進來，是想知道什麼是河馬大怪獸，在文末～) 之前參加 iThome 鐵人賽的尾聲，回頭檢視 TaskTimer 的程式碼時，才驚覺單一檔案竟然變得如此冗長，維護時覺得很耗費心力，因此當時便決心進行了重構。(詳細的歷程可以參考這篇文章- DAY 31 | 東西擺整齊的療癒感！專案開發後的回頭重構與架構優化) 不","datePublished":"2026-10-23T18:00:07+08:00","dateModified":"2026-11-09T10:08:52+08:00","author":{"@type":"Person","name":"Aria"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://portfolio.aria-carrotlab.com/2026/10/23/post-041/"},"image":"https://portfolio.aria-carrotlab.com/images/og-image.webp"}
   </script>
   
 
@@ -401,6 +401,16 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">📁 src/</span><br><span class="line"> ┣ 📁 js/</span><br><span class="line"> ┃  ┣ api.js         &lt;-- 專門負責資料請求與儲存 (LocalStorage)</span><br><span class="line"> ┃  ┣ ui.js          &lt;-- 專門負責操作 DOM 與畫面更新</span><br><span class="line"> ┃  ┣ timer.js       &lt;-- 專門處理計時核心邏輯</span><br><span class="line"> ┃  ┗ main.js        &lt;-- 程式進入點，負責將模組組合起來</span><br><span class="line"> ┗ 📁 css/</span><br></pre></td></tr></table></figure>
 
 <p>透過清晰的結構，當未來計時邏輯出問題時，我們可以在 timer.js 修正，而不需要去碰畫面的程式碼，大大降低了除錯的難度。</p>
+<h2 id="一個檔案到底寫多少行才好？"><a href="#一個檔案到底寫多少行才好？" class="headerlink" title="一個檔案到底寫多少行才好？"></a>一個檔案到底寫多少行才好？</h2><p>雖然沒有絕對硬性的標準，但在實務開發中，可以拿這些數字作為參考：</p>
+<ul>
+<li><p><strong>理想範圍（約 100 - 200 行內）</strong>：一個結構清晰、職責單一的模組或元件，通常在這個範圍內可以一目了然。</p>
+</li>
+<li><p><strong>注意警訊（超過 300 - 500 行）</strong>：當檔案到這個長度時，通常代表這個檔案可能塞了太多不同的責任，這時候就建議考慮進行拆分了。</p>
+</li>
+<li><p><strong>極度危險（破千行）</strong>：這就是典型的「河馬大怪獸」，捲動找程式碼需要很久，建議立刻著手重構。</p>
+</li>
+</ul>
+<p>不過，行數多寡也跟程式碼的性質有關（例如純粹的常數設定檔、型別定義檔稍微長一點沒關係），核心判斷依據依然是：「這個檔案是不是只負責一件事情？」</p>
 <h2 id="拆分過頭的陷阱：避免「過度設計」"><a href="#拆分過頭的陷阱：避免「過度設計」" class="headerlink" title="拆分過頭的陷阱：避免「過度設計」"></a>拆分過頭的陷阱：避免「過度設計」</h2><p>雖然拆分程式碼好處多多，但有時候也會不小心掉入另一個極端– <strong>過度設計（Over-engineering）</strong>。</p>
 <p>如果專案比較小，硬是要把它拆成幾十個檔案、建立複雜的資料夾架構，反而會增加開發的負擔。</p>
 <hr>
