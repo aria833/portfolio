@@ -8,15 +8,25 @@
 .footer-contact {
   font-size: 0.85rem;
   text-decoration: none;
+  color: var(--muted);
 }
 .footer-contact:hover {
   color: var(--accent);
 }
 
 .footer-policy-link {
-  color: inherit;
+  color: var(--muted);
   text-decoration: none;
   transition: color 0.2s ease;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Inter,
+    "Noto Sans TC",
+    sans-serif;
 }
 
 .footer-policy-link:hover {
