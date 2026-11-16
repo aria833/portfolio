@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>時間格式轉換 | toISOString() 怎麼用？ — ARIA&#39;S CARROTLAB</title>
+  
+  <meta
+    name="description"
+    content="在前面的文章中，介紹了 毫秒時間戳(Timestamp)｜電腦世界的格林威治時間 。 雖然「毫秒時間戳」對電腦來說運算極快，但人的肉眼很難馬上看出它代表哪一年哪一天；而且如果直接傳送本地時間的文字（例如 “2026&amp;#x2F;09&amp;#x2F;30 08:30”），又容易因為沒有標示時區而出錯。 為了讓「人類看得懂」且同"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/10/28/post-046/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="時間格式轉換 | toISOString() 怎麼用？ — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="在前面的文章中，介紹了 毫秒時間戳(Timestamp)｜電腦世界的格林威治時間 。 雖然「毫秒時間戳」對電腦來說運算極快，但人的肉眼很難馬上看出它代表哪一年哪一天；而且如果直接傳送本地時間的文字（例如 “2026&amp;#x2F;09&amp;#x2F;30 08:30”），又容易因為沒有標示時區而出錯。 為了讓「人類看得懂」且同"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/10/28/post-046/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="時間格式轉換 | toISOString() 怎麼用？ — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="在前面的文章中，介紹了 毫秒時間戳(Timestamp)｜電腦世界的格林威治時間 。 雖然「毫秒時間戳」對電腦來說運算極快，但人的肉眼很難馬上看出它代表哪一年哪一天；而且如果直接傳送本地時間的文字（例如 “2026&amp;#x2F;09&amp;#x2F;30 08:30”），又容易因為沒有標示時區而出錯。 為了讓「人類看得懂」且同"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"時間格式轉換 | toISOString() 怎麼用？","description":"在前面的文章中，介紹了 毫秒時間戳(Timestamp)｜電腦世界的格林威治時間 。 雖然「毫秒時間戳」對電腦來說運算極快，但人的肉眼很難馬上看出它代表哪一年哪一天；而且如果直接傳送本地時間的文字（例如 “2026&#x2F;09&#x2F;30 08:30”），又容易因為沒有標示時區而出錯。 為了讓「人類看得懂」且同","datePublished":"2026-10-28T00:28:54+08:00","dateModified":"2026-11-17T00:33:35+08:00","author":{"@type":"Person","name":"Aria"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://portfolio.aria-carrotlab.com/2026/10/28/post-046/"},"image":"https://portfolio.aria-carrotlab.com/images/og-image.webp"}
+  </script>
+  
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SZD9X7XMWG"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-SZD9X7XMWG");
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.10.28</p>
+        <h1>時間格式轉換 | toISOString() 怎麼用？</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/%E6%99%82%E9%96%93%E6%88%B3/">時間戳</a>
+            
+                <a href="/tags/Timestamp/">Timestamp</a>
+            
+                <a href="/tags/JavaScript/">JavaScript</a>
+            
+                <a href="/tags/toISOString/">toISOString()</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>在前面的文章中，介紹了 <a href="https://portfolio.aria-carrotlab.com/2026/10/17/post-035/">毫秒時間戳(Timestamp)｜電腦世界的格林威治時間</a> 。</p>
+<p>雖然「毫秒時間戳」對電腦來說運算極快，但人的肉眼很難馬上看出它代表哪一年哪一天；而且如果直接傳送本地時間的文字（例如 “2026&#x2F;09&#x2F;30 08:30”），又容易因為沒有標示時區而出錯。</p>
+<p>為了讓「人類看得懂」且同時「電腦處理起來不出錯」，可以使用 JavaScript 原生方法的 <code>toISOString()</code> 。</p>
+<hr>
+<h2 id="什麼是-toISOString-？"><a href="#什麼是-toISOString-？" class="headerlink" title="什麼是 toISOString()？"></a>什麼是 toISOString()？</h2><p><code>toISOString()</code> 是 JavaScript <code>Date 物件</code>的方法。</p>
+<p>也可以把它想像成一個 <strong>「國際標準時間翻譯機」</strong> 。把時間丟進這台機器，它就會幫你翻譯成人類看得懂的國際通用時間格式。</p>
+<h2 id="語法結構"><a href="#語法結構" class="headerlink" title="語法結構"></a>語法結構</h2><p><code>dateObject.toISOString()</code></p>
+<ul>
+<li><p><strong>呼叫對象</strong>：必須是一個有效的 <code>Date</code> 物件。</p>
+</li>
+<li><p><strong>回傳值</strong>：長度為 24 個字元的標準字串（例如：<code>&quot;2026-09-30T00:28:07.000Z&quot;</code>）。</p>
+</li>
+</ul>
+<h3 id="字串結構拆解-ISO-8601"><a href="#字串結構拆解-ISO-8601" class="headerlink" title="字串結構拆解 (ISO 8601)"></a>字串結構拆解 (ISO 8601)</h3><p>拿 <code>&quot;2026-09-30T00:28:07.000Z&quot;</code> 這個字串來說，每個部分都有明確的意義：</p>
+<ul>
+<li><p><code>2026-09-30</code>：人類一秒就看得懂的年-月-日。</p>
+</li>
+<li><p><code>T</code>：用來分隔「日期」與「時間」的字母 T（Time）。</p>
+</li>
+<li><p><code>00:28:07.000</code>：精準到毫秒的時 : 分 : 秒 . 毫秒。</p>
+</li>
+<li><p><code>Z</code>：代表 <strong>Zero UTC Offset</strong>（即 UTC+0 世界標準時間，格林威治時間）。</p>
+</li>
+</ul>
+<h2 id="核心特性：自動換算成「世界統一時間-UTC-」"><a href="#核心特性：自動換算成「世界統一時間-UTC-」" class="headerlink" title="核心特性：自動換算成「世界統一時間 (UTC)」"></a>核心特性：自動換算成「世界統一時間 (UTC)」</h2><p>使用 <code>toISOString()</code> 時需要注意的是：無論你的電腦位於哪個時區，產生的 ISO 字串都會自動扣除或加上時差，換算成 <strong>世界標準時間（UTC+0）</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 假設台灣時間為 2026 年 9 月 30 日 早上 08:28:07</span><br><span class="line">const now = new Date();</span><br><span class="line"></span><br><span class="line">console.log(now.toString());</span><br><span class="line">// 本地時間：&quot;Wed Sep 30 2026 08:28:07 GMT+0800</span><br><span class="line"></span><br><span class="line">console.log(now.toISOString());</span><br><span class="line">// 換算為 UTC+0 時間：&quot;2026-09-30T00:28:07.000Z&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="什麼時候後端會需要這種格式？"><a href="#什麼時候後端會需要這種格式？" class="headerlink" title="什麼時候後端會需要這種格式？"></a>什麼時候後端會需要這種格式？</h2><p>在實際開發中，後端工程師或 API 文件經常會要求前端提供 ISO 格式字串，主要有以下三個實戰情境：</p>
+<h3 id="情境一：跨國-多時區系統（如：飯店預訂、國際航班）"><a href="#情境一：跨國-多時區系統（如：飯店預訂、國際航班）" class="headerlink" title="情境一：跨國 &#x2F; 多時區系統（如：飯店預訂、國際航班）"></a>情境一：跨國 &#x2F; 多時區系統（如：飯店預訂、國際航班）</h3><p>假設你在台灣（UTC+8）幫朋友預訂一張東京（UTC+9）飯店的房間。如果傳送未標示時區的文字 “2026-10-01 14:00”，伺服器（假設架在美國 UTC-7）會搞不懂這到底是指哪裡的時間。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const bookingData = &#123;</span><br><span class="line">  roomId: &quot;ROOM_888&quot;,</span><br><span class="line">  checkInTime: new Date(&quot;2026-10-01 14:00:00&quot;).toISOString()</span><br><span class="line">  // 傳給後端的字串：&quot;2026-10-01T06:00:00.000Z&quot;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>後端收到帶有 <code>Z</code>（UTC+0）的字串後，就能精準知道這是全世界同一個時間點。日本飯店後台打開這筆訂單時，系統就能自動加上 9 小時，正確顯示日本當地時間（<code>2026-10-01 15:00:00</code>）。</p>
+<h2 id="情境二：使用現代-ORM-與資料庫（如：MongoDB-PostgreSQL）"><a href="#情境二：使用現代-ORM-與資料庫（如：MongoDB-PostgreSQL）" class="headerlink" title="情境二：使用現代 ORM 與資料庫（如：MongoDB, PostgreSQL）"></a>情境二：使用現代 ORM 與資料庫（如：MongoDB, PostgreSQL）</h2><p>許多現代的資料庫工具（例如 Node.js 的 Prisma ORM、MongoDB 的 Mongoose），其預設的時間欄位型態（<code>DateTime</code>）原生對接的就是 ISO 8601 格式。</p>
+<p>如果使用<code>toISOString()</code>，後端工程師不需要特別寫 code 將字串拆解成年月日，資料庫工具能直接把這串 ISO 字串寫入欄位中，大幅降低開發與出錯成本。</p>
+<h2 id="情境三：需要人工-Debug-或做查帳日誌（Audit-Log）"><a href="#情境三：需要人工-Debug-或做查帳日誌（Audit-Log）" class="headerlink" title="情境三：需要人工 Debug 或做查帳日誌（Audit Log）"></a>情境三：需要人工 Debug 或做查帳日誌（Audit Log）</h2><p>當系統發生爭議（例如：搶票系統、限時快閃活動）需要排查資料時，工程師可以直接看資料庫或 Log 檔案，比起看一串純數字（毫秒時間戳）要直覺得多。</p>
+<p>範例：電商優惠券系統驗證領取時間</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;couponId&quot;: &quot;MID_AUTUMN_2026&quot;,</span><br><span class="line">  &quot;claimedAt&quot;: &quot;2026-09-30T00:32:00.123Z&quot; // 兼具人眼可讀性與毫秒精準度</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="toISOString-與-Date-now-優點和適合的情境"><a href="#toISOString-與-Date-now-優點和適合的情境" class="headerlink" title="toISOString() 與 Date.now() 優點和適合的情境"></a><code>toISOString()</code> 與 <code>Date.now()</code> 優點和適合的情境</h2><table>
+<thead>
+<tr>
+<th>傳送格式</th>
+<th>範例</th>
+<th>優點</th>
+<th>適合情境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ISO 字串 <code>(toISOString())</code></td>
+<td><code>&quot;2026-09-30T00:32:00.000Z&quot;</code></td>
+<td>人看得懂又有世界統一時區，現代資料庫常用</td>
+<td>現代 REST API、表單提交、跨國系統、資料庫寫入</td>
+</tr>
+<tr>
+<td>毫秒時間戳 <code>(Date.now())</code></td>
+<td><code>1790685120000</code></td>
+<td>體積小、效能高、純數字比大小極快。</td>
+<td>網頁計時器、即時通訊 (WebSocket)、純前端計算時差</td>
+</tr>
+</tbody></table>
+</div>
+
+    
+
+    
+    <section
+        class="related-posts section-pad mb-0"
+        aria-labelledby="related-posts-title"
+    >
+        <div class="container">
+        <!-- 區塊標題 -->
+        <div
+            class="section-heading mb-0 d-flex justify-content-between align-items-end gap-3"
+        >
+            <div>
+            <p class="eyebrow" data-i18n="post.keepExploring">KEEP EXPLORING</p>
+            <h2 id="related-posts-title">
+                <span data-i18n="post.relatedTitle">相關筆記</span><span class="title-dot">.</span>
+            </h2>
+            <p class="muted mt-2" data-i18n="post.relatedCopy">
+                繼續探索其他有趣的學習紀錄。
+            </p>
+            </div>
+            <span class="related-posts-count" data-i18n="post.relatedLabel">
+            RELATED NOTES
+            </span>
+        </div>
+
+        <!-- 相關文章卡片 -->
+        <div class="related-posts-track row g-4 mt-2">
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/27/post-045/"
+                    aria-label="閱讀文章：JavaScript | Vanilla JavaScript是什麼？能吃嗎？好吃嗎？"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        045
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-26T16:24:47.000Z"
+                    >
+                        2026.10.27
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/27/post-045/"
+                        >
+                        JavaScript | Vanilla JavaScript是什麼？能吃嗎？好吃嗎？
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        什麼是 Vanilla JavaScript？在程式開發的世界裡，「Vanilla」這個詞常被用來形容「原汁原味、沒有經過額外加工或添加任何框架套件」的標準狀態。 所以，Vanilla JavaScript 指的就是「純原生 JavaScript」。 不需要使用框架，也不需要另外安裝套件，而是在任何…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/Vanilla-JavaScript/"
+                            >
+                            Vanilla JavaScript
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/27/post-045/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/24/post-042/"
+                    aria-label="閱讀文章：ES6｜「説出吾名，嚇汝一跳」，現代JavaScript"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        042
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-24T12:09:56.000Z"
+                    >
+                        2026.10.24
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/24/post-042/"
+                        >
+                        ES6｜「説出吾名，嚇汝一跳」，現代JavaScript
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        不知道大家有沒有看過網路流傳的一段白話文版的出師表，大致上是這樣的：「你爹死得早，把你交給我，我就是你爹，飯在鍋里，水在缸里，錢在抽屜里，我帶你趙叔、興弟、苞弟他們找曹賊打架去了。在家一定要照顧好自己，不要光顧著玩，要按時寫作業，有什麼不懂的就問你費叔、蔣叔他們，我知道你不如你爹，但你是個好孩子，我…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/ES6/"
+                            >
+                            ES6
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/24/post-042/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/17/post-035/"
+                    aria-label="閱讀文章：毫秒時間戳(Timestamp)｜電腦世界的格林威治時間"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        035
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-17T05:54:01.000Z"
+                    >
+                        2026.10.17
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/17/post-035/"
+                        >
+                        毫秒時間戳(Timestamp)｜電腦世界的格林威治時間
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        神秘的 13 位數在寫 JavaScript 或是串接 API 資料時，有時候會遇到長成這樣的資料： 12345json&amp;#123; &amp;quot;orderId&amp;quot;: &amp;quot;A123456&amp;quot;, &amp;quot;createdTime&amp;quot;: 1790685000000&amp;#1…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/%E6%99%82%E9%96%93%E6%88%B3/"
+                            >
+                            時間戳
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/Timestamp/"
+                            >
+                            Timestamp
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/17/post-035/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <!-- 品牌與標語 -->
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+
+    <!-- 聯絡方式、隱私權政策與版權 -->
+    <div class="footer-info">
+      <!-- 第一行：聯絡我與隱私權政策 -->
+      <div class="footer-links">
+        <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
+          <i class="bi bi-envelope me-1"></i>
+          <span data-i18n="footer.contact" class="small">聯絡我</span>
+        </a>
+
+        <a
+          class="footer-policy-link small text-decoration-none"
+          href="/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="footer.privacy" class="small">隱私權政策</span>
+        </a>
+      </div>
+
+      <!-- 第二行：版權 -->
+      <span class="footer-copyright small muted">
+        Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+<!--axios JS-->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>
