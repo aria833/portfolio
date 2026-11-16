@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>AJAX｜前後端非同步溝通 — ARIA&#39;S CARROTLAB</title>
+  
+  <meta
+    name="description"
+    content="什麼是 AJAX？AJAX 是 Asynchronous JavaScript and XML（非同步的 JavaScript 與 XML）的縮寫。 雖然名字裡帶有 XML，但在現代網頁開發中，幾乎全面改成用更輕量、更好解析的 JSON（JavaScript Object Notation）。 在介紹資料格式的文章中有"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/11/06/post-055/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="AJAX｜前後端非同步溝通 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="什麼是 AJAX？AJAX 是 Asynchronous JavaScript and XML（非同步的 JavaScript 與 XML）的縮寫。 雖然名字裡帶有 XML，但在現代網頁開發中，幾乎全面改成用更輕量、更好解析的 JSON（JavaScript Object Notation）。 在介紹資料格式的文章中有"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/11/06/post-055/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="AJAX｜前後端非同步溝通 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="什麼是 AJAX？AJAX 是 Asynchronous JavaScript and XML（非同步的 JavaScript 與 XML）的縮寫。 雖然名字裡帶有 XML，但在現代網頁開發中，幾乎全面改成用更輕量、更好解析的 JSON（JavaScript Object Notation）。 在介紹資料格式的文章中有"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"AJAX｜前後端非同步溝通","description":"什麼是 AJAX？AJAX 是 Asynchronous JavaScript and XML（非同步的 JavaScript 與 XML）的縮寫。 雖然名字裡帶有 XML，但在現代網頁開發中，幾乎全面改成用更輕量、更好解析的 JSON（JavaScript Object Notation）。 在介紹資料格式的文章中有","datePublished":"2026-11-06T23:05:19+08:00","dateModified":"2026-11-16T23:33:30+08:00","author":{"@type":"Person","name":"Aria"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://portfolio.aria-carrotlab.com/2026/11/06/post-055/"},"image":"https://portfolio.aria-carrotlab.com/images/og-image.webp"}
+  </script>
+  
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SZD9X7XMWG"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-SZD9X7XMWG");
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.11.06</p>
+        <h1>AJAX｜前後端非同步溝通</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/AJAX/">AJAX</a>
+            
+                <a href="/tags/%E9%9D%9E%E5%90%8C%E6%AD%A5%E8%AB%8B%E6%B1%82/">非同步請求</a>
+            
+                <a href="/tags/Fetch/">Fetch</a>
+            
+                <a href="/tags/Axios/">Axios</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><h2 id="什麼是-AJAX？"><a href="#什麼是-AJAX？" class="headerlink" title="什麼是 AJAX？"></a>什麼是 AJAX？</h2><p><strong>AJAX</strong> 是 <strong>Asynchronous JavaScript and XML</strong>（非同步的 JavaScript 與 XML）的縮寫。</p>
+<p>雖然名字裡帶有 XML，但在現代網頁開發中，幾乎全面改成用更輕量、更好解析的 <strong>JSON（JavaScript Object Notation）</strong>。</p>
+<p><em>在介紹資料格式的文章中有 JSON 更詳細的介紹，可以點擊 <a href="https://portfolio.aria-carrotlab.com/2026/10/19/post-037/">這裡</a> 閱讀。</em></p>
+<p>簡單來說，<strong>AJAX 是一種「不需重新整理整個網頁，就能與伺服器交換資料並更新部分畫面」的技術。</strong></p>
+<hr>
+<h2 id="傳統網頁-vs-AJAX-網頁"><a href="#傳統網頁-vs-AJAX-網頁" class="headerlink" title="傳統網頁 vs. AJAX 網頁"></a>傳統網頁 vs. AJAX 網頁</h2><ul>
+<li><p><strong>傳統網頁模式（同步請求）：</strong><br>當使用者點擊「載入更多」或送出表單時，瀏覽器會向伺服器發送一個全新請求，然後 <strong>整個畫面會瞬間變白、重新整理</strong>，伺服器重新把整頁 HTML、CSS、JS 傳送回來。這不僅浪費頻寬，使用者體驗也不好。</p>
+</li>
+<li><p><strong>AJAX 模式（非同步請求）：</strong><br>當使用者點擊按鈕時，瀏覽器在幕後（Background）悄悄發送一個請求給伺服器。伺服器處理完後，回傳資料（JSON），前端 JavaScript 收到資料後，<strong>動態修改局部畫面（DOM）</strong>。使用者可以繼續瀏覽網頁，完全感覺不到畫面在重新整理。</p>
+</li>
+</ul>
+<p>如果用生活化的方式比喻，這就像我們在餐廳用餐吃到一半想加點小菜：<br><strong>傳統模式</strong> 就是店員會請所有客人先離席，把店門關起來重新準備好菜色後，才再開門請大家進來入座，光想想就覺得體驗感很差。<br>而 <strong>AJAX 模式</strong> 則是服務生會默默將加點單送進廚房，主廚做好後再把小菜端上桌，完全不會打斷我們當下的用餐與聊天。</p>
+<hr>
+<h2 id="AJAX的技術"><a href="#AJAX的技術" class="headerlink" title="AJAX的技術"></a>AJAX的技術</h2><p>隨著前端技術的發展，發送 AJAX 請求的工具也經歷了幾個重要階段：</p>
+<p><strong>1. <code>XMLHttpRequest</code> (XHR &#x2F; XML)：</strong></p>
+<ul>
+<li><p>早期最原始的實作方式。雖然名字帶有 XML，但實際上它能傳輸各種格式（包含文字、JSON 等）。</p>
+</li>
+<li><p><strong>缺點</strong>：語法繁瑣、回呼地獄（Callback Hell）難以維護。</p>
+</li>
+</ul>
+<p><strong>2. <code>Fetch API</code>：</strong></p>
+<ul>
+<li>現代瀏覽器內建的原生 API，基於 Promise 設計，語法乾淨簡潔，不需要額外安裝任何套件即可使用。</li>
+</ul>
+<p><strong>3. <code>Axios</code> 套件：</strong></p>
+<ul>
+<li><p>目前業界最熱門的 <strong>開源第三方 HTTP 請求套件</strong>。</p>
+</li>
+<li><p>提供了比原生 Fetch 更強大的功能，例如自動將資料轉為 JSON、攔截器（Interceptors）處理 Token、請求取消、以及更完善的錯誤處理機制。</p>
+</li>
+</ul>
+<hr>
+<h2 id="AJAX-的優點與缺點"><a href="#AJAX-的優點與缺點" class="headerlink" title="AJAX 的優點與缺點"></a>AJAX 的優點與缺點</h2><h3 id="優點"><a href="#優點" class="headerlink" title="優點"></a>優點</h3><ul>
+<li><p><strong>極佳的使用者體驗 (UX)</strong>：畫面流暢、反應迅速，沒有閃白重整。</p>
+</li>
+<li><p><strong>節省頻寬</strong>：不需要每次都下載整張完整的網頁 HTML，只需要傳輸純資料（JSON）。</p>
+</li>
+<li><p><strong>減輕伺服器負擔</strong>：伺服器（Server）只負責「給資料」，運算與畫面渲染可以分攤到客戶端的瀏覽器上執行。</p>
+</li>
+</ul>
+<h3 id="缺點與挑戰"><a href="#缺點與挑戰" class="headerlink" title="缺點與挑戰"></a>缺點與挑戰</h3><ul>
+<li><p><strong>SEO（搜尋引擎最佳化）較為吃力</strong>：因為網頁初始載入時可能只是一塊空白骨架，資料是靠 AJAX 後續動態補上的，如果爬蟲抓取時沒處理好，可能會讀不到內容（現代多透過 <strong>SSR 伺服器端渲染</strong> 來解決）。</p>
+</li>
+<li><p><strong>瀏覽器歷史紀錄與狀態管理</strong>：因為網址不會跟著改變，使用者按下瀏覽器的「上一頁」或「重新整理」時，頁面狀態可能會回到最初（可以透過現代前端路由如 <strong>History API</strong> 解決這個問題）。</p>
+</li>
+</ul>
+<hr>
+<p>AJAX 讓我們擺脫了傳統網頁「每次互動就要整頁重整、畫面閃白」的不好體驗，轉向流暢、即時的互動模式，大大改善了使用者體驗。</p>
+</div>
+
+    
+
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <!-- 品牌與標語 -->
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+
+    <!-- 聯絡方式、隱私權政策與版權 -->
+    <div class="footer-info">
+      <!-- 第一行：聯絡我與隱私權政策 -->
+      <div class="footer-links">
+        <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
+          <i class="bi bi-envelope me-1"></i>
+          <span data-i18n="footer.contact" class="small">聯絡我</span>
+        </a>
+
+        <a
+          class="footer-policy-link small text-decoration-none"
+          href="/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="footer.privacy" class="small">隱私權政策</span>
+        </a>
+      </div>
+
+      <!-- 第二行：版權 -->
+      <span class="footer-copyright small muted">
+        Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+<!--axios JS-->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>
