@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>JavaScript | 乍看是貓，但其實不是我們說的那個貓？「真正的陣列(Array)」與「類陣列（Array-like Object）」差在哪？ — ARIA&#39;S CARROTLAB</title>
+  
+  <meta
+    name="description"
+    content="先來看看兔猻的照片，雖然廣義上牠是貓科動物，但狹義來說牠跟家貓是不同屬的（家貓是 Felis（貓屬）；兔猻則是 Otocolobus（兔猻屬 ）。 (圖片來源：unsplash @GettyImages) 在 JS 裡面也有類似的情況，就是 陣列（Array） 和類陣列（Array-like）。當對著 類陣列 用.ma"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/11/09/post-058/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="JavaScript | 乍看是貓，但其實不是我們說的那個貓？「真正的陣列(Array)」與「類陣列（Array-like Object）」差在哪？ — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="先來看看兔猻的照片，雖然廣義上牠是貓科動物，但狹義來說牠跟家貓是不同屬的（家貓是 Felis（貓屬）；兔猻則是 Otocolobus（兔猻屬 ）。 (圖片來源：unsplash @GettyImages) 在 JS 裡面也有類似的情況，就是 陣列（Array） 和類陣列（Array-like）。當對著 類陣列 用.ma"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/11/09/post-058/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="JavaScript | 乍看是貓，但其實不是我們說的那個貓？「真正的陣列(Array)」與「類陣列（Array-like Object）」差在哪？ — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="先來看看兔猻的照片，雖然廣義上牠是貓科動物，但狹義來說牠跟家貓是不同屬的（家貓是 Felis（貓屬）；兔猻則是 Otocolobus（兔猻屬 ）。 (圖片來源：unsplash @GettyImages) 在 JS 裡面也有類似的情況，就是 陣列（Array） 和類陣列（Array-like）。當對著 類陣列 用.ma"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"JavaScript | 乍看是貓，但其實不是我們說的那個貓？「真正的陣列(Array)」與「類陣列（Array-like Object）」差在哪？","description":"先來看看兔猻的照片，雖然廣義上牠是貓科動物，但狹義來說牠跟家貓是不同屬的（家貓是 Felis（貓屬）；兔猻則是 Otocolobus（兔猻屬 ）。 (圖片來源：unsplash @GettyImages) 在 JS 裡面也有類似的情況，就是 陣列（Array） 和類陣列（Array-like）。當對著 類陣列 用.ma","datePublished":"2026-11-09T00:50:17+08:00","dateModified":"2026-11-17T00:52:58+08:00","author":{"@type":"Person","name":"Aria"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://portfolio.aria-carrotlab.com/2026/11/09/post-058/"},"image":"https://portfolio.aria-carrotlab.com/images/og-image.webp"}
+  </script>
+  
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SZD9X7XMWG"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-SZD9X7XMWG");
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.11.09</p>
+        <h1>JavaScript | 乍看是貓，但其實不是我們說的那個貓？「真正的陣列(Array)」與「類陣列（Array-like Object）」差在哪？</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/JavaScript/">JavaScript</a>
+            
+                <a href="/tags/Array/">Array</a>
+            
+                <a href="/tags/Array-like-Object/">Array-like Object</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>先來看看兔猻的照片，雖然廣義上牠是貓科動物，但狹義來說牠跟家貓是不同屬的（家貓是 <strong>Felis（貓屬）</strong>；兔猻則是 <strong>Otocolobus（兔猻屬</strong> ）。</p>
+<p><img src="https://plus.unsplash.com/premium_photo-1661897003213-9b963ee59116?q=80&w=2332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==" alt="兔猻"></p>
+<p>(圖片來源：<a target="_blank" rel="noopener" href="https://unsplash.com/photos/a-cat-sitting-in-the-water-on-a-beach-Q8l5ljSmR6U">unsplash @GettyImages</a>)</p>
+<p>在 JS 裡面也有類似的情況，就是 <strong>陣列（Array）</strong> 和<strong>類陣列（Array-like）</strong>。<br>當對著 <strong>類陣列</strong> 用<code>.map()</code> 或 <code>.filter()</code> 處理時，會跳出錯誤訊息</p>
+<p><code>Uncaught TypeError: xxx.map is not a function ❌</code></p>
+<p><del>「奇怪，看起來就是可愛的貓貓，為什麼不能摸？」</del><br><em>（重要：擼貓請徵得貓的同意）</em></p>
+<p>「奇怪，看起來就是陣列，為什麼有些陣列方法不能用？」</p>
+<hr>
+<h2 id="什麼是真正的陣列-Array-？"><a href="#什麼是真正的陣列-Array-？" class="headerlink" title="什麼是真正的陣列(Array)？"></a>什麼是真正的陣列(Array)？</h2><p>陣列就是 JavaScript 用來一次存放多個同類型資料的資料結構。</p>
+<p>例如：現在有一個陣列，裡面有白貓、黑貓、橘貓</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const catList = [&quot;白貓&quot;, &quot;黑貓&quot;, &quot;橘貓&quot;];</span><br><span class="line"></span><br><span class="line">//可以透過索引（index）取得資料</span><br><span class="line">catList[0]; // &quot;白貓&quot;</span><br><span class="line">catList[1]; // &quot;黑貓&quot;</span><br><span class="line"></span><br><span class="line">//現在有幾隻貓</span><br><span class="line">catList.length; // 3</span><br></pre></td></tr></table></figure>
+
+<p>也可以使用陣列的方法：<code>.push()</code>、<code>.map()</code>、<code>.filer()</code>、<code>.forEach()</code>等</p>
+<p><strong>檢查是否為陣列(Array)</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Array.isArray(catList);</span><br><span class="line">// true</span><br></pre></td></tr></table></figure>
+
+<h2 id="什麼是「類陣列（Array-like-Object）」？"><a href="#什麼是「類陣列（Array-like-Object）」？" class="headerlink" title="什麼是「類陣列（Array-like Object）」？"></a>什麼是「類陣列（Array-like Object）」？</h2><p><strong>類陣列（Array-like）</strong> 是看起來像陣列，但實際上不是陣列的資料。</p>
+<p>它通常具有<strong>數字索引</strong>和 <strong>length</strong>，因此可以像陣列一樣透過索引取得資料，但不一定能使用陣列的方法。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const catList = &#123;</span><br><span class="line">  0: &quot;白貓&quot;,</span><br><span class="line">  1: &quot;黑貓&quot;,</span><br><span class="line">  2: &quot;橘貓&quot;,</span><br><span class="line">  length: 3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">catList[0];      // &quot;白貓&quot;</span><br><span class="line">catList.length;  // 3</span><br></pre></td></tr></table></figure>
+
+<p><strong>檢查是否為陣列(Array)</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Array.isArray(catList);</span><br><span class="line">// false</span><br></pre></td></tr></table></figure>
+
+<h2 id="比較表"><a href="#比較表" class="headerlink" title="比較表"></a>比較表</h2><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>陣列 Array</th>
+<th>類陣列 Array-like</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>是不是 Array</td>
+<td>✅ 是</td>
+<td>❌ 不是</td>
+</tr>
+<tr>
+<td>有索引</td>
+<td>✅</td>
+<td>通常有</td>
+</tr>
+<tr>
+<td>有 length</td>
+<td>✅</td>
+<td>通常有</td>
+</tr>
+<tr>
+<td>可以 arr[0]</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>有完整 Array 方法</td>
+<td>✅</td>
+<td>❌ 不一定</td>
+</tr>
+<tr>
+<td>Array.isArray()</td>
+<td>true</td>
+<td>false</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="開發中常遇到的類陣列"><a href="#開發中常遇到的類陣列" class="headerlink" title="開發中常遇到的類陣列"></a>開發中常遇到的類陣列</h2><p>當我們在瀏覽器（DOM）中選取多個元素，或是呼叫某些內建語法時，拿到的往往都是 <strong>類陣列</strong>：</p>
+<ol>
+<li><code>HTMLCollection</code>（例如：<code>document.getElementsByClassName(&#39;cat&#39;)</code>）</li>
+</ol>
+<p><strong>特徵</strong>：動態集合。完全不能用 <code>.forEach()</code>、<code>.map()</code> 等任何陣列方法。</p>
+<ol start="2">
+<li><code>NodeList</code>（例如：<code>document.querySelectorAll(&#39;.cat&#39;)</code>）</li>
+</ol>
+<p><strong>特徵</strong>：靜態集合。現代瀏覽器可以用 <code>.forEach()</code>但其他的 <code>.map()</code>、<code>.filter()</code> 依然不能用。</p>
+<ol start="3">
+<li><code>arguments</code> 物件</li>
+</ol>
+<p><strong>特徵</strong>：傳統函式內建用來儲存所有傳入參數的物件，也是標準的類陣列。</p>
+<h2 id="怎麼把「類陣列」變成「正規陣列」？"><a href="#怎麼把「類陣列」變成「正規陣列」？" class="headerlink" title="怎麼把「類陣列」變成「正規陣列」？"></a>怎麼把「類陣列」變成「正規陣列」？</h2><h3 id="1-Array-from"><a href="#1-Array-from" class="headerlink" title="1. Array.from()"></a>1. Array.from()</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 拿到一組 HTMLCollection (類陣列)</span><br><span class="line">const catElements = document.getElementsByClassName(&#x27;cat-item&#x27;);</span><br><span class="line"></span><br><span class="line">// 🪄 轉成真正的陣列</span><br><span class="line">const realCatArray = Array.from(catElements);</span><br><span class="line"></span><br><span class="line">// 現在可以用 .map()了</span><br><span class="line">const catNames = realCatArray.map(cat =&gt; cat.textContent);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-展開運算子-…-（ES6）"><a href="#2-展開運算子-…-（ES6）" class="headerlink" title="2. 展開運算子 […]（ES6）"></a>2. 展開運算子 […]（ES6）</h3><p><em>(適用於 NodeList 或具備 Iterable 可疊代的類陣列)</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const nodeCatList = document.querySelectorAll(&#x27;.cat-item&#x27;);</span><br><span class="line"></span><br><span class="line">// 用中括號搭配 ... 展開裝進新陣列</span><br><span class="line">const realCatArray = [...nodeCatList];</span><br><span class="line"></span><br><span class="line">// 使用 filter 篩選特定條件的貓咪</span><br><span class="line">const blackCats = realCatArray.filter(cat =&gt; cat.classList.contains(&#x27;black&#x27;));</span><br></pre></td></tr></table></figure>
+</div>
+
+    
+
+    
+    <section
+        class="related-posts section-pad mb-0"
+        aria-labelledby="related-posts-title"
+    >
+        <div class="container">
+        <!-- 區塊標題 -->
+        <div
+            class="section-heading mb-0 d-flex justify-content-between align-items-end gap-3"
+        >
+            <div>
+            <p class="eyebrow" data-i18n="post.keepExploring">KEEP EXPLORING</p>
+            <h2 id="related-posts-title">
+                <span data-i18n="post.relatedTitle">相關筆記</span><span class="title-dot">.</span>
+            </h2>
+            <p class="muted mt-2" data-i18n="post.relatedCopy">
+                繼續探索其他有趣的學習紀錄。
+            </p>
+            </div>
+            <span class="related-posts-count" data-i18n="post.relatedLabel">
+            RELATED NOTES
+            </span>
+        </div>
+
+        <!-- 相關文章卡片 -->
+        <div class="related-posts-track row g-4 mt-2">
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/11/08/post-057/"
+                    aria-label="閱讀文章：JS DOM｜選取多個元素時的集合：NodeList vs HTMLCollection 有何不同？"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        057
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-11-07T16:46:04.000Z"
+                    >
+                        2026.11.08
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/11/08/post-057/"
+                        >
+                        JS DOM｜選取多個元素時的集合：NodeList vs HTMLCollection 有何不同？
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        當我們選取「多個」元素時（例如用 querySelectorAll 或 getElementsByTagName），JavaScript 回傳給我們的並不是真正的「標準陣列（Array）」，而是一個「類陣列（Array-like object）」。 這些類陣列主要分為 NodeList 與 HTML…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/DOM/"
+                            >
+                            DOM
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/NodeList/"
+                            >
+                            NodeList
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/HTMLCollection/"
+                            >
+                            HTMLCollection
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/11/08/post-057/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/30/post-048/"
+                    aria-label="閱讀文章：JS DOM | 取得元素的方法：querySelector、querySelectorAll 與傳統選擇器"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        048
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-29T16:41:11.000Z"
+                    >
+                        2026.10.30
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/30/post-048/"
+                        >
+                        JS DOM | 取得元素的方法：querySelector、querySelectorAll 與傳統選擇器
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在 介紹DOM是什麼 時，提到如果把整個網頁比喻成一隻貓，DOM 就是貓身上的各個部位與神經反射。 既然現在我們已經有了貓了！接下來——當然就是選擇部位要來擼貓了！(本篇文章尊重所有貓貓意願，撰寫過程中沒有任何貓貓受到傷害) JavaScript 有多種取得 DOM 元素的方法，接下來會介紹常用的 …
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/DOM/"
+                            >
+                            DOM
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/querySelector/"
+                            >
+                            querySelector
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/querySelectorAll/"
+                            >
+                            querySelectorAll
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/30/post-048/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/29/post-047/"
+                    aria-label="閱讀文章：JavaScript | 什麼是 DOM ？如果網頁是一隻貓"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        047
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-28T16:35:10.000Z"
+                    >
+                        2026.10.29
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/29/post-047/"
+                        >
+                        JavaScript | 什麼是 DOM ？如果網頁是一隻貓
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        如果網頁是一隻貓🐱如果把整個網頁比喻成一隻貓，DOM 就是貓身上的各個部位與神經反射。可以透過與特定部位互動，觸發不同的反應： 拍拍貓屁股：觸發「發出呼嚕聲」的反應。 摸貓咪前爪：觸發「揮你一拳」的反應。 在網頁中也是一樣的道理：JavaScript 可以透過 DOM 找到網頁的「按鈕部位」，並設…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/DOM/"
+                            >
+                            DOM
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/29/post-047/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/28/post-046/"
+                    aria-label="閱讀文章：時間格式轉換 | toISOString() 怎麼用？"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        046
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-27T16:28:54.000Z"
+                    >
+                        2026.10.28
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/28/post-046/"
+                        >
+                        時間格式轉換 | toISOString() 怎麼用？
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在前面的文章中，介紹了 毫秒時間戳(Timestamp)｜電腦世界的格林威治時間 。 雖然「毫秒時間戳」對電腦來說運算極快，但人的肉眼很難馬上看出它代表哪一年哪一天；而且如果直接傳送本地時間的文字（例如 “2026&amp;#x2F;09&amp;#x2F;30 08:30”），又容易因為沒有標示時區而出錯。 為了…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/toISOString/"
+                            >
+                            toISOString()
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/%E6%99%82%E9%96%93%E6%88%B3/"
+                            >
+                            時間戳
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/Timestamp/"
+                            >
+                            Timestamp
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/28/post-046/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <!-- 品牌與標語 -->
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+
+    <!-- 聯絡方式、隱私權政策與版權 -->
+    <div class="footer-info">
+      <!-- 第一行：聯絡我與隱私權政策 -->
+      <div class="footer-links">
+        <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
+          <i class="bi bi-envelope me-1"></i>
+          <span data-i18n="footer.contact" class="small">聯絡我</span>
+        </a>
+
+        <a
+          class="footer-policy-link small text-decoration-none"
+          href="/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="footer.privacy" class="small">隱私權政策</span>
+        </a>
+      </div>
+
+      <!-- 第二行：版權 -->
+      <span class="footer-copyright small muted">
+        Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+<!--axios JS-->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>
