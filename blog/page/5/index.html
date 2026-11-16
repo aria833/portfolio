@@ -360,7 +360,7 @@
         <div class="col-lg-9">
             <!-- 統計文章數量 -->
             <div class="blog-toolbar">
-                <span>50 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
+                <span>51 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
                 <span class="muted p-1 rounded" data-i18n="lang-notice">筆記目前以繁體中文為主</span>
             </div>
 
@@ -431,7 +431,15 @@
                                     href="/tags/HTTP-Method/"
                                 >
                                     HTTP Method
-                                    <span class="tag-count">2</span>
+                                    <span class="tag-count">3</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
+                                    href="/tags/HTTP-%E7%8B%80%E6%85%8B%E7%A2%BC/"
+                                >
+                                    HTTP 狀態碼
+                                    <span class="tag-count">1</span>
                                 </a>
                             
                                 <a
@@ -713,6 +721,59 @@
 
             <!-- 文章列表 -->
             <div class="post-list">
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        011
+                        </span>
+                        <time datetime="2026-09-22T16:43:11.000Z">
+                            2026.09.23
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/09/23/post-011/"
+                            >
+                            DAY 10｜切版實作：用 Collapse 打造獨立折疊的子任務清單
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            在上一篇中，使用了 Accordion（手風琴） 來製作主任務列表。接下來，要處理下一層的「子任務與計時紀錄清單」。
+在這個區塊中，我選擇直接套用 Collapse（折疊元件） 來達成收納與展開的效果。
+
+1.什麼是 Collapse 元件？Bootstrap 5 的 Collapse（折疊元件） …
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/TaskTimer/"
+                                >
+                                TaskTimer
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
@@ -1183,64 +1244,6 @@ Hello 大家好，我是Aria！
                 </div>
             </article>
                 
-                <article class="post-list-item">
-                    <div class="post-list-link">
-
-                    <!-- 文章編號與日期 -->
-                    <div class="post-list-meta">
-                        <span class="post-index">
-                        001
-                        </span>
-                        <time datetime="2026-09-13T04:22:51.000Z">
-                            2026.09.13
-                        </time>
-                    </div>
-
-                    <!-- 標題、摘要、Tag -->
-                    <div class="post-list-content">
-                        <h2>
-                            <a
-                            class="post-title-link"
-                            href="/2026/09/13/post-001/"
-                            >
-                            Markdown | 基礎語法
-                            </a>
-                        </h2>
-                        <p class="post-list-excerpt">
-                            學習大綱 (Lab Overview)
-學習單編號：md-001學習目標：理解 Markdown 的核心概念、掌握常用排版語法
-
-
-
-需要工具：任何支援 Markdown 的文字編輯器（如 VS Code、Notion、HackMD）
-核心步驟：
-理解什麼是 Markdown 及其核心優勢
-掌握常見…
-                        </p>
-
-                        
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/markdown/"
-                                >
-                                markdown
-                                </a>
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/%E6%8A%80%E8%A1%93%E5%AF%AB%E4%BD%9C/"
-                                >
-                                技術寫作
-                                </a>
-                            
-                            </div>
-                        
-                    </div>
-                </div>
-            </article>
-                
             </div>
             
             
@@ -1274,10 +1277,14 @@ Hello 大家好，我是Aria！
                     <span class="page-link-custom active" aria-current="page">5</span>
                 
                 
+                
+                    <a class="page-link-custom" href="/blog/page/6/">6</a>
+                
+                
             </div>
             <div class="pagination-side pagination-side-next">
                 
-                <span class="page-link-custom disabled" aria-disabled="true">NEXT <i class="bi bi-arrow-right"></i></span>
+                <a class="page-link-custom" href="/blog/page/6/"><span data-i18n="blog.next">NEXT</span> <i class="bi bi-arrow-right"></i></a>
                 
             </div>
             </nav>
@@ -1335,7 +1342,15 @@ Hello 大家好，我是Aria！
                         href="/tags/HTTP-Method/"
                     >
                         HTTP Method
-                        <span class="tag-count">2</span>
+                        <span class="tag-count">3</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
+                        href="/tags/HTTP-%E7%8B%80%E6%85%8B%E7%A2%BC/"
+                    >
+                        HTTP 狀態碼
+                        <span class="tag-count">1</span>
                     </a>
                     
                     <a

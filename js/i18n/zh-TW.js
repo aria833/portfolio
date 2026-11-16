@@ -149,7 +149,6 @@ window.CarrotLabDictionaries["zh-TW"] = {
   "tag.introSuffix": "相關的學習紀錄。",
   "tag.empty": "這個標籤目前還沒有文章。",
   "post.back": "所有筆記",
-  "post.keepExploring": "繼續探索",
   "post.relatedTitle": "相關筆記",
   "post.relatedCopy": "繼續探索其他有趣的學習紀錄。",
   "post.relatedLabel": "相關筆記",

@@ -193,7 +193,7 @@ window.CarrotLabDictionaries["ja"] = {
   "tag.empty": "このタグの記事はまだありません。",
 
   "post.back": "すべてのノート",
-  "post.keepExploring": "さらに探す",
+
   "post.relatedTitle": "関連記事",
   "post.relatedCopy": "ほかの興味深い学習記録もチェックしてみてください。",
   "post.relatedLabel": "関連記事",

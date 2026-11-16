@@ -195,7 +195,6 @@ window.CarrotLabDictionaries["en"] = {
   "tag.empty": "There are no articles under this tag yet.",
 
   "post.back": "All Notes",
-  "post.keepExploring": "Keep Exploring",
   "post.relatedTitle": "Related Notes",
   "post.relatedCopy": "Discover more interesting learning records.",
   "post.relatedLabel": "Related Notes",
