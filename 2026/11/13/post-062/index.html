@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>瀏覽器 | 頁面休眠與節能機制（Background Throttle） — ARIA&#39;S CARROTLAB</title>
+  
+  <meta
+    name="description"
+    content="不知道大家有沒有遇過這種狀況：你以為貓在安安靜靜地待著，結果你一轉頭看到他，他就突然朝你衝過來，打你一拳或拍你的腳。 (總是來得太突然，所以尚無範例gif供參考🐱) 其實瀏覽器也有類似的機制呢(雖然它不會打你一拳或拍你的腳)！在離開某個分頁時，瀏覽器會在背後悄悄降低該頁面的運作速度；直到你重新切回該分頁，它才會再次活"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/11/13/post-062/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="瀏覽器 | 頁面休眠與節能機制（Background Throttle） — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="不知道大家有沒有遇過這種狀況：你以為貓在安安靜靜地待著，結果你一轉頭看到他，他就突然朝你衝過來，打你一拳或拍你的腳。 (總是來得太突然，所以尚無範例gif供參考🐱) 其實瀏覽器也有類似的機制呢(雖然它不會打你一拳或拍你的腳)！在離開某個分頁時，瀏覽器會在背後悄悄降低該頁面的運作速度；直到你重新切回該分頁，它才會再次活"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/11/13/post-062/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="瀏覽器 | 頁面休眠與節能機制（Background Throttle） — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="不知道大家有沒有遇過這種狀況：你以為貓在安安靜靜地待著，結果你一轉頭看到他，他就突然朝你衝過來，打你一拳或拍你的腳。 (總是來得太突然，所以尚無範例gif供參考🐱) 其實瀏覽器也有類似的機制呢(雖然它不會打你一拳或拍你的腳)！在離開某個分頁時，瀏覽器會在背後悄悄降低該頁面的運作速度；直到你重新切回該分頁，它才會再次活"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"瀏覽器 | 頁面休眠與節能機制（Background Throttle）","description":"不知道大家有沒有遇過這種狀況：你以為貓在安安靜靜地待著，結果你一轉頭看到他，他就突然朝你衝過來，打你一拳或拍你的腳。 (總是來得太突然，所以尚無範例gif供參考🐱) 其實瀏覽器也有類似的機制呢(雖然它不會打你一拳或拍你的腳)！在離開某個分頁時，瀏覽器會在背後悄悄降低該頁面的運作速度；直到你重新切回該分頁，它才會再次活","datePublished":"2026-11-13T01:01:34+08:00","dateModified":"2026-11-17T01:06:02+08:00","author":{"@type":"Person","name":"Aria"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://portfolio.aria-carrotlab.com/2026/11/13/post-062/"},"image":"https://portfolio.aria-carrotlab.com/images/og-image.webp"}
+  </script>
+  
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SZD9X7XMWG"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-SZD9X7XMWG");
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.11.13</p>
+        <h1>瀏覽器 | 頁面休眠與節能機制（Background Throttle）</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">瀏覽器</a>
+            
+                <a href="/tags/Background-Throttle/">Background Throttle</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>不知道大家有沒有遇過這種狀況：你以為貓在安安靜靜地待著，結果你一轉頭看到他，他就突然朝你衝過來，打你一拳或拍你的腳。</p>
+<p>(總是來得太突然，所以尚無範例gif供參考🐱)</p>
+<p>其實瀏覽器也有類似的機制呢(<del>雖然它不會打你一拳或拍你的腳</del>)！在離開某個分頁時，瀏覽器會在背後悄悄降低該頁面的運作速度；直到你重新切回該分頁，它才會再次活躍起來。</p>
+<hr>
+<h2 id="什麼是「背景節流（Background-Throttle）」？"><a href="#什麼是「背景節流（Background-Throttle）」？" class="headerlink" title="什麼是「背景節流（Background Throttle）」？"></a>什麼是「背景節流（Background Throttle）」？</h2><p>有些使用者在用瀏覽器時，常常一不小心就開了十幾個甚至幾十個分頁（就是我🙋🏻‍♀️）。如果每一個沒在看的分頁都在背景跑動畫、運算程式碼，電腦的 CPU 一定會立刻飆高，也很耗電</p>
+<p>因此，各大瀏覽器（Chrome、Safari、Edge、Firefox 等）都內建了一套貼心的 <strong>節能機制</strong>：只要某個分頁不是你目前正在看的 <strong>「前景分頁（Active Tab）」</strong> ，瀏覽器就會自動幫它「省電降速」，把系統資源留給你真正正在使用的網頁。</p>
+<h2 id="瀏覽器在你背後悄悄做了哪些事？"><a href="#瀏覽器在你背後悄悄做了哪些事？" class="headerlink" title="瀏覽器在你背後悄悄做了哪些事？"></a>瀏覽器在你背後悄悄做了哪些事？</h2><p>當切換到別的分頁，原本的分頁退到背景後，瀏覽器通常會默默啟動這三種限制措施：</p>
+<h3 id="1-定時器降速（Timer-Throttling）"><a href="#1-定時器降速（Timer-Throttling）" class="headerlink" title="1. 定時器降速（Timer Throttling）"></a>1. 定時器降速（Timer Throttling）</h3><p>在 JavaScript 中，很常使用 <code>setInterval</code> 或 <code>setTimeout</code> 來做自動重複的任務。</p>
+<p>強制拉長間隔： 當分頁退到背景一段時間後，瀏覽器會把原本設定的執行間隔拉長（例如強制變成 1 秒甚至 60 秒才觸發一次）。</p>
+<p>就算原本設定「每 0.01 秒執行一次」，到了背景也會被強制拖慢！</p>
+<h3 id="2-畫面繪製直接暫停（requestAnimationFrame-Stop）"><a href="#2-畫面繪製直接暫停（requestAnimationFrame-Stop）" class="headerlink" title="2. 畫面繪製直接暫停（requestAnimationFrame Stop）"></a>2. 畫面繪製直接暫停（requestAnimationFrame Stop）</h3><p>網頁上那些順暢的動畫或特效，通常是用 <code>window.requestAnimationFrame()</code> 控制的。</p>
+<p>一旦分頁被切到背景，這個方法就會 <strong>直接暫停運作（0 fps）</strong>，畢竟既然使用者看不到畫面，也就完全沒必要浪費顯示卡去繪製。</p>
+<h3 id="3-記憶體凍結與休眠（Page-Lifecycle-API）"><a href="#3-記憶體凍結與休眠（Page-Lifecycle-API）" class="headerlink" title="3. 記憶體凍結與休眠（Page Lifecycle API）"></a>3. 記憶體凍結與休眠（Page Lifecycle API）</h3><p>如果電腦記憶體快不夠用了，而且某個背景分頁很久沒被點開，瀏覽器甚至會直接讓該頁面進入「休眠（Discarded）」狀態。</p>
+<p>頁面會被暫時凍結，直到你重新點擊那個分頁，它才會再次重新載入。</p>
+<h2 id="開發者該怎麼應對？"><a href="#開發者該怎麼應對？" class="headerlink" title="開發者該怎麼應對？"></a>開發者該怎麼應對？</h2><h3 id="解法一：Web-Workers（不受背景限制的獨立小助手）"><a href="#解法一：Web-Workers（不受背景限制的獨立小助手）" class="headerlink" title="解法一：Web Workers（不受背景限制的獨立小助手）"></a>解法一：Web Workers（不受背景限制的獨立小助手）</h3><p>Web Worker 就像是在背景開闢了一個獨立的小工作區，它專門處理資料，不需要負責畫面上 DOM 的渲染。</p>
+<p>因為 Worker 專注於背景數據處理，現代瀏覽器通常不會對 Web Worker 內部的定時器進行太嚴格的降速打壓：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// my-worker.js (獨立的背景檔)</span><br><span class="line">let count = 0;</span><br><span class="line"></span><br><span class="line">setInterval(() =&gt; &#123;</span><br><span class="line">  count++;</span><br><span class="line">  postMessage(count); // 把計算結果傳回主畫面</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure>
+
+<h3 id="解法二：Page-Visibility-API（切回分頁立刻校正）"><a href="#解法二：Page-Visibility-API（切回分頁立刻校正）" class="headerlink" title="解法二：Page Visibility API（切回分頁立刻校正）"></a>解法二：Page Visibility API（切回分頁立刻校正）</h3><p>如果只是希望使用者切回分頁時，畫面上的狀態是精準的，最不耗資源的方法就是：「不要計算觸發了幾次，而是計算真實的時間差（Timestamp）」！</p>
+<p>再搭配 Page Visibility API，在使用者切回分頁的那一瞬間重新對時：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">let startTime = Date.now(); // 記錄開始時間</span><br><span class="line"></span><br><span class="line">function updateStatus() &#123;</span><br><span class="line">  const now = Date.now();</span><br><span class="line">  // 核心觀念：永遠用「現在時間 - 開始時間」來算過了多久，而不是靠觸發次數！</span><br><span class="line">  const passedSeconds = Math.floor((now - startTime) / 1000);</span><br><span class="line"></span><br><span class="line">  console.log(`實際上已經過了 $&#123;passedSeconds&#125; 秒`);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 監聽頁面切換狀態</span><br><span class="line">document.addEventListener(&#x27;visibilitychange&#x27;, () =&gt; &#123;</span><br><span class="line">  // 當使用者重新「切回」這個分頁時 (visible)</span><br><span class="line">  if (document.visibilityState === &#x27;visible&#x27;) &#123;</span><br><span class="line">    // 立刻手動執行一次對時，畫面馬上就會變回最準確的狀態！</span><br><span class="line">    updateStatus();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>就算背景被瀏覽器降速了，只要一切回前景，<code>Date.now()</code> 拿到的永遠是電腦當前最準確的真實時間，畫面瞬間就會自動校正過來。</p>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><ol>
+<li><p>不要相信背景分頁中的 <code>setInterval</code> 能像鬧鐘一樣精準。</p>
+</li>
+<li><p>善用時間戳（Timestamp）：計算時間時，用「真實時間相減」絕對比「計算觸發次數」可靠得多。</p>
+</li>
+<li><p>配合 Visibility API：在使用者切回分頁時補一下對時邏輯，就能兼顧網頁效能與使用者體驗。</p>
+</li>
+</ol>
+<hr>
+<h2 id="其他分享-chrome-擴充套件"><a href="#其他分享-chrome-擴充套件" class="headerlink" title="其他分享-chrome 擴充套件"></a>其他分享-chrome 擴充套件</h2><p>跟大家分享一個個人覺得很可愛的chrome 擴充套件：<a target="_blank" rel="noopener" href="https://chromewebstore.google.com/detail/cat-gatekeeper/elbikiflgfhjdjmficnigpeegjbhdidh?pli=1">Cat Gatekeeper</a>。</p>
+<p>他會記錄你在特定網站（例如：youtube）的使用時間，當達到一定的時間會派出貓貓來霸佔你的螢幕。</p>
+<p><img src="https://images.aria-carrotlab.com/Cat%20gatekeeper.webp" alt="Cat gatekeeper"></p>
+</div>
+
+    
+
+    
+    <section
+        class="related-posts section-pad mb-0"
+        aria-labelledby="related-posts-title"
+    >
+        <div class="container">
+        <!-- 區塊標題 -->
+        <div
+            class="section-heading mb-0 d-flex justify-content-between align-items-end gap-3"
+        >
+            <div>
+            <p class="eyebrow" data-i18n="post.keepExploring">KEEP EXPLORING</p>
+            <h2 id="related-posts-title">
+                <span data-i18n="post.relatedTitle">相關筆記</span><span class="title-dot">.</span>
+            </h2>
+            <p class="muted mt-2" data-i18n="post.relatedCopy">
+                繼續探索其他有趣的學習紀錄。
+            </p>
+            </div>
+            <span class="related-posts-count" data-i18n="post.relatedLabel">
+            RELATED NOTES
+            </span>
+        </div>
+
+        <!-- 相關文章卡片 -->
+        <div class="related-posts-track row g-4 mt-2">
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/11/14/post-063/"
+                    aria-label="閱讀文章：瀏覽器 | 跟貓貓玩123木頭人：Page Visibility API（頁面可見性 API）"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        063
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-11-13T17:05:28.000Z"
+                    >
+                        2026.11.14
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/11/14/post-063/"
+                        >
+                        瀏覽器 | 跟貓貓玩123木頭人：Page Visibility API（頁面可見性 API）
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        養貓的人應該都有經驗，有時候當你看著貓的時候，他會瞬間定格、一動也不動地跟你對視；但只要你一轉過頭或走開，牠就會偷偷移動，等你轉回頭時又瞬間定格。好像突然開啟了一場123木頭人的遊戲。 在上一篇介紹 背景節流（Background Throttle） 時提到，瀏覽器為了節省能源，會在使用者切換分頁時…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/Page-Visibility-API/"
+                            >
+                            Page Visibility API
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/"
+                            >
+                            瀏覽器
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/11/14/post-063/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <!-- 品牌與標語 -->
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+
+    <!-- 聯絡方式、隱私權政策與版權 -->
+    <div class="footer-info">
+      <!-- 第一行：聯絡我與隱私權政策 -->
+      <div class="footer-links">
+        <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
+          <i class="bi bi-envelope me-1"></i>
+          <span data-i18n="footer.contact" class="small">聯絡我</span>
+        </a>
+
+        <a
+          class="footer-policy-link small text-decoration-none"
+          href="/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="footer.privacy" class="small">隱私權政策</span>
+        </a>
+      </div>
+
+      <!-- 第二行：版權 -->
+      <span class="footer-copyright small muted">
+        Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+<!--axios JS-->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>
