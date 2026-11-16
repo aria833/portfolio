@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>JS DOM | 取得元素的方法：querySelector、querySelectorAll 與傳統選擇器 — ARIA&#39;S CARROTLAB</title>
+  
+  <meta
+    name="description"
+    content="在 介紹DOM是什麼 時，提到如果把整個網頁比喻成一隻貓，DOM 就是貓身上的各個部位與神經反射。 既然現在我們已經有了貓了！接下來——當然就是選擇部位要來擼貓了！(本篇文章尊重所有貓貓意願，撰寫過程中沒有任何貓貓受到傷害) JavaScript 有多種取得 DOM 元素的方法，接下來會介紹常用的 querySelec"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/10/30/post-048/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="JS DOM | 取得元素的方法：querySelector、querySelectorAll 與傳統選擇器 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="在 介紹DOM是什麼 時，提到如果把整個網頁比喻成一隻貓，DOM 就是貓身上的各個部位與神經反射。 既然現在我們已經有了貓了！接下來——當然就是選擇部位要來擼貓了！(本篇文章尊重所有貓貓意願，撰寫過程中沒有任何貓貓受到傷害) JavaScript 有多種取得 DOM 元素的方法，接下來會介紹常用的 querySelec"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/10/30/post-048/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="JS DOM | 取得元素的方法：querySelector、querySelectorAll 與傳統選擇器 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="在 介紹DOM是什麼 時，提到如果把整個網頁比喻成一隻貓，DOM 就是貓身上的各個部位與神經反射。 既然現在我們已經有了貓了！接下來——當然就是選擇部位要來擼貓了！(本篇文章尊重所有貓貓意願，撰寫過程中沒有任何貓貓受到傷害) JavaScript 有多種取得 DOM 元素的方法，接下來會介紹常用的 querySelec"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"JS DOM | 取得元素的方法：querySelector、querySelectorAll 與傳統選擇器","description":"在 介紹DOM是什麼 時，提到如果把整個網頁比喻成一隻貓，DOM 就是貓身上的各個部位與神經反射。 既然現在我們已經有了貓了！接下來——當然就是選擇部位要來擼貓了！(本篇文章尊重所有貓貓意願，撰寫過程中沒有任何貓貓受到傷害) JavaScript 有多種取得 DOM 元素的方法，接下來會介紹常用的 querySelec","datePublished":"2026-10-30T00:41:11+08:00","dateModified":"2026-11-17T00:42:28+08:00","author":{"@type":"Person","name":"Aria"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://portfolio.aria-carrotlab.com/2026/10/30/post-048/"},"image":"https://portfolio.aria-carrotlab.com/images/og-image.webp"}
+  </script>
+  
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SZD9X7XMWG"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-SZD9X7XMWG");
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.10.30</p>
+        <h1>JS DOM | 取得元素的方法：querySelector、querySelectorAll 與傳統選擇器</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/JavaScript/">JavaScript</a>
+            
+                <a href="/tags/DOM/">DOM</a>
+            
+                <a href="/tags/querySelector/">querySelector</a>
+            
+                <a href="/tags/querySelectorAll/">querySelectorAll</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>在 <a href="https://portfolio.aria-carrotlab.com/2026/10/29/post-047/">介紹DOM是什麼</a> 時，提到如果把整個網頁比喻成一隻貓，DOM 就是貓身上的各個部位與神經反射。</p>
+<p>既然現在我們已經有了貓了！接下來——當然就是選擇部位要來擼貓了！<br><em>(本篇文章尊重所有貓貓意願，撰寫過程中沒有任何貓貓受到傷害)</em></p>
+<p>JavaScript 有多種取得 DOM 元素的方法，接下來會介紹常用的 querySelector 系列，以及傳統的選取方法。</p>
+<h2 id="現代主流選取法：querySelector-系列"><a href="#現代主流選取法：querySelector-系列" class="headerlink" title="現代主流選取法：querySelector 系列"></a>現代主流選取法：<code>querySelector</code> 系列</h2><p>可以直接使用的 <strong>CSS 選擇器</strong> 語法來搜尋元素。</p>
+<h3 id="document-querySelector-：選取「第一筆」匹配元素"><a href="#document-querySelector-：選取「第一筆」匹配元素" class="headerlink" title="document.querySelector()：選取「第一筆」匹配元素"></a><code>document.querySelector()</code>：選取「第一筆」匹配元素</h3><p>當網頁中有複數個符合條件的元素時，<code>querySelector</code> 只會回傳第一個找到的元素；如果找不到，則會回傳 <code>null</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 1. 透過標籤名稱選取（取得第一個 &lt;h1&gt;）</span><br><span class="line">const mainTitle = document.querySelector(&#x27;h1&#x27;);</span><br><span class="line"></span><br><span class="line">// 2. 透過 Class 名稱選取（記得要加半形句點 .）</span><br><span class="line">const headerBlock = document.querySelector(&#x27;.header&#x27;);</span><br><span class="line"></span><br><span class="line">// 3. 透過 ID 名稱選取（記得要加井字號 #）</span><br><span class="line">const submitBtn = document.querySelector(&#x27;#submit-btn&#x27;);</span><br><span class="line"></span><br><span class="line">// 4. 複合條件選取（選取 .card 底下的 .title）</span><br><span class="line">const cardTitle = document.querySelector(&#x27;.card .title&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="document-querySelectorAll-：選取「所有」匹配元素"><a href="#document-querySelectorAll-：選取「所有」匹配元素" class="headerlink" title="document.querySelectorAll()：選取「所有」匹配元素"></a><code>document.querySelectorAll()</code>：選取「所有」匹配元素</h3><p>如果想一次選取多個相同的元素（例如清單中的所有 <code>&lt;li&gt;</code> 或頁面上的所有按鈕），可以使用 <code>querySelectorAll</code>。</p>
+<p>它會回傳一個 <strong>NodeList（類陣列集合）</strong>，包含所有符合條件的元素。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 選取頁面上所有的 &lt;p&gt; 標籤</span><br><span class="line">const allParagraphs = document.querySelectorAll(&#x27;p&#x27;);</span><br><span class="line"></span><br><span class="line">// 選取 class 為 .item 的所有元素</span><br><span class="line">const allItems = document.querySelectorAll(&#x27;.item&#x27;);</span><br><span class="line"></span><br><span class="line">// 如何操作這些元素？通常搭配 forEach 迴圈</span><br><span class="line">allItems.forEach((item) =&gt; &#123;</span><br><span class="line">  console.log(item.textContent);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="傳統選取法（Legacy-Selectors）"><a href="#傳統選取法（Legacy-Selectors）" class="headerlink" title="傳統選取法（Legacy Selectors）"></a>傳統選取法（Legacy Selectors）</h2><p>在 <code>querySelector</code> 出現前，JavaScript 主要是透過以下這些專門的方法來取得元素。</p>
+<h3 id="document-getElementById-id-name"><a href="#document-getElementById-id-name" class="headerlink" title="document.getElementById(&#39;id-name&#39;)"></a><code>document.getElementById(&#39;id-name&#39;)</code></h3><ul>
+<li><p><strong>說明</strong>：專門透過 ID 搜尋單一元素（因為 ID 在網頁中應該是唯一的）。</p>
+</li>
+<li><p><strong>注意</strong>：括號內只需要傳入 ID 名稱，不需要加 <code>#</code>。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const mainHeader = document.getElementById(&#x27;main-header&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="document-getElementsByClassName-class-name"><a href="#document-getElementsByClassName-class-name" class="headerlink" title="document.getElementsByClassName(&#39;class-name&#39;)"></a><code>document.getElementsByClassName(&#39;class-name&#39;)</code></h3><ul>
+<li><p><strong>說明</strong>：選取所有指定 Class 的元素，回傳一個 <strong>HTMLCollection（動態類陣列）</strong>。</p>
+</li>
+<li><p><strong>注意</strong>：括號內不需要加 <code>.</code>。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const listItems = document.getElementsByClassName(&#x27;list-item&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="document-getElementsByTagName-tag-name"><a href="#document-getElementsByTagName-tag-name" class="headerlink" title="document.getElementsByTagName(&#39;tag-name&#39;)"></a><code>document.getElementsByTagName(&#39;tag-name&#39;)</code></h3><p>-<strong>說明</strong>：選取所有指定標籤名稱的元素（如 <code>div</code>, <code>a</code>, <code>li</code>）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const allLinks = document.getElementsByTagName(&#x27;a&#x27;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="總結比較表"><a href="#總結比較表" class="headerlink" title="總結比較表"></a>總結比較表</h2><table>
+<thead>
+<tr>
+<th>方法名稱</th>
+<th>傳入參數格式</th>
+<th>回傳結果型態</th>
+<th>適用情境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>querySelector</code></td>
+<td>CSS 選擇器 (<code>.class</code>, <code>#id</code>, <code>tag</code>)</td>
+<td>單一 DOM 元素 &#x2F; null</td>
+<td><strong>最推薦</strong>，選取單一元素時使用</td>
+</tr>
+<tr>
+<td><code>querySelectorAll</code></td>
+<td>CSS 選擇器 (<code>.class</code>, <code>#id</code>, <code>tag</code>)</td>
+<td>NodeList (類陣列)</td>
+<td><strong>最推薦</strong>，需批次處理多個元素時使用</td>
+</tr>
+<tr>
+<td><code>getElementById</code></td>
+<td>純 ID 字串 (不加 <code>#</code>)</td>
+<td>單一 DOM 元素 &#x2F; <code>null</code></td>
+<td>傳統方法，確定目標有明確指定 ID 時使用</td>
+</tr>
+<tr>
+<td><code>getElementsByClassName</code></td>
+<td>純 Class 字串 (不加 <code>.</code>)</td>
+<td><code>HTMLCollection</code>(動態類陣列)</td>
+<td>傳統方法，一次選取所有相同 Class 的元素</td>
+</tr>
+<tr>
+<td><code>getElementsByTagName</code></td>
+<td>純標籤名稱 (如 <code>a</code>, <code>li</code>, <code>div</code>)</td>
+<td><code>HTMLCollection</code> (動態類陣列)</td>
+<td>傳統方法，一次選取所有特定 HTML 標籤的元素</td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>留意點</strong></p>
+<ol>
+<li><p><strong>記得加上前綴符號</strong>：使用 <code>querySelector</code> 選取 Class 或 ID 時，千萬不要忘記加上 <code>.</code> 或 <code>#</code>。</p>
+</li>
+<li><p>留意 <code>null</code> 情況：如果 JavaScript 在 HTML 載入完成前就執行，可能會找不到元素而回傳 <code>null</code>。必須確保 <code>&lt;script&gt;</code> 標籤放在 <code>&lt;body&gt;</code> 的最底部！</p>
+</li>
+</ol>
+</div>
+
+    
+
+    
+    <section
+        class="related-posts section-pad mb-0"
+        aria-labelledby="related-posts-title"
+    >
+        <div class="container">
+        <!-- 區塊標題 -->
+        <div
+            class="section-heading mb-0 d-flex justify-content-between align-items-end gap-3"
+        >
+            <div>
+            <p class="eyebrow" data-i18n="post.keepExploring">KEEP EXPLORING</p>
+            <h2 id="related-posts-title">
+                <span data-i18n="post.relatedTitle">相關筆記</span><span class="title-dot">.</span>
+            </h2>
+            <p class="muted mt-2" data-i18n="post.relatedCopy">
+                繼續探索其他有趣的學習紀錄。
+            </p>
+            </div>
+            <span class="related-posts-count" data-i18n="post.relatedLabel">
+            RELATED NOTES
+            </span>
+        </div>
+
+        <!-- 相關文章卡片 -->
+        <div class="related-posts-track row g-4 mt-2">
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/29/post-047/"
+                    aria-label="閱讀文章：JavaScript | 什麼是 DOM ？如果網頁是一隻貓"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        047
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-28T16:35:10.000Z"
+                    >
+                        2026.10.29
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/29/post-047/"
+                        >
+                        JavaScript | 什麼是 DOM ？如果網頁是一隻貓
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        如果網頁是一隻貓🐱如果把整個網頁比喻成一隻貓，DOM 就是貓身上的各個部位與神經反射。可以透過與特定部位互動，觸發不同的反應： 拍拍貓屁股：觸發「發出呼嚕聲」的反應。 摸貓咪前爪：觸發「揮你一拳」的反應。 在網頁中也是一樣的道理：JavaScript 可以透過 DOM 找到網頁的「按鈕部位」，並設…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/DOM/"
+                            >
+                            DOM
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/29/post-047/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/28/post-046/"
+                    aria-label="閱讀文章：時間格式轉換 | toISOString() 怎麼用？"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        046
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-27T16:28:54.000Z"
+                    >
+                        2026.10.28
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/28/post-046/"
+                        >
+                        時間格式轉換 | toISOString() 怎麼用？
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在前面的文章中，介紹了 毫秒時間戳(Timestamp)｜電腦世界的格林威治時間 。 雖然「毫秒時間戳」對電腦來說運算極快，但人的肉眼很難馬上看出它代表哪一年哪一天；而且如果直接傳送本地時間的文字（例如 “2026&amp;#x2F;09&amp;#x2F;30 08:30”），又容易因為沒有標示時區而出錯。 為了…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/toISOString/"
+                            >
+                            toISOString()
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/%E6%99%82%E9%96%93%E6%88%B3/"
+                            >
+                            時間戳
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/Timestamp/"
+                            >
+                            Timestamp
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/28/post-046/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/27/post-045/"
+                    aria-label="閱讀文章：JavaScript | Vanilla JavaScript是什麼？能吃嗎？好吃嗎？"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        045
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-26T16:24:47.000Z"
+                    >
+                        2026.10.27
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/27/post-045/"
+                        >
+                        JavaScript | Vanilla JavaScript是什麼？能吃嗎？好吃嗎？
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        什麼是 Vanilla JavaScript？在程式開發的世界裡，「Vanilla」這個詞常被用來形容「原汁原味、沒有經過額外加工或添加任何框架套件」的標準狀態。 所以，Vanilla JavaScript 指的就是「純原生 JavaScript」。 不需要使用框架，也不需要另外安裝套件，而是在任何…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/Vanilla-JavaScript/"
+                            >
+                            Vanilla JavaScript
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/27/post-045/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/10/24/post-042/"
+                    aria-label="閱讀文章：ES6｜「説出吾名，嚇汝一跳」，現代JavaScript"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        042
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-10-24T12:09:56.000Z"
+                    >
+                        2026.10.24
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/10/24/post-042/"
+                        >
+                        ES6｜「説出吾名，嚇汝一跳」，現代JavaScript
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        不知道大家有沒有看過網路流傳的一段白話文版的出師表，大致上是這樣的：「你爹死得早，把你交給我，我就是你爹，飯在鍋里，水在缸里，錢在抽屜里，我帶你趙叔、興弟、苞弟他們找曹賊打架去了。在家一定要照顧好自己，不要光顧著玩，要按時寫作業，有什麼不懂的就問你費叔、蔣叔他們，我知道你不如你爹，但你是個好孩子，我…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/ES6/"
+                            >
+                            ES6
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/10/24/post-042/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <!-- 品牌與標語 -->
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+
+    <!-- 聯絡方式、隱私權政策與版權 -->
+    <div class="footer-info">
+      <!-- 第一行：聯絡我與隱私權政策 -->
+      <div class="footer-links">
+        <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
+          <i class="bi bi-envelope me-1"></i>
+          <span data-i18n="footer.contact" class="small">聯絡我</span>
+        </a>
+
+        <a
+          class="footer-policy-link small text-decoration-none"
+          href="/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="footer.privacy" class="small">隱私權政策</span>
+        </a>
+      </div>
+
+      <!-- 第二行：版權 -->
+      <span class="footer-copyright small muted">
+        Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+<!--axios JS-->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>
