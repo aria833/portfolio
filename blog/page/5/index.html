@@ -360,7 +360,7 @@
         <div class="col-lg-9">
             <!-- 統計文章數量 -->
             <div class="blog-toolbar">
-                <span>60 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
+                <span>62 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
                 <span class="muted p-1 rounded" data-i18n="lang-notice">筆記目前以繁體中文為主</span>
             </div>
 
@@ -527,7 +527,7 @@
                                     href="/tags/JavaScript/"
                                 >
                                     JavaScript
-                                    <span class="tag-count">7</span>
+                                    <span class="tag-count">9</span>
                                 </a>
                             
                                 <a
@@ -556,6 +556,14 @@
                             
                                 <a
                                     class="archive-tag-link"
+                                    href="/tags/String-prototype-padStart/"
+                                >
+                                    String.prototype.padStart()
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
                                     href="/tags/TaskTimer/"
                                 >
                                     TaskTimer
@@ -575,6 +583,14 @@
                                     href="/tags/Vanilla-JavaScript/"
                                 >
                                     Vanilla JavaScript
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
+                                    href="/tags/Web-API/"
+                                >
+                                    Web API
                                     <span class="tag-count">1</span>
                                 </a>
                             
@@ -639,6 +655,14 @@
                                     href="/tags/querySelectorAll/"
                                 >
                                     querySelectorAll
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
+                                    href="/tags/setInterval/"
+                                >
+                                    setInterval()
                                     <span class="tag-count">1</span>
                                 </a>
                             
@@ -865,6 +889,113 @@
 
             <!-- 文章列表 -->
             <div class="post-list">
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        022
+                        </span>
+                        <time datetime="2026-10-03T16:43:49.000Z">
+                            2026.10.04
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/10/04/post-022/"
+                            >
+                            DAY 21｜數據統計：任務列表進度條與時間呈現
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            在 Day 20 完成了 CRUD 的連動渲染後，接下來要處理「數據視覺化」與「時間統計」的功能，讓使用者一眼就能掌握各個任務的完成進度與累積花費時間。
+
+進度與時間計算函式1. 進度百分比計算（calculateTaskProgress）計算該主任務下已完成（completed）的子任務比例：
+
+…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/TaskTimer/"
+                                >
+                                TaskTimer
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        021
+                        </span>
+                        <time datetime="2026-10-02T16:43:47.000Z">
+                            2026.10.03
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/10/03/post-021/"
+                            >
+                            DAY 20｜任務管理（三）：將主任務與子任務 CRUD 動態連結至任務清單 Accordion
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            完成了狀態管理與 Modal 互動視窗後，接下來的目標是將任務清單（Accordion 摺疊區塊）動態化，讓主任務與子任務的新增、修改、刪除（CRUD）能即時反映在畫面上。
+
+一、畫面結構重構：從靜態 HTML 到 JavaScript 動態渲染在實作動態渲染之前，需要先調整 HTML 結構。
+將原…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/TaskTimer/"
+                                >
+                                TaskTimer
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
@@ -1294,112 +1425,6 @@ DOM 元素選取與狀態變數初始化
                 </div>
             </article>
                 
-                <article class="post-list-item">
-                    <div class="post-list-link">
-
-                    <!-- 文章編號與日期 -->
-                    <div class="post-list-meta">
-                        <span class="post-index">
-                        012
-                        </span>
-                        <time datetime="2026-09-23T16:43:14.000Z">
-                            2026.09.24
-                        </time>
-                    </div>
-
-                    <!-- 標題、摘要、Tag -->
-                    <div class="post-list-content">
-                        <h2>
-                            <a
-                            class="post-title-link"
-                            href="/2026/09/24/post-012/"
-                            >
-                            DAY 11｜切版實作：運用Modal 彈跳視窗的介面設計
-                            </a>
-                        </h2>
-                        <p class="post-list-excerpt">
-                            今天我們要針對任務清單上半部的「管理主任務」、「新增子任務」的操作按鈕進行實作，這邊會使用到的元件是 Modal（彈跳視窗 &amp;#x2F; 對話框）。
-
-
-1. 先來認識 Modal 元件在 Web UI 中，Modal 是一個相當常見的互動元件。可以在不離開當前頁面的情況下，跳出一個獨立的對話方塊來…
-                        </p>
-
-                        
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/iThome2026/"
-                                >
-                                iThome2026
-                                </a>
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/TaskTimer/"
-                                >
-                                TaskTimer
-                                </a>
-                            
-                            </div>
-                        
-                    </div>
-                </div>
-            </article>
-                
-                <article class="post-list-item">
-                    <div class="post-list-link">
-
-                    <!-- 文章編號與日期 -->
-                    <div class="post-list-meta">
-                        <span class="post-index">
-                        011
-                        </span>
-                        <time datetime="2026-09-22T16:43:11.000Z">
-                            2026.09.23
-                        </time>
-                    </div>
-
-                    <!-- 標題、摘要、Tag -->
-                    <div class="post-list-content">
-                        <h2>
-                            <a
-                            class="post-title-link"
-                            href="/2026/09/23/post-011/"
-                            >
-                            DAY 10｜切版實作：用 Collapse 打造獨立折疊的子任務清單
-                            </a>
-                        </h2>
-                        <p class="post-list-excerpt">
-                            在上一篇中，使用了 Accordion（手風琴） 來製作主任務列表。接下來，要處理下一層的「子任務與計時紀錄清單」。
-在這個區塊中，我選擇直接套用 Collapse（折疊元件） 來達成收納與展開的效果。
-
-1.什麼是 Collapse 元件？Bootstrap 5 的 Collapse（折疊元件） …
-                        </p>
-
-                        
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/iThome2026/"
-                                >
-                                iThome2026
-                                </a>
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/TaskTimer/"
-                                >
-                                TaskTimer
-                                </a>
-                            
-                            </div>
-                        
-                    </div>
-                </div>
-            </article>
-                
             </div>
             
             
@@ -1435,6 +1460,10 @@ DOM 元素選取與狀態變數初始化
                 
                 
                     <a class="page-link-custom" href="/blog/page/6/">6</a>
+                
+                
+                
+                    <a class="page-link-custom" href="/blog/page/7/">7</a>
                 
                 
             </div>
@@ -1594,7 +1623,7 @@ DOM 元素選取與狀態變數初始化
                         href="/tags/JavaScript/"
                     >
                         JavaScript
-                        <span class="tag-count">7</span>
+                        <span class="tag-count">9</span>
                     </a>
                     
                     <a
@@ -1623,6 +1652,14 @@ DOM 元素選取與狀態變數初始化
                     
                     <a
                         class="archive-tag-link"
+                        href="/tags/String-prototype-padStart/"
+                    >
+                        String.prototype.padStart()
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
                         href="/tags/TaskTimer/"
                     >
                         TaskTimer
@@ -1642,6 +1679,14 @@ DOM 元素選取與狀態變數初始化
                         href="/tags/Vanilla-JavaScript/"
                     >
                         Vanilla JavaScript
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
+                        href="/tags/Web-API/"
+                    >
+                        Web API
                         <span class="tag-count">1</span>
                     </a>
                     
@@ -1706,6 +1751,14 @@ DOM 元素選取與狀態變數初始化
                         href="/tags/querySelectorAll/"
                     >
                         querySelectorAll
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
+                        href="/tags/setInterval/"
+                    >
+                        setInterval()
                         <span class="tag-count">1</span>
                     </a>
                     
