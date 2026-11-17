@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 1. 基本 SEO 資訊 -->
+  <title>IDOR | 為什麼有些房卡可以隨便開別人的房間？ — ARIA&#39;S CARROTLAB</title>
+  
+  <meta
+    name="description"
+    content="在 UUID 的文章中，我們聊過為什麼軟體開發不用傳統的流水號（如 1, 2, 3），而是改用 UUID 來作為資料的識別碼。其中一個最關鍵的原因，就是為了 防範網頁開發中的資安漏洞–IDOR。 什麼是 IDOR？IDOR 全名為 Insecure Direct Object Reference（中文通常翻譯為：不安全"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址（防止重複內容影響權重） -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/11/17/post-066/"
+  />
+
+  <!-- 2. Favicon & 裝置圖示 -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="IDOR | 為什麼有些房卡可以隨便開別人的房間？ — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="在 UUID 的文章中，我們聊過為什麼軟體開發不用傳統的流水號（如 1, 2, 3），而是改用 UUID 來作為資料的識別碼。其中一個最關鍵的原因，就是為了 防範網頁開發中的資安漏洞–IDOR。 什麼是 IDOR？IDOR 全名為 Insecure Direct Object Reference（中文通常翻譯為：不安全"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/11/17/post-066/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- 4. Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="IDOR | 為什麼有些房卡可以隨便開別人的房間？ — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="在 UUID 的文章中，我們聊過為什麼軟體開發不用傳統的流水號（如 1, 2, 3），而是改用 UUID 來作為資料的識別碼。其中一個最關鍵的原因，就是為了 防範網頁開發中的資安漏洞–IDOR。 什麼是 IDOR？IDOR 全名為 Insecure Direct Object Reference（中文通常翻譯為：不安全"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+
+  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"IDOR | 為什麼有些房卡可以隨便開別人的房間？","description":"在 UUID 的文章中，我們聊過為什麼軟體開發不用傳統的流水號（如 1, 2, 3），而是改用 UUID 來作為資料的識別碼。其中一個最關鍵的原因，就是為了 防範網頁開發中的資安漏洞–IDOR。 什麼是 IDOR？IDOR 全名為 Insecure Direct Object Reference（中文通常翻譯為：不安全","datePublished":"2026-11-17T22:09:21+08:00","dateModified":"2026-11-17T22:27:00+08:00","author":{"@type":"Person","name":"Aria"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://portfolio.aria-carrotlab.com/2026/11/17/post-066/"},"image":"https://portfolio.aria-carrotlab.com/images/og-image.webp"}
+  </script>
+  
+
+  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SZD9X7XMWG"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-SZD9X7XMWG");
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌檯燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+    M27 136
+    L27 116
+    C27 105 31 98 36 95
+    C38 94 42 94 44 95
+    C49 98 53 105 53 116
+    L53 136
+    Z
+  "
+      />
+
+      <!-- 中央大肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+
+      <!-- 四顆小趾球 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.11.17</p>
+        <h1>IDOR | 為什麼有些房卡可以隨便開別人的房間？</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/IDOR/">IDOR</a>
+            
+                <a href="/tags/%E8%B3%87%E5%AE%89/">資安</a>
+            
+                <a href="/tags/UUID/">UUID</a>
+            
+                <a href="/tags/OWASP/">OWASP</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>在 <a href="https://portfolio.aria-carrotlab.com/2026/11/15/post-064/">UUID</a> 的文章中，我們聊過為什麼軟體開發不用傳統的流水號（如 1, 2, 3），而是改用 <strong>UUID</strong> 來作為資料的識別碼。其中一個最關鍵的原因，就是為了 <strong>防範網頁開發中的資安漏洞–IDOR</strong>。</p>
+<h2 id="什麼是-IDOR？"><a href="#什麼是-IDOR？" class="headerlink" title="什麼是 IDOR？"></a>什麼是 IDOR？</h2><p>IDOR 全名為 <strong>Insecure Direct Object Reference</strong>（中文通常翻譯為：<strong>不安全的直接物件參照</strong>）。</p>
+<p>這個名稱雖然聽起來很學術，但是我們可以想像今天去住飯店時，拿到的 <strong>房卡</strong> 來做比喻：</p>
+<ul>
+<li><p><strong>正常的系統</strong>：櫃檯給你一張房卡，上面寫著房號 <code>101</code>。你刷這張卡只能開 <code>101</code> 房的門，絕對打不開別人的房間。</p>
+</li>
+<li><p><strong>有 IDOR 漏洞的系統</strong>：櫃檯雖然把卡給了你，但房門的鎖完全沒檢查身分。你只要把房卡上的號碼改成 <code>102</code>或<code>103</code>，就能直接打開陌生人的房間，甚至可以把房內的東西都拿走。</p>
+</li>
+</ul>
+<hr>
+<h2 id="IDOR-是怎麼發生的？"><a href="#IDOR-是怎麼發生的？" class="headerlink" title="IDOR 是怎麼發生的？"></a>IDOR 是怎麼發生的？</h2><p>假設今天你登入了自己的會員中心，想要查看自己的訂單與個人私密紀錄，瀏覽器向伺服器發送了這樣一個 API 請求：</p>
+<p><code>GET /api/orders?user_id=1005</code></p>
+<p>伺服器回傳了屬於 <code>1005</code> 號會員的資料。但如果後端工程師忘記在程式碼裡檢查「發出這個請求的人，到底是不是 <code>1005</code> 號的本人」，就會發生嚴重的問題：</p>
+<h3 id="1-輕易篡改"><a href="#1-輕易篡改" class="headerlink" title="1. 輕易篡改"></a>1. 輕易篡改</h3><p>有心人士只要打開瀏覽器的開發者工具（F12），或是直接把網址列的數字改成：<br><code>GET /api/orders?user_id=1006</code></p>
+<h3 id="2-資料看光光"><a href="#2-資料看光光" class="headerlink" title="2. 資料看光光"></a>2. 資料看光光</h3><p>因為伺服器完全沒有做權限驗證（Authorization），它看到有請求進來，就毫無防備地把 <code>1006</code> 號會員的信用卡號、住址、私密訂單全部回傳給了你。</p>
+<p>這種不需要任何高級駭客技巧、只要 <strong>改改數字就能偷看別人資料</strong> 的特性，讓 IDOR 長期穩居 <strong>OWASP Top 10（十大 Web 應用程式安全風險）</strong> 的熱門排行。</p>
+<p><em>OWASP：Open Web Application Security Project</em></p>
+<h2 id="怎麼防範-IDOR-漏洞？"><a href="#怎麼防範-IDOR-漏洞？" class="headerlink" title="怎麼防範 IDOR 漏洞？"></a>怎麼防範 IDOR 漏洞？</h2><p>雖然使用 UUID 可以當作第一道防線，但要真正消滅 IDOR，核心原則只有一個：</p>
+<p><strong>「永遠不要信任前端傳來的身分或 ID，後端一定要嚴格檢查：『這個登入的使用者，到底有沒有權限讀取或修改這筆資料』。」</strong></p>
+<h3 id="確實驗證-Token-Session"><a href="#確實驗證-Token-Session" class="headerlink" title="確實驗證 Token &#x2F; Session"></a>確實驗證 Token &#x2F; Session</h3><p>在每次收到請求時，後端必須從登入憑證中解析出「目前發起請求的人究竟是誰」。</p>
+<h3 id="核對歸屬權"><a href="#核對歸屬權" class="headerlink" title="核對歸屬權"></a>核對歸屬權</h3><p>去資料庫或權限系統核對：「這筆資料是不是他的？如果不是，直接拒絕並回傳 <code>403 Forbidden</code>。」</p>
+</div>
+
+    
+
+    
+    <section
+        class="related-posts section-pad mb-0"
+        aria-labelledby="related-posts-title"
+    >
+        <div class="container">
+        <!-- 區塊標題 -->
+        <div
+            class="section-heading mb-0 d-flex justify-content-between align-items-end gap-3"
+        >
+            <div>
+            <p class="eyebrow" data-i18n="post.keepExploring">KEEP EXPLORING</p>
+            <h2 id="related-posts-title">
+                <span data-i18n="post.relatedTitle">相關筆記</span><span class="title-dot">.</span>
+            </h2>
+            <p class="muted mt-2" data-i18n="post.relatedCopy">
+                繼續探索其他有趣的學習紀錄。
+            </p>
+            </div>
+            <span class="related-posts-count" data-i18n="post.relatedLabel">
+            RELATED NOTES
+            </span>
+        </div>
+
+        <!-- 相關文章卡片 -->
+        <div class="related-posts-track row g-4 mt-2">
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/11/15/post-064/"
+                    aria-label="閱讀文章：UUID | 別再用 1234 來編號啦！"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        064
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-11-15T13:25:53.000Z"
+                    >
+                        2026.11.15
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/11/15/post-064/"
+                        >
+                        UUID | 別再用 1234 來編號啦！
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在軟體開發與資料庫設計中，常常需要為每一筆資料、每一個使用者、甚至是每一個檔案產生一個 「獨一無二的編號」。如果直接使用傳統的流水號（例如 1, 2, 3…），不僅容易被有心人士猜出系統規模或資料量，還有可能會在系統合併時發生編號衝突。 這時候，UUID 就成了最好的解法。 什麼是 UUID？UUI…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/IDOR/"
+                            >
+                            IDOR
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/UUID/"
+                            >
+                            UUID
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/GUID/"
+                            >
+                            GUID
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/11/15/post-064/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <!-- 品牌與標語 -->
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+
+    <!-- 聯絡方式、隱私權政策與版權 -->
+    <div class="footer-info">
+      <!-- 第一行：聯絡我與隱私權政策 -->
+      <div class="footer-links">
+        <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
+          <i class="bi bi-envelope me-1"></i>
+          <span data-i18n="footer.contact" class="small">聯絡我</span>
+        </a>
+
+        <a
+          class="footer-policy-link small text-decoration-none"
+          href="/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="footer.privacy" class="small">隱私權政策</span>
+        </a>
+      </div>
+
+      <!-- 第二行：版權 -->
+      <span class="footer-copyright small muted">
+        Copyright © 2026
+        <strong>Aria's CarrotLab</strong>
+      </span>
+    </div>
+  </div>
+</footer>
+<!--axios JS-->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>
