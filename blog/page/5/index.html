@@ -360,7 +360,7 @@
         <div class="col-lg-9">
             <!-- 統計文章數量 -->
             <div class="blog-toolbar">
-                <span>68 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
+                <span>69 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
                 <span class="muted p-1 rounded" data-i18n="lang-notice">筆記目前以繁體中文為主</span>
             </div>
 
@@ -551,7 +551,7 @@
                                     href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
                                 >
                                     JS語法筆記
-                                    <span class="tag-count">2</span>
+                                    <span class="tag-count">3</span>
                                 </a>
                             
                                 <a
@@ -559,7 +559,7 @@
                                     href="/tags/JavaScript/"
                                 >
                                     JavaScript
-                                    <span class="tag-count">11</span>
+                                    <span class="tag-count">12</span>
                                 </a>
                             
                                 <a
@@ -692,6 +692,14 @@
                             
                                 <a
                                     class="archive-tag-link"
+                                    href="/tags/join/"
+                                >
+                                    join()
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
                                     href="/tags/markdown/"
                                 >
                                     markdown
@@ -719,6 +727,14 @@
                                     href="/tags/setInterval/"
                                 >
                                     setInterval()
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
+                                    href="/tags/split/"
+                                >
+                                    split()
                                     <span class="tag-count">1</span>
                                 </a>
                             
@@ -860,6 +876,14 @@
                             
                                 <a
                                     class="archive-tag-link"
+                                    href="/tags/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F/"
+                                >
+                                    正規表示式
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
                                     href="/tags/%E6%B2%B3%E9%A6%AC%E5%A4%A7%E6%80%AA%E7%8D%B8/"
                                 >
                                     河馬大怪獸
@@ -985,6 +1009,58 @@
 
             <!-- 文章列表 -->
             <div class="post-list">
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        029
+                        </span>
+                        <time datetime="2026-10-10T16:44:08.000Z">
+                            2026.10.11
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/10/11/post-029/"
+                            >
+                            DAY 28｜使用者體驗優化（二）：多國語系（i18n）切換與語系狀態持久化
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            隨著功能逐漸完善，產品目前已經具備了完整的計時與任務管理能力。接下來，為了讓更多不同語言的使用者也能無縫使用，要在 Header 加入多國語系切換選單，支援 繁體中文 (zh-TW)、英文 (en)、日文 (ja) 三種語言。
+
+一、 多國語系（i18n）的核心設計思路在不使用複雜前端框架（如 Re…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/TaskTimer/"
+                                >
+                                TaskTimer
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
@@ -1457,57 +1533,6 @@
                 </div>
             </article>
                 
-                <article class="post-list-item">
-                    <div class="post-list-link">
-
-                    <!-- 文章編號與日期 -->
-                    <div class="post-list-meta">
-                        <span class="post-index">
-                        019
-                        </span>
-                        <time datetime="2026-09-30T16:43:41.000Z">
-                            2026.10.01
-                        </time>
-                    </div>
-
-                    <!-- 標題、摘要、Tag -->
-                    <div class="post-list-content">
-                        <h2>
-                            <a
-                            class="post-title-link"
-                            href="/2026/10/01/post-019/"
-                            >
-                            DAY 18｜任務管理（一）：主任務與子任務的 State 管理與 CRUD 實作
-                            </a>
-                        </h2>
-                        <p class="post-list-excerpt">
-                            在前幾天的實作中，已經完成了計時器核心運作與計時結束後的紀錄 Modal。但在實際的應用場景中，「計時」並非單獨存在，它必須精確地隸屬於某個「主任務」下的「子任務」。
-在正式對接 Local-first 本地資料庫（如 IndexedDB）之前，我們需要先在記憶體中建立一套清晰的 State（狀態）…
-                        </p>
-
-                        
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/iThome2026/"
-                                >
-                                iThome2026
-                                </a>
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/TaskTimer/"
-                                >
-                                TaskTimer
-                                </a>
-                            
-                            </div>
-                        
-                    </div>
-                </div>
-            </article>
-                
             </div>
             
             
@@ -1730,7 +1755,7 @@
                         href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
                     >
                         JS語法筆記
-                        <span class="tag-count">2</span>
+                        <span class="tag-count">3</span>
                     </a>
                     
                     <a
@@ -1738,7 +1763,7 @@
                         href="/tags/JavaScript/"
                     >
                         JavaScript
-                        <span class="tag-count">11</span>
+                        <span class="tag-count">12</span>
                     </a>
                     
                     <a
@@ -1871,6 +1896,14 @@
                     
                     <a
                         class="archive-tag-link"
+                        href="/tags/join/"
+                    >
+                        join()
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
                         href="/tags/markdown/"
                     >
                         markdown
@@ -1898,6 +1931,14 @@
                         href="/tags/setInterval/"
                     >
                         setInterval()
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
+                        href="/tags/split/"
+                    >
+                        split()
                         <span class="tag-count">1</span>
                     </a>
                     
@@ -2034,6 +2075,14 @@
                         href="/tags/%E6%A8%A1%E7%B5%84%E5%8C%96/"
                     >
                         模組化
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
+                        href="/tags/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F/"
+                    >
+                        正規表示式
                         <span class="tag-count">1</span>
                     </a>
                     
