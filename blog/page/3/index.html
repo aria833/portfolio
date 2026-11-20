@@ -360,7 +360,7 @@
         <div class="col-lg-9">
             <!-- 統計文章數量 -->
             <div class="blog-toolbar">
-                <span>69 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
+                <span>70 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
                 <span class="muted p-1 rounded" data-i18n="lang-notice">筆記目前以繁體中文為主</span>
             </div>
 
@@ -440,6 +440,14 @@
                                 >
                                     Bloom Memories
                                     <span class="tag-count">2</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
+                                    href="/tags/Boolean/"
+                                >
+                                    Boolean()
+                                    <span class="tag-count">1</span>
                                 </a>
                             
                                 <a
@@ -559,7 +567,7 @@
                                     href="/tags/JavaScript/"
                                 >
                                     JavaScript
-                                    <span class="tag-count">12</span>
+                                    <span class="tag-count">13</span>
                                 </a>
                             
                                 <a
@@ -588,6 +596,14 @@
                             
                                 <a
                                     class="archive-tag-link"
+                                    href="/tags/Number/"
+                                >
+                                    Number()
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
                                     href="/tags/OWASP/"
                                 >
                                     OWASP
@@ -599,6 +615,14 @@
                                     href="/tags/Page-Visibility-API/"
                                 >
                                     Page Visibility API
+                                    <span class="tag-count">1</span>
+                                </a>
+                            
+                                <a
+                                    class="archive-tag-link"
+                                    href="/tags/String/"
+                                >
+                                    String()
                                     <span class="tag-count">1</span>
                                 </a>
                             
@@ -1009,6 +1033,66 @@
 
             <!-- 文章列表 -->
             <div class="post-list">
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        050
+                        </span>
+                        <time datetime="2026-11-01T09:35:36.000Z">
+                            2026.11.01
+                        </time>
+                    </div>
+
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/11/01/post-050/"
+                            >
+                            Bloom Memories 效能優化｜載入時間從 22s 縮短至 1.76s
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            將專案 Bloom Memories 發布之後，我發現初次進到網站的載入時間有點長。透過開發人員工具（DevTools）的 Network 檢查，發現 load 時間竟然高達 22 秒！
+為了提供更好的使用者體驗，決定進行效能優化。
+
+一、 問題定位：兇手是圖片為了確認主要問題出在哪裡，使用瀏覽器開…
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/Bloom-Memories/"
+                                >
+                                Bloom Memories
+                                </a>
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/%E6%95%88%E8%83%BD%E5%84%AA%E5%8C%96/"
+                                >
+                                效能優化
+                                </a>
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/%E7%B6%B2%E7%AB%99%E5%8A%A0%E9%80%9F/"
+                                >
+                                網站加速
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
@@ -1534,65 +1618,6 @@ JavaScript 有多種取得 DOM 元素的方法，接下來會介紹常用的 …
                 </div>
             </article>
                 
-                <article class="post-list-item">
-                    <div class="post-list-link">
-
-                    <!-- 文章編號與日期 -->
-                    <div class="post-list-meta">
-                        <span class="post-index">
-                        040
-                        </span>
-                        <time datetime="2026-10-22T09:50:46.000Z">
-                            2026.10.22
-                        </time>
-                    </div>
-
-                    <!-- 標題、摘要、Tag -->
-                    <div class="post-list-content">
-                        <h2>
-                            <a
-                            class="post-title-link"
-                            href="/2026/10/22/post-040/"
-                            >
-                            CRUD｜4 個最基本的資料操作動作
-                            </a>
-                        </h2>
-                        <p class="post-list-excerpt">
-                            CRUD是什麼？CRUD乍看很陌生，但其實在我們的日常生活中，時時刻刻都在接觸這些操作。
-例如：
-
-在手機裡新增一筆備忘錄
-編輯社群平台發佈出去的貼文
-在網購時將喜歡的商品加入購物車或修改數量
-刪除不再需要的照片或訊息
-
-這些動作其實都可以用 CRUD 來涵蓋。
-CRUD 是 4 個英文單字的縮寫，…
-                        </p>
-
-                        
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/CRUD/"
-                                >
-                                CRUD
-                                </a>
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/%E8%B3%87%E6%96%99%E6%93%8D%E4%BD%9C/"
-                                >
-                                資料操作
-                                </a>
-                            
-                            </div>
-                        
-                    </div>
-                </div>
-            </article>
-                
             </div>
             
             
@@ -1704,6 +1729,14 @@ CRUD 是 4 個英文單字的縮寫，…
                     >
                         Bloom Memories
                         <span class="tag-count">2</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
+                        href="/tags/Boolean/"
+                    >
+                        Boolean()
+                        <span class="tag-count">1</span>
                     </a>
                     
                     <a
@@ -1823,7 +1856,7 @@ CRUD 是 4 個英文單字的縮寫，…
                         href="/tags/JavaScript/"
                     >
                         JavaScript
-                        <span class="tag-count">12</span>
+                        <span class="tag-count">13</span>
                     </a>
                     
                     <a
@@ -1852,6 +1885,14 @@ CRUD 是 4 個英文單字的縮寫，…
                     
                     <a
                         class="archive-tag-link"
+                        href="/tags/Number/"
+                    >
+                        Number()
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
                         href="/tags/OWASP/"
                     >
                         OWASP
@@ -1863,6 +1904,14 @@ CRUD 是 4 個英文單字的縮寫，…
                         href="/tags/Page-Visibility-API/"
                     >
                         Page Visibility API
+                        <span class="tag-count">1</span>
+                    </a>
+                    
+                    <a
+                        class="archive-tag-link"
+                        href="/tags/String/"
+                    >
+                        String()
                         <span class="tag-count">1</span>
                     </a>
                     
