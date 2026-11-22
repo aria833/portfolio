@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- 1. 基本 SEO 資訊 -->
+  <!-- 基本 SEO 資訊 -->
   <title>Blog — ARIA&#39;S CARROTLAB</title>
   
   <meta
@@ -14,13 +14,13 @@
   <meta name="author" content="Aria" />
   <meta name="robots" content="index, follow" />
 
-  <!-- 標準網址（防止重複內容影響權重） -->
+  <!-- 標準網址 -->
   <link
     rel="canonical"
     href="https://portfolio.aria-carrotlab.com/blog/page/4/index.html"
   />
 
-  <!-- 2. Favicon & 裝置圖示 -->
+  <!-- Favicon & 裝置圖示 -->
   <link
     rel="icon"
     type="image/png"
@@ -28,7 +28,7 @@
   />
   <link rel="apple-touch-icon" href="/images/logo.webp" />
 
-  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <!-- Open Graph (FB, Line, Discord 等社群分享卡片) -->
   <meta
     property="og:type"
     content="website"
@@ -49,7 +49,7 @@
   />
   <meta property="og:locale" content="zh_TW" />
 
-  <!-- 4. Twitter Card (X 社群分享) -->
+  <!-- Twitter Card (X 社群分享) -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta
     name="twitter:title"
@@ -64,7 +64,7 @@
     content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
   />
 
-  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <!-- GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -79,7 +79,7 @@
 
   
 
-  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <!-- 外部資源載入 (CSS / Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -107,7 +107,6 @@
       dataLayer.push(arguments);
     }
     gtag("js", new Date());
-
     gtag("config", "G-SZD9X7XMWG");
   </script>
 <meta name="generator" content="Hexo 8.1.2"></head>
@@ -122,6 +121,7 @@
         <img src="/images/logo.webp" alt="logo" />
         <span>Aria's CarrotLab</span>
       </a>
+      <!-- 小燈牌 -->
       <div class="lab-status mb-0 d-none d-lg-block">
         <span class="lab-status__light"></span>
         <span class="lab-status__text">LAB STATUS:</span>
@@ -243,7 +243,7 @@
           </li>
 
           <li class="nav-item theme-switch-item">
-            <!-- 桌面版：貓掌檯燈 -->
+            <!-- 桌面版：貓掌燈 -->
             <div class="lamp-switch d-none d-lg-flex">
               <button
                 class="lamp-switch__button"
@@ -276,26 +276,22 @@
       <path
         class="cat-paw__arm"
         d="
-    M27 136
-    L27 116
-    C27 105 31 98 36 95
-    C38 94 42 94 44 95
-    C49 98 53 105 53 116
-    L53 136
-    Z
-  "
+          M27 136
+          L27 116
+          C27 105 31 98 36 95
+          C38 94 42 94 44 95
+          C49 98 53 105 53 116
+          L53 136
+          Z
+        "
       />
 
-      <!-- 中央大肉球 -->
+      <!-- 肉球 -->
       <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
-
-      <!-- 四顆小趾球 -->
+      <!-- 貓掌指頭 -->
       <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
-
       <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
-
       <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
-
       <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
     </g>
   </g>
@@ -344,8 +340,7 @@
 </header>
 
 
-    <main class="flex-grow-1">
-<!-- 標題 -->
+    <main class="flex-grow-1"><!-- 標題 -->
 <section class="page-hero">
     <div class="container">
         <p class="eyebrow">CARROTLAB / THE LEARNING NOTES</p>
@@ -355,688 +350,89 @@
 </section>
 
 <section class="container pb-5 blog-archive">
-    <div class="row g-4 g-lg-5">
+    <div class="blog-layout">
         <!-- 左側：文章列表 -->
-        <div class="col-lg-9">
+        <div class="blog-posts">
             <!-- 統計文章數量 -->
             <div class="blog-toolbar">
-                <span>70 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
+                <span>71 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
                 <span class="muted p-1 rounded" data-i18n="lang-notice">筆記目前以繁體中文為主</span>
             </div>
-
-            <!-- 手機版：依主題探索 -->
-            <div class="mobile-topic-explorer">
-                <button
-                    class="topic-explorer-toggle"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#mobileTopicCloud"
-                    aria-expanded="false"
-                    aria-controls="mobileTopicCloud"
-                >
-                    <span class="topic-explorer-label" data-i18n="blog.exploreTopics">
-                        依主題探索
-                    </span>
-                    <i
-                        class="bi bi-plus-lg topic-explorer-icon"
-                        aria-hidden="true"
-                    ></i>
-                </button>
-                <div class="collapse" id="mobileTopicCloud">
-                    <div class="mobile-topic-cloud">
-                        
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/AJAX/"
-                                >
-                                    AJAX
-                                    <span class="tag-count">2</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/Array/"
-                                >
-                                    Array
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/Array-like-Object/"
-                                >
-                                    Array-like Object
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/Arturia-MiniLab-3/"
-                                >
-                                    Arturia MiniLab 3
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/Axios/"
-                                >
-                                    Axios
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/Background-Throttle/"
-                                >
-                                    Background Throttle
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/Bloom-Memories/"
-                                >
-                                    Bloom Memories
-                                    <span class="tag-count">2</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/Boolean/"
-                                >
-                                    Boolean()
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/CNAME/"
-                                >
-                                    CNAME
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/CRUD/"
-                                >
-                                    CRUD
-                                    <span class="tag-count">2</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/CarrotLab/"
-                                >
-                                    CarrotLab
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/DNS/"
-                                >
-                                    DNS
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/DOM/"
-                                >
-                                    DOM
-                                    <span class="tag-count">3</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/ES6/"
-                                >
-                                    ES6
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/Fetch/"
-                                >
-                                    Fetch
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/GUID/"
-                                >
-                                    GUID
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/HTMLCollection/"
-                                >
-                                    HTMLCollection
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/HTTP-Method/"
-                                >
-                                    HTTP Method
-                                    <span class="tag-count">3</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/HTTP-%E7%8B%80%E6%85%8B%E7%A2%BC/"
-                                >
-                                    HTTP 狀態碼
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/IDOR/"
-                                >
-                                    IDOR
-                                    <span class="tag-count">2</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/JSON/"
-                                >
-                                    JSON
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
-                                >
-                                    JS語法筆記
-                                    <span class="tag-count">3</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/JavaScript/"
-                                >
-                                    JavaScript
-                                    <span class="tag-count">13</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/MIDI%E9%8D%B5%E7%9B%A4/"
-                                >
-                                    MIDI鍵盤
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/Markdown/"
-                                >
-                                    Markdown
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/NodeList/"
-                                >
-                                    NodeList
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/Number/"
-                                >
-                                    Number()
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/OWASP/"
-                                >
-                                    OWASP
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/Page-Visibility-API/"
-                                >
-                                    Page Visibility API
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/String/"
-                                >
-                                    String()
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/String-prototype-padStart/"
-                                >
-                                    String.prototype.padStart()
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/TaskTimer/"
-                                >
-                                    TaskTimer
-                                    <span class="tag-count">36</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/Timestamp/"
-                                >
-                                    Timestamp
-                                    <span class="tag-count">2</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/UUID/"
-                                >
-                                    UUID
-                                    <span class="tag-count">2</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/Vanilla-JavaScript/"
-                                >
-                                    Vanilla JavaScript
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/Web-API/"
-                                >
-                                    Web API
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/WebP/"
-                                >
-                                    WebP
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/XML/"
-                                >
-                                    XML
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/YAML/"
-                                >
-                                    YAML
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/data-i18n/"
-                                >
-                                    data-i18n
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/iThome2026/"
-                                >
-                                    iThome2026
-                                    <span class="tag-count">33</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/join/"
-                                >
-                                    join()
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/markdown/"
-                                >
-                                    markdown
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/querySelector/"
-                                >
-                                    querySelector
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/querySelectorAll/"
-                                >
-                                    querySelectorAll
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/setInterval/"
-                                >
-                                    setInterval()
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/split/"
-                                >
-                                    split()
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/toISOString/"
-                                >
-                                    toISOString()
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/toLowerCase/"
-                                >
-                                    toLowerCase()
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/toUpperCase/"
-                                >
-                                    toUpperCase()
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/trim/"
-                                >
-                                    trim()
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E4%BA%92%E5%8B%95%E9%AB%94%E9%A9%97/"
-                                >
-                                    互動體驗
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E5%85%AD%E8%A7%92%E5%AD%B8%E9%99%A2/"
-                                >
-                                    六角學院
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E5%86%AA%E7%AD%89%E6%80%A7-Idempotent/"
-                                >
-                                    冪等性 (Idempotent)
-                                    <span class="tag-count">2</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E5%90%8C%E6%AD%A5%EF%BC%88Synchronous%EF%BC%89/"
-                                >
-                                    同步（Synchronous）
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E5%91%BD%E5%90%8D%E8%A6%8F%E7%AF%84/"
-                                >
-                                    命名規範
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E5%96%AE%E4%B8%80%E8%81%B7%E8%B2%AC%E5%8E%9F%E5%89%87/"
-                                >
-                                    單一職責原則
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E5%9C%96%E7%89%87%E6%A0%BC%E5%BC%8F/"
-                                >
-                                    圖片格式
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E5%A4%9A%E8%AA%9E%E7%B3%BB%E5%88%87%E6%8F%9B/"
-                                >
-                                    多語系切換
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E6%8A%80%E8%A1%93%E5%AF%AB%E4%BD%9C/"
-                                >
-                                    技術寫作
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E6%95%88%E8%83%BD%E5%84%AA%E5%8C%96/"
-                                >
-                                    效能優化
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E6%95%B8%E4%BD%8D%E5%B0%8E%E8%A6%BD/"
-                                >
-                                    數位導覽
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E6%99%82%E9%96%93%E6%88%B3/"
-                                >
-                                    時間戳
-                                    <span class="tag-count">2</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E6%A8%A1%E7%B5%84%E5%8C%96/"
-                                >
-                                    模組化
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F/"
-                                >
-                                    正規表示式
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E6%B2%B3%E9%A6%AC%E5%A4%A7%E6%80%AA%E7%8D%B8/"
-                                >
-                                    河馬大怪獸
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E6%B7%B1%E6%B7%BA%E8%89%B2%E6%A8%A1%E5%BC%8F/"
-                                >
-                                    深淺色模式
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/"
-                                >
-                                    瀏覽器
-                                    <span class="tag-count">2</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E7%89%88%E6%9C%AC%E8%99%9F/"
-                                >
-                                    版本號
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E7%94%A2%E5%93%81%E9%AB%94%E9%A9%97/"
-                                >
-                                    產品體驗
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E6%8B%86%E5%88%86/"
-                                >
-                                    程式碼拆分
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E9%87%8D%E6%A7%8B/"
-                                >
-                                    程式碼重構
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E7%B6%B2%E5%9F%9F-Domain-Name/"
-                                >
-                                    網域(Domain Name)
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E7%B6%B2%E7%AB%99%E5%8A%A0%E9%80%9F/"
-                                >
-                                    網站加速
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E8%AA%B2%E7%A8%8B%E5%BF%83%E5%BE%97/"
-                                >
-                                    課程心得
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E8%B3%87%E5%AE%89/"
-                                >
-                                    資安
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E8%B3%87%E6%96%99%E6%93%8D%E4%BD%9C/"
-                                >
-                                    資料操作
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E8%B3%87%E6%96%99%E6%A0%BC%E5%BC%8F/"
-                                >
-                                    資料格式
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E9%9D%9E%E5%90%8C%E6%AD%A5%E8%AB%8B%E6%B1%82/"
-                                >
-                                    非同步請求
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                                <a
-                                    class="archive-tag-link"
-                                    href="/tags/%E9%9D%9E%E5%90%8C%E6%AD%A5%EF%BC%88Asynchronous%EF%BC%89/"
-                                >
-                                    非同步（Asynchronous）
-                                    <span class="tag-count">1</span>
-                                </a>
-                            
-                        
-                    </div>
-                </div>
-            </div>
-
             <!-- 文章列表 -->
             <div class="post-list">
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        041
+                        </span>
+                        <time datetime="2026-10-23T10:00:07.000Z">
+                            2026.10.23
+                        </time>
+                    </div>
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/10/23/post-041/"
+                            >
+                            程式碼拆分與重構｜打敗程式碼的河馬大怪獸
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            (如果你點進來，是想知道什麼是河馬大怪獸，在文末～)
+之前參加 iThome 鐵人賽的尾聲，回頭檢視 TaskTimer 的程式碼時，才驚覺單一檔案竟然變得如此冗長，維護時覺得很耗費心力，因此當時便決心進行了重構。(詳細的歷程可以參考這篇文章- DAY 31 | 東西擺整齊的療癒感！專案開發後的回頭…
+                        </p>
 
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E6%8B%86%E5%88%86/"
+                                >
+                                程式碼拆分
+                                </a>
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E9%87%8D%E6%A7%8B/"
+                                >
+                                程式碼重構
+                                </a>
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/%E6%A8%A1%E7%B5%84%E5%8C%96/"
+                                >
+                                模組化
+                                </a>
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/%E5%96%AE%E4%B8%80%E8%81%B7%E8%B2%AC%E5%8E%9F%E5%89%87/"
+                                >
+                                單一職責原則
+                                </a>
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/%E6%B2%B3%E9%A6%AC%E5%A4%A7%E6%80%AA%E7%8D%B8/"
+                                >
+                                河馬大怪獸
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
                     <!-- 文章編號與日期 -->
                     <div class="post-list-meta">
                         <span class="post-index">
@@ -1046,7 +442,6 @@
                             2026.10.22
                         </time>
                     </div>
-
                     <!-- 標題、摘要、Tag -->
                     <div class="post-list-content">
                         <h2>
@@ -1095,7 +490,6 @@ CRUD 是 4 個英文單字的縮寫，…
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
-
                     <!-- 文章編號與日期 -->
                     <div class="post-list-meta">
                         <span class="post-index">
@@ -1105,7 +499,6 @@ CRUD 是 4 個英文單字的縮寫，…
                             2026.10.21
                         </time>
                     </div>
-
                     <!-- 標題、摘要、Tag -->
                     <div class="post-list-content">
                         <h2>
@@ -1167,7 +560,6 @@ CRUD 是 4 個英文單字的縮寫，…
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
-
                     <!-- 文章編號與日期 -->
                     <div class="post-list-meta">
                         <span class="post-index">
@@ -1177,7 +569,6 @@ CRUD 是 4 個英文單字的縮寫，…
                             2026.10.20
                         </time>
                     </div>
-
                     <!-- 標題、摘要、Tag -->
                     <div class="post-list-content">
                         <h2>
@@ -1221,7 +612,6 @@ CRUD 是 4 個英文單字的縮寫，…
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
-
                     <!-- 文章編號與日期 -->
                     <div class="post-list-meta">
                         <span class="post-index">
@@ -1231,7 +621,6 @@ CRUD 是 4 個英文單字的縮寫，…
                             2026.10.19
                         </time>
                     </div>
-
                     <!-- 標題、摘要、Tag -->
                     <div class="post-list-content">
                         <h2>
@@ -1295,7 +684,6 @@ HTML (HyperText Markup Language)
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
-
                     <!-- 文章編號與日期 -->
                     <div class="post-list-meta">
                         <span class="post-index">
@@ -1305,7 +693,6 @@ HTML (HyperText Markup Language)
                             2026.10.18
                         </time>
                     </div>
-
                     <!-- 標題、摘要、Tag -->
                     <div class="post-list-content">
                         <h2>
@@ -1346,7 +733,6 @@ HTML (HyperText Markup Language)
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
-
                     <!-- 文章編號與日期 -->
                     <div class="post-list-meta">
                         <span class="post-index">
@@ -1356,7 +742,6 @@ HTML (HyperText Markup Language)
                             2026.10.17
                         </time>
                     </div>
-
                     <!-- 標題、摘要、Tag -->
                     <div class="post-list-content">
                         <h2>
@@ -1397,7 +782,6 @@ HTML (HyperText Markup Language)
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
-
                     <!-- 文章編號與日期 -->
                     <div class="post-list-meta">
                         <span class="post-index">
@@ -1407,7 +791,6 @@ HTML (HyperText Markup Language)
                             2026.10.16
                         </time>
                     </div>
-
                     <!-- 標題、摘要、Tag -->
                     <div class="post-list-content">
                         <h2>
@@ -1448,7 +831,6 @@ HTML (HyperText Markup Language)
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
-
                     <!-- 文章編號與日期 -->
                     <div class="post-list-meta">
                         <span class="post-index">
@@ -1458,7 +840,6 @@ HTML (HyperText Markup Language)
                             2026.10.15
                         </time>
                     </div>
-
                     <!-- 標題、摘要、Tag -->
                     <div class="post-list-content">
                         <h2>
@@ -1504,7 +885,6 @@ HTML (HyperText Markup Language)
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
-
                     <!-- 文章編號與日期 -->
                     <div class="post-list-meta">
                         <span class="post-index">
@@ -1514,7 +894,6 @@ HTML (HyperText Markup Language)
                             2026.10.14
                         </time>
                     </div>
-
                     <!-- 標題、摘要、Tag -->
                     <div class="post-list-content">
                         <h2>
@@ -1549,59 +928,6 @@ i18n.js
 theme.js
 主題切換樣式
 3…
-                        </p>
-
-                        
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/iThome2026/"
-                                >
-                                iThome2026
-                                </a>
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/TaskTimer/"
-                                >
-                                TaskTimer
-                                </a>
-                            
-                            </div>
-                        
-                    </div>
-                </div>
-            </article>
-                
-                <article class="post-list-item">
-                    <div class="post-list-link">
-
-                    <!-- 文章編號與日期 -->
-                    <div class="post-list-meta">
-                        <span class="post-index">
-                        031
-                        </span>
-                        <time datetime="2026-10-12T16:44:14.000Z">
-                            2026.10.13
-                        </time>
-                    </div>
-
-                    <!-- 標題、摘要、Tag -->
-                    <div class="post-list-content">
-                        <h2>
-                            <a
-                            class="post-title-link"
-                            href="/2026/10/13/post-031/"
-                            >
-                            DAY 30｜終點亦是起點： 完賽回顧、與新夥伴一起出發
-                            </a>
-                        </h2>
-                        <p class="post-list-excerpt">
-                            在這 30 天不間斷地思考、設計、發想與寫程式碼（還有被發文截止時間追著跑）（做夢都在想著哪裡要修改）（中秋節時兩口烤肉🥓一口程式碼），終於把腦海中的想法，變成一個功能完整的實用工具。
-在鐵人賽的最後一天（感動！），除了統整一下技術工具和文章，也紀錄了這 30 天下來的開發心得。
-
-作品成果雖然還…
                         </p>
 
                         
@@ -1668,6 +994,10 @@ theme.js
                     <a class="page-link-custom" href="/blog/page/7/">7</a>
                 
                 
+                
+                    <a class="page-link-custom" href="/blog/page/8/">8</a>
+                
+                
             </div>
             <div class="pagination-side pagination-side-next">
                 
@@ -1678,655 +1008,1211 @@ theme.js
             
         </div>
         <!-- 右側：標籤雲 -->
-        <aside class="col-lg-3 blog-sidebar">
-            <section class="sidebar-section">
-                <h2 class="sidebar-title" data-i18n="blog.tagCloud">標籤</h2>
+        <aside class="blog-sidebar">
+            <section class="sidebar-section sidebar-tags blog-tags">
+                <h2 class="sidebar-title">
+                    TAGS
+                </h2>
                 
-                <div class="archive-tag-cloud">
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/AJAX/"
-                    >
-                        AJAX
-                        <span class="tag-count">2</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/Array/"
-                    >
-                        Array
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/Array-like-Object/"
-                    >
-                        Array-like Object
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/Arturia-MiniLab-3/"
-                    >
-                        Arturia MiniLab 3
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/Axios/"
-                    >
-                        Axios
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/Background-Throttle/"
-                    >
-                        Background Throttle
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/Bloom-Memories/"
-                    >
-                        Bloom Memories
-                        <span class="tag-count">2</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/Boolean/"
-                    >
-                        Boolean()
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/CNAME/"
-                    >
-                        CNAME
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/CRUD/"
-                    >
-                        CRUD
-                        <span class="tag-count">2</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/CarrotLab/"
-                    >
-                        CarrotLab
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/DNS/"
-                    >
-                        DNS
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/DOM/"
-                    >
-                        DOM
-                        <span class="tag-count">3</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/ES6/"
-                    >
-                        ES6
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/Fetch/"
-                    >
-                        Fetch
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/GUID/"
-                    >
-                        GUID
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/HTMLCollection/"
-                    >
-                        HTMLCollection
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/HTTP-Method/"
-                    >
-                        HTTP Method
-                        <span class="tag-count">3</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/HTTP-%E7%8B%80%E6%85%8B%E7%A2%BC/"
-                    >
-                        HTTP 狀態碼
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/IDOR/"
-                    >
-                        IDOR
-                        <span class="tag-count">2</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/JSON/"
-                    >
-                        JSON
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
-                    >
-                        JS語法筆記
-                        <span class="tag-count">3</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/JavaScript/"
-                    >
-                        JavaScript
-                        <span class="tag-count">13</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/MIDI%E9%8D%B5%E7%9B%A4/"
-                    >
-                        MIDI鍵盤
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/Markdown/"
-                    >
-                        Markdown
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/NodeList/"
-                    >
-                        NodeList
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/Number/"
-                    >
-                        Number()
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/OWASP/"
-                    >
-                        OWASP
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/Page-Visibility-API/"
-                    >
-                        Page Visibility API
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/String/"
-                    >
-                        String()
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/String-prototype-padStart/"
-                    >
-                        String.prototype.padStart()
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/TaskTimer/"
-                    >
-                        TaskTimer
-                        <span class="tag-count">36</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/Timestamp/"
-                    >
-                        Timestamp
-                        <span class="tag-count">2</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/UUID/"
-                    >
-                        UUID
-                        <span class="tag-count">2</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/Vanilla-JavaScript/"
-                    >
-                        Vanilla JavaScript
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/Web-API/"
-                    >
-                        Web API
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/WebP/"
-                    >
-                        WebP
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/XML/"
-                    >
-                        XML
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/YAML/"
-                    >
-                        YAML
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/data-i18n/"
-                    >
-                        data-i18n
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/iThome2026/"
-                    >
-                        iThome2026
-                        <span class="tag-count">33</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/join/"
-                    >
-                        join()
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/markdown/"
-                    >
-                        markdown
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/querySelector/"
-                    >
-                        querySelector
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/querySelectorAll/"
-                    >
-                        querySelectorAll
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/setInterval/"
-                    >
-                        setInterval()
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/split/"
-                    >
-                        split()
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/toISOString/"
-                    >
-                        toISOString()
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/toLowerCase/"
-                    >
-                        toLowerCase()
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/toUpperCase/"
-                    >
-                        toUpperCase()
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/trim/"
-                    >
-                        trim()
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E4%BA%92%E5%8B%95%E9%AB%94%E9%A9%97/"
-                    >
-                        互動體驗
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E5%85%AD%E8%A7%92%E5%AD%B8%E9%99%A2/"
-                    >
-                        六角學院
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E5%86%AA%E7%AD%89%E6%80%A7-Idempotent/"
-                    >
-                        冪等性 (Idempotent)
-                        <span class="tag-count">2</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E5%90%8C%E6%AD%A5%EF%BC%88Synchronous%EF%BC%89/"
-                    >
-                        同步（Synchronous）
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E5%91%BD%E5%90%8D%E8%A6%8F%E7%AF%84/"
-                    >
-                        命名規範
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E5%96%AE%E4%B8%80%E8%81%B7%E8%B2%AC%E5%8E%9F%E5%89%87/"
-                    >
-                        單一職責原則
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E5%9C%96%E7%89%87%E6%A0%BC%E5%BC%8F/"
-                    >
-                        圖片格式
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E5%A4%9A%E8%AA%9E%E7%B3%BB%E5%88%87%E6%8F%9B/"
-                    >
-                        多語系切換
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E6%8A%80%E8%A1%93%E5%AF%AB%E4%BD%9C/"
-                    >
-                        技術寫作
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E6%95%88%E8%83%BD%E5%84%AA%E5%8C%96/"
-                    >
-                        效能優化
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E6%95%B8%E4%BD%8D%E5%B0%8E%E8%A6%BD/"
-                    >
-                        數位導覽
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E6%99%82%E9%96%93%E6%88%B3/"
-                    >
-                        時間戳
-                        <span class="tag-count">2</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E6%A8%A1%E7%B5%84%E5%8C%96/"
-                    >
-                        模組化
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F/"
-                    >
-                        正規表示式
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E6%B2%B3%E9%A6%AC%E5%A4%A7%E6%80%AA%E7%8D%B8/"
-                    >
-                        河馬大怪獸
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E6%B7%B1%E6%B7%BA%E8%89%B2%E6%A8%A1%E5%BC%8F/"
-                    >
-                        深淺色模式
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/"
-                    >
-                        瀏覽器
-                        <span class="tag-count">2</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E7%89%88%E6%9C%AC%E8%99%9F/"
-                    >
-                        版本號
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E7%94%A2%E5%93%81%E9%AB%94%E9%A9%97/"
-                    >
-                        產品體驗
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E6%8B%86%E5%88%86/"
-                    >
-                        程式碼拆分
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E9%87%8D%E6%A7%8B/"
-                    >
-                        程式碼重構
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E7%B6%B2%E5%9F%9F-Domain-Name/"
-                    >
-                        網域(Domain Name)
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E7%B6%B2%E7%AB%99%E5%8A%A0%E9%80%9F/"
-                    >
-                        網站加速
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E8%AA%B2%E7%A8%8B%E5%BF%83%E5%BE%97/"
-                    >
-                        課程心得
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E8%B3%87%E5%AE%89/"
-                    >
-                        資安
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E8%B3%87%E6%96%99%E6%93%8D%E4%BD%9C/"
-                    >
-                        資料操作
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E8%B3%87%E6%96%99%E6%A0%BC%E5%BC%8F/"
-                    >
-                        資料格式
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E9%9D%9E%E5%90%8C%E6%AD%A5%E8%AB%8B%E6%B1%82/"
-                    >
-                        非同步請求
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                    <a
-                        class="archive-tag-link"
-                        href="/tags/%E9%9D%9E%E5%90%8C%E6%AD%A5%EF%BC%88Asynchronous%EF%BC%89/"
-                    >
-                        非同步（Asynchronous）
-                        <span class="tag-count">1</span>
-                    </a>
-                    
-                </div>
+                
+                    <!-- 標籤搜尋 -->
+                    <div class="tag-search">
+                        <i class="bi bi-search" aria-hidden="true"></i>
+                        <input
+                            type="search"
+                            id="tagSearchInput"
+                            class="tag-search-input"
+                            placeholder="搜尋標籤..."
+                            aria-label="搜尋標籤"
+                            data-i18n-placeholder="blog.searchTags"
+                            data-i18n-aria-label="blog.searchTagsLabel"
+                            autocomplete="off"
+                        >
+                    </div>
+                    <!-- 標籤列表 -->
+                    <div
+                        class="archive-tag-cloud"
+                        id="tagSearchResults"
+                        aria-live="polite"
+                    >
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/TaskTimer/"
+                                data-tag-name="TaskTimer"
+                                
+                            >
+                                TaskTimer
+                                <span class="tag-count">
+                                    36
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/iThome2026/"
+                                data-tag-name="iThome2026"
+                                
+                            >
+                                iThome2026
+                                <span class="tag-count">
+                                    33
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/JavaScript/"
+                                data-tag-name="JavaScript"
+                                
+                            >
+                                JavaScript
+                                <span class="tag-count">
+                                    14
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
+                                data-tag-name="JS語法筆記"
+                                
+                            >
+                                JS語法筆記
+                                <span class="tag-count">
+                                    5
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/DOM/"
+                                data-tag-name="DOM"
+                                
+                            >
+                                DOM
+                                <span class="tag-count">
+                                    3
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/HTTP-Method/"
+                                data-tag-name="HTTP Method"
+                                
+                            >
+                                HTTP Method
+                                <span class="tag-count">
+                                    3
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Bloom-Memories/"
+                                data-tag-name="Bloom Memories"
+                                
+                            >
+                                Bloom Memories
+                                <span class="tag-count">
+                                    2
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E6%99%82%E9%96%93%E6%88%B3/"
+                                data-tag-name="時間戳"
+                                
+                            >
+                                時間戳
+                                <span class="tag-count">
+                                    2
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Timestamp/"
+                                data-tag-name="Timestamp"
+                                
+                            >
+                                Timestamp
+                                <span class="tag-count">
+                                    2
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/CRUD/"
+                                data-tag-name="CRUD"
+                                
+                            >
+                                CRUD
+                                <span class="tag-count">
+                                    2
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E5%86%AA%E7%AD%89%E6%80%A7-Idempotent/"
+                                data-tag-name="冪等性 (Idempotent)"
+                                
+                                    hidden
+                                
+                            >
+                                冪等性 (Idempotent)
+                                <span class="tag-count">
+                                    2
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/AJAX/"
+                                data-tag-name="AJAX"
+                                
+                                    hidden
+                                
+                            >
+                                AJAX
+                                <span class="tag-count">
+                                    2
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/"
+                                data-tag-name="瀏覽器"
+                                
+                                    hidden
+                                
+                            >
+                                瀏覽器
+                                <span class="tag-count">
+                                    2
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/UUID/"
+                                data-tag-name="UUID"
+                                
+                                    hidden
+                                
+                            >
+                                UUID
+                                <span class="tag-count">
+                                    2
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/IDOR/"
+                                data-tag-name="IDOR"
+                                
+                                    hidden
+                                
+                            >
+                                IDOR
+                                <span class="tag-count">
+                                    2
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/markdown/"
+                                data-tag-name="markdown"
+                                
+                                    hidden
+                                
+                            >
+                                markdown
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E6%8A%80%E8%A1%93%E5%AF%AB%E4%BD%9C/"
+                                data-tag-name="技術寫作"
+                                
+                                    hidden
+                                
+                            >
+                                技術寫作
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E7%89%88%E6%9C%AC%E8%99%9F/"
+                                data-tag-name="版本號"
+                                
+                                    hidden
+                                
+                            >
+                                版本號
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E8%B3%87%E6%96%99%E6%A0%BC%E5%BC%8F/"
+                                data-tag-name="資料格式"
+                                
+                                    hidden
+                                
+                            >
+                                資料格式
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/JSON/"
+                                data-tag-name="JSON"
+                                
+                                    hidden
+                                
+                            >
+                                JSON
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/XML/"
+                                data-tag-name="XML"
+                                
+                                    hidden
+                                
+                            >
+                                XML
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/YAML/"
+                                data-tag-name="YAML"
+                                
+                                    hidden
+                                
+                            >
+                                YAML
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Markdown/"
+                                data-tag-name="Markdown"
+                                
+                                    hidden
+                                
+                            >
+                                Markdown
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E6%B7%B1%E6%B7%BA%E8%89%B2%E6%A8%A1%E5%BC%8F/"
+                                data-tag-name="深淺色模式"
+                                
+                                    hidden
+                                
+                            >
+                                深淺色模式
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/data-i18n/"
+                                data-tag-name="data-i18n"
+                                
+                                    hidden
+                                
+                            >
+                                data-i18n
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E5%A4%9A%E8%AA%9E%E7%B3%BB%E5%88%87%E6%8F%9B/"
+                                data-tag-name="多語系切換"
+                                
+                                    hidden
+                                
+                            >
+                                多語系切換
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/CarrotLab/"
+                                data-tag-name="CarrotLab"
+                                
+                                    hidden
+                                
+                            >
+                                CarrotLab
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E7%B6%B2%E5%9F%9F-Domain-Name/"
+                                data-tag-name="網域(Domain Name)"
+                                
+                                    hidden
+                                
+                            >
+                                網域(Domain Name)
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/DNS/"
+                                data-tag-name="DNS"
+                                
+                                    hidden
+                                
+                            >
+                                DNS
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/CNAME/"
+                                data-tag-name="CNAME"
+                                
+                                    hidden
+                                
+                            >
+                                CNAME
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/ES6/"
+                                data-tag-name="ES6"
+                                
+                                    hidden
+                                
+                            >
+                                ES6
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Vanilla-JavaScript/"
+                                data-tag-name="Vanilla JavaScript"
+                                
+                                    hidden
+                                
+                            >
+                                Vanilla JavaScript
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E5%91%BD%E5%90%8D%E8%A6%8F%E7%AF%84/"
+                                data-tag-name="命名規範"
+                                
+                                    hidden
+                                
+                            >
+                                命名規範
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/toISOString/"
+                                data-tag-name="toISOString()"
+                                
+                                    hidden
+                                
+                            >
+                                toISOString()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/querySelector/"
+                                data-tag-name="querySelector"
+                                
+                                    hidden
+                                
+                            >
+                                querySelector
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/querySelectorAll/"
+                                data-tag-name="querySelectorAll"
+                                
+                                    hidden
+                                
+                            >
+                                querySelectorAll
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E5%9C%96%E7%89%87%E6%A0%BC%E5%BC%8F/"
+                                data-tag-name="圖片格式"
+                                
+                                    hidden
+                                
+                            >
+                                圖片格式
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/WebP/"
+                                data-tag-name="WebP"
+                                
+                                    hidden
+                                
+                            >
+                                WebP
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/NodeList/"
+                                data-tag-name="NodeList"
+                                
+                                    hidden
+                                
+                            >
+                                NodeList
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/HTMLCollection/"
+                                data-tag-name="HTMLCollection"
+                                
+                                    hidden
+                                
+                            >
+                                HTMLCollection
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E9%9D%9E%E5%90%8C%E6%AD%A5%E8%AB%8B%E6%B1%82/"
+                                data-tag-name="非同步請求"
+                                
+                                    hidden
+                                
+                            >
+                                非同步請求
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Fetch/"
+                                data-tag-name="Fetch"
+                                
+                                    hidden
+                                
+                            >
+                                Fetch
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Axios/"
+                                data-tag-name="Axios"
+                                
+                                    hidden
+                                
+                            >
+                                Axios
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Array/"
+                                data-tag-name="Array"
+                                
+                                    hidden
+                                
+                            >
+                                Array
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Array-like-Object/"
+                                data-tag-name="Array-like Object"
+                                
+                                    hidden
+                                
+                            >
+                                Array-like Object
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E8%B3%87%E6%96%99%E6%93%8D%E4%BD%9C/"
+                                data-tag-name="資料操作"
+                                
+                                    hidden
+                                
+                            >
+                                資料操作
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E5%90%8C%E6%AD%A5%EF%BC%88Synchronous%EF%BC%89/"
+                                data-tag-name="同步（Synchronous）"
+                                
+                                    hidden
+                                
+                            >
+                                同步（Synchronous）
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E9%9D%9E%E5%90%8C%E6%AD%A5%EF%BC%88Asynchronous%EF%BC%89/"
+                                data-tag-name="非同步（Asynchronous）"
+                                
+                                    hidden
+                                
+                            >
+                                非同步（Asynchronous）
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/setInterval/"
+                                data-tag-name="setInterval()"
+                                
+                                    hidden
+                                
+                            >
+                                setInterval()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Web-API/"
+                                data-tag-name="Web API"
+                                
+                                    hidden
+                                
+                            >
+                                Web API
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E6%8B%86%E5%88%86/"
+                                data-tag-name="程式碼拆分"
+                                
+                                    hidden
+                                
+                            >
+                                程式碼拆分
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E9%87%8D%E6%A7%8B/"
+                                data-tag-name="程式碼重構"
+                                
+                                    hidden
+                                
+                            >
+                                程式碼重構
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E6%A8%A1%E7%B5%84%E5%8C%96/"
+                                data-tag-name="模組化"
+                                
+                                    hidden
+                                
+                            >
+                                模組化
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E5%96%AE%E4%B8%80%E8%81%B7%E8%B2%AC%E5%8E%9F%E5%89%87/"
+                                data-tag-name="單一職責原則"
+                                
+                                    hidden
+                                
+                            >
+                                單一職責原則
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E6%B2%B3%E9%A6%AC%E5%A4%A7%E6%80%AA%E7%8D%B8/"
+                                data-tag-name="河馬大怪獸"
+                                
+                                    hidden
+                                
+                            >
+                                河馬大怪獸
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Background-Throttle/"
+                                data-tag-name="Background Throttle"
+                                
+                                    hidden
+                                
+                            >
+                                Background Throttle
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/HTTP-%E7%8B%80%E6%85%8B%E7%A2%BC/"
+                                data-tag-name="HTTP 狀態碼"
+                                
+                                    hidden
+                                
+                            >
+                                HTTP 狀態碼
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Page-Visibility-API/"
+                                data-tag-name="Page Visibility API"
+                                
+                                    hidden
+                                
+                            >
+                                Page Visibility API
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/String-prototype-padStart/"
+                                data-tag-name="String.prototype.padStart()"
+                                
+                                    hidden
+                                
+                            >
+                                String.prototype.padStart()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/GUID/"
+                                data-tag-name="GUID"
+                                
+                                    hidden
+                                
+                            >
+                                GUID
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/MIDI%E9%8D%B5%E7%9B%A4/"
+                                data-tag-name="MIDI鍵盤"
+                                
+                                    hidden
+                                
+                            >
+                                MIDI鍵盤
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Arturia-MiniLab-3/"
+                                data-tag-name="Arturia MiniLab 3"
+                                
+                                    hidden
+                                
+                            >
+                                Arturia MiniLab 3
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E8%AA%B2%E7%A8%8B%E5%BF%83%E5%BE%97/"
+                                data-tag-name="課程心得"
+                                
+                                    hidden
+                                
+                            >
+                                課程心得
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E5%85%AD%E8%A7%92%E5%AD%B8%E9%99%A2/"
+                                data-tag-name="六角學院"
+                                
+                                    hidden
+                                
+                            >
+                                六角學院
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E8%B3%87%E5%AE%89/"
+                                data-tag-name="資安"
+                                
+                                    hidden
+                                
+                            >
+                                資安
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/OWASP/"
+                                data-tag-name="OWASP"
+                                
+                                    hidden
+                                
+                            >
+                                OWASP
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/toLowerCase/"
+                                data-tag-name="toLowerCase()"
+                                
+                                    hidden
+                                
+                            >
+                                toLowerCase()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/toUpperCase/"
+                                data-tag-name="toUpperCase()"
+                                
+                                    hidden
+                                
+                            >
+                                toUpperCase()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/switch%E9%99%B3%E8%BF%B0%E5%BC%8F/"
+                                data-tag-name="switch陳述式"
+                                
+                                    hidden
+                                
+                            >
+                                switch陳述式
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F/"
+                                data-tag-name="正規表示式"
+                                
+                                    hidden
+                                
+                            >
+                                正規表示式
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/trim/"
+                                data-tag-name="trim()"
+                                
+                                    hidden
+                                
+                            >
+                                trim()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/split/"
+                                data-tag-name="split()"
+                                
+                                    hidden
+                                
+                            >
+                                split()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/join/"
+                                data-tag-name="join()"
+                                
+                                    hidden
+                                
+                            >
+                                join()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E6%95%88%E8%83%BD%E5%84%AA%E5%8C%96/"
+                                data-tag-name="效能優化"
+                                
+                                    hidden
+                                
+                            >
+                                效能優化
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E7%B6%B2%E7%AB%99%E5%8A%A0%E9%80%9F/"
+                                data-tag-name="網站加速"
+                                
+                                    hidden
+                                
+                            >
+                                網站加速
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E7%94%A2%E5%93%81%E9%AB%94%E9%A9%97/"
+                                data-tag-name="產品體驗"
+                                
+                                    hidden
+                                
+                            >
+                                產品體驗
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E6%95%B8%E4%BD%8D%E5%B0%8E%E8%A6%BD/"
+                                data-tag-name="數位導覽"
+                                
+                                    hidden
+                                
+                            >
+                                數位導覽
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E4%BA%92%E5%8B%95%E9%AB%94%E9%A9%97/"
+                                data-tag-name="互動體驗"
+                                
+                                    hidden
+                                
+                            >
+                                互動體驗
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Number/"
+                                data-tag-name="Number()"
+                                
+                                    hidden
+                                
+                            >
+                                Number()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/String/"
+                                data-tag-name="String()"
+                                
+                                    hidden
+                                
+                            >
+                                String()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Boolean/"
+                                data-tag-name="Boolean()"
+                                
+                                    hidden
+                                
+                            >
+                                Boolean()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                    </div>
+                    <!-- 無搜尋結果 -->
+                    <p
+                        class="sidebar-empty tag-search-empty"
+                        id="tagSearchEmpty"
+                        hidden
+                        data-i18n="blog.noTagResults"
+                    >
+                        找不到符合的標籤
+                    </p>
                 
             </section>
+          <!-- 筆記資訊 -->
+        <section class="sidebar-section sidebar-information blog-info">
+            <h2 class="sidebar-title" >
+                LAB INFO
+            </h2>
+            
+            <div class="sidebar-stats">
+                <!-- 文章總數 -->
+                <div class="sidebar-stat-item">
+                    <span class="sidebar-stat-label" data-i18n="blog.totalArticles">
+                        TOTAL ARTICLES
+                    </span>
+                    <span class="sidebar-stat-value">
+                        71
+                    </span>
+                </div>
+                <!-- 總字數 -->
+                <div class="sidebar-stat-item">
+                    <span class="sidebar-stat-label" data-i18n="blog.totalWords">
+                        TOTAL WORDS
+                    </span>
+                    <span class="sidebar-stat-value">
+                        137,765
+                    </span>
+                </div>
+                <!-- 訪客數 -->
+                <div class="sidebar-stat-item">
+                    <span class="sidebar-stat-label" data-i18n="blog.visitors">
+                        VISITORS
+                    </span>
+                    <span class="sidebar-stat-value is-pending">—</span>
+                </div>
+                <!-- 總瀏覽量 -->
+                <div class="sidebar-stat-item">
+                    <span class="sidebar-stat-label" data-i18n="blog.totalViews">
+                        TOTAL VIEWS
+                    </span>
+
+                    <span class="sidebar-stat-value is-pending">—</span>
+                </div>
+                <!-- 最後更新 -->
+                <div class="sidebar-stat-item">
+                    <span class="sidebar-stat-label" data-i18n="blog.lastUpdated">
+                        LAST UPDATED
+                    </span>
+                    <span class="sidebar-stat-value sidebar-stat-date">
+                        2026.11.21
+                    </span>
+                </div>
+            </div>
+        </section>
         </aside>
     </div>
 </section>
@@ -2342,7 +2228,6 @@ theme.js
         <img src="/images/logo.webp" alt="logo" />
         <span>Aria's CarrotLab</span>
       </a>
-
       <p class="small muted mb-0 mt-2" data-i18n="footer.note">
         保持好奇，持續探索。
       </p>
@@ -2350,7 +2235,6 @@ theme.js
 
     <!-- 聯絡方式、隱私權政策與版權 -->
     <div class="footer-info">
-      <!-- 第一行：聯絡我與隱私權政策 -->
       <div class="footer-links">
         <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
           <i class="bi bi-envelope me-1"></i>
@@ -2366,11 +2250,8 @@ theme.js
           <span data-i18n="footer.privacy" class="small">隱私權政策</span>
         </a>
       </div>
-
-      <!-- 第二行：版權 -->
       <span class="footer-copyright small muted">
-        Copyright © 2026
-        <strong>Aria's CarrotLab</strong>
+        Copyright © 2026 Aria's CarrotLab
       </span>
     </div>
   </div>

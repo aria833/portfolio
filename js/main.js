@@ -392,29 +392,6 @@
   }
 })();
 
-/**
-
-* 手機版「依主題探索」展開與收合圖示
-    */
-document.addEventListener("DOMContentLoaded", () => {
-  const topicCloud = document.getElementById("mobileTopicCloud");
-  const topicToggle = document.querySelector(".topic-explorer-toggle");
-  const topicIcon = document.querySelector(".topic-explorer-icon");
-
-  if (!topicCloud || !topicToggle || !topicIcon) {
-    return;
-  }
-
-  topicCloud.addEventListener("shown.bs.collapse", () => {
-    topicIcon.classList.remove("bi-plus-lg");
-    topicIcon.classList.add("bi-dash-lg");
-  });
-
-  topicCloud.addEventListener("hidden.bs.collapse", () => {
-    topicIcon.classList.remove("bi-dash-lg");
-    topicIcon.classList.add("bi-plus-lg");
-  });
-});
 /* ========================================
    Easter Lamp Toggle
 ======================================== */
@@ -434,3 +411,48 @@ if (easterLampToggle && easterLampScene) {
     );
   });
 }
+
+/* ========================================
+Tag Search：標籤搜尋
+======================================== */
+
+function initTagSearch() {
+  const input = document.getElementById("tagSearchInput");
+  const results = document.getElementById("tagSearchResults");
+  const emptyMessage = document.getElementById("tagSearchEmpty");
+
+  if (!input || !results) return;
+
+  const tags = Array.from(results.querySelectorAll(".tag-search-item"));
+
+  const visibleLimit = 10;
+
+  function filterTags() {
+    const keyword = input.value.trim().toLowerCase();
+
+    let matchCount = 0;
+    tags.forEach((tag, index) => {
+      const tagName = tag.dataset.tagName.toLowerCase();
+      // 有搜尋關鍵字：搜尋全部標籤
+      // 沒有搜尋關鍵字：只顯示前 10 個
+      const shouldShow = keyword
+        ? tagName.includes(keyword)
+        : index < visibleLimit;
+      tag.hidden = !shouldShow;
+      if (shouldShow) {
+        matchCount++;
+      }
+    });
+    // 沒有符合的搜尋結果
+    if (emptyMessage) {
+      emptyMessage.hidden = matchCount > 0;
+    }
+  }
+
+  input.addEventListener("input", filterTags);
+
+  // 初始化
+  filterTags();
+}
+
+document.addEventListener("DOMContentLoaded", initTagSearch);

@@ -187,6 +187,15 @@
         element.setAttribute("title", translation);
       }
     });
+    // 翻譯 Placeholder
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+      const key = element.dataset.i18nPlaceholder;
+      const translation = dictionary[key];
+
+      if (translation !== undefined) {
+        element.setAttribute("placeholder", translation);
+      }
+    });
 
     // 更新 HTML 語言
     document.documentElement.lang = LANGUAGE_SETTINGS[lang]?.htmlLang || lang;

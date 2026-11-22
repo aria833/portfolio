@@ -279,3 +279,49 @@
     padding: 1rem 0 0.25rem;
   }
 }
+
+/* ========================================
+   Blog Layout：頁面區塊配置
+======================================== */
+
+.blog-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+  grid-template-areas: "posts sidebar";
+  gap: 2rem 3rem;
+  align-items: start;
+}
+
+.blog-posts {
+  grid-area: posts;
+  min-width: 0;
+}
+
+.blog-sidebar {
+  grid-area: sidebar;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.blog-tags,
+.blog-info {
+  min-width: 0;
+}
+
+/* 手機與平板版 */
+@media (max-width: 991.98px) {
+  .blog-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "tags"
+      "posts"
+      "info";
+    gap: 1.5rem;
+  }
+
+  .blog-sidebar {
+    display: contents;
+  }
+}

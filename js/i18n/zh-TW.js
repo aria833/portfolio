@@ -136,7 +136,6 @@ window.CarrotLabDictionaries["zh-TW"] = {
   "footer.privacy": "隱私權政策",
   "blog.title": "學習筆記",
   "blog.intro": "把學習變成可以回顧的實驗紀錄",
-  "blog.exploreTopics": "依主題探索",
   "blog.noTags": "尚未建立標籤",
   "blog.empty": "目前還沒有文章，新的學習紀錄正在準備中。",
   "blog.pagination": "文章分頁",
@@ -164,7 +163,6 @@ window.CarrotLabDictionaries["zh-TW"] = {
   "about.greeting": "嗨，我是 Aria。",
   "about.intro":
     "這裡是我的設計與程式學習實驗室。我把正在學習的前端技術、介面設計想法，以及每一次嘗試整理成可回顧的紀錄。",
-  "about.position": "一位對世界充滿好奇心、喜歡探索日常的 Product Designer",
   "about.description":
     "我喜歡把複雜的事情拆成小步驟，從觀察問題、整理資訊，到做出可以實際操作的介面。這個網站會持續記錄我在 UI/UX、產品思考、前端開發、AI 應用的探索。",
   "about.exploring.title": "目前探索中",
@@ -572,4 +570,12 @@ window.CarrotLabDictionaries["zh-TW"] = {
   "carrotlab.next2": "嘗試新媒體藝術，探索互動、聲音與動態視覺。",
 
   "carrotlab.next3": "加入更多有趣的互動細節，讓瀏覽網站也成為一種體驗。",
+  "blog.searchTags": "搜尋標籤...",
+  "blog.searchTagsLabel": "搜尋標籤",
+  "blog.noTagResults": "找不到符合的標籤",
+  "blog.totalArticles": "文章總數",
+  "blog.totalWords": "總字數",
+  "blog.visitors": "訪客數",
+  "blog.totalViews": "總瀏覽量",
+  "blog.lastUpdated": "最近更新",
 };

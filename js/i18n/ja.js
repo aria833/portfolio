@@ -178,7 +178,6 @@ window.CarrotLabDictionaries["ja"] = {
 
   "blog.title": "学習ノート",
   "blog.intro": "学びを、いつでも振り返ることのできる実験記録に。",
-  "blog.exploreTopics": "テーマから探す",
   "blog.noTags": "タグはまだありません",
   "blog.empty": "記事はまだありません。新しい学習記録を準備中です。",
   "blog.pagination": "記事のページネーション",
@@ -212,8 +211,6 @@ window.CarrotLabDictionaries["ja"] = {
   "about.greeting": "こんにちは、Ariaです。",
   "about.intro":
     "ここは、デザインとプログラミングを学ぶための私の実験室です。学習中のフロントエンド技術、インターフェースデザインのアイデア、日々の試行錯誤を、あとから振り返ることのできる記録にしています。",
-  "about.position":
-    "世界への好奇心を持ち、日常のさまざまなことを探求するのが好きなプロダクトデザイナーです。",
   "about.description":
     "複雑なことを小さなステップに分け、課題の観察や情報整理から、実際に操作できるインターフェースの制作まで進めることが好きです。このサイトでは、UI/UX、プロダクト思考、フロントエンド開発、AI活用について学びながら探求したことを記録しています。",
 
@@ -693,4 +690,12 @@ window.CarrotLabDictionaries["ja"] = {
     "インタラクション、サウンド、動的なビジュアルを通じて、ニューメディアアートに挑戦する。",
   "carrotlab.next3":
     "さらに楽しいインタラクションを取り入れ、ウェブサイトの閲覧そのものを体験にする。",
+  "blog.searchTags": "タグを検索...",
+  "blog.searchTagsLabel": "タグを検索",
+  "blog.noTagResults": "一致するタグが見つかりません",
+  "blog.totalArticles": "記事数",
+  "blog.totalWords": "総文字数",
+  "blog.visitors": "訪問者数",
+  "blog.totalViews": "総閲覧数",
+  "blog.lastUpdated": "最終更新日",
 };

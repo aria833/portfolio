@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- 1. 基本 SEO 資訊 -->
+  <!-- 基本 SEO 資訊 -->
   <title>Web API | 讓網頁自動倒數與定時執行：setInterval() 使用指南 — ARIA&#39;S CARROTLAB</title>
   
   <meta
@@ -14,13 +14,13 @@
   <meta name="author" content="Aria" />
   <meta name="robots" content="index, follow" />
 
-  <!-- 標準網址（防止重複內容影響權重） -->
+  <!-- 標準網址 -->
   <link
     rel="canonical"
     href="https://portfolio.aria-carrotlab.com/2026/11/12/post-061/"
   />
 
-  <!-- 2. Favicon & 裝置圖示 -->
+  <!-- Favicon & 裝置圖示 -->
   <link
     rel="icon"
     type="image/png"
@@ -28,7 +28,7 @@
   />
   <link rel="apple-touch-icon" href="/images/logo.webp" />
 
-  <!-- 3. Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <!-- Open Graph (FB, Line, Discord 等社群分享卡片) -->
   <meta
     property="og:type"
     content="article"
@@ -49,7 +49,7 @@
   />
   <meta property="og:locale" content="zh_TW" />
 
-  <!-- 4. Twitter Card (X 社群分享) -->
+  <!-- Twitter Card (X 社群分享) -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta
     name="twitter:title"
@@ -64,7 +64,7 @@
     content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
   />
 
-  <!-- 5. GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <!-- GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -83,7 +83,7 @@
   </script>
   
 
-  <!-- 6. 外部資源載入 (CSS / Fonts) -->
+  <!-- 外部資源載入 (CSS / Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -111,7 +111,6 @@
       dataLayer.push(arguments);
     }
     gtag("js", new Date());
-
     gtag("config", "G-SZD9X7XMWG");
   </script>
 <meta name="generator" content="Hexo 8.1.2"></head>
@@ -126,6 +125,7 @@
         <img src="/images/logo.webp" alt="logo" />
         <span>Aria's CarrotLab</span>
       </a>
+      <!-- 小燈牌 -->
       <div class="lab-status mb-0 d-none d-lg-block">
         <span class="lab-status__light"></span>
         <span class="lab-status__text">LAB STATUS:</span>
@@ -247,7 +247,7 @@
           </li>
 
           <li class="nav-item theme-switch-item">
-            <!-- 桌面版：貓掌檯燈 -->
+            <!-- 桌面版：貓掌燈 -->
             <div class="lamp-switch d-none d-lg-flex">
               <button
                 class="lamp-switch__button"
@@ -280,26 +280,22 @@
       <path
         class="cat-paw__arm"
         d="
-    M27 136
-    L27 116
-    C27 105 31 98 36 95
-    C38 94 42 94 44 95
-    C49 98 53 105 53 116
-    L53 136
-    Z
-  "
+          M27 136
+          L27 116
+          C27 105 31 98 36 95
+          C38 94 42 94 44 95
+          C49 98 53 105 53 116
+          L53 136
+          Z
+        "
       />
 
-      <!-- 中央大肉球 -->
+      <!-- 肉球 -->
       <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
-
-      <!-- 四顆小趾球 -->
+      <!-- 貓掌指頭 -->
       <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
-
       <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
-
       <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
-
       <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
     </g>
   </g>
@@ -430,7 +426,82 @@
             
             <div class="related-posts-slide col-12 col-md-6 ">
                 <article class="post-card h-100">
-                <!-- 整張卡片的點擊連結 -->
+                <a
+                    class="post-card-main-link"
+                    href="/2026/11/22/post-071/"
+                    aria-label="閱讀文章：JS語法筆記 | 使用 switch 陳述式，告別冗長的 if...else 鏈"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        071
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-11-21T16:25:09.000Z"
+                    >
+                        2026.11.22
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/11/22/post-071/"
+                        >
+                        JS語法筆記 | 使用 switch 陳述式，告別冗長的 if...else 鏈
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在寫 JavaScript 的時候，常常需要根據某個變數或表達式的不同值，來執行不同的程式邏輯。例如：依據訂單狀態顯示不同標籤、依照使用者按下的按鈕切換介面等，或是根據不同的操作指令做出反應。 如果選項只有兩三個，用 if...else 很直覺，就像出門時看看天氣，「今天下雨嗎？下雨在家、沒下雨出門…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
+                            >
+                            JS語法筆記
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/switch%E9%99%B3%E8%BF%B0%E5%BC%8F/"
+                            >
+                            switch陳述式
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/11/22/post-071/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
                 <a
                     class="post-card-main-link"
                     href="/2026/11/21/post-070/"
@@ -476,6 +547,13 @@
                         
                             <a
                             class="post-card-tag"
+                            href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
+                            >
+                            JS語法筆記
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
                             href="/tags/Number/"
                             >
                             Number()
@@ -514,7 +592,6 @@
             
             <div class="related-posts-slide col-12 col-md-6 ">
                 <article class="post-card h-100">
-                <!-- 整張卡片的點擊連結 -->
                 <a
                     class="post-card-main-link"
                     href="/2026/11/20/post-069/"
@@ -591,7 +668,6 @@
             
             <div class="related-posts-slide col-12 col-md-6 ">
                 <article class="post-card h-100">
-                <!-- 整張卡片的點擊連結 -->
                 <a
                     class="post-card-main-link"
                     href="/2026/11/19/post-068/"
@@ -680,90 +756,6 @@
                 </article>
             </div>
             
-            <div class="related-posts-slide col-12 col-md-6 ">
-                <article class="post-card h-100">
-                <!-- 整張卡片的點擊連結 -->
-                <a
-                    class="post-card-main-link"
-                    href="/2026/11/18/post-067/"
-                    aria-label="閱讀文章：JS語法筆記 | 字串大小寫轉換 toLowerCase() 與 toUpperCase()"
-                ></a>
-                <div class="post-card-inner">
-                    <!-- 文章編號與日期 -->
-                    <div class="post-card-top">
-                    <span class="post-index">
-                        067
-                    </span>
-                    <time
-                        class="post-date"
-                        datetime="2026-11-18T05:04:07.000Z"
-                    >
-                        2026.11.18
-                    </time>
-                    </div>
-                    <!-- 文章標題、摘要與標籤 -->
-                    <div class="post-card-body">
-                    <h3 class="post-card-title">
-                        <a
-                        class="post-card-title-link"
-                        href="/2026/11/18/post-067/"
-                        >
-                        JS語法筆記 | 字串大小寫轉換 toLowerCase() 與 toUpperCase()
-                        </a>
-                    </h3>
-                    <p class="post-card-excerpt">
-                        
-                        在開發網頁或處理表單輸入時，經常會遇到英文字母大小寫不一致的問題。例如使用者輸入 Email Aria@Example.com、搜尋關鍵字 JavaScript 或 javascript，或是系統要將驗證碼統一轉成大寫。 這時候，可以使用 JavaScript 內建的兩個字串方法–toLowerCa…
-                    </p>
-                    <!-- 文章標籤 -->
-                    
-                        <div class="post-card-tags">
-                        
-                            <a
-                            class="post-card-tag"
-                            href="/tags/JavaScript/"
-                            >
-                            JavaScript
-                            </a>
-                        
-                            <a
-                            class="post-card-tag"
-                            href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
-                            >
-                            JS語法筆記
-                            </a>
-                        
-                            <a
-                            class="post-card-tag"
-                            href="/tags/toLowerCase/"
-                            >
-                            toLowerCase()
-                            </a>
-                        
-                            <a
-                            class="post-card-tag"
-                            href="/tags/toUpperCase/"
-                            >
-                            toUpperCase()
-                            </a>
-                        
-                        </div>
-                    
-                    </div>
-                    <!-- 閱讀文章 -->
-                    <div class="post-card-bottom">
-                    <a
-                        class="post-card-read-link"
-                        href="/2026/11/18/post-067/"
-                    >
-                        <span data-i18n="post.readNote">READ</span>
-                        <i class="bi-carrot-arrow"></i>
-                    </a>
-                    </div>
-                </div>
-                </article>
-            </div>
-            
         </div>
         </div>
     </section>
@@ -787,7 +779,6 @@
         <img src="/images/logo.webp" alt="logo" />
         <span>Aria's CarrotLab</span>
       </a>
-
       <p class="small muted mb-0 mt-2" data-i18n="footer.note">
         保持好奇，持續探索。
       </p>
@@ -795,7 +786,6 @@
 
     <!-- 聯絡方式、隱私權政策與版權 -->
     <div class="footer-info">
-      <!-- 第一行：聯絡我與隱私權政策 -->
       <div class="footer-links">
         <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
           <i class="bi bi-envelope me-1"></i>
@@ -811,11 +801,8 @@
           <span data-i18n="footer.privacy" class="small">隱私權政策</span>
         </a>
       </div>
-
-      <!-- 第二行：版權 -->
       <span class="footer-copyright small muted">
-        Copyright © 2026
-        <strong>Aria's CarrotLab</strong>
+        Copyright © 2026 Aria's CarrotLab
       </span>
     </div>
   </div>

@@ -1,5 +1,5 @@
 /* ========================================
-  blog-sidebar.css：標籤雲
+blog-sidebar.css：標籤雲
 ======================================== */
 
 .blog-sidebar {
@@ -8,7 +8,6 @@
 
 .sidebar-section {
   padding: 1.4rem 0;
-  border-bottom: 1px solid var(--archive-border);
 }
 
 .sidebar-section:first-child {
@@ -17,7 +16,7 @@
 
 .sidebar-eyebrow {
   margin: 0 0 0.65rem;
-  color: var(--archive-muted);
+  color: var(--muted);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -29,6 +28,56 @@
   font-size: 1.1rem;
   font-weight: 650;
 }
+
+/* ========================================
+Tag Search：標籤搜尋
+======================================== */
+
+.tag-search {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.tag-search .bi-search {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+
+  color: var(--muted);
+  font-size: 0.8rem;
+
+  pointer-events: none;
+}
+
+.tag-search-input {
+  width: 100%;
+  padding: 0.6rem 0.75rem 0.6rem 2.1rem;
+
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+
+  background: transparent;
+  color: inherit;
+
+  font-family: inherit;
+  font-size: 0.8rem;
+
+  transition: border-color 0.2s ease;
+
+  &::placeholder {
+    color: var(--muted);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--orange);
+  }
+}
+
+/* ========================================
+Tag Cloud：標籤雲
+======================================== */
 
 .archive-tag-cloud {
   display: flex;
@@ -44,14 +93,16 @@
 
   padding: 0.4rem 0.65rem;
 
-  border: 1px solid #c8c5b8;
+  border: 1px solid var(--line);
   border-radius: 4px;
 
   background-color: transparent;
   color: inherit;
 
   font-size: 0.85rem;
+  line-height: 1.5;
   text-decoration: none;
+  overflow-wrap: anywhere;
 
   transition:
     background-color 0.2s ease,
@@ -59,9 +110,10 @@
     border-color 0.2s ease;
 }
 
-/* 標籤雲 Hover */
+/* 標籤 Hover */
 .blog-archive .archive-tag-link:hover {
   border-color: var(--orange);
+  background-color: var(--orange);
   color: #fff;
 }
 
@@ -73,46 +125,87 @@
   color: #fff;
 }
 
-/* 標籤雲文章數量 */
+/* 標籤文章數量 */
 .blog-archive .archive-tag-link .tag-count {
-  color: inherit;
-  opacity: 0.8;
+  color: var(--muted);
+  font-size: 0.7rem;
 }
 
-.archive-tag-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.4rem 0.55rem;
-  border: 1px solid var(--archive-border);
-  border-radius: 2px;
+.blog-archive .archive-tag-link:hover .tag-count,
+.blog-archive .archive-tag-link.active .tag-count {
   color: inherit;
-  text-decoration: none;
+}
+
+/* 隱藏未顯示的標籤 */
+.blog-archive .archive-tag-link[hidden] {
+  display: none;
+}
+
+/* 無搜尋結果 */
+.tag-search-empty {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* ========================================
+   Sidebar Information：筆記資訊
+======================================== */
+
+.sidebar-information {
+  margin-top: 0.5rem;
+}
+
+/* 統計資訊列表 */
+.sidebar-stats {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+/* 單筆統計 */
+.sidebar-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.85rem 0;
+}
+
+.sidebar-stat-item:first-child {
+  padding-top: 0;
+}
+
+.sidebar-stat-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 英文標籤 */
+.sidebar-stat-label {
+  color: var(--muted);
   font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
   line-height: 1.5;
-  overflow-wrap: anywhere;
-  transition:
-    border-color 0.2s ease,
-    color 0.2s ease,
-    background-color 0.2s ease;
 }
 
-.archive-tag-link span {
-  color: var(--archive-muted);
-  font-size: 0.65rem;
-}
-
-.archive-tag-link:hover {
-  border-color: var(--archive-accent);
-  color: var(--archive-accent);
-}
-
-.archive-tag-link.active {
-  border-color: var(--bs-primary);
-  background-color: var(--bs-primary);
-  color: var(--bs-white);
-}
-
-.archive-tag-link.active span {
+/* 統計數字 */
+.sidebar-stat-value {
   color: inherit;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* 尚未串接的數據 */
+.sidebar-stat-value.is-pending {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* 日期 */
+.sidebar-stat-date {
+  font-size: 1rem;
 }

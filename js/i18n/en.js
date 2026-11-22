@@ -179,7 +179,6 @@ window.CarrotLabDictionaries["en"] = {
 
   "blog.title": "Learning Notes",
   "blog.intro": "Turning learning into experiments worth revisiting.",
-  "blog.exploreTopics": "Explore by Topic",
   "blog.noTags": "No tags yet",
   "blog.empty":
     "There are no articles yet. New learning records are on the way.",
@@ -213,8 +212,6 @@ window.CarrotLabDictionaries["en"] = {
   "about.greeting": "Hi, I'm Aria.",
   "about.intro":
     "Welcome to my design and coding laboratory. I turn the front-end technologies I'm learning, interface design ideas, and experiments into records I can revisit.",
-  "about.position":
-    "A Product Designer who is curious about the world and enjoys exploring everyday life.",
   "about.description":
     "I enjoy breaking complex problems into smaller steps, from observing problems and organizing information to building interfaces people can actually use. This website documents my ongoing exploration of UI/UX, product thinking, front-end development, and AI applications.",
 
@@ -787,4 +784,12 @@ window.CarrotLabDictionaries["en"] = {
     "Explore new media art through interaction, sound, and dynamic visuals.",
   "carrotlab.next3":
     "Add more engaging interactive details, turning website browsing into an experience of its own.",
+  "blog.searchTags": "Search tags...",
+  "blog.searchTagsLabel": "Search tags",
+  "blog.noTagResults": "No matching tags found",
+  "blog.totalArticles": "TOTAL ARTICLES",
+  "blog.totalWords": "TOTAL WORDS",
+  "blog.visitors": "VISITORS",
+  "blog.totalViews": "TOTAL VIEWS",
+  "blog.lastUpdated": "LAST UPDATED",
 };

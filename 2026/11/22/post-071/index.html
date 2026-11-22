@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 基本 SEO 資訊 -->
+  <title>JS語法筆記 | 使用 switch 陳述式，告別冗長的 if...else 鏈 — ARIA&#39;S CARROTLAB</title>
+  
+  <meta
+    name="description"
+    content="在寫 JavaScript 的時候，常常需要根據某個變數或表達式的不同值，來執行不同的程式邏輯。例如：依據訂單狀態顯示不同標籤、依照使用者按下的按鈕切換介面等，或是根據不同的操作指令做出反應。 如果選項只有兩三個，用 if...else 很直覺，就像出門時看看天氣，「今天下雨嗎？下雨在家、沒下雨出門」一樣直覺。但當同一"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址 -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/11/22/post-071/"
+  />
+
+  <!-- Favicon & 裝置圖示 -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+  <!-- Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="JS語法筆記 | 使用 switch 陳述式，告別冗長的 if...else 鏈 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="在寫 JavaScript 的時候，常常需要根據某個變數或表達式的不同值，來執行不同的程式邏輯。例如：依據訂單狀態顯示不同標籤、依照使用者按下的按鈕切換介面等，或是根據不同的操作指令做出反應。 如果選項只有兩三個，用 if...else 很直覺，就像出門時看看天氣，「今天下雨嗎？下雨在家、沒下雨出門」一樣直覺。但當同一"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/11/22/post-071/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="JS語法筆記 | 使用 switch 陳述式，告別冗長的 if...else 鏈 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="在寫 JavaScript 的時候，常常需要根據某個變數或表達式的不同值，來執行不同的程式邏輯。例如：依據訂單狀態顯示不同標籤、依照使用者按下的按鈕切換介面等，或是根據不同的操作指令做出反應。 如果選項只有兩三個，用 if...else 很直覺，就像出門時看看天氣，「今天下雨嗎？下雨在家、沒下雨出門」一樣直覺。但當同一"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+
+  <!-- GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"JS語法筆記 | 使用 switch 陳述式，告別冗長的 if...else 鏈","description":"在寫 JavaScript 的時候，常常需要根據某個變數或表達式的不同值，來執行不同的程式邏輯。例如：依據訂單狀態顯示不同標籤、依照使用者按下的按鈕切換介面等，或是根據不同的操作指令做出反應。 如果選項只有兩三個，用 if...else 很直覺，就像出門時看看天氣，「今天下雨嗎？下雨在家、沒下雨出門」一樣直覺。但當同一","datePublished":"2026-11-22T00:25:09+08:00","dateModified":"2026-11-21T00:49:06+08:00","author":{"@type":"Person","name":"Aria"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://portfolio.aria-carrotlab.com/2026/11/22/post-071/"},"image":"https://portfolio.aria-carrotlab.com/images/og-image.webp"}
+  </script>
+  
+
+  <!-- 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SZD9X7XMWG"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-SZD9X7XMWG");
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <!-- 小燈牌 -->
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+          M27 136
+          L27 116
+          C27 105 31 98 36 95
+          C38 94 42 94 44 95
+          C49 98 53 105 53 116
+          L53 136
+          Z
+        "
+      />
+
+      <!-- 肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+      <!-- 貓掌指頭 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.11.22</p>
+        <h1>JS語法筆記 | 使用 switch 陳述式，告別冗長的 if...else 鏈</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/JavaScript/">JavaScript</a>
+            
+                <a href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/">JS語法筆記</a>
+            
+                <a href="/tags/switch%E9%99%B3%E8%BF%B0%E5%BC%8F/">switch陳述式</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>在寫 JavaScript 的時候，常常需要根據某個變數或表達式的不同值，來執行不同的程式邏輯。例如：依據訂單狀態顯示不同標籤、依照使用者按下的按鈕切換介面等，或是根據不同的操作指令做出反應。</p>
+<p>如果選項只有兩三個，用 <code>if...else</code> 很直覺，就像出門時看看天氣，「今天下雨嗎？下雨在家、沒下雨出門」一樣直覺。但當同一個值要對照好幾種情況時–例如今天的天氣不只「下雨」，還可能是<strong>下爆雨</strong>、<strong>起霧</strong>、<strong>打雷</strong>、<strong>刮強風</strong> 或 <strong>出大太陽</strong>，一直寫 <code>else if</code> 就會每次都要從頭跑到尾，既費力又容易出錯。</p>
+<p>這時候，JavaScript 提供的 <strong><code>switch</code> 陳述式</strong>，就能讓多分支判斷變得更整齊、更有結構。</p>
+<h2 id="什麼是-switch-陳述式？"><a href="#什麼是-switch-陳述式？" class="headerlink" title="什麼是 switch 陳述式？"></a>什麼是 switch 陳述式？</h2><p><code>switch</code> 是一種 <strong>條件分支控制語法</strong>，它會先計算括號 <code>()</code> 裡表達式的值，接著由上而下逐一比對每個 <code>case</code> 的值；一旦找到符合的 <code>case</code>，就會從該處開始執行對應的程式碼。</p>
+<p>可以把它想像成 <strong>自動販賣機的選鈕面板</strong>：<br>投完幣、按下編號（<code>expression</code>），機器就會對照內部貨道（<code>case</code>）找出對應的商品掉下來；如果按了一個不存在的編號，就會走到「無此商品」的預設提示（<code>default</code>）。</p>
+<p><strong>基本語法結構</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">switch (expression) &#123;</span><br><span class="line">  case value1:</span><br><span class="line">    // 當 expression 嚴格等於 value1 時執行</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">  case value2:</span><br><span class="line">    // 當 expression 嚴格等於 value2 時執行</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">  default:</span><br><span class="line">    // 當所有 case 都不符合時執行（可選）</span><br><span class="line">    break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="實戰範例"><a href="#實戰範例" class="headerlink" title="實戰範例"></a>實戰範例</h2><h3 id="1-基本多條件判斷"><a href="#1-基本多條件判斷" class="headerlink" title="1. 基本多條件判斷"></a>1. 基本多條件判斷</h3><p>假設我們要根據任務狀態顯示對應的中文提示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const status = &#x27;completed&#x27;;</span><br><span class="line"></span><br><span class="line">switch (status) &#123;</span><br><span class="line">  case &#x27;pending&#x27;:</span><br><span class="line">    console.log(&#x27;任務等待中&#x27;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">  case &#x27;in-progress&#x27;:</span><br><span class="line">    console.log(&#x27;任務進行中&#x27;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">  case &#x27;completed&#x27;:</span><br><span class="line">    console.log(&#x27;任務已完成！&#x27;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">  default:</span><br><span class="line">    console.log(&#x27;未知的狀態&#x27;);</span><br><span class="line">    break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-善用「貫穿（Fall-through）」讓多個-case-共用同一段邏輯"><a href="#2-善用「貫穿（Fall-through）」讓多個-case-共用同一段邏輯" class="headerlink" title="2. 善用「貫穿（Fall-through）」讓多個 case 共用同一段邏輯"></a>2. 善用「貫穿（Fall-through）」讓多個 case 共用同一段邏輯</h3><p>有時候好幾種不同輸入，其實應該做同一件事。這時可以刻意省略中間的 <code>break</code>，讓它們共用同一組處理區塊：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const day = &#x27;Saturday&#x27;;</span><br><span class="line"></span><br><span class="line">switch (day) &#123;</span><br><span class="line">  case &#x27;Saturday&#x27;:</span><br><span class="line">  case &#x27;Sunday&#x27;:</span><br><span class="line">    console.log(&#x27;放假囉，好好休息！&#x27;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">  case &#x27;Monday&#x27;:</span><br><span class="line">  case &#x27;Tuesday&#x27;:</span><br><span class="line">  case &#x27;Wednesday&#x27;:</span><br><span class="line">  case &#x27;Thursday&#x27;:</span><br><span class="line">  case &#x27;Friday&#x27;:</span><br><span class="line">    console.log(&#x27;工作日，專心推進進度&#x27;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">  default:</span><br><span class="line">    console.log(&#x27;請輸入有效的星期名稱&#x27;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>像這樣把 <code>&#39;Saturday&#39;</code> 和 <code>&#39;Sunday&#39;</code> 疊在一起，比寫成 (<code>day === &#39;Saturday&#39; || day === &#39;Sunday&#39;</code>) 更乾淨、擴充新條件也只要多加一行 <code>case</code>。</p>
+<h2 id="務必要注意的點"><a href="#務必要注意的點" class="headerlink" title="務必要注意的點"></a>務必要注意的點</h2><h3 id="1-如果忘記寫-break，會導致一路「貫穿」下去"><a href="#1-如果忘記寫-break，會導致一路「貫穿」下去" class="headerlink" title="1. 如果忘記寫 break，會導致一路「貫穿」下去"></a>1. 如果忘記寫 break，會導致一路「貫穿」下去</h3><p>在 <code>switch</code> 中，<code>case</code> 只是進入點，不是終點。如果沒有寫 <code>break</code>（或 <code>return</code>），程式執行完符合的 <code>case</code> 之後，不會自動跳出 <code>switch</code>，而是會繼續往下執行下一個 <code>case</code> 的程式碼，直到遇到 <code>break</code> 或整個 <code>switch</code> 結束為止。</p>
+<p>除非真的需要 <strong>「多個 case 共用邏輯」</strong>，否則每個 <code>case</code> 結尾加上 <code>break</code> 是最安全的習慣。</p>
+<h3 id="2-比對使用的是「嚴格相等（-）」"><a href="#2-比對使用的是「嚴格相等（-）」" class="headerlink" title="2. 比對使用的是「嚴格相等（&#x3D;&#x3D;&#x3D;）」"></a>2. 比對使用的是「嚴格相等（&#x3D;&#x3D;&#x3D;）」</h3><p><code>switch</code> 在比對 <code>expression</code> 與 <code>case</code> 的值時，使用的是<strong>嚴格相等（<code>===</code>），不會進行自動型別轉換。</strong></p>
+<h3 id="3-在-case-裡宣告同名變數會發生衝突"><a href="#3-在-case-裡宣告同名變數會發生衝突" class="headerlink" title="3. 在 case 裡宣告同名變數會發生衝突"></a>3. 在 case 裡宣告同名變數會發生衝突</h3><p><code>switch</code> 區塊屬於同一個作用域（Scope），如果多個 <code>case</code> 裡都直接寫 <code>const</code> 或 <code>let</code> 宣告同一個變數名稱，可能會報錯。若每個分支都要宣告自己的區域變數，可以用 <strong>大括號 <code>{}</code></strong> 包起來：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const action = &#x27;create&#x27;;</span><br><span class="line"></span><br><span class="line">switch (action) &#123;</span><br><span class="line">  case &#x27;create&#x27;: &#123;</span><br><span class="line">    const message = &#x27;建立資料&#x27;;</span><br><span class="line">    console.log(message);</span><br><span class="line">    break;</span><br><span class="line">  &#125;</span><br><span class="line">  case &#x27;update&#x27;: &#123;</span><br><span class="line">    const message = &#x27;更新資料&#x27;;</span><br><span class="line">    console.log(message);</span><br><span class="line">    break;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="switch-vs-if…else：什麼時候該選誰？"><a href="#switch-vs-if…else：什麼時候該選誰？" class="headerlink" title="switch vs. if…else：什麼時候該選誰？"></a>switch vs. if…else：什麼時候該選誰？</h2><h3 id="適合用-switch-的時候："><a href="#適合用-switch-的時候：" class="headerlink" title="適合用 switch 的時候："></a>適合用 switch 的時候：</h3><ul>
+<li><p>針對 <strong>同一個變數或表達式</strong>，比對<strong>多個固定的值</strong>（例如狀態字串、指令代碼、枚舉值）。</p>
+</li>
+<li><p>分支數量較多，且希望結構一目了然、或讓多個條件共用相同處理邏輯。</p>
+</li>
+</ul>
+<h3 id="適合用-if…else-的時候："><a href="#適合用-if…else-的時候：" class="headerlink" title="適合用 if…else 的時候："></a>適合用 if…else 的時候：</h3><ul>
+<li><p>條件是 <strong>範圍判斷或複雜布林運算</strong>（例如 <code>score &gt;= 90 &amp;&amp; score &lt;= 100</code>、<code>age &lt; 18 || isVip</code>）。</p>
+</li>
+<li><p>判斷的是完全不同的條件式，而不是單一值的等值比對。</p>
+</li>
+</ul>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p><strong><code>switch</code> 陳述式</strong> 就像是 <strong>幫多分支判斷整理出清楚的目錄</strong>：當需要針對單一值做多種對應處理時，它能讓程式碼比層層堆疊的 <code>if...else</code> 更易讀、好維護。</p>
+<p>更完整的語法細節與特殊案例，也可以參考 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/switch">MDN switch 說明文件</a>。</p>
+</div>
+
+    
+
+    
+    <section
+        class="related-posts section-pad mb-0"
+        aria-labelledby="related-posts-title"
+    >
+        <div class="container">
+        <!-- 區塊標題 -->
+        <div
+            class="section-heading mb-0 d-flex justify-content-between align-items-end gap-3"
+        >
+            <div>
+            <p class="eyebrow" data-i18n="post.keepExploring">KEEP EXPLORING</p>
+            <h2 id="related-posts-title">
+                <span data-i18n="post.relatedTitle">相關筆記</span><span class="title-dot">.</span>
+            </h2>
+            <p class="muted mt-2" data-i18n="post.relatedCopy">
+                繼續探索其他有趣的學習紀錄。
+            </p>
+            </div>
+            <span class="related-posts-count" data-i18n="post.relatedLabel">
+            RELATED NOTES
+            </span>
+        </div>
+
+        <!-- 相關文章卡片 -->
+        <div class="related-posts-track row g-4 mt-2">
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <a
+                    class="post-card-main-link"
+                    href="/2026/11/21/post-070/"
+                    aria-label="閱讀文章：JS語法筆記 | 型別轉換：Number()、String()、Boolean()"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        070
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-11-21T08:43:03.000Z"
+                    >
+                        2026.11.21
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/11/21/post-070/"
+                        >
+                        JS語法筆記 | 型別轉換：Number()、String()、Boolean()
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在寫網頁或處理表單與 API 資料時，會遇到 「看起來像數字，但其實是字串」 的情況。例如從輸入框 &amp;lt;input&amp;gt; 拿到的值通常是字串 &amp;#39;100&amp;#39;，或是網址參數、CSV 與 JSON 欄位裡的數字被包成了文字。如果直接拿 &amp;#39;100&amp;#39; + &amp;#39;20&amp;#…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
+                            >
+                            JS語法筆記
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/Number/"
+                            >
+                            Number()
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/String/"
+                            >
+                            String()
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/Boolean/"
+                            >
+                            Boolean()
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/11/21/post-070/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <a
+                    class="post-card-main-link"
+                    href="/2026/11/20/post-069/"
+                    aria-label="閱讀文章：JS語法筆記 | 什麼是正規表示式（Regular Expression）"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        069
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-11-20T05:40:57.000Z"
+                    >
+                        2026.11.20
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/11/20/post-069/"
+                        >
+                        JS語法筆記 | 什麼是正規表示式（Regular Expression）
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在 前面 聊移除空格的技巧時，曾經看過像 /\s+/g 這樣看似亂碼的寫法。其實它是程式開發與文字處理中的強大工具– 正規表示式（Regular Expression，常簡稱 Regex 或 RegExp）。 什麼是正規表示式？簡單來說，正規表示式就是用來描述「文字搜尋規則」的樣板。 想像一下，我們…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
+                            >
+                            JS語法筆記
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F/"
+                            >
+                            正規表示式
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/11/20/post-069/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <a
+                    class="post-card-main-link"
+                    href="/2026/11/19/post-068/"
+                    aria-label="閱讀文章：JS語法筆記 | 移除多餘的空格"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        068
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-11-19T05:21:30.000Z"
+                    >
+                        2026.11.19
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/11/19/post-068/"
+                        >
+                        JS語法筆記 | 移除多餘的空格
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在處理使用者輸入的表單、搜尋關鍵字或 API 資料時，最常遇到的隱形地雷就是多餘的空白。例如使用者複製貼上 Email 時不小心在頭尾多按了空白鍵，或是字串中間夾雜了連續好幾個空格，導致比對失敗、資料庫存進髒資料，甚至讓版面跑版。 清理前後空白：trim()當需求是 把字串開頭與結尾的空白清掉，但保…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
+                            >
+                            JS語法筆記
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/trim/"
+                            >
+                            trim()
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/split/"
+                            >
+                            split()
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/join/"
+                            >
+                            join()
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/11/19/post-068/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <a
+                    class="post-card-main-link"
+                    href="/2026/11/18/post-067/"
+                    aria-label="閱讀文章：JS語法筆記 | 字串大小寫轉換 toLowerCase() 與 toUpperCase()"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        067
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-11-18T05:04:07.000Z"
+                    >
+                        2026.11.18
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/11/18/post-067/"
+                        >
+                        JS語法筆記 | 字串大小寫轉換 toLowerCase() 與 toUpperCase()
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在開發網頁或處理表單輸入時，經常會遇到英文字母大小寫不一致的問題。例如使用者輸入 Email Aria@Example.com、搜尋關鍵字 JavaScript 或 javascript，或是系統要將驗證碼統一轉成大寫。 這時候，可以使用 JavaScript 內建的兩個字串方法–toLowerCa…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
+                            >
+                            JS語法筆記
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/toLowerCase/"
+                            >
+                            toLowerCase()
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/toUpperCase/"
+                            >
+                            toUpperCase()
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/11/18/post-067/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <!-- 品牌與標語 -->
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+
+    <!-- 聯絡方式、隱私權政策與版權 -->
+    <div class="footer-info">
+      <div class="footer-links">
+        <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
+          <i class="bi bi-envelope me-1"></i>
+          <span data-i18n="footer.contact" class="small">聯絡我</span>
+        </a>
+
+        <a
+          class="footer-policy-link small text-decoration-none"
+          href="/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="footer.privacy" class="small">隱私權政策</span>
+        </a>
+      </div>
+      <span class="footer-copyright small muted">
+        Copyright © 2026 Aria's CarrotLab
+      </span>
+    </div>
+  </div>
+</footer>
+<!--axios JS-->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

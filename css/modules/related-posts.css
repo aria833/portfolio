@@ -43,15 +43,20 @@
 }
 
 .related-post-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.related-post-card-link {
   display: grid;
   grid-template-columns: 100px minmax(0, 1fr) 24px;
   gap: 1rem;
   align-items: start;
   padding: 1.2rem 0;
-  border-bottom: 1px solid var(--line);
+  color: inherit;
+  text-decoration: none;
 }
 
-.related-post-item > time {
+.related-post-card-link > time {
   padding-top: 0.25rem;
   color: var(--muted);
   font:
@@ -73,24 +78,10 @@
   gap: 0.4rem;
 }
 
-.related-post-tags a {
+.related-post-tags span {
   color: var(--muted);
   font-size: 0.7rem;
-  text-decoration: none;
-}
-
-.related-post-tags a:hover {
-  color: var(--accent);
-}
-
-.related-post-arrow {
-  color: var(--muted);
-  text-decoration: none;
-  text-align: right;
-}
-
-.related-post-arrow:hover {
-  color: var(--accent);
+  cursor: default;
 }
 
 @media (max-width: 575.98px) {
@@ -113,22 +104,17 @@
     flex-direction: column;
   }
 
-  .related-post-item {
+  .related-post-card-link {
     grid-template-columns: 1fr 24px;
     gap: 0.4rem 0.75rem;
   }
 
-  .related-post-item > time {
+  .related-post-card-link > time {
     grid-column: 1 / -1;
   }
 
   .related-post-main {
     grid-column: 1;
-  }
-
-  .related-post-arrow {
-    grid-column: 2;
-    grid-row: 2;
   }
 }
 
@@ -179,18 +165,13 @@
   }
 }
 
-/* 相關文章標題連結 */
-.related-post-title,
-.related-post-title:link,
-.related-post-title:visited {
+.related-post-title {
   color: inherit;
-  text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.related-post-title:hover,
-.related-post-title:focus-visible,
-.related-post-title:active {
+.related-post-card-link:hover .related-post-title,
+.related-post-card-link:focus-visible .related-post-title {
   color: var(--accent);
 }
 
