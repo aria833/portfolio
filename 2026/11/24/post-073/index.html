@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="zh-Hant" data-bs-theme="light">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 基本 SEO 資訊 -->
+  <title>JS語法筆記 | 圓周率不用自己背！用 Math.PI 就好 — ARIA&#39;S CARROTLAB</title>
+  
+  <meta
+    name="description"
+    content="在做數學、幾何與圖形相關的計算時，常常會需要用到圓周率 𝝿。不管是算圓形面積、圓周長、角度與弧度的換算，還是畫圖與動畫計算，如果每次都自己手打，不僅不夠精準，也容易因為手誤打錯數字。這時候，可以呼叫 JavaScript 內建的 Math.PI 。 什麼是 Math.PI？Math.PI 是 JavaScript M"
+  />
+  <meta name="author" content="Aria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 標準網址 -->
+  <link
+    rel="canonical"
+    href="https://portfolio.aria-carrotlab.com/2026/11/24/post-073/"
+  />
+
+  <!-- Favicon & 裝置圖示 -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/images/logo.webp"
+  />
+  <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+  <!-- Open Graph (FB, Line, Discord 等社群分享卡片) -->
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:title"
+    content="JS語法筆記 | 圓周率不用自己背！用 Math.PI 就好 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    property="og:description"
+    content="在做數學、幾何與圖形相關的計算時，常常會需要用到圓周率 𝝿。不管是算圓形面積、圓周長、角度與弧度的換算，還是畫圖與動畫計算，如果每次都自己手打，不僅不夠精準，也容易因為手誤打錯數字。這時候，可以呼叫 JavaScript 內建的 Math.PI 。 什麼是 Math.PI？Math.PI 是 JavaScript M"
+  />
+  <meta property="og:url" content="https://portfolio.aria-carrotlab.com/2026/11/24/post-073/" />
+  <meta property="og:site_name" content="ARIA&#39;S CARROTLAB" />
+  <meta
+    property="og:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- Twitter Card (X 社群分享) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="JS語法筆記 | 圓周率不用自己背！用 Math.PI 就好 — ARIA&#39;S CARROTLAB"
+  />
+  <meta
+    name="twitter:description"
+    content="在做數學、幾何與圖形相關的計算時，常常會需要用到圓周率 𝝿。不管是算圓形面積、圓周長、角度與弧度的換算，還是畫圖與動畫計算，如果每次都自己手打，不僅不夠精準，也容易因為手誤打錯數字。這時候，可以呼叫 JavaScript 內建的 Math.PI 。 什麼是 Math.PI？Math.PI 是 JavaScript M"
+  />
+  <meta
+    name="twitter:image"
+    content="https://portfolio.aria-carrotlab.com/images/og-image.webp"
+  />
+
+  <!-- GEO / AI 搜尋最佳化：Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aria",
+      "jobTitle": "Product Designer",
+      "url": "https://portfolio.aria-carrotlab.com",
+      "knowsAbout": ["Product Design", "JavaScript", "UI/UX Design"],
+      "description": "記錄在程式、UI/UX、產品設計與 AI 領域的學習筆記，整理所學並持續累積自己的知識。"
+    }
+  </script>
+
+  
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"JS語法筆記 | 圓周率不用自己背！用 Math.PI 就好","description":"在做數學、幾何與圖形相關的計算時，常常會需要用到圓周率 𝝿。不管是算圓形面積、圓周長、角度與弧度的換算，還是畫圖與動畫計算，如果每次都自己手打，不僅不夠精準，也容易因為手誤打錯數字。這時候，可以呼叫 JavaScript 內建的 Math.PI 。 什麼是 Math.PI？Math.PI 是 JavaScript M","datePublished":"2026-11-24T01:31:29+08:00","dateModified":"2026-11-24T22:41:43+08:00","author":{"@type":"Person","name":"Aria"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://portfolio.aria-carrotlab.com/2026/11/24/post-073/"},"image":"https://portfolio.aria-carrotlab.com/images/og-image.webp"}
+  </script>
+  
+
+  <!-- 外部資源載入 (CSS / Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SZD9X7XMWG"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-SZD9X7XMWG");
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <!-- icon -->
+      <a class="navbar-brand brand-mark" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <!-- 小燈牌 -->
+      <div class="lab-status mb-0 d-none d-lg-block">
+        <span class="lab-status__light"></span>
+        <span class="lab-status__text">LAB STATUS:</span>
+        <span class="lab-status__value">OPEN</span>
+      </div>
+
+      <!-- 導覽列 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="home"
+              href="/"
+              data-i18n="nav.home"
+              >首頁</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="notes"
+              href="/blog/"
+              data-i18n="nav.notes"
+              >學習筆記</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="projects"
+              href="/projects/"
+              data-i18n="nav.projects"
+              >作品</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-nav="about"
+              href="/about/"
+              data-i18n="nav.about"
+              >關於</a
+            >
+          </li>
+          <li
+            class="nav-item language-switch-item d-flex gap-2 ms-lg-2 mt-3 mt-lg-0 me-lg-5"
+          >
+            <!-- 桌面版語系選單 -->
+            <div class="dropdown d-none d-lg-block">
+              <button
+                class="icon-button"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-aria-label="language.choose"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="zh-TW">
+                    繁體中文
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="en">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-lang="ja">
+                    日本語
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- 手機版語系選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileLanguageChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="-1"
+                aria-label="上一個語言"
+                data-i18n-aria-label="language.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileLanguageCurrent"
+                aria-live="polite"
+              >
+                繁體中文
+              </button>
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-language-step="+1"
+                aria-label="下一個語言"
+                data-i18n-aria-label="language.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item theme-switch-item">
+            <!-- 桌面版：貓掌燈 -->
+            <div class="lamp-switch d-none d-lg-flex">
+              <button
+                class="lamp-switch__button"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+                aria-pressed="false"
+                data-i18n-aria-label="theme.toggle"
+                title="拉下燈繩切換主題"
+                data-i18n-title="theme.lamp.tooltip"
+              >
+                <svg
+  class="lamp-switch__svg"
+  viewBox="0 0 80 140"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle class="lamp-glow" cx="40" cy="34" r="43" />
+  <line class="lamp-switch__cord-top" x1="40" y1="0" x2="40" y2="12" />
+  <path
+    class="lamp-switch__shade"
+    d="M22 12 L58 12 L68 35 Q69 40 63 40 L17 40 Q11 40 12 35 Z"
+  />
+  <ellipse class="lamp-switch__rim" cx="40" cy="40" rx="23" ry="5" />
+  <g class="chain-container" id="pullChainGroup">
+    <line class="lamp-switch__chain" x1="40" y1="42" x2="40" y2="85" />
+    <circle class="lamp-switch__connector" cx="40" cy="87" r="3" />
+    <g class="cat-paw">
+      <path
+        class="cat-paw__arm"
+        d="
+          M27 136
+          L27 116
+          C27 105 31 98 36 95
+          C38 94 42 94 44 95
+          C49 98 53 105 53 116
+          L53 136
+          Z
+        "
+      />
+
+      <!-- 肉球 -->
+      <ellipse class="cat-paw__pad" cx="40" cy="112" rx="8" ry="6" />
+      <!-- 貓掌指頭 -->
+      <ellipse class="cat-paw__toe" cx="30" cy="104" rx="3.5" ry="4.5" />
+      <ellipse class="cat-paw__toe" cx="36.5" cy="101" rx="3.5" ry="4.5" />
+      <ellipse class="cat-paw__toe" cx="43.5" cy="101" rx="3.5" ry="4.5" />
+      <ellipse class="cat-paw__toe" cx="50" cy="104" rx="3.5" ry="4.5" />
+    </g>
+  </g>
+</svg>
+
+                <span class="visually-hidden" data-i18n="theme.toggle">
+                  切換深色與淺色模式
+                </span>
+              </button>
+            </div>
+            <!-- 手機版：主題選擇器 -->
+            <div class="mobile-choice d-lg-none" id="mobileThemeChoice">
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="-1"
+                aria-label="Previous theme"
+                data-i18n-aria-label="theme.previous"
+              >
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="mobile-choice__current"
+                id="mobileThemeCurrent"
+                aria-live="polite"
+              >
+                淺色模式
+              </button>
+
+              <button
+                class="mobile-choice__arrow"
+                type="button"
+                data-theme-step="1"
+                aria-label="Next theme"
+                data-i18n-aria-label="theme.next"
+              >
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main class="flex-grow-1"><article class="container article-container py-5">
+    <a href="/blog/" class="back-link">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="post.back">ALL NOTES</span>
+    </a>
+    <header class="article-header">
+        <p class="eyebrow">LAB NOTES / 2026.11.24</p>
+        <h1>JS語法筆記 | 圓周率不用自己背！用 Math.PI 就好</h1>
+        
+        <div class="article-tags">
+            
+                <a href="/tags/JavaScript/">JavaScript</a>
+            
+                <a href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/">JS語法筆記</a>
+            
+                <a href="/tags/Math-PI/">Math.PI</a>
+            
+        </div>
+    </header>
+
+    <div class="article-content"><p>在做數學、幾何與圖形相關的計算時，常常會需要用到圓周率 <code>𝝿</code>。不管是算圓形面積、圓周長、角度與弧度的換算，還是畫圖與動畫計算，如果每次都自己手打，不僅不夠精準，也容易因為手誤打錯數字。這時候，可以呼叫 JavaScript 內建的 <code>Math.PI</code> 。</p>
+<h2 id="什麼是-Math-PI？"><a href="#什麼是-Math-PI？" class="headerlink" title="什麼是 Math.PI？"></a>什麼是 Math.PI？</h2><p><code>Math.PI</code> 是 JavaScript <code>Math</code> 物件下的內建靜態屬性，代表圓周率 <code>𝝿</code> 的近似值（約為 <code>3.141592653589793</code>）。跟前面介紹的 <code>Math.round()</code> 不同的是，<code>Math.PI</code> 是一個 <strong>「常數屬性」</strong>，不是函式，所以 <strong>後面不用加小括號 ()</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(Math.PI);</span><br><span class="line">// 輸出：3.141592653589793</span><br></pre></td></tr></table></figure>
+
+<p>另外，跟 <code>Math.round()</code> 一樣，<code>Math</code> 開頭必須是<strong>大寫</strong>，屬性名稱則是 <strong>全大寫的 PI</strong>。</p>
+<h2 id="常見的使用情境"><a href="#常見的使用情境" class="headerlink" title="常見的使用情境"></a>常見的使用情境</h2><h3 id="1-計算圓周長與圓面積"><a href="#1-計算圓周長與圓面積" class="headerlink" title="1. 計算圓周長與圓面積"></a>1. 計算圓周長與圓面積</h3><p>只要知道半徑 <code>r</code>，就能直接套用幾何公式算出圓周長與圓面積：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const radius = 10; // 半徑 10</span><br><span class="line"></span><br><span class="line">// 圓周長 = 2 * π * r</span><br><span class="line">const circumference = 2 * Math.PI * radius;</span><br><span class="line"></span><br><span class="line">// 圓面積 = π * r²</span><br><span class="line">const area = Math.PI * radius ** 2; // 或 Math.PI * Math.pow(radius, 2)</span><br><span class="line"></span><br><span class="line">console.log(circumference); // 62.83185307179586</span><br><span class="line">console.log(area);          // 314.1592653589793</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-角度（Degree）與弧度（Radian）互相換算"><a href="#2-角度（Degree）與弧度（Radian）互相換算" class="headerlink" title="2. 角度（Degree）與弧度（Radian）互相換算"></a>2. 角度（Degree）與弧度（Radian）互相換算</h3><p>在 JavaScript 的三角函式（例如 <code>Math.sin()</code>、<code>Math.cos()</code>、<code>Math.atan2()</code>）中，<strong>參數使用的單位是「弧度（radian）」，而不是我們平常習慣的「角度（degree）」</strong>。</p>
+<p>這時候 <code>Math.PI</code> 就是換算的關鍵橋樑（因為 180° &#x3D; <code>𝝿</code>弧度）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 角度轉弧度：角度 * (Math.PI / 180)</span><br><span class="line">const degToRad = (degrees) =&gt; degrees * (Math.PI / 180);</span><br><span class="line"></span><br><span class="line">// 弧度轉角度：弧度 * (180 / Math.PI)</span><br><span class="line">const radToDeg = (radians) =&gt; radians * (180 / Math.PI);</span><br><span class="line"></span><br><span class="line">const rad90 = degToRad(90);</span><br><span class="line">console.log(rad90);          // 1.5707963267948966（即 π / 2）</span><br><span class="line">console.log(Math.sin(rad90)); // 1</span><br><span class="line">console.log(radToDeg(rad90)); // 90</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-繪製圓形、圓弧或做旋轉與極座標計算"><a href="#3-繪製圓形、圓弧或做旋轉與極座標計算" class="headerlink" title="3. 繪製圓形、圓弧或做旋轉與極座標計算"></a>3. 繪製圓形、圓弧或做旋轉與極座標計算</h3><p>當在做 Canvas 繪圖、圖表角度分配、圓形進度條或旋轉動畫時，經常會需要用 <code>Math.PI</code> 來切分圓周（<strong>一整個圓是 <code>2 * Math.PI</code>，半圓是 <code>Math.PI</code></strong>）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 計算某個百分比在圓餅圖上對應的弧度（整圈為 2 * Math.PI）</span><br><span class="line">const percentage = 0.25; // 25%</span><br><span class="line">const angleInRadians = percentage * (2 * Math.PI);</span><br><span class="line"></span><br><span class="line">console.log(angleInRadians); // 1.5707963267948966（四分之一圈 = 90 度）</span><br></pre></td></tr></table></figure>
+
+<h2 id="需要留意：Math-PI-是唯讀常數，不能直接修改"><a href="#需要留意：Math-PI-是唯讀常數，不能直接修改" class="headerlink" title="需要留意：Math.PI 是唯讀常數，不能直接修改"></a>需要留意：Math.PI 是唯讀常數，不能直接修改</h2><p>雖然在非嚴格模式下直接賦值可能不會立刻報錯，但 <code>Math.PI</code> 是不可寫入的常數屬性，不應該試圖去覆蓋或改寫它。如果需要自訂縮放或常數，要另外宣告自己的變數。</p>
+<p>更多內容可以參考 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/PI">MDN Math.PI 說明文件</a>。</p>
+</div>
+
+    
+
+    
+    <section
+        class="related-posts section-pad mb-0"
+        aria-labelledby="related-posts-title"
+    >
+        <div class="container">
+        <!-- 區塊標題 -->
+        <div
+            class="section-heading mb-0 d-flex justify-content-between align-items-end gap-3"
+        >
+            <div>
+            <p class="eyebrow" data-i18n="post.keepExploring">KEEP EXPLORING</p>
+            <h2 id="related-posts-title">
+                <span data-i18n="post.relatedTitle">相關筆記</span><span class="title-dot">.</span>
+            </h2>
+            <p class="muted mt-2" data-i18n="post.relatedCopy">
+                繼續探索其他有趣的學習紀錄。
+            </p>
+            </div>
+            <span class="related-posts-count" data-i18n="post.relatedLabel">
+            RELATED NOTES
+            </span>
+        </div>
+
+        <!-- 相關文章卡片 -->
+        <div class="related-posts-track row g-4 mt-2">
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <a
+                    class="post-card-main-link"
+                    href="/2026/11/23/post-072/"
+                    aria-label="閱讀文章：JS語法筆記 | 小數點的四捨五入 Math.round()"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        072
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-11-22T16:51:12.000Z"
+                    >
+                        2026.11.23
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/11/23/post-072/"
+                        >
+                        JS語法筆記 | 小數點的四捨五入 Math.round()
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在寫網頁或處理數字時，常常會遇到帶有小數點的數值–像是計算 折扣後的金額、統計進度百分比、換算單位，或是 整理報表數據。如果直接把 12.6666667 或 49.5 丟到畫面上，不僅視覺上不夠俐落，使用者體驗也不好。 這時候，可以使用 JavaScript 內建的 Math.round() 來做 …
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
+                            >
+                            JS語法筆記
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/Math-round/"
+                            >
+                            Math.round()
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/Math-floor/"
+                            >
+                            Math.floor()
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/Math-ceil/"
+                            >
+                            Math.ceil()
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/11/23/post-072/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <a
+                    class="post-card-main-link"
+                    href="/2026/11/22/post-071/"
+                    aria-label="閱讀文章：JS語法筆記 | 使用 switch 陳述式，告別冗長的 if...else 鏈"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        071
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-11-21T16:25:09.000Z"
+                    >
+                        2026.11.22
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/11/22/post-071/"
+                        >
+                        JS語法筆記 | 使用 switch 陳述式，告別冗長的 if...else 鏈
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在寫 JavaScript 的時候，常常需要根據某個變數或表達式的不同值，來執行不同的程式邏輯。例如：依據訂單狀態顯示不同標籤、依照使用者按下的按鈕切換介面等，或是根據不同的操作指令做出反應。 如果選項只有兩三個，用 if...else 很直覺，就像出門時看看天氣，「今天下雨嗎？下雨在家、沒下雨出門…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
+                            >
+                            JS語法筆記
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/switch%E9%99%B3%E8%BF%B0%E5%BC%8F/"
+                            >
+                            switch陳述式
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/11/22/post-071/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <a
+                    class="post-card-main-link"
+                    href="/2026/11/21/post-070/"
+                    aria-label="閱讀文章：JS語法筆記 | 型別轉換：Number()、String()、Boolean()"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        070
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-11-21T08:43:03.000Z"
+                    >
+                        2026.11.21
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/11/21/post-070/"
+                        >
+                        JS語法筆記 | 型別轉換：Number()、String()、Boolean()
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在寫網頁或處理表單與 API 資料時，會遇到 「看起來像數字，但其實是字串」 的情況。例如從輸入框 &amp;lt;input&amp;gt; 拿到的值通常是字串 &amp;#39;100&amp;#39;，或是網址參數、CSV 與 JSON 欄位裡的數字被包成了文字。如果直接拿 &amp;#39;100&amp;#39; + &amp;#39;20&amp;#…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
+                            >
+                            JS語法筆記
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/Number/"
+                            >
+                            Number()
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/String/"
+                            >
+                            String()
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/Boolean/"
+                            >
+                            Boolean()
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/11/21/post-070/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+            <div class="related-posts-slide col-12 col-md-6 ">
+                <article class="post-card h-100">
+                <a
+                    class="post-card-main-link"
+                    href="/2026/11/20/post-069/"
+                    aria-label="閱讀文章：JS語法筆記 | 什麼是正規表示式（Regular Expression）"
+                ></a>
+                <div class="post-card-inner">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-card-top">
+                    <span class="post-index">
+                        069
+                    </span>
+                    <time
+                        class="post-date"
+                        datetime="2026-11-20T05:40:57.000Z"
+                    >
+                        2026.11.20
+                    </time>
+                    </div>
+                    <!-- 文章標題、摘要與標籤 -->
+                    <div class="post-card-body">
+                    <h3 class="post-card-title">
+                        <a
+                        class="post-card-title-link"
+                        href="/2026/11/20/post-069/"
+                        >
+                        JS語法筆記 | 什麼是正規表示式（Regular Expression）
+                        </a>
+                    </h3>
+                    <p class="post-card-excerpt">
+                        
+                        在 前面 聊移除空格的技巧時，曾經看過像 /\s+/g 這樣看似亂碼的寫法。其實它是程式開發與文字處理中的強大工具– 正規表示式（Regular Expression，常簡稱 Regex 或 RegExp）。 什麼是正規表示式？簡單來說，正規表示式就是用來描述「文字搜尋規則」的樣板。 想像一下，我們…
+                    </p>
+                    <!-- 文章標籤 -->
+                    
+                        <div class="post-card-tags">
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JavaScript/"
+                            >
+                            JavaScript
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/JS%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98/"
+                            >
+                            JS語法筆記
+                            </a>
+                        
+                            <a
+                            class="post-card-tag"
+                            href="/tags/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F/"
+                            >
+                            正規表示式
+                            </a>
+                        
+                        </div>
+                    
+                    </div>
+                    <!-- 閱讀文章 -->
+                    <div class="post-card-bottom">
+                    <a
+                        class="post-card-read-link"
+                        href="/2026/11/20/post-069/"
+                    >
+                        <span data-i18n="post.readNote">READ</span>
+                        <i class="bi-carrot-arrow"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+    
+
+    <div class="article-end">
+        <a href="/blog/" class="text-link"><span data-i18n="latest.all">所有筆記</span>
+        <i class="bi-carrot-arrow"></i>
+        </a>
+    </div>
+</article>
+</main>
+
+    <footer class="site-footer mt-5">
+  <div
+    class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"
+  >
+    <!-- 品牌與標語 -->
+    <div>
+      <a class="brand-mark text-decoration-none" href="/">
+        <img src="/images/logo.webp" alt="logo" />
+        <span>Aria's CarrotLab</span>
+      </a>
+      <p class="small muted mb-0 mt-2" data-i18n="footer.note">
+        保持好奇，持續探索。
+      </p>
+    </div>
+
+    <!-- 聯絡方式、隱私權政策與版權 -->
+    <div class="footer-info">
+      <div class="footer-links">
+        <a href="mailto:aria.carrotlab@gmail.com" class="footer-contact me-2">
+          <i class="bi bi-envelope me-1"></i>
+          <span data-i18n="footer.contact" class="small">聯絡我</span>
+        </a>
+
+        <a
+          class="footer-policy-link small text-decoration-none"
+          href="/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="footer.privacy" class="small">隱私權政策</span>
+        </a>
+      </div>
+      <span class="footer-copyright small muted">
+        Copyright © 2026 Aria's CarrotLab
+      </span>
+    </div>
+  </div>
+</footer>
+<!--axios JS-->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 語系字典：先載入 -->
+    <script src="/js/i18n/zh-TW.js"></script>
+    <script src="/js/i18n/en.js"></script>
+    <script src="/js/i18n/ja.js"></script>
+
+    <!-- 語系切換管理 -->
+    <script src="/js/i18n.js"></script>
+
+    <!-- 網站其他互動 -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>
