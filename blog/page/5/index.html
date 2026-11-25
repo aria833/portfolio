@@ -355,11 +355,60 @@
         <div class="blog-posts">
             <!-- 統計文章數量 -->
             <div class="blog-toolbar">
-                <span>73 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
+                <span>74 <span data-i18n="blog.countLabel">NOTES IN THE LAB</span></span>
                 <span class="muted p-1 rounded" data-i18n="lang-notice">筆記目前以繁體中文為主</span>
             </div>
             <!-- 文章列表 -->
             <div class="post-list">
+                
+                <article class="post-list-item">
+                    <div class="post-list-link">
+                    <!-- 文章編號與日期 -->
+                    <div class="post-list-meta">
+                        <span class="post-index">
+                        034
+                        </span>
+                        <time datetime="2026-10-15T16:44:22.000Z">
+                            2026.10.16
+                        </time>
+                    </div>
+                    <!-- 標題、摘要、Tag -->
+                    <div class="post-list-content">
+                        <h2>
+                            <a
+                            class="post-title-link"
+                            href="/2026/10/16/post-034/"
+                            >
+                            DAY 33｜修正錯誤、提高效能，還看了一堆貓咪影片
+                            </a>
+                        </h2>
+                        <p class="post-list-excerpt">
+                            在 TaskTimer 完成核心開發並發布穩定的 v1.0.0 版本後，我便持續使用它來輔助自己的日常學習。而在實際使用的過程中，我也陸續觀察到幾個能讓操作體驗更順暢、更貼近真實情境的優化點：
+暗色模式（Dark Mode）視覺對比度優化在暗色模式下，原本用於副標題與備註說明的 Bootstrap …
+                        </p>
+
+                        
+                            <div class="post-list-tags d-flex flex-wrap gap-2">
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/iThome2026/"
+                                >
+                                iThome2026
+                                </a>
+                            
+                                <a
+                                class="btn btn-outline-orange"
+                                href="/tags/TaskTimer/"
+                                >
+                                TaskTimer
+                                </a>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+            </article>
                 
                 <article class="post-list-item">
                     <div class="post-list-link">
@@ -832,56 +881,6 @@ theme.js
                 </div>
             </article>
                 
-                <article class="post-list-item">
-                    <div class="post-list-link">
-                    <!-- 文章編號與日期 -->
-                    <div class="post-list-meta">
-                        <span class="post-index">
-                        024
-                        </span>
-                        <time datetime="2026-10-05T16:43:55.000Z">
-                            2026.10.06
-                        </time>
-                    </div>
-                    <!-- 標題、摘要、Tag -->
-                    <div class="post-list-content">
-                        <h2>
-                            <a
-                            class="post-title-link"
-                            href="/2026/10/06/post-024/"
-                            >
-                            DAY 23｜Local-First 架構（二）：實作 Promise 版 IndexedDB 工具模組
-                            </a>
-                        </h2>
-                        <p class="post-list-excerpt">
-                            因為 IndexedDB 的原生寫法太過古老繁瑣且難以維護，因此實作中會使用 Promise版的IndexedDB。
-
-一、什麼是「Promise 版」？為什麼要這樣做？1. 原生 IndexedDB 的問題：傳統的事件監聽（Callback）IndexedDB 是很久以前就有的語法，採用 「發起請…
-                        </p>
-
-                        
-                            <div class="post-list-tags d-flex flex-wrap gap-2">
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/iThome2026/"
-                                >
-                                iThome2026
-                                </a>
-                            
-                                <a
-                                class="btn btn-outline-orange"
-                                href="/tags/TaskTimer/"
-                                >
-                                TaskTimer
-                                </a>
-                            
-                            </div>
-                        
-                    </div>
-                </div>
-            </article>
-                
             </div>
             
             
@@ -997,7 +996,7 @@ theme.js
                             >
                                 JavaScript
                                 <span class="tag-count">
-                                    16
+                                    17
                                 </span>
                             </a>
                         
@@ -1009,7 +1008,7 @@ theme.js
                             >
                                 JS語法筆記
                                 <span class="tag-count">
-                                    7
+                                    8
                                 </span>
                             </a>
                         
@@ -1039,11 +1038,11 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/Bloom-Memories/"
-                                data-tag-name="Bloom Memories"
+                                href="/tags/CRUD/"
+                                data-tag-name="CRUD"
                                 
                             >
-                                Bloom Memories
+                                CRUD
                                 <span class="tag-count">
                                     2
                                 </span>
@@ -1075,8 +1074,22 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
+                                href="/tags/Bloom-Memories/"
+                                data-tag-name="Bloom Memories"
+                                
+                            >
+                                Bloom Memories
+                                <span class="tag-count">
+                                    2
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
                                 href="/tags/%E5%86%AA%E7%AD%89%E6%80%A7-Idempotent/"
                                 data-tag-name="冪等性 (Idempotent)"
+                                
+                                    hidden
                                 
                             >
                                 冪等性 (Idempotent)
@@ -1101,13 +1114,13 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/CRUD/"
-                                data-tag-name="CRUD"
+                                href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/"
+                                data-tag-name="瀏覽器"
                                 
                                     hidden
                                 
                             >
-                                CRUD
+                                瀏覽器
                                 <span class="tag-count">
                                     2
                                 </span>
@@ -1143,13 +1156,13 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/"
-                                data-tag-name="瀏覽器"
+                                href="/tags/join/"
+                                data-tag-name="join()"
                                 
                                     hidden
                                 
                             >
-                                瀏覽器
+                                join()
                                 <span class="tag-count">
                                     2
                                 </span>
@@ -1178,76 +1191,6 @@ theme.js
                                 
                             >
                                 技術寫作
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/%E7%89%88%E6%9C%AC%E8%99%9F/"
-                                data-tag-name="版本號"
-                                
-                                    hidden
-                                
-                            >
-                                版本號
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/data-i18n/"
-                                data-tag-name="data-i18n"
-                                
-                                    hidden
-                                
-                            >
-                                data-i18n
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/%E5%A4%9A%E8%AA%9E%E7%B3%BB%E5%88%87%E6%8F%9B/"
-                                data-tag-name="多語系切換"
-                                
-                                    hidden
-                                
-                            >
-                                多語系切換
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/CarrotLab/"
-                                data-tag-name="CarrotLab"
-                                
-                                    hidden
-                                
-                            >
-                                CarrotLab
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/%E5%91%BD%E5%90%8D%E8%A6%8F%E7%AF%84/"
-                                data-tag-name="命名規範"
-                                
-                                    hidden
-                                
-                            >
-                                命名規範
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1325,6 +1268,104 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
+                                href="/tags/%E8%B3%87%E6%96%99%E6%93%8D%E4%BD%9C/"
+                                data-tag-name="資料操作"
+                                
+                                    hidden
+                                
+                            >
+                                資料操作
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E6%B7%B1%E6%B7%BA%E8%89%B2%E6%A8%A1%E5%BC%8F/"
+                                data-tag-name="深淺色模式"
+                                
+                                    hidden
+                                
+                            >
+                                深淺色模式
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/data-i18n/"
+                                data-tag-name="data-i18n"
+                                
+                                    hidden
+                                
+                            >
+                                data-i18n
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E5%A4%9A%E8%AA%9E%E7%B3%BB%E5%88%87%E6%8F%9B/"
+                                data-tag-name="多語系切換"
+                                
+                                    hidden
+                                
+                            >
+                                多語系切換
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/CarrotLab/"
+                                data-tag-name="CarrotLab"
+                                
+                                    hidden
+                                
+                            >
+                                CarrotLab
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/ES6/"
+                                data-tag-name="ES6"
+                                
+                                    hidden
+                                
+                            >
+                                ES6
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E5%91%BD%E5%90%8D%E8%A6%8F%E7%AF%84/"
+                                data-tag-name="命名規範"
+                                
+                                    hidden
+                                
+                            >
+                                命名規範
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
                                 href="/tags/Vanilla-JavaScript/"
                                 data-tag-name="Vanilla JavaScript"
                                 
@@ -1332,6 +1373,34 @@ theme.js
                                 
                             >
                                 Vanilla JavaScript
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E7%89%88%E6%9C%AC%E8%99%9F/"
+                                data-tag-name="版本號"
+                                
+                                    hidden
+                                
+                            >
+                                版本號
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/toISOString/"
+                                data-tag-name="toISOString()"
+                                
+                                    hidden
+                                
+                            >
+                                toISOString()
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1409,13 +1478,13 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/toISOString/"
-                                data-tag-name="toISOString()"
+                                href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E6%8B%86%E5%88%86/"
+                                data-tag-name="程式碼拆分"
                                 
                                     hidden
                                 
                             >
-                                toISOString()
+                                程式碼拆分
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1423,13 +1492,13 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/%E6%B7%B1%E6%B7%BA%E8%89%B2%E6%A8%A1%E5%BC%8F/"
-                                data-tag-name="深淺色模式"
+                                href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E9%87%8D%E6%A7%8B/"
+                                data-tag-name="程式碼重構"
                                 
                                     hidden
                                 
                             >
-                                深淺色模式
+                                程式碼重構
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1437,13 +1506,13 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/%E6%95%88%E8%83%BD%E5%84%AA%E5%8C%96/"
-                                data-tag-name="效能優化"
+                                href="/tags/%E6%A8%A1%E7%B5%84%E5%8C%96/"
+                                data-tag-name="模組化"
                                 
                                     hidden
                                 
                             >
-                                效能優化
+                                模組化
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1451,13 +1520,13 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/%E7%B6%B2%E7%AB%99%E5%8A%A0%E9%80%9F/"
-                                data-tag-name="網站加速"
+                                href="/tags/%E5%96%AE%E4%B8%80%E8%81%B7%E8%B2%AC%E5%8E%9F%E5%89%87/"
+                                data-tag-name="單一職責原則"
                                 
                                     hidden
                                 
                             >
-                                網站加速
+                                單一職責原則
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1465,13 +1534,13 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/ES6/"
-                                data-tag-name="ES6"
+                                href="/tags/%E6%B2%B3%E9%A6%AC%E5%A4%A7%E6%80%AA%E7%8D%B8/"
+                                data-tag-name="河馬大怪獸"
                                 
                                     hidden
                                 
                             >
-                                ES6
+                                河馬大怪獸
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1521,13 +1590,13 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/%E5%90%8C%E6%AD%A5%EF%BC%88Synchronous%EF%BC%89/"
-                                data-tag-name="同步（Synchronous）"
+                                href="/tags/%E6%95%88%E8%83%BD%E5%84%AA%E5%8C%96/"
+                                data-tag-name="效能優化"
                                 
                                     hidden
                                 
                             >
-                                同步（Synchronous）
+                                效能優化
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1535,27 +1604,13 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/%E9%9D%9E%E5%90%8C%E6%AD%A5%EF%BC%88Asynchronous%EF%BC%89/"
-                                data-tag-name="非同步（Asynchronous）"
+                                href="/tags/%E7%B6%B2%E7%AB%99%E5%8A%A0%E9%80%9F/"
+                                data-tag-name="網站加速"
                                 
                                     hidden
                                 
                             >
-                                非同步（Asynchronous）
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/HTTP-%E7%8B%80%E6%85%8B%E7%A2%BC/"
-                                data-tag-name="HTTP 狀態碼"
-                                
-                                    hidden
-                                
-                            >
-                                HTTP 狀態碼
+                                網站加速
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1584,6 +1639,20 @@ theme.js
                                 
                             >
                                 WebP
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/HTTP-%E7%8B%80%E6%85%8B%E7%A2%BC/"
+                                data-tag-name="HTTP 狀態碼"
+                                
+                                    hidden
+                                
+                            >
+                                HTTP 狀態碼
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1633,13 +1702,13 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/%E8%B3%87%E6%96%99%E6%93%8D%E4%BD%9C/"
-                                data-tag-name="資料操作"
+                                href="/tags/%E5%90%8C%E6%AD%A5%EF%BC%88Synchronous%EF%BC%89/"
+                                data-tag-name="同步（Synchronous）"
                                 
                                     hidden
                                 
                             >
-                                資料操作
+                                同步（Synchronous）
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1647,69 +1716,13 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/String-prototype-padStart/"
-                                data-tag-name="String.prototype.padStart()"
+                                href="/tags/%E9%9D%9E%E5%90%8C%E6%AD%A5%EF%BC%88Asynchronous%EF%BC%89/"
+                                data-tag-name="非同步（Asynchronous）"
                                 
                                     hidden
                                 
                             >
-                                String.prototype.padStart()
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/setInterval/"
-                                data-tag-name="setInterval()"
-                                
-                                    hidden
-                                
-                            >
-                                setInterval()
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/Web-API/"
-                                data-tag-name="Web API"
-                                
-                                    hidden
-                                
-                            >
-                                Web API
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/%E8%AA%B2%E7%A8%8B%E5%BF%83%E5%BE%97/"
-                                data-tag-name="課程心得"
-                                
-                                    hidden
-                                
-                            >
-                                課程心得
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/%E5%85%AD%E8%A7%92%E5%AD%B8%E9%99%A2/"
-                                data-tag-name="六角學院"
-                                
-                                    hidden
-                                
-                            >
-                                六角學院
+                                非同步（Asynchronous）
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1773,13 +1786,13 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/GUID/"
-                                data-tag-name="GUID"
+                                href="/tags/String-prototype-padStart/"
+                                data-tag-name="String.prototype.padStart()"
                                 
                                     hidden
                                 
                             >
-                                GUID
+                                String.prototype.padStart()
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1801,13 +1814,13 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/toLowerCase/"
-                                data-tag-name="toLowerCase()"
+                                href="/tags/GUID/"
+                                data-tag-name="GUID"
                                 
                                     hidden
                                 
                             >
-                                toLowerCase()
+                                GUID
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1815,13 +1828,55 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/toUpperCase/"
-                                data-tag-name="toUpperCase()"
+                                href="/tags/%E8%AA%B2%E7%A8%8B%E5%BF%83%E5%BE%97/"
+                                data-tag-name="課程心得"
                                 
                                     hidden
                                 
                             >
-                                toUpperCase()
+                                課程心得
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/%E5%85%AD%E8%A7%92%E5%AD%B8%E9%99%A2/"
+                                data-tag-name="六角學院"
+                                
+                                    hidden
+                                
+                            >
+                                六角學院
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/setInterval/"
+                                data-tag-name="setInterval()"
+                                
+                                    hidden
+                                
+                            >
+                                setInterval()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Web-API/"
+                                data-tag-name="Web API"
+                                
+                                    hidden
+                                
+                            >
+                                Web API
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -1899,118 +1954,6 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/switch%E9%99%B3%E8%BF%B0%E5%BC%8F/"
-                                data-tag-name="switch陳述式"
-                                
-                                    hidden
-                                
-                            >
-                                switch陳述式
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E6%8B%86%E5%88%86/"
-                                data-tag-name="程式碼拆分"
-                                
-                                    hidden
-                                
-                            >
-                                程式碼拆分
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/%E7%A8%8B%E5%BC%8F%E7%A2%BC%E9%87%8D%E6%A7%8B/"
-                                data-tag-name="程式碼重構"
-                                
-                                    hidden
-                                
-                            >
-                                程式碼重構
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/%E6%A8%A1%E7%B5%84%E5%8C%96/"
-                                data-tag-name="模組化"
-                                
-                                    hidden
-                                
-                            >
-                                模組化
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/%E5%96%AE%E4%B8%80%E8%81%B7%E8%B2%AC%E5%8E%9F%E5%89%87/"
-                                data-tag-name="單一職責原則"
-                                
-                                    hidden
-                                
-                            >
-                                單一職責原則
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/%E6%B2%B3%E9%A6%AC%E5%A4%A7%E6%80%AA%E7%8D%B8/"
-                                data-tag-name="河馬大怪獸"
-                                
-                                    hidden
-                                
-                            >
-                                河馬大怪獸
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/Math-PI/"
-                                data-tag-name="Math.PI"
-                                
-                                    hidden
-                                
-                            >
-                                Math.PI
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F/"
-                                data-tag-name="正規表示式"
-                                
-                                    hidden
-                                
-                            >
-                                正規表示式
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
                                 href="/tags/trim/"
                                 data-tag-name="trim()"
                                 
@@ -2039,13 +1982,111 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/join/"
-                                data-tag-name="join()"
+                                href="/tags/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F/"
+                                data-tag-name="正規表示式"
                                 
                                     hidden
                                 
                             >
-                                join()
+                                正規表示式
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Math-round/"
+                                data-tag-name="Math.round()"
+                                
+                                    hidden
+                                
+                            >
+                                Math.round()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Math-floor/"
+                                data-tag-name="Math.floor()"
+                                
+                                    hidden
+                                
+                            >
+                                Math.floor()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Math-ceil/"
+                                data-tag-name="Math.ceil()"
+                                
+                                    hidden
+                                
+                            >
+                                Math.ceil()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/for-in/"
+                                data-tag-name="for...in"
+                                
+                                    hidden
+                                
+                            >
+                                for...in
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/toLowerCase/"
+                                data-tag-name="toLowerCase()"
+                                
+                                    hidden
+                                
+                            >
+                                toLowerCase()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/toUpperCase/"
+                                data-tag-name="toUpperCase()"
+                                
+                                    hidden
+                                
+                            >
+                                toUpperCase()
+                                <span class="tag-count">
+                                    1
+                                </span>
+                            </a>
+                        
+                            <a
+                                class="archive-tag-link tag-search-item"
+                                href="/tags/Math-PI/"
+                                data-tag-name="Math.PI"
+                                
+                                    hidden
+                                
+                            >
+                                Math.PI
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -2095,41 +2136,13 @@ theme.js
                         
                             <a
                                 class="archive-tag-link tag-search-item"
-                                href="/tags/Math-round/"
-                                data-tag-name="Math.round()"
+                                href="/tags/switch%E9%99%B3%E8%BF%B0%E5%BC%8F/"
+                                data-tag-name="switch陳述式"
                                 
                                     hidden
                                 
                             >
-                                Math.round()
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/Math-floor/"
-                                data-tag-name="Math.floor()"
-                                
-                                    hidden
-                                
-                            >
-                                Math.floor()
-                                <span class="tag-count">
-                                    1
-                                </span>
-                            </a>
-                        
-                            <a
-                                class="archive-tag-link tag-search-item"
-                                href="/tags/Math-ceil/"
-                                data-tag-name="Math.ceil()"
-                                
-                                    hidden
-                                
-                            >
-                                Math.ceil()
+                                switch陳述式
                                 <span class="tag-count">
                                     1
                                 </span>
@@ -2160,7 +2173,7 @@ theme.js
                         TOTAL ARTICLES
                     </span>
                     <span class="sidebar-stat-value">
-                        73
+                        74
                     </span>
                 </div>
                 <!-- 總字數 -->
@@ -2169,7 +2182,7 @@ theme.js
                         TOTAL WORDS
                     </span>
                     <span class="sidebar-stat-value">
-                        141,033
+                        143,503
                     </span>
                 </div>
                 <!-- 訪客數 -->
@@ -2193,7 +2206,7 @@ theme.js
                         LAST UPDATED
                     </span>
                     <span class="sidebar-stat-value sidebar-stat-date">
-                        2026.11.24
+                        2026.11.25
                     </span>
                 </div>
             </div>
